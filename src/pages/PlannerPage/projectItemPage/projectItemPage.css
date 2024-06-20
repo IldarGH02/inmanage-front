@@ -1,0 +1,25 @@
+.project-page {
+    width: 100%;
+    height: 100vh;
+    background: url('../../../shared/assets/img/assets/assets.png');
+    animation: scroll 800s linear infinite;
+}
+
+.project-page__container {
+    width: 1760px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 130px;
+}
+
+@keyframes scroll {
+    100%{
+     background-position: 3000px -3000px;
+   }
+}
+
+@media (prefers-reduced-motion) {
+    .backgroundContent {
+      animation: scroll 200s linear infinite;
+    }
+}

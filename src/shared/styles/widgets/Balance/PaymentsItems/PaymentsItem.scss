@@ -1,0 +1,19 @@
+.payments__item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 20px;
+
+    .payments__item-name {
+        margin: 0;
+        @include _fontStyle(500, 25px, 25px, #333);
+    }
+
+    .payments__item-sum {
+        margin: 0;
+        @include _fontStyle(400, 20px, 20px, #333);
+    }
+}

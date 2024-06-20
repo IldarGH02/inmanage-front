@@ -1,0 +1,191 @@
+.project-add-page {
+    width: 86%;
+    font-family:'Montserrat', sans-serif;
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    max-height: 1100px;
+    margin-top: 20px;
+    border-radius: 20px;
+    height: 80vh;
+}
+
+.project-add-page__back-btn {
+    position: absolute;
+    left: -150px;
+    margin-top: 57px;
+    text-decoration: none;
+}
+
+.project-add-page__title {
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.project-add-page__container {
+    height: 90%;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-add-page__content {
+    width: 100%;
+    height: 90%;
+    padding: 0 7px;
+    /* position: relative; */
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.project-add-page__actions-btn {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.project-add-page__content::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+    /* margin-left: 10px; */
+}
+.project-add-page__content::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}
+
+.project-add-page__add-btn--active {
+    width: 160px;
+    height: 35px;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Montserrat', sans-serif;
+    margin-left: 30px;
+}
+
+.project-add-page_add-btn {
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.project-add-page__add-btn--active {
+    background-color: rgb(55, 173, 236);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.project-add-page__add-btn--active:hover {
+    background-color: rgb(84, 189, 245);
+}
+
+.project-add-page__add-btn {
+    width: 160px;
+    height: 35px;
+    font-size: 20px;
+    color: white;
+    cursor: text;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Montserrat', sans-serif;
+    background-color: rgb(158, 190, 254);
+    border-radius: 20px;
+}
+
+.project-add-page__item {
+    margin-bottom: 22px;
+}
+
+.project-add-page__name {
+    font-size: 20px;
+    margin-bottom: 11px;
+}
+
+.project-add-page__name > b {
+    color: red;
+}
+
+.project-add-page__item-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.project-add-page__item-container > .project-add-page__item{
+    width: 50%;
+}
+
+.project-add-page__item-container .calendar__input {
+    width: 40%;
+    font-size: 24px;
+    padding: 2px 11px;
+}
+
+.project-add-page__item-color {
+    display: flex;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.project-add-page__color {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.color-change {
+    top: 25%;
+    left: 8%;
+    position: absolute;
+    background-color: #e4e2e2;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.color-change__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.color-change__title {
+
+}
+
+.color-change__close-btn {
+    font-size: 15px;
+    border: none;
+    background-color: #e4e2e2;
+    cursor: pointer;
+}
+
+.color-change__close-btn.project-add-page__add-btn--active:hover {
+    color: #545454;
+}
+
+.project-add-page__item-color-name {
+    font-size: 20px;
+    margin-right: 20px;
+}

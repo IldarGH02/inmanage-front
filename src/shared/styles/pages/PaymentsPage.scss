@@ -1,0 +1,15 @@
+.payments__page {
+
+    .payments__page-content {
+        display: flex;
+        flex-direction: row;
+
+        .payments__page-calendar {
+            width: calc(50% - 10px);
+        }
+
+        .payments__page-payments {
+            width: calc(50% - 10px);
+        }
+    }
+}

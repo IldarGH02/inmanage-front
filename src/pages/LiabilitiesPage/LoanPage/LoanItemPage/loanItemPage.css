@@ -1,0 +1,276 @@
+.loan-item-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    padding: 90px 0 10px 0;
+    /* position: relative; */
+}
+
+.loan-item-page__container {
+    width: 1500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.loan-item-page__title {
+    font-size: 33px;
+    font-weight: 700;
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    margin: 15px 25px;
+}
+
+.loan-item-page__history-title {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.loan-item-page__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loan-item-page__about-block, .loan-item-page__info-block {
+    width: 730px;
+    background-color: white;
+    /* height: 75vh; */
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 640px;
+    border-radius: 30px;
+    padding: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.loan-item-page__info-block {
+    position: relative;
+    justify-content: space-between;
+}
+
+.loan-item-page__img-wrapper {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    /* padding: 10px; */
+    /* transition: all 0.2s ease-in-out; */
+    border-radius: 30px;
+    overflow: hidden;
+    /* cursor: pointer; */
+}
+
+.loan-item-page__img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* width: 730px;
+    height: auto; */
+}
+
+.loan-item-page__name {
+    margin-top: 30px;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.loan-item-page__address {
+    margin-top: 8px;
+    color: grey;
+    font-size: 22px;
+}
+
+.loan-item-page__info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.loan-item-page__info:last-child {
+    margin-bottom: 0;
+}
+
+.loan-item-page__info-title {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.loan-item-page__info-value {
+    font-size: 23px;
+}
+
+.loan-item-page__early-btn {
+    padding: 12px 30px;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(103, 158, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+    margin: 1rem 0;
+}
+
+.loan-item-page__graphic {
+    width: 100%;
+    height: 210px;
+}
+
+.loan-item-page__actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loan-item-page__history-btn {
+    height: 24px;
+    border: none;
+    background-color: inherit;
+    font-size: 20px;
+    color: rgb(103, 158, 244);
+    cursor: pointer;
+    border-bottom: 1px solid rgb(128, 173, 246);
+}
+
+.loan-item-page__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    padding: 12px 0;
+}
+
+.loan-item-page__cancel-btn {
+    font-size: 22px;
+}
+
+.loan-item-page__add-btn {
+    padding: 12px 30px;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(103, 158, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.property-item__actions-drop-down {
+    top: -0.5rem;
+    right: 1rem;
+    position: absolute;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+.property-item__actions-drop-down > b {
+    font-size: 44px;
+    letter-spacing: 2px;
+    color: grey;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.property-item__actions-list {
+    width: 220px;
+    height: 90px;
+    padding: 10px 0;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.property-item__action-item {
+    width: 100%;
+    height: 35px;
+    cursor: pointer;
+    display: block;
+    transition: all 0.02s ease-in-out;
+    padding: 8px 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+.property-item__action-item:hover {
+    background-color: rgb(207, 240, 247);
+}
+
+.property-item__actions-drop-down:hover .property-item__actions-list {display: block;}
+
+.loan-item-page__progress-bar {
+    width: 100%;
+}
+
+.loan-item-page-progress-bar__title {
+    font-size: 1.2rem;
+}
+
+.loan-item-page-progress-bar__line {
+    margin: .7rem .5rem;
+    width: 100%;
+    /* position: relative; */
+    height: 2.7rem;
+    border-radius: .8rem;
+    background-color: rgb(183, 210, 253);
+}
+
+.loan-item-page-progress-bar__line-progress {
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: .8rem;
+    height: 100%;
+    width: 7%;
+    background-color: rgb(56, 141, 250);
+}
+
+.loan-item-page-progress-bar__percent {
+    color: rgb(183, 210, 253);
+    font-size: 1.2rem;
+    margin-right: .6rem;
+}
+
+.loan-item-page-progress-bar__info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.loan-item-page-progress-bar__info-color {
+    width: 1.2rem;
+    height: .2rem;
+    margin-right: .6rem;
+    background-color: rgb(56, 141, 250);
+}
+
+.loan-item-page-progress-bar___info-title {
+
+}

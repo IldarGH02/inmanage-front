@@ -1,0 +1,63 @@
+.categories ul {
+    width: 100%;
+    display: flex;
+    height: 100%;
+}
+
+.categories {
+    width: 100%;
+    background-color: #d6d6d6;
+    height: 100%;
+    /* height: 85px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    /* margin: 17px 0; */
+    color: black;
+    /* font-family:'Montserrat', sans-serif; */
+    font-weight: 700;
+    padding: 0.4%;
+    /* margin-top: 128px; */
+}
+
+.categories ul li {
+    /* margin-right: 11px; */
+    list-style: none;
+    /* background-color: #f9f9f9; */
+    width: 100%;
+    height: 100%;
+    /* height: 71px; */
+    border-radius: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* font-size: 25px; */
+    /* padding: 13px 30px; */
+    transition: all 0.3s ease-in-out;
+}
+
+.categories ul li:first-child {
+    /* margin-left: 11px; */
+}
+
+.categories ul li.active {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    /* font-size: font-size+1px; */
+}
+
+.categories ul li:hover {
+    background-color: #e7e7e7;
+    color: rgb(0, 0, 0);
+    /* font-size: font-size+1; */
+    /* font-size: 26px; */
+}
+
+.categories ul li.active:hover {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    /* font-size: font-size+1; */
+    /* font-size: 26px; */
+}

@@ -1,0 +1,170 @@
+.add-modal-project {
+    width: 1300px;
+    height: 885px;
+    background-color: #636363;
+    border-radius: 15px;
+    padding: 25px 0;
+}
+
+.add-modal-project__title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid yellow;
+    height: 100px;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 80px;
+}
+
+.add-modal-project__close-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    background-color: #636363;
+    border: none;
+    cursor: pointer;
+}
+
+.add-modal-project__close-btn:hover {
+    background-color: #636363;
+    color: rgb(36, 36, 36);
+}
+
+.add-modal-project__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 640px;
+    padding: 0 80px;
+    justify-content: space-evenly;
+    background-color: #6d6d6d;
+}
+
+.add-modal-project__item {
+    width: 100%;
+    /* min-height: 100px; */
+    /* display: flex; */
+}
+
+.add-modal-project__item > input {
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+}
+
+.add-modal-project__label {
+    font-size: 22px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* .add-modal-project__content > .add-modal-project__item:nth-child(2) {
+    height: 240px;
+} */
+
+.add-modal-project__label-active {
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    margin-right: 40px;
+    font-size: 22px;
+    color: white;
+    border-bottom: 3px solid yellow;
+    cursor: pointer; 
+}
+
+.add-modal-project__label-unactive {
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    margin-right: 40px;
+    font-size: 21px;
+    color: rgb(172, 172, 172);
+    /* border-bottom: 3px solid yellow; */
+    cursor: pointer; 
+}
+
+.add-modal-project__item-label-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.add-modal-project__item-desc {
+    
+}
+
+.add-modal-project__item-desc-container {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+
+.add-modal-project__footer {
+    height: 110px;
+    width: 100%;
+    padding: 10px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid yellow;
+}
+
+.add-modal-project__add-btn, .add-modal-project__cancel-btn {
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+}
+
+.add-modal-project__add-btn {
+    margin-right: 30px;
+    background-color: black;
+}
+
+.add-modal-project__add-btn:hover, .add-modal-project__cancel-btn:hover {
+    background-color: #636363;
+    color: yellow;
+}
+
+.add-modal-project__item > textarea {
+    /* margin-top: 20px; */
+    height: 150px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 22px;
+    resize: none;
+    padding: 10px 10px;
+}
+
+.add-modal-project__item-container {
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-modal-project__item-container > div > input {
+    width: 35px;
+}
+
+.add-modal-project__item-container > .add-modal-project__item {
+    /* width: 50%; */
+    width: 50%;
+}
+
+.add-modal-project__item-container .calendar__input {
+    width: 55%;
+    font-size: 24px;
+    padding: 2px 11px;
+}
+
+.add-modal-project__item-container .calendar__main {
+    width: 50%;
+}

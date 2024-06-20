@@ -1,0 +1,43 @@
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import "../shared/styles/styles.scss";
+
+html {
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
+}
+    
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100svh;
+    font-family: 'SFUI-Display';
+    background-color: #fbfbfc;
+
+    #root {
+        height: 100%;
+    }
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(101, 101, 101);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(156, 156, 156);  /* padding вокруг плашки */
+}
+
+body::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(217, 217, 217);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(237, 237, 237);  /* padding вокруг плашки */
+}

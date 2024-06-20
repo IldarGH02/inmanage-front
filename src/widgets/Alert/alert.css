@@ -1,0 +1,27 @@
+.alert-error {
+    width: 100%;
+    min-height: 50px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.alert-warning {
+    width: 100%;
+    min-height: 30px;
+    font-size: 15px;
+    font-weight: 150;
+}
+
+.alert-error {
+    color: rgb(168, 0, 0);
+}
+
+.alert-warning {
+    color: rgb(166, 166, 166);
+}
+
+@media (max-width: 910px) {
+    .alert-warning, .alert-error {
+        font-size: 12px;
+    }
+}

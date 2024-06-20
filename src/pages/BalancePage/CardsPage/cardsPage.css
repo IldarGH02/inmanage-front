@@ -1,0 +1,167 @@
+.card {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    /* background: url('../../../assets/img/balance/bckg.png');
+    animation: scroll 800s linear infinite; */
+    padding: 90px 0 10px 0;
+    position: relative;
+}
+
+.card__title {
+    font-size: 33px;
+    font-weight: 700;
+    margin-left: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.card__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-page__finance-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+    /* overflow: hidden; */
+    /* overflow-y: auto; */
+}
+
+.card-page__finance-block {
+    /* box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 8%); */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-page__categories {
+    width: 100%;
+    height: 55px;
+    padding: 10px 10px 0 10px;
+}
+
+.card-page__sum {
+    margin: 20px 0;
+    height: 110px;
+    width: 100%;
+}
+
+.card-page__block-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.card-page__position {
+    width: 100%;
+    height: 140px;
+}
+
+.add-expense::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-expense::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}
+
+.card-page__add-btn--active {
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.card-page__ddlist {
+    height: 70px;
+    position: relative;
+}
+
+.card-page__cancel-btn {
+    font-size: 20px;
+}
+
+.card-page__add-btn--active {
+    background-color: rgb(55, 173, 236);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.card-page__add-btn--active:hover {
+    background-color: rgb(84, 189, 245);
+}
+
+.card-page__add-btn {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(158, 190, 254);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.card-page__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 12px 0;
+}
+
+.card-page__card-list::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.card-page__card-list::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.card-page__content {
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-page__card-list {
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.card-page__list-empty {
+    text-align: center;
+    font-size: 18px;
+    color: rgb(157, 157, 157);
+}

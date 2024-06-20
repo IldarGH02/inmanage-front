@@ -1,0 +1,109 @@
+/* .add-modal {
+    width: 1300px;
+    height: 865px;
+    background-color: #636363;
+    border-radius: 15px;
+    padding: 25px 0;
+}
+
+.add-modal__title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid yellow;
+    height: 100px;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 45px;
+}
+
+.add-modal__close-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    background-color: #636363;
+    border: none;
+    cursor: pointer;
+}
+
+.add-modal__close-btn:hover {
+    background-color: #636363;
+    color: rgb(36, 36, 36);
+}
+
+.add-modal__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    padding: 0 50px;
+    justify-content: space-evenly;
+    background-color: #6d6d6d;
+}
+
+.add-modal__item {
+    width: 100%;
+    height: 100px;
+}
+
+.add-modal__item > input {
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 5px;
+    font-size: 20px;
+}
+
+.add-modal__label {
+    font-size: 22px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.add-modal__item:nth-child(4n) {
+    
+}
+
+
+#rent1:checked~label:before, #rent2:checked~label:before {
+    background-color: rgb(255, 255, 0);
+}
+
+
+
+
+#rent1,#rent2 {
+    font: bold 48px/1.5 cursive;
+}
+
+.add-modal__footer {
+    height: 110px;
+    width: 100%;
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid yellow;
+    padding-top: 10px;
+}
+
+.add-modal__add-btn, .add-modal__cancel-btn {
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+}
+
+.add-modal__add-btn {
+    margin-right: 30px;
+    background-color: black;
+}
+
+.add-modal__add-btn:hover, .add-modal__cancel-btn:hover {
+    background-color: #636363;
+    color: yellow;
+} */

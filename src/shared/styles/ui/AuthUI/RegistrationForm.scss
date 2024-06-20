@@ -1,0 +1,111 @@
+.registration__form {
+    width: 45%;
+        
+    .registration__form-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        .registration__label {
+            display: flex;
+            flex-direction: column;
+            @include _fontStyle(400, 25px, 24px, $lightBlueColor);
+
+            .registration-input {
+                outline: none;
+                border: none;
+                margin-top: 5px;
+                padding: 5px 0;
+                border-bottom: 1px solid $lightBlueColor;
+            }
+
+            .registration__input-password {
+                margin-bottom: 15px;
+            }
+
+            .error {
+                border-bottom: 1px solid $validationError;
+            }
+
+            .error-validation {
+                @include _fontStyle(400, 20px, 21px, $validationError);
+            }
+        }
+    }
+}
+
+
+.registration__action {
+    display: flex;
+    flex-direction: column;
+    
+    .registration__button-submit {
+        cursor: pointer;
+
+        width: 75%;
+        padding: 30px 0;
+        align-self: center;
+
+        border-radius: 40px;
+        text-decoration: none;
+        border: none;
+        background-color: $lightBlueColor;
+        transition: outline 0.2s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+        &:focus-visible {
+            outline: 3px solid $lightBlueColor;
+            color: $lightBlueColor;
+            background-color: transparent;
+        }
+
+        &:hover {
+            outline: 3px solid $lightBlueColor;
+            color: $lightBlueColor;
+            background-color: transparent;
+        }
+
+        &:active {
+            outline: 3px solid $lightBlueColor;
+            color: $lightBlueColor;
+            background-color: transparent;
+        }
+
+        @include _fontStyle(500, 35px, 35px, $whiteColor);
+    }
+
+    .registration__button-code {
+        cursor: pointer;
+        width: 75%;
+        padding: 30px 0;
+        align-self: center;
+        
+        border-radius: 40px;
+
+        text-decoration: none;
+        border: none;
+        
+        background-color: $lightBlueColor;
+        transition: outline 0.2s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+        &:focus-visible {
+            outline: 3px solid $lightBlueColor;
+            color: $lightBlueColor;
+            background-color: transparent;
+        }
+
+        &:hover {
+            outline: 3px solid $lightBlueColor;
+            color: $lightBlueColor;
+            background-color: transparent;
+        }
+
+        &:active {
+            outline: 3px solid $lightBlueColor;
+            color: $lightBlueColor;
+            background-color: transparent;
+        }
+
+        @include _fontStyle(500, 35px, 35px, $whiteColor);
+    }
+}

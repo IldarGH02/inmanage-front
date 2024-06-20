@@ -1,0 +1,58 @@
+.loan-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    padding: 90px 0 10px 0;
+    position: relative;
+}
+
+.loan-page__container {
+    width: 1500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.loan-page__title {
+    font-size: 33px;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.loan-page__list {
+    margin-top: 20px;
+    min-height: 600px;
+    max-height: 1000px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 20px 10px;
+}
+
+.loan-page__list-empty {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: grey;
+    font-weight: 500;
+}
+
+.loan-page__list-container {
+    padding: 0 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.loan-page__list-container::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+
+.loan-page__list-container::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}

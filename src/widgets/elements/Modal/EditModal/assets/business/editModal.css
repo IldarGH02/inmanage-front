@@ -1,0 +1,8 @@
+#business-edit-modal {
+    width: 900px;
+    height: 650px;
+}
+
+#business-edit-modal > .edit-modal__content {
+    height: 450px;
+}

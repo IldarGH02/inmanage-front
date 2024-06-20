@@ -1,0 +1,143 @@
+/* .add-transport-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    padding: 90px 0 10px 0;
+    position: relative;
+}
+
+.add-transport-page__container {
+    width: 1500px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+} 
+
+.add-transport-page__title {
+    display: flex;
+    align-items: center;
+    margin: 20px 10px;
+    font-size: 33px;
+    font-weight: 700;
+    margin-left: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.add-transport-page__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-transport-page__transport-block-wrapper, .add-transport-page__finance-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.add-transport-page__transport-block, .add-transport-page__finance-block {
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.add-transport-page__content-title {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.add-transport-page__content-title:first-child {
+    margin: 0 0 10px 0;
+}
+
+.add-transport-page__item {
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.add-transport-page__add-btn--active {
+    width: 200px;
+    height: 40px;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(103, 157, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.add-transport-page__add-btn--active:hover {
+    background-color: rgb(75, 142, 250);
+}
+
+.add-transport-page__add-btn {
+    width: 200px;
+    height: 40px;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(158, 190, 254);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.add-transport-page__cancel-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    font-size: 22px;
+}
+
+.add-transport-page__btns {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 12px 0;
+}
+
+.add-transport-page__finance-block::-webkit-scrollbar {
+    max-width: 6px;               
+    max-height: 50px;
+}
+.add-transport-page__finance-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);   
+    border-radius: 15px;       
+    border: 1.6px solid rgb(241, 242, 246);  
+}
+
+.add-transport-page__transport-block::-webkit-scrollbar {
+    max-width: 6px;              
+    max-height: 50px;
+}
+.add-transport-page__transport-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    
+    border-radius: 15px;       
+    border: 1.6px solid rgb(241, 242, 246); 
+} */

@@ -1,0 +1,101 @@
+.login__form {
+    width: 45%;
+    margin-bottom: 10px;
+
+    .login__form-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .login__label {
+            display: flex;
+            flex-direction: column;
+            @include _fontStyle(400, 25px, 24px, $lightBlueColor);
+    
+            .login__input {
+                outline: none;
+                border: none;
+                margin-top: 5px;
+                padding: 5px 0;
+                border-bottom: 1px solid $lightBlueColor;
+            }
+        }
+    
+        .password-label {
+            margin-bottom: 10px;
+
+            .login__password-error {
+                color: $validationError;
+            }
+        }
+    
+        .login__actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 30px;
+    
+            .login__forgot-button {
+                cursor: pointer;
+                border: none;
+                outline: none;
+                border-bottom: 2px solid transparent;
+                background-color: transparent;
+                transition: border-bottom 0.3s ease-in-out;
+    
+                &:focus {
+                    border-bottom: 2px solid $lightBlueColor;
+                }
+    
+                &:hover {
+                    border-bottom: 2px solid $lightBlueColor;
+                }
+    
+                @include _fontStyle(400, 19px, 20px, $lightBlueColor);
+            }
+    
+            .login__button {
+                cursor: pointer;
+                width: 75%;
+                padding: 30px 0;
+                align-self: center;
+    
+                border-radius: 40px;
+    
+                text-decoration: none;
+                border: none;
+                
+                background-color: $lightBlueColor;
+                transition: outline 0.2s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    
+                &:focus-visible {
+                    outline: 5px solid $lightBlueColor;
+                    color: $lightBlueColor;
+                    background-color: transparent;
+                }
+    
+                &:hover {
+                    outline: 5px solid $lightBlueColor;
+                    color: $lightBlueColor;
+                    background-color: transparent;
+                }
+    
+                @include _fontStyle(500, 44px, 45px, $whiteColor);
+            }
+    
+            .login__button-disabled {
+                width: 75%;
+                padding: 30px 0;
+    
+                align-self: center;
+                border-radius: 40px; 
+                text-decoration: none;
+                border: none;               
+                background-color: $disabledColor;
+    
+                @include _fontStyle(500, 44px, 45px, $whiteColor);
+            }
+    
+        }
+    }
+}

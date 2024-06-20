@@ -1,0 +1,123 @@
+.select-icon-modal {
+    /* width: 38rem; */
+    /* width: 100%; */
+    background-color: white;
+    padding: 1.8rem;
+    border-radius: 2rem;
+    width: 41rem;
+}
+
+.select-icon-modal__title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.select-icon-modal__input {
+    margin-bottom: 1rem;
+}
+
+.select-icon-modal__content {
+    width: 100%;
+    border: 0.2rem solid rgb(241, 242, 246);
+    padding: 0.1rem .5rem;
+    border-radius: 1rem;
+    max-width: 41rem;
+    margin-bottom: 1.5rem;
+}
+
+.select-icon-modal__list-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* max-width: 25rem; */
+    width: 100%;
+    height: 30rem;
+    /* border-radius: 1rem; */
+    /* margin: .5rem; */
+    padding: 0.5rem;
+    
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.select-icon-modal__list-icons:hover {
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    overflow-y: auto;
+}
+
+.select-icon-modal__item, .select-icon-modal__item--active {
+    position: relative;
+    padding: .5rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* margin-bottom: 0.7rem; */
+    border: 0.3rem solid rgb(255, 255, 255);
+    transition: all 0.2s ease-in-out;
+    border-radius: 100%;
+}
+
+.select-icon-modal__content > div:last-child {
+    margin-bottom: 0;
+}
+
+.select-icon-modal__item:hover {
+    border: 0.3rem solid rgb(183, 205, 241);
+}
+
+.select-icon-modal__item--active {
+    border: 0.3rem solid rgb(103, 158, 244);
+}
+
+.select-icon-modal__item-img {
+    width: 4rem;
+    height: auto;
+}
+
+.select-icon-modal__footer {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.select-icon-modal__cancel-btn {
+    cursor: pointer;
+    margin-right: 1.4rem;
+    font-size: 1.1rem;
+    background-color: inherit;
+    border: none;
+    color: grey;
+    border-bottom: 1px solid grey;
+}
+
+.select-icon-modal__add-btn, .select-icon-modal__add-btn--active {
+    cursor: pointer;
+    border: none;
+    font-size: 1.1rem;
+    background-color: rgb(156, 191, 246);;
+    color: white;
+    padding: 0.4rem 1.3rem;
+    border-radius: .9rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.select-icon-modal__add-btn--active {
+    background-color: rgb(103, 158, 244);
+}
+
+.select-icon-modal__list-icons::-webkit-scrollbar {
+    width: 0.5rem;               /* ширина scrollbar */
+    max-height: 50px;
+    transition: all 0.2s ease-in-out;
+}
+.select-icon-modal__list-icons::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+    transition: all 0.2s ease-in-out;
+}

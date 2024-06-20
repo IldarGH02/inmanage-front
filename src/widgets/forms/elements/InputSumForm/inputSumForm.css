@@ -1,0 +1,69 @@
+.input-sum-form-wrapper {
+    border-radius: 15px;
+}
+
+.input-sum-form, .input-sum-form--error {
+    letter-spacing: 2px;
+    height: 80px;
+    width: 100%;
+    border-radius: 15px;
+    /* background-color: #c7c7c7; */
+    padding: 0px 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    border: 5px solid rgb(241, 242, 246);
+}
+
+.input-sum-form--error {
+    border: 5px solid rgba(255, 0, 0, 0.36);
+}
+
+.input-sum-form__label {
+    height: 100%;
+    white-space: nowrap;
+    /* justify-content: start; */
+    /* width: 320px; */
+    font-weight: 500;
+    color: rgb(207, 205, 205);
+}
+
+.input-sum-form__label:active ~ .input-sum-form__container > .input-sum-form__input:focus {
+    content: '';
+}
+
+.input-sum-form__container {
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    width: 100%;
+}
+
+.input-sum-form__input {
+    border: none;
+    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'SFUI-Display';
+    text-align: end;
+}
+
+.input-sum-form__valuta {
+    font-size: 25px;
+    margin-right: 4px;
+}
+
+.input-sum-form__input:focus {
+    outline: none;
+}
+
+.input-sum-form__alert {
+    margin-top: 5px;
+    color: rgb(170, 170, 170);
+}

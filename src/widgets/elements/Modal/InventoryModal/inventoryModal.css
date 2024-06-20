@@ -1,0 +1,68 @@
+.inventory-modal {
+    background-color: white;
+    width: 900px;
+    height: 500px;
+    border-radius: 20px;
+    font-family:'Montserrat', sans-serif;
+}
+
+.inventory-modal__header {
+    height: 100px;
+    border-bottom: 1px solid rgb(0, 166, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.inventory-modal__title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.inventory-modal__close-btn {
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    color: grey;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    background-color: white;
+}
+
+.inventory-modal__close-btn:hover {
+    color: rgb(147, 147, 147);
+}
+
+.inventory-modal__content {
+    height: 300px;
+    padding: 50px;
+}
+
+.inventory-modal__content-item {
+    margin-bottom: 30px;
+}
+
+.inventory-modal__content-item-name {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.inventory-modal__footer {
+    height: 100px;
+    border-top: 1px solid rgb(0, 166, 255);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 50px;
+}
+
+.inventory-modal__cancel-btn {
+    margin-right: 20px;
+    background-color: rgb(81, 152, 189);
+}
+
+.inventory-modal__add-btn, .inventory-modal__cancel-btn {
+    width: 110px;
+    height: 25px;
+}

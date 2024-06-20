@@ -1,0 +1,39 @@
+.payments-block {
+    width: 100%;
+    height: 100%;
+}
+
+.payments__title {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.payments__content {
+    height: 100%;
+    border-radius: 45px;
+    background-color: white;
+    height: 75vh;
+    max-height: 950px;
+    min-height: 700px;
+    padding: 40px 40px;
+}
+
+.payments__list {
+    width: 100%;
+    height: 92%;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.payments__list::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.payments__list::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}

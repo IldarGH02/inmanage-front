@@ -1,0 +1,104 @@
+.task-add-page {
+    width: 86%;
+    font-family:'Montserrat', sans-serif;
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    max-height: 1000px;
+    margin-top: 20px;
+    border-radius: 20px;
+    min-height: 1000px;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.task-add-page__back-btn {
+    position: absolute;
+    left: -150px;
+    margin-top: 57px;
+    text-decoration: none;
+}
+
+.task-add-page__title {
+    height: 50px;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.task-add-page__container {
+    height: 760px;
+    /* display: flex; */
+    /* flex: 1; */
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    padding: 50px 50px;
+}
+
+.task-add-page__content {
+    width: 100%;
+    height: 100%;
+    /* max-height: 680px; */
+}
+
+.task-add-page__content-title {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.task-add-page__actions-btn {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.task-add-page__next-btn, .task-add-page__next-btn, .task-add-page__add-btn {
+    width: 160px;
+    height: 35px;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Montserrat', sans-serif;
+    margin-left: 30px;
+    background-color: rgb(158, 190, 254);
+}
+
+.task-add-page__next-btn--active, .task-add-page__add-btn--active {
+    width: 160px;
+    height: 35px;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Montserrat', sans-serif;
+    margin-left: 30px;
+}
+
+.task-add-page__next-btn, .task-add-page__add-btn {
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.task-add-page__next-btn--active, .task-add-page__add-btn--active {
+    background-color: rgb(55, 173, 236);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.task-add-page__next-btn--active:hover, .task-add-page__add-btn--active:hover {
+    background-color: rgb(84, 189, 245);
+}
+

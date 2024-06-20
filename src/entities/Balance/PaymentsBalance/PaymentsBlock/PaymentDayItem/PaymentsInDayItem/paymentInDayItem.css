@@ -1,0 +1,55 @@
+.payment-in-day-item {
+    display: flex;
+    /* justify-content: space-between;  */
+}
+
+.payment-in-day-item__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-in-day-item__sum {
+    font-size: 24px;
+    color: rgb(103, 157, 244);
+}
+
+.payment-in-day-item__sum--active {
+    color: rgb(191, 191, 191);
+    font-size: 24px;
+}
+
+.payment-in-day-item__title {
+    color: rgb(103, 157, 244);
+    font-size: 24px;
+}
+
+.payment-in-day-item__title--active {
+    color: rgb(191, 191, 191);
+    font-size: 24px;
+}
+
+.payment-in-day-item__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    width: 60px;
+    align-items: center;
+}
+
+.payment-in-day-item__daw {
+    width: 25px;
+    height: 25px;
+}
+
+.payment-in-day-item__remove-btn {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.payment-in-day-item__remove-img {
+    width: 22px;
+    height: auto;
+}

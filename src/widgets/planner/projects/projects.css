@@ -1,0 +1,62 @@
+.projects {
+    width: 100%;
+    font-family:'Montserrat', sans-serif;
+    position: relative;
+    box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 10%);
+    border-radius: 30px;
+}
+
+.projects__list {
+    margin-top: 20px;
+    min-height: 200px;
+    /* height: auto; */
+    background-color: white;
+    border-radius: 20px;
+    padding: 0 20px 20px 20px;
+    /* margin-bottom: 20px; */
+}
+
+.projects__list > a {
+    text-decoration: none;
+}
+
+.projects__list-header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(197, 197, 197);
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.projects__list-name {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.projects__list-add-btn {
+    width: 190px;
+    height: 44px;
+    font-size: 23px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects__back-btn {
+    position: absolute;
+    left: -150px;
+    margin-top: 57px;
+    text-decoration: none;
+}
+
+.projects__list-empty {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: grey;
+    font-weight: 500;
+}

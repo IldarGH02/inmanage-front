@@ -1,0 +1,88 @@
+.profile-setting {
+    width: 100%;
+    font-family: "SFUI-Display";
+}
+
+.profile-setting__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.profile-setting__avatar {
+    width: 195px;
+    height: auto;
+}
+
+.profile-setting__person-data {
+    width: 100%;
+    margin-left: 38px;
+}
+
+.profile-setting__name {
+    width: 310px;
+    font-size: 38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+
+.profile-setting__profile-id {
+    width: 100%;
+    /* width: 105px; */
+    font-size: 23px;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-top: 5px;
+    /* color: rgb(150, 150, 150); */
+}
+
+.profile-setting__exit-profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+}
+
+.profile-setting__exit-profile-title {
+    font-size: 22px;
+    color: rgb(207, 205, 205);
+    margin-right: 6px;
+    font-weight: 500;
+}
+
+.profile-setting__exit-profile-img {
+    width: 40px;
+    height: auto;
+}
+
+.profile-setting__content {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+.profile-setting__item {
+    height: 90px;
+    position: relative;
+}
+
+.profile-setting__item:last-child {
+    display: flex;
+    align-items: flex-end;
+    height: auto;
+    padding-top: 110px;
+}
+
+@media (max-height: 1115px) {
+    .profile-setting__item:last-child {
+        padding-top: 70px;
+    }
+    .profile-setting__item {
+        height: 80px;
+        position: relative;
+    }
+}

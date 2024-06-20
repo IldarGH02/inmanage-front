@@ -1,0 +1,104 @@
+.add-card-form {
+    width: calc(50% - 5px);
+}
+
+.add-card-form__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-card-form__about-card-block-wrapper {
+    background-color: white;
+    /* min-height: 676px; */
+    border-radius: 30px;
+    padding: 20px;
+    /* overflow: hidden;
+    overflow-y: auto; */
+}
+
+.add-card-form__about-card-block {
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* overflow: hidden;
+    overflow-y: auto; */
+}
+
+.add-card-form__block-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.add-expense::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-expense::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}
+
+.add-card-form__cancel-btn {
+    font-size: 20px;
+}
+
+.add-card-form__add-btn {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(103, 158, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.add-card-form__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    /* z-index: 2; */
+    margin-top: 10px;
+    padding: 12px 0;
+}
+
+.add-card-form-cash::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-card-form-cash::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.add-card-form-cash {
+    width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.add-card-form-cash__item {
+    height: 115px;
+}
+
+.add-card-form-cash__warning {
+    margin-top: 5px;
+    color: rgb(187, 187, 187);
+}
+
+

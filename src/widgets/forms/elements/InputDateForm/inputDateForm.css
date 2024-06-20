@@ -1,0 +1,65 @@
+.input-date-form-wrapper {
+    border-radius: 15px;
+}
+
+.input-date-form, .input-date-form--error {
+    letter-spacing: 2px;
+    height: 80px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 0px 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border: 5px solid rgb(241, 242, 246);
+}
+
+.input-date-form--error {
+    border: 5px solid rgba(255, 0, 0, 0.36);
+}
+
+.input-date-form__label {
+    height: 100%;
+    white-space: nowrap;
+    /* justify-content: start; */
+    /* width: 320px; */
+    font-weight: 500;
+    color: rgb(207, 205, 205);
+}
+
+.input-date-form__label:active ~ .input-date-form__container > .input-date-form__input:focus {
+    content: '';
+}
+
+.input-date-form__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-date-form__input {
+    border: none;
+    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'SFUI-Display';
+    text-align: end;
+}
+
+.input-date-form__valuta {
+    font-size: 25px;
+    margin-right: 4px;
+}
+
+.input-date-form__input:focus {
+    outline: none;
+}
+
+.input-date-form__alert {
+    margin-top: 5px;
+    color: rgb(170, 170, 170);
+}

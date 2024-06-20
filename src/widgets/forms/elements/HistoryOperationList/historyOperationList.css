@@ -1,0 +1,41 @@
+.history-operation-list {
+    width: 100%;
+}
+
+.history-operation-item {
+    width: 100%;
+    min-height: 120px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(195, 195, 195);
+}
+
+.history-operation-item__date {
+    font-size: 22px;
+    color: rgb(181, 181, 181);
+    margin-bottom: 5px;
+}
+
+.history-operation-item__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.history-operation-item__title {
+    font-size: 26px;
+}
+
+.history-operation-item__sum-plus {
+    font-size: 25px;
+    color: rgb(126, 189, 103);
+}
+
+.history-operation-item__sum-minus {
+    font-size: 25px;
+    color: red;
+}
+
+.history-operation-item__valuta {
+    font-weight: 500;
+}

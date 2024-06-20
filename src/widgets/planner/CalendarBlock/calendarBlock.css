@@ -1,0 +1,18 @@
+.calendar-block {
+    
+}
+
+.calendar-block__title {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.calendar-block__calendar {
+
+}
+
+.calendar-block__expenses {
+    margin-top: 20px;
+}

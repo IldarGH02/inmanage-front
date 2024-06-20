@@ -1,0 +1,78 @@
+.steps {
+    margin: 20px 0 20px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; 
+    flex: 1; 
+}
+
+.step__header {
+    min-width: 178px;
+    max-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.step__point {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;  
+}
+
+.pre-line, .post-line {
+    height: 2px;
+    width: 100%;
+    transition: all 1.5s ease-in-out;
+}
+
+.point {
+    min-width: 50px;
+    background-color: rgb(216, 216, 216);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    transition: all 1.5s ease-in-out;
+}
+
+.active .pre-line {
+    background-color: black;
+}
+
+.active .post-line {
+    background-color: rgb(216, 216, 216);
+}
+
+.active .point {
+    border: 2px solid black;
+}
+
+.inactive .pre-line, .inactive .post-line {
+    background-color: rgb(216, 216, 216);
+} 
+
+.done .pre-line, .post-line {
+    background-color: black;
+}
+
+.done .point {
+    background-color: black; 
+}
+
+.steps .step:first-child .step__point .pre-line {
+    visibility: hidden;
+}
+
+.steps .step:last-child .step__point .post-line {
+    visibility: hidden;
+}

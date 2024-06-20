@@ -1,0 +1,62 @@
+.task-add {
+    max-height: 555px;
+}
+
+.task-add__input-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-add__input {
+    width: 80%;
+}
+
+.task-add__add-btn {
+    width: 10%;
+}
+
+.task-add__list {
+    width: 100%;
+    height: 500px;
+    padding: 0 30px;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-top: 30px;
+}
+
+.task-add__item {
+    min-height: 50px;
+    border: 1px solid grey;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: rgb(227, 227, 227);
+}
+
+.task-add__item:last-child {
+    margin-bottom: 0px;
+}
+
+.task-add__item-text {
+    font-size: 22px;
+}
+
+.task-add__item-remove-btn {
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+}
+
+.task-add__list::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+    /* margin-left: 10px; */
+}
+.task-add__list::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}

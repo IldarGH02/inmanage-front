@@ -1,0 +1,263 @@
+.add-income-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    /* background: url('../../../assets/img/balance/bckg.png');
+    animation: scroll 800s linear infinite; */
+    padding: 90px 0 10px 0;
+    position: relative;
+}
+
+.add-income-page__container {
+    width: 1500px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    /* display: flex; */
+}
+
+.add-income-page__header {
+    display: flex;
+    align-items: center;
+    margin: 15px 10px;
+}
+
+.add-income-page__title {
+    font-size: 33px;
+    font-weight: 700;
+    margin-left: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.add-income-page__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-income-page__finance-block-wrapper, .add-income-page__spend-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+    /* overflow: hidden; */
+    /* overflow-y: auto; */
+}
+
+.add-income-page__finance-block, .add-income-page__spend-block {
+    /* box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 8%); */
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.add-income-page__categories {
+    width: 100%;
+    height: 55px;
+}
+
+.add-income-page__sum {
+    margin: 20px 0;
+    height: 110px;
+    width: 100%;
+}
+
+.add-income-page__block-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.add-income-page__position {
+    width: 100%;
+    height: 140px;
+}
+
+.add-expense::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-expense::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}
+
+.add-income-page__add-btn--active {
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.add-income-page__ddlist {
+    height: 70px;
+    position: relative;
+}
+
+.add-income-page__cancel-btn {
+    font-size: 20px;
+}
+
+.add-income-page__add-btn--active:hover {
+    /* background-color: rgb(158, 190, 254); */
+}
+
+.add-income-page__add-btn, .add-income-page__add-btn--active {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(158, 190, 254);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.add-income-page__add-btn--active {
+    background-color: rgb(103, 158, 243);
+}
+
+.add-income-page__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 12px 0;
+}
+
+.add-income-page__finance-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-income-page__finance-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.add-income-page__spend-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-income-page__spend-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+/* @media (max-height: 1100px) {
+    .add-income-page__header {
+        display: flex;
+        align-items: center;
+        margin: 20px 10px;
+    }
+    .add-income-page__block-title {
+        font-size: 25px;
+        margin: 0 0 5px 0;
+        text-align: center;
+    }
+    .add-income-page__position {
+        height: auto;
+    }
+} */
+
+/* @keyframes scroll {
+    100%{
+     background-position:3000px -3000px;
+   }
+}
+
+@media (prefers-reduced-motion) {
+    .backgroundContent {
+      animation: scroll 200s linear infinite;
+    }
+} */
+
+/* @media (max-width: 1700px) {
+    .add-income-page {
+        height: 100vh;
+        padding: 70px 0;
+    }
+    .add-income-page__finance-block, .add-income-page__spend-block {
+        width: 500px;
+        height: auto;
+        padding: 10px;
+    }
+    .add-income-page__container {
+        width: 1025px;
+    }
+    .add-income-page__categories {
+        height: 35px;
+    }
+    .add-income-page__sum {
+        margin: 8px 0 0 0;
+        height: 60px;
+    }
+    .add-income-page__block-title {
+        margin-top: 0px;
+    }
+    .add-income-page__header {
+        margin: 10px;
+    }
+    .add-income-page__title {
+        font-size: 25px;
+    }
+    .add-income-page__block-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1010px) {
+    .add-income-page__finance-block, .add-income-page__spend-block {
+        width: 320px;
+        margin-bottom: 5px;
+        height: auto;
+        padding: 20px 40px;
+        margin: 0 auto 5px auto;
+
+    }
+    .add-income-page__container {
+        width: 350px;
+    }
+    .add-income-page__content {
+        flex-direction: column;
+    }
+    .add-income-page__categories {
+        height: 30px;
+    }
+    .add-income-page__sum {
+        margin: 8px 0;
+        height: 60px;
+    }
+    .add-income-page__block-title {
+        margin-top: 0px;
+    }
+    .add-income-page__title {
+        font-size: 20px;
+    }
+    .add-income-page__header {
+        margin: 0 0 10px 20px;
+    }
+} */

@@ -1,0 +1,22 @@
+.add-securities-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    /* background: url('../../../assets/img/balance/bckg.png');
+    animation: scroll 800s linear infinite; */
+    padding: 90px 0 10px 0;
+    position: relative;
+}
+
+.add-securities-page__container {
+    width: 1500px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    /* display: flex; */
+}
+
+.add-securities-page__content {
+    display: flex;
+    justify-content: space-between;
+}

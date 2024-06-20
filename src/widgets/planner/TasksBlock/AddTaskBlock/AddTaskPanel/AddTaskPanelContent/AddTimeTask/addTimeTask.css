@@ -1,0 +1,65 @@
+.add-time-task {
+    min-height: 150px;
+}
+
+.add-time-task__header {
+    display: flex;
+}
+
+.add-time-task__title {
+    color: rgb(165, 165, 165);
+    font-size: 22px;
+    margin-right: 200px;
+}
+
+.add-time-task__time {
+    font-size: 22px;
+    color: rgb(103, 157, 244);
+    border: none;
+}
+
+.add-time-task__buttons {
+    width: 100%;
+    height: 112px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-time-task__item, .add-time-task__item--active {
+    border-radius: 20px;
+    padding: 10px 24px;
+    /* border: 2px solid rgb(103, 157, 244); */
+    position: relative;
+    cursor: pointer;
+}
+
+.add-time-task__item--active {
+    border: 3px solid rgb(103, 157, 244);
+}
+
+.add-time-task__item--active .add-time-task__item-remove-btn {
+    display: block;
+}
+
+.add-time-task__item-title {
+    font-size: 22px;
+    color: rgb(103, 157, 244);
+}
+
+.add-time-task__item-remove-btn {
+    position: absolute;
+    cursor: pointer;
+    right: 0%;
+    top: -15%;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 100%;
+    color: white;
+    text-align: center;
+    background-color: rgb(156, 156, 156);
+    transition: all 0.2s ease-in-out;
+    display: none;
+    z-index: 5;
+}

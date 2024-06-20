@@ -1,0 +1,121 @@
+.assets-price-info-property__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    justify-content: space-evenly;
+    background-color: #6d6d6d;
+} 
+
+
+.assets-price-info-property__item {
+    width: 100%;
+    height: auto;
+    /* display: flex; */
+}
+
+.assets-price-info-property__item b {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.assets-price-info-property__container > input {
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+}
+
+.assets-price-info-property__item > input {
+    height: 35px;
+    width: 90%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+}
+
+.assets-price-info-property__label {
+    font-size: 25px;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.assets-price-info-property__item-container {
+    margin-bottom: 30px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.assets-price-info-property__item-container > label {
+    cursor: pointer;
+    position: relative;
+    margin-left: 55px;
+}
+
+.assets-price-info-property__item-container > input[type="radio"] {
+    display:none
+}
+
+.assets-price-info-property__item-container > label:before {
+    cursor: pointer;
+    content:'';
+    width: 20px;
+    height: 20px;
+    border:2px solid rgb(0, 0, 0);
+    border-radius:50%;
+    position:absolute;
+    top:calc(50% - 11px);
+    left: -50px;
+    
+}
+
+#rent1:checked~label:before, #rent2:checked~label:before {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 255, 0);
+    border-width: 6px;
+    border-style: double;
+    top: calc(50% - 12px);
+}
+
+.assets-price-info-property__item-container > input {
+    height: 35px;
+    width: 40%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: start;
+    margin-left: 200px;
+}
+
+
+.assets-price-info-property__credit-container {
+    display: flex;
+    /* transition: all 0.2s ease-in-out; */
+}
+
+.assets-price-info-property__credit-item {
+    width: 33.33%;
+}
+
+.assets-price-info-property__credit-label {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.assets-price-info-property__credit-item > input {
+    height: 35px;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+    width: 75%;
+}
+

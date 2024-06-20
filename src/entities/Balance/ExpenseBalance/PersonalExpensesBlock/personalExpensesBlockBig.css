@@ -1,0 +1,122 @@
+.personal-expenses-block-big {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(241, 242, 246);
+    /* position: absolute; */
+    z-index: 25;
+    border-radius: 30px;
+    padding: 10px;
+    height: 100%;
+}
+
+.personal-expenses-block-big__list {
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    overflow-y: scroll;
+    /* position: relative; */
+}
+
+.personal-expenses-block-big__icon {
+    width: 25%;
+    /* height: 292px; */
+    /* height: calc(50%); */
+    padding: 1rem 0 .5rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* width: 5.2rem;
+    height: 5.2rem; */
+    
+}
+
+.personal-expenses-block-big__icon:hover > .personal-expenses-block-big__icon-title {
+    color: rgb(196, 215, 245);
+}
+
+.personal-expenses-block-big__icon:hover > .personal-expenses-block-big__icon-wrapper {
+    border-color: rgb(196, 215, 245);
+}
+
+.personal-expenses-block-big__icon-wrapper, .personal-expenses-block-big__icon-wrapper--active {
+    background-color: white;
+    border-radius: 100%;
+    border: 0.5rem solid grey;
+    width: 6.2rem;
+    height: 6.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.personal-expenses-block-big__icon-wrapper--active {
+    border-color: rgb(168, 197, 243);
+}
+
+.personal-expenses-block-big__icon-img {
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: all 0.2s ease-in-out;
+    /* fill: rgb(168, 197, 243); */
+    /* filter: hue-rotate(10deg); */
+}
+
+.personal-expenses-block-big__icon-title, .personal-expenses-block-big__icon-title--active {
+    transition: all 0.2s ease-in-out;
+    color: grey;
+    margin-top: .4rem;
+}
+
+.personal-expenses-block-big__icon-title--active {
+    color: rgb(168, 197, 243);
+}
+
+.personal-expenses-block-big__icon-add {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 0 0.5rem 0;
+}
+
+.personal-expenses-block-big__icon-add-btn {
+    width: 6.2rem;
+    height: 6.2rem;
+    background-color: white;
+    border-radius: 100%;
+    border: 0.7rem solid grey;
+    cursor: pointer;
+    font-size: 3.8rem;
+    color: grey;
+    /* font-weight: 600; */
+}
+
+.personal-expenses-block-big__icon-add-title {
+    margin-top: .4rem;
+    color: grey;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.personal-expenses-block-big__list::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+
+.personal-expenses-block-big__list::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}

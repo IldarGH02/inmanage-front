@@ -1,0 +1,36 @@
+.liabilities-page__container {
+    width: 1560px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 118px;
+    position: relative;
+    z-index: 2;
+}
+
+.liabilities-page {
+    width: 100%;
+    height: 100vh;
+    animation: scroll 800s linear infinite;
+    position: relative;
+}
+
+.liabilities-page__general-balance {
+    width: 1040px;
+}
+
+.liabilities-page__cards-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.liabilities-page__cards-container > a {
+    text-decoration: none;
+    width: 502px;
+}
+
+.liabilities-page__cards-container > a:nth-child(3n-1) {
+    margin: 0 25px;
+}

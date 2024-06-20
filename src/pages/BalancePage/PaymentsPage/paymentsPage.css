@@ -1,0 +1,31 @@
+.payments-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    padding: 123px 0 80px 0;
+}
+
+.payments-page__content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1500px;
+    height: 100%;
+}
+
+/* .payments-page__calendar-block, .payments-page__payments-block {
+    height: 75vh;
+    max-height: 1000px;
+    min-height: 750px;
+    z-index: 2;
+} */
+
+.payments-page__payments-block {
+    width: 980px;
+    z-index: 2;
+}
+
+.payments-page__calendar-block {
+    width: 500px;
+    z-index: 2;
+}

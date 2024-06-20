@@ -1,0 +1,19 @@
+.auth__login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .login__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        .login__logo {
+            width: 259px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+    }
+}

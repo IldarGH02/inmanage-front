@@ -1,0 +1,129 @@
+$small: 1024px;
+$medium: 1200px;
+$xl: 1440px;
+$xxl: 1920px;
+
+@media screen and (min-width: $small) and (max-width: $medium) {
+    .auth__logo {
+        width: 240px;
+    }
+    
+    .auth__choose-button {
+        font-size: 30px !important;
+        line-height: 35px !important;
+    }
+
+    .login__button-disabled {
+        width: 100%;
+        padding: 20px 0 !important;
+
+        font-weight: 400;
+        font-size: 24px !important;
+        line-height: 25px !important;
+    }
+
+    .auth__choose-button {
+        width: 75%;
+        padding: 20px 0 !important;
+
+        font-weight: 400;
+        font-size: 24px !important;
+        line-height: 25px !important;
+    }
+
+    .register__label {
+        font-size: 20px !important;
+        line-height: 23px !important;
+    }
+
+    .register__button-submit {
+        width: 75%;
+        padding: 20px 0 !important;
+
+        font-weight: 400;
+        font-size: 24px !important;
+        line-height: 25px !important;
+    }
+
+    .auth__choose-button {
+        width: 75%;
+        padding: 20px 0 !important;
+
+        font-weight: 400;
+        font-size: 24px !important;
+        line-height: 25px !important;
+    }
+
+    .balance__page-finance {
+        flex-direction: column !important;
+
+        .balance__total {
+            width: 100%;
+        }
+
+        .balance__income-expense {
+            width: 100% !important;
+        }
+    }
+
+    .card__title {
+        width: 53% !important;
+        font-size: 18px !important;
+        line-height: 20px !important;
+    }
+
+    .payments__title {
+        font-size: 18px !important;
+        line-height: 20px !important;
+    }
+}
+
+@media screen and (min-width: $medium) and (max-width: $xl) {
+    .register__label {
+        font-size: 20px !important;
+        line-height: 23px !important;
+    }
+
+    .login__label {
+        font-size: 20px !important;
+        line-height: 23px !important;
+    }
+
+    .register__button-submit {
+        width: 75%;
+        padding: 20px 0 !important;
+
+        font-weight: 400;
+        font-size: 30px !important;
+        line-height: 30px !important;
+    }
+
+    .auth__choose-button {
+        width: 75%;
+        padding: 20px 0 !important;
+
+        font-weight: 400;
+        font-size: 30px !important;
+        line-height: 30px !important;
+    }
+
+    .login__button-disabled {
+        width: 100%;
+        padding: 25px 0 !important;
+
+        font-weight: 400;
+        font-size: 30px !important;
+        line-height: 30px !important;
+    }
+
+    .register__button-code {
+        width: 75%;
+        padding: 20px 0 !important;
+
+        font-weight: 400;
+        font-size: 30px !important;
+        line-height: 30px !important;
+    }
+}
+
+

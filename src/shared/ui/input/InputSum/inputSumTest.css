@@ -1,0 +1,57 @@
+.input-sum-test-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-sum-test-container > b {
+    font-size: 22px;
+    margin-left: 22px;
+}
+
+.input-sum-test {
+    letter-spacing: 2px;
+    /* height: 35px; */
+    width: 100%;
+    border-radius: 7px;
+    background-color: #c7c7c7;
+    padding: 2px 15px 2px 15px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+
+/* #input-sum {
+    letter-spacing: 2px;
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #c7c7c7;
+    padding: 2px 15px;
+    font-size: 20px;
+    width: 80%;
+} */
+
+.input-sum-test > input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #c7c7c7;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.input-sum-test > b {
+    color: red;
+    font-size: 22px;
+}
+
+.input-sum-test > input:focus {
+    outline: none;
+}
+
+/* .input-sum-test + b {
+    font-size: 21px;
+    margin-left: 10px;
+} */
+

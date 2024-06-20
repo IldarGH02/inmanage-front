@@ -1,0 +1,184 @@
+.inventory-table {
+    width: 100%;
+}
+
+.inventory-table__head {
+    display: flex;
+    justify-content: space-around;
+}
+
+.inventory-table__head-item {
+    width: 33.33%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(165, 165, 165);
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.inventory-table__body {
+    /* margin-top: 10px; */
+    max-height: 500px;
+    min-height: 0px;
+    padding: 15px 5px 5px 5px;
+    overflow-y: hidden;
+    overflow: auto;
+}
+
+.inventory-table-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    height: 52px;
+    position: relative;
+}
+
+.inventory-table-item__remove-btn {
+    position: absolute;
+    right: -5px;
+    top: -8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+    background-color: rgb(168, 168, 168);
+    font-size: 20px;
+    cursor: pointer;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.inventory-table-item:hover > .inventory-table-item__remove-btn {
+    visibility: visible;
+}
+
+.inventory-table-item__add-panel {
+    margin-top: 10px;
+}
+
+.inventory-table-item:last-child {
+    margin-bottom: 0;
+}
+
+.inventory-table-item__title, .inventory-table-item__title--error {
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.inventory-table-item__title--error, .inventory-table-item__amount--error, .inventory-table-item__price--error {
+    border: 3px solid rgba(255, 0, 0, 0.36);
+}
+
+.inventory-table-item__amount, .inventory-table-item__amount--error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inventory-table-item__price, .inventory-table-item__price--error {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.inventory-table-input-container {
+    height: 40px;
+    background-color: rgb(241, 242, 246);
+    font-size: 17px;
+    padding: 5px 18px;
+}
+
+.inventory-table-item__input {
+    border: none;
+    background-color: inherit;
+    width: 100%;
+    height: 100%;
+    font-size: 17px;
+    text-align: end;
+}
+
+.inventory-table-item__input-title {
+    text-align: start;
+}
+
+.inventory-table-item__input-amount {
+    width: auto;
+    min-width: 20px;
+    max-width: 120px;
+}
+
+.inventory-table-item__input:focus {
+    outline: none;
+}
+
+.inventory-table-item__unit {
+    margin-left: 5px;
+}
+
+.inventory-table-item__add-btn {
+    width: 32.9%;
+    background-color: rgb(241, 242, 246);
+    font-size: 17px;
+    border: none;
+    padding: 5px 20px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    cursor: pointer;
+    text-align: start;
+    color: rgb(196, 196, 196);
+    height: 40px;
+}
+
+.inventory-table-item__warning {
+    margin-top: 3px;
+    color: rgb(187, 187, 187);
+    font-size: 12px;
+}
+
+.inventory-table-item__input-wrapper {
+    width: 32.9%;   
+}
+
+.inventory-table__clear-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.inventory-table__clear-btn {
+    border: none;
+    border-bottom: 1px solid rgb(165, 165, 165);;
+    background-color: inherit;
+    cursor: pointer;
+    color: rgb(165, 165, 165);
+    font-size: 18px;
+}
+
+.inventory-table__body::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+
+.inventory-table__body::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.inventory-table__body::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.inventory-table__body::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}

@@ -1,0 +1,68 @@
+.input-sum-transport-wrapper {
+    border-radius: 15px;
+}
+
+.input-sum-transport {
+    letter-spacing: 2px;
+    height: 80px;
+    width: 100%;
+    border-radius: 15px;
+    /* background-color: #c7c7c7; */
+    padding: 0px 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    border: 5px solid rgb(241, 242, 246);
+}
+
+.input-sum-transport__label {
+    height: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    width: 320px;
+    font-weight: 500;
+    color: rgb(207, 205, 205);
+}
+
+.input-sum-transport__container {
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    width: 100%;
+}
+
+.input-sum-transport__input {
+    border: none;
+    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'SFUI-Display';
+    text-align: end;
+}
+
+.input-sum-transport__attention {
+    color: red;
+    font-size: 25px;
+    width: 5px;
+}
+
+.input-sum-transport__valuta {
+    font-size: 25px;
+    margin-right: 4px;
+}
+
+.input-sum-transport__input:focus {
+    outline: none;
+}
+
+.input-sum-transport__alert {
+    margin-top: 5px;
+    color: rgb(170, 170, 170);
+}

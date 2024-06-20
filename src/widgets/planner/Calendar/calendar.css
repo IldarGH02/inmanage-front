@@ -1,0 +1,177 @@
+.calendar-table {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 35px;
+} 
+
+.calendar-table__header {
+  width: 100%;
+  /* margin-left: 50px */
+}
+
+.calendar-table__header > td {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+/* Таблица календаря  */
+.calendar-table > table {
+  width: 95%;
+  font-size: 20px;
+}
+
+.calendar-table__next-btn {
+  /* right: 2%; */
+  transform: rotate(-135deg);
+}
+
+.calendar-table__early-btn {
+  /* left: 2%; */
+  transform: rotate(45deg);
+}
+
+.calendar-table-btn {
+  top: 40%;
+  position: absolute;
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-top: 2px solid rgb(0, 121, 255);
+  border-right: 2px solid rgb(0, 121, 255);
+  z-index: 1;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.calendar-table-btn:hover {
+  border-top: 0.3rem solid rgb(35, 133, 245);
+  border-right: 0.3rem solid rgb(35, 133, 245);
+}
+
+/* Заголовок */
+.calendar-table > table th {
+  text-align: center;
+  width: 60px;
+  height: 30px;
+  background: #ffffff;
+  color: rgb(213, 213, 214);
+  font-weight:500;
+  font-size: 17px;
+  margin: 10px 0;
+}
+/* Заголовок праздника */
+.calendar-table > table th.holiday {
+  /* color: #FF0000; */
+}
+/* Ячейка дня */
+.calendar-table > table td {
+  font-weight:400;
+  width: 66px;
+  height: 66px;
+  text-align: center;
+  cursor: pointer;  
+  font-size: 22px;
+}
+/* Затемненный день */
+.calendar-table > table td.grayed {
+  /* background: #dfdfdf; */
+  cursor: auto;
+}
+/* Выбранный день */
+.calendar-table > table td.selected {
+  background: rgb(0, 121, 255);
+  color: #FFFFFF;
+  border: 1px solid white;
+  border-radius: 100%;
+  /* box-shadow: 1px 1px rgba(255, 255, 255, 0.5) inset; */
+}
+/* Праздничный день */
+.calendar-table > table td.holiday {
+  /* color: #FF0000; */
+}
+
+
+/* Кнопки навигации */
+.calendar-table > table td.calendar-table__navigation {
+  text-align: center;
+  border: 0px none;
+  font-size: 26px;
+  /* background: #2F2E2E; */
+  cursor: pointer;
+  white-space: nowrap;
+  height: 70px;        
+}
+
+.navigation-date__container {
+  /* position: relative; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  width: 100%;
+}
+
+.navigation-date__container > span:first-child > div{
+  position: absolute;
+  width: 120px;
+  /* height: 250px; */
+  background-color: white;
+  margin-top: 33px;
+  color: #000000;
+  font-size: 18px;
+}
+
+.navigation-date__cell, .navigation-date__cell--active {
+  height: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation-date__container > span:first-child > div > p:hover {
+  background-color: yellow;
+  color: #000000;
+}
+
+.navigation-date__container > span:last-child > div > p:hover {
+  background-color: yellow;
+  color: #000000;
+}
+
+.navigation-date__container > span:first-child:hover {
+  text-decoration:underline;
+  color: rgb(221, 221, 221);
+}
+
+.navigation-date__container > span:last-child:hover {
+  text-decoration:underline;
+  color: rgb(221, 221, 221);
+}
+
+.navigation-date__container > span:last-child > div{
+  position: absolute;
+  width: 90px;
+  background-color: white;
+  margin-top: 33px;
+  color: #000000;
+  font-size: 18px;
+}
+
+.navigation-date__container > span > b {
+  margin: 0px 20px;
+}
+
+.navigation-date__container > span {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-date__cell--active {
+  color: black;
+  background-color: rgb(255, 255, 86);
+}

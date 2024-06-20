@@ -1,0 +1,120 @@
+.profile-drop-down-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 80px;
+    background-color: white;
+    position: absolute;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.profile-drop-down-list__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.profile-drop-down-list__name {
+    width: 100%;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.profile-drop-down-list-input {
+    appearance: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: 1000;
+    /* background-color:#a4a4a4; */
+    transition: all 0.2s ease-in-out;
+}
+
+.profile-drop-down-list__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%; 
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-out;
+    text-decoration: underline;
+    color: rgb(150, 150, 150);;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.profile-drop-down-list__content {
+    display: none;
+    width: 100%;
+    align-items: center;
+    padding: 0 0 5px 0;
+    height: 146px;
+    z-index: 1000;
+    cursor: pointer;
+    font-weight: 500;
+    background-color:white;
+    /* max-height: 250px; */
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.4s ease-in-out;
+}
+
+.profile-drop-down-list-input:checked ~ .profile-drop-down-list__content {
+    display: block;
+}
+
+.profile-drop-down-list__content ul li {
+    margin-bottom: 6px;
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(150, 150, 150);;
+    font-size: 26px;
+}
+
+.profile-drop-down-list__content ul li:hover {
+    color: rgb(177, 201, 244)
+}
+
+.profile-drop-down-list__content::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+    /* margin-left: 10px; */
+}
+.profile-drop-down-list__content::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}
+
+@media (max-height: 1115px) {
+    .profile-drop-down-list__container {
+        height: 80px;
+    }
+}
+
+/* @media (max-width: 1700px) {
+    .profile-drop-down-list {
+        min-height: 50px;
+    }
+    .profile-drop-down-list__title {
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1010px) {
+    .profile-drop-down-list {
+        min-height: 40px;
+    }
+    .profile-drop-down-list__title {
+        height: 40px;
+    }
+} */

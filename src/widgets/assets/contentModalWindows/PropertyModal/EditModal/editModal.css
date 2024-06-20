@@ -1,0 +1,127 @@
+.edit-modal {
+    width: 1300px;
+    height: 865px;
+    background-color: #636363;
+    border-radius: 15px;
+    padding: 25px 0;
+}
+
+.edit-modal__title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid yellow;
+    height: 100px;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 80px;
+}
+
+.edit-modal__close-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    background-color: #636363;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-modal__close-btn:hover {
+    background-color: #636363;
+    color: rgb(36, 36, 36);
+}
+
+.edit-modal__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    padding: 0 80px;
+    justify-content: space-evenly;
+    background-color: #6d6d6d;
+}
+
+.edit-modal__item {
+    width: 100%;
+    /* height: 100px; */
+    /* display: flex; */
+}
+
+.edit-modal__item > input {
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+}
+
+.edit-modal__label {
+    font-size: 22px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.edit-modal__item-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+/* .property-modal__item-container > span {
+    margin-left: 10px;
+    align-items: center;
+} */
+
+/* .property-modal__item-container > input {
+    align-items: center;
+    background-color: #636363;
+    cursor: pointer;
+    margin-top: 3px;
+    width: 15px;
+    height: 15px;
+} */
+
+.edit-modal__item:nth-child(4n) {
+    
+}
+
+.edit-modal__footer {
+    height: 110px;
+    width: 100%;
+    padding: 10px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid yellow;
+}
+
+.edit-modal__add-btn, .edit-modal__cancel-btn {
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+}
+
+.edit-modal__add-btn {
+    margin-right: 30px;
+    background-color: black;
+}
+
+.edit-modal__add-btn:hover, .edit-modal__cancel-btn:hover {
+    background-color: #636363;
+    color: yellow;
+}
+
+.edit-modal__container-items {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    justify-content: space-evenly;
+    background-color: #6d6d6d;
+}

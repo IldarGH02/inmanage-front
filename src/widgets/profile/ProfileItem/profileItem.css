@@ -1,0 +1,18 @@
+.profile-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    /* margin: auto 0; */
+}
+
+.profile-item__title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.profile-item__vector {
+    width: 14px;
+    height: auto;
+}

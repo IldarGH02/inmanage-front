@@ -1,0 +1,205 @@
+.to-do {
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    padding: 0px 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+.to-do__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px dashed rgb(104, 104, 104);
+    min-width: 720px;
+}
+
+.to-do__add-btn {
+    width: 180px;
+    height: 42px;
+    /* width: 220px;
+    height: 50px; */
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.2s ease-in;
+    border: 0px;
+}
+
+.to-do__add-btn:hover {
+    background-color: #636363;
+    color: yellow;
+}
+
+.to-do__list {
+    margin-top: 40px;
+}
+
+/* item */
+
+
+.to-do__item {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    min-height: 100px;
+    border: 1px solid rgb(104, 104, 104);
+    padding: 0px 10px;
+    cursor: pointer;
+    height: auto;
+}
+
+.to-do__item > span {
+    display: flex;
+    align-items: center;
+    width: 100%;
+} 
+
+
+.to-do__item-container {
+    min-height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.to-do__item-title, .to-do__item-title--active {
+    font-size: 20px;
+    width: 150px;
+}
+
+.to-do__item-title--active {
+    text-decoration: line-through;
+}
+
+.to-do__item-time {
+    letter-spacing: 1.5px;
+}
+
+.to-do__item-label-btn {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.to-do__item-label-btn > input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.to-do__item-label-btn > span {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+/* @media (max-width: 500px) {
+    .to-do__header {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  } */
+
+.to-do__item-label-btn > span::before {
+    cursor: pointer;
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 90% 90%;
+}
+
+/* стили при наведении курсора на checkbox */
+.to-do__item-label-btn>input:not(:disabled):not(:checked)+span:hover::before {
+    border-color: #d9ff04;
+}
+  
+  /* стили для активного чекбокса (при нажатии на него) */
+.to-do__item-label-btn>input:not(:disabled):active+span::before {
+    /* background-color: #d9ff04; */
+    border-color: #d9ff04;
+    /* box-shadow: 0 0 0 0.2rem rgb(221, 255, 0); */
+}
+  
+  /* стили для чекбокса, находящегося в фокусе */
+/* .to-do__item-label-btn>input:focus+span::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+} */
+  
+  /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+/* .to-do__item-label-btn>input:focus:not(:checked)+span::before {
+    border-color: #80bdff;
+} */
+  
+  /* стили для чекбокса, находящегося в состоянии checked */
+.to-do__item-label-btn > input:checked+span::before {
+    border-color: #b6b900;
+    background-color: #313300;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1.5 -1.5 11 11'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+  
+  /* стили для чекбокса, находящегося в состоянии disabled */
+.to-do__item-label-btn>input:disabled+span::before {
+    background-color: #e9ecef;
+}
+
+.to-do__item-remove-btn {
+    width: 22px;
+    height: 30px;
+    filter:invert(10%);
+    transition: all 0.2s ease-in-out;
+}
+
+.to-do__item-remove-btn:hover {
+    filter:invert(0%);
+}
+
+.to-do__item-remove-btn:active {
+    width: 25px;
+    height: 33px;
+}
+
+.to-do__item-description {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px dashed grey;
+    padding: 20px 0;
+    /* justify-content: center; */
+}
+
+.to-do__item-description-list {
+    width: 100%;
+    padding: 0 80px;
+}
+
+.to-do__item-description-list-item {
+    /* width: 100%; */
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid grey;
+
+}
+
+.to-do__msg {
+    width: 100%;
+    text-align: center;
+    color: #8b8b8b;
+}

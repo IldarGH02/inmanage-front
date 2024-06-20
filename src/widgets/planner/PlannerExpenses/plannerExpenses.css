@@ -1,0 +1,34 @@
+.planner-expenses {
+    width: 100%;
+    background-color: white;
+    border-radius: 30px;
+    padding: 35px;
+}
+
+.planner-expenses__planned {
+    color: rgb(250, 195, 90);
+}
+
+.planner-expenses__planned-title {
+    font-size: 22px;
+    font-weight: 100;
+    font-family: "SFUI-Display-light";
+}
+
+.planner-expenses__planned-sum, .planner-expenses__confirmed-sum {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.planner-expenses__confirmed {
+    color: rgb(204, 204, 206);
+    margin-top: 20px;
+}
+
+.planner-expenses__confirmed-title {
+    font-size: 22px;
+    font-weight: 100;
+    font-family: "SFUI-Display-light";
+}

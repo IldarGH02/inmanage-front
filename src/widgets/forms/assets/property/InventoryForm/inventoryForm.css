@@ -1,0 +1,153 @@
+.inventory-form {
+    /* width: 100%; */
+    z-index: 2;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.inventory-form__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inventory-form__characteristic-block-wrapper {
+    width: 730px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.inventory-form__characteristic-block {
+    /* box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 8%); */
+    /* height: 100%; */
+    height: 93%;
+    display: flex;
+    flex-shrink: 0;
+    align-self: stretch;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.inventory-form__about-card-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+    /* overflow: hidden;
+    overflow-y: auto; */
+}
+
+.inventory-form__about-card-block {
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.inventory-form__cancel-btn {
+    font-size: 20px;
+    border: none;
+    background-color: inherit;
+}
+
+.inventory-form__add-btn {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(103, 158, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.inventory-form__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    padding: 12px 0;
+}
+
+.inventory-form__about-card-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+
+.inventory-form__about-card-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.inventory-form__characteristic-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.inventory-form__characteristic-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.inventory-form__item {
+    height: 70px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.inventory-form__empty-indicator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 7%;
+    padding-bottom: 25px;
+}
+
+.inventory-form__empty-indicator-title {
+    font-size: 21px;
+    margin-left: 15px;
+}
+
+.inventory-form__empty-indicator-daw {
+    width: 20px;
+    height: 20px;
+}
+
+.inventory-form__inventory-table {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

@@ -1,0 +1,12 @@
+.blue-btn {
+    background-color: rgb(55, 173, 236);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 11px;
+    border: none;
+}
+
+.blue-btn:hover {
+    background-color: rgb(84, 189, 245);
+}

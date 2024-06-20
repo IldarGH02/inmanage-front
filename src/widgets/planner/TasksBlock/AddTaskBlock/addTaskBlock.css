@@ -1,0 +1,67 @@
+.add-task-block {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.add-task-block__close-btn {
+    position: absolute;
+    top: 50px;
+    right: 25px;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.add-task-block__title {
+    color: black;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.add-task-block__content {  
+    background-color: white;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 35px;
+    padding: 40px 30px;
+}
+
+.add-task-block__list {
+    width: 100%;
+    height: 92%;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+.add-task-block__add-btn, .add-task-block__add-btn--active {
+    width: 50px;
+    height: 50px;
+    color: white;
+    border-radius: 100%;
+    font-size: 40px;
+    background-color: rgb(178, 178, 178);
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.add-task-block__add-btn--active {
+    background-color: rgb(0, 121, 255);
+    cursor: pointer;
+}
+
+.add-task-block__list::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-task-block__list::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}

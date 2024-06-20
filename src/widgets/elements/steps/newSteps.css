@@ -1,0 +1,69 @@
+.new-steps {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "SFUI-Display"; 
+}
+
+.new-step {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; 
+    margin-right: 16px;
+    flex: 1; 
+}
+
+.new-step__header {
+    /* min-width: 178px; */
+    max-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    color: rgb(103, 158, 244);
+    font-size: 25px;
+}
+
+.new-step__point {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;  
+}
+
+.new-step__point {
+    min-width: 50px;
+    background-color: rgb(207, 205, 205);
+    width: 144px;
+    height: 17px;
+    transition: all 1.5s ease-in-out;
+}
+
+.new-step:last-child {
+    margin-right: 0;
+}
+
+.new-step__point--active {
+    min-width: 50px;
+    background-color: rgb(103, 158, 244);
+    width: 154px;
+    height: 17px;
+    transition: all 1.5s ease-in-out;
+}
+
+@media(max-width:655px) {
+    .new-step { 
+        margin-right: 7px;
+    }
+    
+    .new-step__header {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    
+    .new-step__point {
+        width: 75px;
+    }
+}

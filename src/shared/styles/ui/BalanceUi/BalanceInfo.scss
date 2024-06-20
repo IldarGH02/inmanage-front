@@ -1,0 +1,86 @@
+.balance__income-link, .balance__expense-link {
+    text-decoration: none;
+}
+
+.balance__income-link {
+    width: calc(50% - 10px);
+
+    .income {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+
+        height: 100%;
+        padding: 40px 40px;
+        background-color: rgb(113, 239, 134);
+        border-radius: 50px;
+
+        background: url('/src/shared/assets/img/balance/income-bckg.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 10%);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .income__title {
+        @include _fontStyle(600, 26px, 26px, rgb(42, 42, 42));
+
+    }
+    .income__container {
+        display: flex;
+        flex-direction: row;
+
+        .income__sum {
+            @include _fontStyle(500, 30px, 31px, rgb(42, 42, 42))
+        }
+
+        .income__valuta {
+            @include _fontStyle(500, 29px, 30px, rgb(42, 42, 42))
+        }
+    }
+}
+
+.balance__expense-link {
+    width: calc(50% - 10px);
+
+    .expense {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+
+        height: 100%;
+        padding: 40px 40px;
+
+        
+        background-color: rgb(220, 127, 127);
+        border-radius: 50px;
+    
+        background: url('/src/shared/assets/img/balance/expense-bckg.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 10%);
+        transition: all 0.2s ease-in-out;
+
+        .expense__title {
+            @include _fontStyle(600, 26px, 26px, rgb(42, 42, 42));
+    
+        }
+
+        .expense__container {
+            display: flex;
+            flex-direction: row;
+    
+            .expense__sum {
+                @include _fontStyle(500, 30px, 31px, rgb(42, 42, 42))
+            }
+    
+            .expense__valuta {
+                @include _fontStyle(500, 29px, 30px, rgb(42, 42, 42))
+            }
+        }
+    }
+}

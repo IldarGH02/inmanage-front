@@ -1,0 +1,46 @@
+.inventory-page {
+    width: 86%;
+    font-family:'Montserrat', sans-serif;
+    position: relative;
+    /* background-color: white; */
+    /* padding: 20px; */
+    max-height: 1000px;
+    margin-top: 20px;
+    border-radius: 20px;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inventory-page__title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+
+.inventory-page__content {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 90vh;
+    padding: 40px 20px 40px 40px;
+    border-radius: 30px;
+}
+
+.inventory-page__name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.inventory-page__address {
+    font-size: 15px;
+    color: grey;
+}
+
+.inventory-page__inventory {
+    margin-top: 40px;
+    width: 100%;
+    height: 88%;
+    /* background-color: aqua; */
+}

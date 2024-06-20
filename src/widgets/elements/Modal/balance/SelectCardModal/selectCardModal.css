@@ -1,0 +1,118 @@
+.select-card-modal {
+    width: 38rem;
+    /* width: 100%; */
+    background-color: white;
+    padding: 1.8rem;
+    border-radius: 2rem;
+}
+
+.select-card-modal__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+}
+
+.select-card-modal__title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.select-card-modal__content {
+    height: 20rem;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 0.2rem solid rgb(241, 242, 246);
+    overflow: hidden;
+}
+
+.select-card-modal__content:hover {
+    overflow-y: auto;
+}
+
+.select-card-modal__item, .select-card-modal__item--active {
+    position: relative;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0.7rem;
+    border-top: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    transition: all 0.2s ease-in-out;
+}
+
+.select-card-modal__content > div:last-child {
+    margin-bottom: 0;
+}
+
+.select-card-modal__item:hover {
+    border-top: 1px solid rgb(183, 205, 241);
+    border-bottom: 1px solid rgb(183, 205, 241);
+}
+
+.select-card-modal__item--active {
+    border-top: 1px solid rgb(103, 158, 244);
+    border-bottom: 1px solid rgb(103, 158, 244);
+    color: rgb(103, 158, 244);
+}
+
+.select-card-modal__item-img {
+    width: 5.2rem;
+    height: auto;
+    position: absolute;
+}
+
+.select-card-modal__item-name {
+    margin-left: 6.2rem;
+    max-height: 40px;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.select-card-modal__footer {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.select-card-modal__cancel-btn {
+    cursor: pointer;
+    margin-right: 1.4rem;
+    font-size: 1.1rem;
+    background-color: inherit;
+    border: none;
+    color: grey;
+    border-bottom: 1px solid grey;
+}
+
+.select-card-modal__add-btn, .select-card-modal__add-btn--active {
+    cursor: pointer;
+    border: none;
+    font-size: 1.1rem;
+    background-color: rgb(156, 191, 246);;
+    color: white;
+    padding: 0.4rem 1.3rem;
+    border-radius: .9rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.select-card-modal__add-btn--active {
+    background-color: rgb(103, 158, 244);
+}
+
+.select-card-modal__content::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+    transition: all 0.2s ease-in-out;
+}
+.select-card-modal__content::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+    transition: all 0.2s ease-in-out;
+}

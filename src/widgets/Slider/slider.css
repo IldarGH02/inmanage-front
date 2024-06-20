@@ -1,0 +1,95 @@
+
+
+/* html, body {
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #222;
+} */
+
+.slider-container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    /* height: 500px; */
+    height: 100%;
+    /* background-color: white; */
+    border-radius: 15px;
+    /* border: 3px solid #2F2E2E; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* height: 80%; */
+    /* width: 80%; */
+    /* max-width: 80%; */
+    /* margin: 30px auto; */
+    /* background: #f1f1f1; */
+    /* padding: 30px; */
+}
+
+.slider-container > span {
+    width: 100%;
+}
+
+h1 {
+    /* text-align: center; */
+    /* margin-bottom: 40px; */
+}
+
+
+.button-slider {
+    background: none;
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.button-slider:first-child {
+    margin-right: 10px;
+}
+
+.button-slider:hover {
+    background: orangered;
+}
+
+.button-slider:active {
+    background: #000;
+    color: #fff;
+}
+
+.slider {
+    border: 2px solid black;
+    width: 100%;
+    /* max-width: 80%; */
+    height: 70%;
+    /* margin: 20px auto; */
+    overflow: hidden;
+    /* overflow: scroll; */
+}
+
+/* img {
+    width: 100%;
+} */
+
+.slider-line {
+    width: 80%;
+    display: flex;
+    /* background: orange; */
+    height: 100%;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+}
+
+.slider-line span {
+    width: 100%;
+    /* height: auto; */
+}
+
+.slider__btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

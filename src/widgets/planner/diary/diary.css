@@ -1,0 +1,36 @@
+.diary {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* flex-direction: column; */
+    /* min-width: 744px; */
+    z-index: 2;
+}
+
+.diary__calendar-block, .diary__tasks-block, .diary__add-task-block {
+    height: 75vh;
+    max-height: 1000px;
+    min-height: 750px;
+    /* width: 100%; */
+    /* z-index: 2; */
+}
+
+.diary__calendar-block {
+    width: 500px;
+}
+
+.diary__tasks-block {
+    width: 980px;
+    border-radius: 45px;
+    background-color: white;
+}
+
+.diary__tasks-today, .diary__expenses-today {
+    height: 50%;
+}
+
+.diary__add-task-block {
+    width: 980px;
+}

@@ -1,0 +1,62 @@
+.background {
+    padding-top: 108px;
+    position: fixed;
+    overflow: hidden;
+    background-size: cover;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(252, 252, 253);
+}
+
+.background-wrapper1, .background-wrapper2 {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    animation: animCloud 50s infinite linear
+}
+
+.background-wrapper2 {
+    animation: animCloud 70s infinite linear
+}
+
+#imgBckg1, #imgBckg2, #imgBckg3, #imgBckg4 {
+    opacity: 0.2;
+    position: fixed;
+    /* position: absolute; */
+    height: auto;
+}
+
+#imgBckg1 {
+    top: 10%;
+    left: 10%;
+    width: 800px;
+}
+#imgBckg2 {
+    bottom: 10%;
+    right: 10%;
+    width: 500px;
+}
+#imgBckg3 {
+    top: 40%;
+    right: 10%;
+    width: 400px;
+}
+
+#imgBckg4 {
+    top: 40%;
+    left: 10%;
+    width: 800px;
+}
+
+@keyframes animCloud {
+    from {
+        transform: translateX(100%)
+    }
+    to {
+        transform: translateX(-100%)
+    }
+}

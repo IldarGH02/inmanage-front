@@ -1,0 +1,289 @@
+.add-expense-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    height: 100vh;
+    /* background: url('../../../assets/img/balance/bckg.png');
+    animation: scroll 800s linear infinite; */
+    padding: 90px 0 10px 0;
+    position: relative;
+}
+
+.add-expense-page__container {
+    width: 1500px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    /* display: flex; */
+}
+
+.add-expense-page__header {
+    display: flex;
+    align-items: center;
+    margin: 20px 10px;
+}
+
+.add-expense-page__title {
+    font-size: 33px;
+    font-weight: 700;
+    margin-left: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.add-expense-page__content {
+    display: flex;
+    justify-content: space-between;
+    /* z-index: 20; */
+    position: relative;
+}
+
+.add-expense-page__personal-expenses-block {
+    width: 730px;
+    max-height: 1000px;
+    min-height: 500px;
+    border-radius: 30px;
+    position: relative;
+    z-index: 20;
+}
+
+.add-expense-page__finance-block-wrapper, .add-expense-page__spend-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 500px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+    /* overflow: hidden; */
+    /* overflow-y: auto; */
+}
+
+.add-expense-page__finance-block, .add-expense-page__spend-block {
+    /* box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 8%); */
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.add-expense-page__categories {
+    width: 100%;
+    height: 55px;
+}
+
+.add-expense-page__sum {
+    margin: 20px 0;
+    height: 110px;
+    width: 100%;
+}
+
+.add-expense-page__block-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.add-expense-page__position {
+    width: 100%;
+    height: 140px;
+}
+
+.add-expense::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-expense::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}
+
+.add-expense-page__add-btn--active {
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.add-expense-page__ddlist {
+    height: 70px;
+    position: relative;
+}
+
+.add-expense-page__cancel-btn {
+    font-size: 20px;
+}
+
+.add-expense-page__add-btn--active {
+    background-color: rgb(55, 173, 236);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.add-expense-page__add-btn--active:hover {
+    /* background-color: rgb(84, 189, 245); */
+}
+
+.add-expense-page__add-btn, .add-expense-page__add-btn--active {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(158, 190, 254);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.add-expense-page__add-btn--active {
+    background-color: rgb(103, 158, 243);
+}
+
+.add-expense-page__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 12px 0;
+}
+
+.add-expense-page__big-personal-expenses {
+    position: relative;
+    background-color: #2F2E2E;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+}
+
+.add-expense-page__finance-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-expense-page__finance-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.add-expense-page__spend-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-expense-page__spend-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+@media (max-height: 1100px) {
+    .add-expense-page__header {
+        display: flex;
+        align-items: center;
+        margin: 20px 10px;
+    }
+    .add-expense-page__block-title {
+        font-size: 25px;
+        margin: 0 0 5px 0;
+        text-align: center;
+    }
+}
+
+/* @keyframes scroll {
+    100%{
+     background-position:3000px -3000px;
+   }
+}
+
+@media (prefers-reduced-motion) {
+    .backgroundContent {
+      animation: scroll 200s linear infinite;
+    }
+} */
+
+/* @media (max-width: 1700px) {
+    .add-expense-page {
+        height: 100vh;
+        padding: 70px 0;
+    }
+    .add-expense-page__finance-block, .add-expense-page__spend-block {
+        width: 500px;
+        height: auto;
+        padding: 10px;
+    }
+    .add-expense-page__container {
+        width: 1025px;
+    }
+    .add-expense-page__categories {
+        height: 35px;
+    }
+    .add-expense-page__sum {
+        margin: 8px 0 0 0;
+        height: 60px;
+    }
+    .add-expense-page__block-title {
+        margin-top: 0px;
+    }
+    .add-expense-page__header {
+        margin: 10px;
+    }
+    .add-expense-page__title {
+        font-size: 25px;
+    }
+    .add-expense-page__block-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1010px) {
+    .add-expense-page__finance-block, .add-expense-page__spend-block {
+        width: 320px;
+        margin-bottom: 5px;
+        height: auto;
+        padding: 20px 40px;
+        margin: 0 auto 5px auto;
+
+    }
+    .add-expense-page__container {
+        width: 350px;
+    }
+    .add-expense-page__content {
+        flex-direction: column;
+    }
+    .add-expense-page__categories {
+        height: 30px;
+    }
+    .add-expense-page__sum {
+        margin: 8px 0;
+        height: 60px;
+    }
+    .add-expense-page__block-title {
+        margin-top: 0px;
+    }
+    .add-expense-page__title {
+        font-size: 20px;
+    }
+    .add-expense-page__header {
+        margin: 0 0 10px 20px;
+    }
+} */

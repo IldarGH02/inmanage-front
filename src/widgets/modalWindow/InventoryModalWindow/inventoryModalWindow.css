@@ -1,0 +1,310 @@
+.inventory-modal {
+    width: 1300px;
+    height: 930px;
+    background-color: #636363;
+    border-radius: 15px;
+    padding: 25px 0;
+}
+
+.inventory-modal__title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid yellow;
+    height: 100px;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 80px;
+}
+
+.inventory-modal__close-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    background-color: #636363;
+    border: none;
+    cursor: pointer;
+}
+
+.inventory-modal__close-btn:hover {
+    background-color: #636363;
+    color: rgb(36, 36, 36);
+}
+
+.inventory-modal__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 685px;
+    padding: 0 80px;
+    justify-content: space-evenly;
+    background-color: #6d6d6d;
+}
+
+.inventory-modal__content > h2 {
+    font-size: 25px;
+}
+
+.inventory-modal__item {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.inventory-modal__item > input {
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 5px;
+    font-size: 20px;
+}
+
+.inventory-modal__label {
+    font-size: 22px;
+    width: 35%;
+    margin-bottom: 15px;
+    margin-left: 100px;
+    
+}
+
+.inventory-modal__item > label {
+    cursor: pointer;
+    position: relative;
+    margin-left: 50px;
+}
+.inventory-modal__item > input[type="radio"] {
+    display:none
+}
+.inventory-modal__item > label:before {
+    cursor: pointer;
+    content:'';
+    width: 20px;
+    height: 20px;
+    border:2px solid rgb(0, 0, 0);
+    border-radius:50%;
+    position:absolute;
+    top:calc(50% - 11px);
+    left: -50px;
+    
+}
+
+#delete1:checked~label:before, #delete2:checked~label:before, #delete3:checked~label:before {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 255, 0);
+    border-width: 6px;
+    border-style: double;
+    top: calc(50% - 12px);
+}
+
+.inventory-modal__footer {
+    height: 110px;
+    width: 100%;
+    padding: 10px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid yellow;
+    /* margin-bottom: 10px; */
+}
+
+.inventory-modal__confirm-btn, .inventory-modal__cancel-btn {
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+}
+
+.inventory-modal__confirm-btn {
+    margin-right: 30px;
+    background-color: black;
+}
+
+.inventory-modal__confirm-btn:hover, .inventory-modal__cancel-btn:hover {
+    background-color: #636363;
+    color: yellow;
+}
+
+.inventory-modal__item > input {
+    height: 35px;
+    width: 40%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: start;
+}
+
+.inventory-modal__general-price b {
+    color:rgb(255, 255, 0);
+    margin-left: 5px;
+}
+
+.inventory-modal__general-count b {
+    color:rgb(0, 0, 0);
+    margin-left: 5px;
+}
+
+.inventory-modal__add-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.inventory-modal__add-btn:hover {
+    background-color:#636363;
+    color: yellow;
+    border: 4px solid black;
+}
+
+.inventory-modal__add-btn:active {
+    color: white;
+    background-color: black;
+}
+
+.inventory-modal__list {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.inventory-modal__details {
+    width: 100%;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.inventory-modal__item:first-child {
+    border-top: 1px solid grey;
+}
+
+.inventory-modal__item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 1px solid grey;
+    /* margin-bottom: 10px; */
+}
+
+.inventory-modal__item-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+}
+
+.inventory-modal__item-name {
+    max-width: 70%;
+    padding-left: 10px;
+}
+
+.inventory-modal__item-price {
+    max-width: 30%;
+}
+
+.inventory-modal__item-remove-btn {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    background-color: rgb(93, 93, 93);
+    color: black;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-left: 30px;
+}
+
+.inventory-modal__item-remove-btn:hover {
+    color: yellow;
+}
+
+.inventory-modal__new-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border: 6px solid rgb(33, 33, 33);
+    padding-left: 20px;
+    background-color: #636363;
+    /* margin-bottom: 10px; */
+}
+
+.inventory-modal__new-item-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+}
+
+.inventory-modal__new-item-info span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inventory-modal__new-item-info input::-webkit-input-placeholder {
+    color:rgb(155, 155, 155);
+}
+
+.inventory-modal__new-item-info input {
+    padding: 0 10px;
+    font-size: 22px;
+    outline:none;
+}
+
+.inventory-modal__new-item-name {
+    width: 650px;
+    background-color: #636363;
+    height: 45px;
+    color: white;
+}
+
+.inventory-modal__new-item-price {
+    width: 250px;
+    background-color: #636363;
+    height: 45px;
+    color: white;
+}
+
+.inventory-modal__new-item-add-btn {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 44px;
+    background-color: rgb(93, 93, 93);
+    color: rgb(0, 198, 0);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-left: 30px;
+}
+
+.inventory-modal__new-item-add-btn:hover {
+    color: rgb(0, 255, 34);
+}

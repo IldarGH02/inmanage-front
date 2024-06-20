@@ -1,0 +1,25 @@
+.registration__choose {
+
+    .registration__choose-text {
+        @include _fontStyle(400, 17px, 15px, #333);
+
+        .registration__choose-link {
+            margin-left: 5px;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease-in-out;
+
+            &:focus-visible {
+                border-bottom: 1px solid $lightBlueColor;
+            }
+
+            &:hover {
+                border-bottom: 1px solid $lightBlueColor;
+            }
+
+            @include _fontStyle(400, 17px, 15px, $lightBlueColor);
+        }
+    }
+}

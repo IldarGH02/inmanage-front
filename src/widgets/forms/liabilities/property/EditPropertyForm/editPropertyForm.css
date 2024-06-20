@@ -1,0 +1,199 @@
+.edit-property-form {
+    /* width: 100%; */
+    z-index: 2;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.edit-property-form__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-property-form__characteristic-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.edit-property-form__characteristic-block {
+    /* box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 8%); */
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.edit-property-form__about-card-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+    /* overflow: hidden;
+    overflow-y: auto; */
+}
+
+.edit-property-form__about-card-block {
+    height: 95%;
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.edit-property-form__block-title {
+    font-size: 28px;
+    font-weight: 600;
+    /* margin: 10px 0; */
+    height: 70px;
+    text-align: center;
+}
+
+.edit-property-form__cancel-btn {
+    font-size: 20px;
+}
+
+.edit-property-form__add-btn {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(103, 158, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.edit-property-form__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    padding: 12px 0;
+}
+
+.edit-property-form__about-card-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+
+.edit-property-form__about-card-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.edit-property-form__characteristic-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.edit-property-form__characteristic-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.edit-property-form__item {
+    height: 115px;
+    width: 100%;
+}
+
+.edit-property-form__warning {
+    margin-top: 5px;
+    color: rgb(187, 187, 187);
+}
+
+.edit-property-form__add-img-btn {
+    width: 8.125rem;
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid #c7c7c7;
+    background-color: inherit;
+    color: #c7c7c7;
+    font-size: 1.1rem;
+}
+
+.edit-property-form__images {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.7rem;
+}
+
+.edit-property-form-image {
+    width: 12.5rem;
+    min-height: 6.5rem;
+    max-height: 12.5rem;
+    border: 0.0625rem solid rgb(149, 149, 149);
+    border-radius: .5rem;
+    margin-right: 1.25rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-property-form-image:nth-child(5n) {
+    margin-right: 0;
+}
+
+.edit-property-form-image__remove-btn {
+    position: absolute;
+    right: 0.3125rem;
+    top: 0.3125rem;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    font-size: 1.375rem;
+    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    border: 0.0625rem solid rgb(149, 149, 149);
+    background-color: transparent;
+    color: rgb(149, 149, 149);
+}
+
+.edit-property-form-image:hover > .edit-property-form-image__remove-btn {
+    opacity: 1;
+}
+
+.edit-property-form-image__img {
+    object-fit: cover;
+    /* object-position: 50% 50%; */
+    width: 100%;
+    height: auto;
+    
+    /* left: 10%;
+    top: 10%; */
+    /* position: absolute; */
+}
+

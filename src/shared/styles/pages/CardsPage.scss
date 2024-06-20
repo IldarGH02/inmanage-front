@@ -1,0 +1,24 @@
+.cards__page {
+    padding: 15px 0;
+
+    .cards__page-title {
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    .cards__page-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .cards__page-finance {
+            width: calc(50% - 5px);
+            background-color: white;
+            border-radius: 30px;
+            padding: 20px;
+        }
+
+        .add-card-form {
+            
+        }
+    }
+}

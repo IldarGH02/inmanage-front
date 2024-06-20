@@ -1,0 +1,64 @@
+.balance__total {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: calc(50% - 10px);
+    background-color: #fff;
+    border-radius: 50px;
+    gap: 15px;
+    box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 10%);
+
+    .balance__total-title {
+        margin: 0;
+        margin-bottom: 10px;
+        @include _fontStyle(400, 26px, 26px, #000)
+    }
+
+    .balance__total-cash {
+        margin: 0;
+        @include _fontStyle(400, 26px, 26px, #000)
+    }
+
+    .balance__total-card {
+        display: flex;
+        flex-direction: column;
+
+        .total__card-title {
+            margin: 0;
+            margin-bottom: 5px;
+            @include _fontStyle(400, 16px, 16px, rgb(179, 179, 179))
+        }
+
+        .total__card-finance {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .card__finance-income {
+                display: flex;
+                flex-direction: row;
+
+                span {
+                    @include _fontStyle(400, 22px, 22px, rgb(0, 203, 0))
+                }
+
+                b { 
+                    @include _fontStyle(400, 22px, 22px, rgb(0, 203, 0))
+                }
+            }
+
+            .card__finance-consumption {
+                display: flex;
+                flex-direction: row;
+
+                span {
+                    @include _fontStyle(400, 22px, 22px, red);
+                }
+
+                b {
+                    @include _fontStyle(400, 22px, 22px, red)
+                }
+            }
+        }
+    }
+}

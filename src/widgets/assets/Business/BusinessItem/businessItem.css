@@ -1,0 +1,80 @@
+.business-item {
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    /* background-color: white; */
+    /* background-color: grey; */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: black;
+}
+
+.business-item:hover {
+    background-color: rgb(153, 200, 241);
+}
+
+.business-item__img {
+    width: 240px;
+    height: auto;
+}
+
+.business-item__img > img {
+    width: 240px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.business-item__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 44px;
+    width: 100%;
+
+}
+
+.business-item__info {
+
+}
+
+.business-item__name {
+    font-size: 27px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.business-item__address {
+    font-size: 23px;
+    color: grey;
+}
+
+.business-item__finance {
+    min-width: 150px;
+    font-size: 22px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.business-item__finance > div {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+} 
+
+.business-item__finance > div > span {
+    margin-right: 10px;
+}
+
+.business-item__income {
+
+}
+
+.business-item__expense {
+
+}
+
+.business-item__profit {
+
+}

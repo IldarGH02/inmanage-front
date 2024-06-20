@@ -1,0 +1,149 @@
+.profile-page {
+    width: 100%;
+    font-family: "SFUI-Display";
+    /* height: 100vh; */
+    /* background-color: rgb(252, 252, 253); */
+    /* background: url('../../assets/img/balance/bckg.png'); */
+    /* animation: scroll 800s linear infinite; */
+    padding: 108px 0 30px 0;
+    position: relative;
+    /* overflow: hidden; */
+    /* background-size: cover; */
+}
+
+.profile-page__container {
+    width: 1500px;
+    height: 100%;
+    margin: 0 auto;
+    /* padding: 0 10px; */
+    position: relative;
+    /* display: flex; */
+}
+
+.profile-page__title {
+    font-size: 33px;
+    font-weight: 600;
+    margin: 35px 40px;
+    position: relative;
+    z-index: 3;
+}
+
+.profile-page__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-page__profile-setting, .profile-page__extended-setting {
+    width: 735px;
+    background-color: white;
+    height: auto;
+    /* min-height: ; */
+    max-height: 1000px;
+    /* min-height: 600px; */
+    border-radius: 50px;
+    /* box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 8%); */
+    padding: 35px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.add-expense::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.add-expense::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}
+
+@media (max-height: 1115px) {
+    .profile-page__title {
+        margin: 15px 40px;
+    }
+    .profile-page__profile-setting, .profile-page__extended-setting {
+        padding: 20px 40px;
+    }
+}
+
+/* @keyframes scroll {
+    100%{
+     background-position:3000px -3000px;
+   }
+}
+
+@media (prefers-reduced-motion) {
+    .backgroundContent {
+      animation: scroll 200s linear infinite;
+    }
+} */
+
+/* @media (max-width: 1700px) {
+    .profile-page {
+        height: 100vh;
+        padding: 70px 0;
+    }
+    .profile-page__profile-setting, .profile-page__extended-setting {
+        width: 500px;
+        height: auto;
+        padding: 10px;
+    }
+    .profile-page__container {
+        width: 1025px;
+    }
+    .profile-page__categories {
+        height: 35px;
+    }
+    .profile-page__sum {
+        margin: 8px 0 0 0;
+        height: 60px;
+    }
+    .profile-page__block-title {
+        margin-top: 0px;
+    }
+    .profile-page__header {
+        margin: 10px;
+    }
+    .profile-page__title {
+        font-size: 25px;
+    }
+    .profile-page__block-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1010px) {
+    .profile-page__profile-setting, .profile-page__extended-setting {
+        width: 320px;
+        margin-bottom: 5px;
+        height: auto;
+        padding: 20px 40px;
+        margin: 0 auto 5px auto;
+
+    }
+    .profile-page__container {
+        width: 350px;
+    }
+    .profile-page__content {
+        flex-direction: column;
+    }
+    .profile-page__categories {
+        height: 30px;
+    }
+    .profile-page__sum {
+        margin: 8px 0;
+        height: 60px;
+    }
+    .profile-page__block-title {
+        margin-top: 0px;
+    }
+    .profile-page__title {
+        font-size: 20px;
+    }
+    .profile-page__header {
+        margin: 0 0 10px 20px;
+    }
+} */

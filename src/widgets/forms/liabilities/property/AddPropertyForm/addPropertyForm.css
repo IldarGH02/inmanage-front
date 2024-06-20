@@ -1,0 +1,123 @@
+/* .add-property-form {
+    z-index: 2;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.add-property-form__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-property-form__characteristic-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.add-property-form__characteristic-block {
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.add-property-form__about-card-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 75vh;
+    max-height: 1000px;
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.add-property-form__about-card-block {
+    height: 95%;
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.add-property-form__block-title {
+    font-size: 28px;
+    font-weight: 600;
+    height: 70px;
+    text-align: center;
+}
+
+.add-property-form__cancel-btn {
+    font-size: 20px;
+}
+
+.add-property-form__add-btn {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(103, 158, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.add-property-form__btns {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    padding: 12px 0;
+}
+
+.add-property-form__about-card-block::-webkit-scrollbar {
+    max-width: 6px;               
+    max-height: 50px;
+}
+
+.add-property-form__about-card-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    
+    border-radius: 15px;      
+    border: 1.6px solid rgb(241, 242, 246);  
+}
+
+.add-property-form__characteristic-block::-webkit-scrollbar {
+    max-width: 6px;              
+    max-height: 50px;
+}
+.add-property-form__characteristic-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);  
+    border-radius: 15px;      
+    border: 1.6px solid rgb(241, 242, 246);  
+}
+
+.add-property-form__item {
+    height: 115px;
+    width: 100%;
+}
+
+.add-property-form__warning {
+    margin-top: 5px;
+    color: rgb(187, 187, 187);
+}
+
+ */

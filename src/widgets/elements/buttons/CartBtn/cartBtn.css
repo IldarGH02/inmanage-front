@@ -1,0 +1,16 @@
+.cart-btn {
+    width: 95%;
+    height: auto;
+    filter:invert(10%);
+    transition: all 0.1s ease-out;
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    filter:invert(0%);
+}
+
+.cart-btn:active {
+    width: 100%;
+    height: auto;
+}

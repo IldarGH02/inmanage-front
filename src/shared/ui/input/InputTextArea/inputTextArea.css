@@ -1,0 +1,35 @@
+.input-text-area {
+    letter-spacing: 2px;
+    /* height: 35px; */
+    width: 100%;
+    border-radius: 7px;
+    background-color: #c7c7c7;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 310px;
+}
+
+.input-text-area > textarea {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #c7c7c7;
+    font-size: 20px;
+    letter-spacing: 1px;
+    resize: none;
+}
+
+.input-text-area > b {
+    height: 100%;
+    color: red;
+    font-size: 22px;
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: flex-start;
+}
+
+.input-text-area > textarea:focus {
+    outline: none;
+}

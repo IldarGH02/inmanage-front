@@ -1,0 +1,26 @@
+.input-sum {
+    letter-spacing: 2px;
+    /* height: 35px; */
+    /* width: 100%; */
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 15px;
+    font-size: 20px;
+    width: 80%;
+}
+
+#input-sum {
+    letter-spacing: 2px;
+    /* height: 35px; */
+    /* width: 100%; */
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 15px;
+    font-size: 20px;
+    width: 80%;
+}
+
+.input-sum + b {
+    font-size: 21px;
+    margin-left: 10px;
+}

@@ -1,0 +1,98 @@
+.inner-project {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* min-width: 1860px; */
+    /* min-width: 744px; */
+    /* width: 100%; */
+    /* min-height: 950px; */
+    /* background-color: #2F2E2E; */
+    /* border-radius: 15px; */
+}
+
+.inner-project__header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    border-bottom: 1px solid #636363;
+}
+
+.inner-project__title {
+    font-size: 22px;
+}
+
+.inner-project__btn-history, .inner-project__btn-add {
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+    margin-left: 10px;
+}
+
+.inner-project__btn-history:hover, .inner-project__btn-add:hover {
+    background-color: #636363;
+    color: yellow;
+}
+
+.inner-project__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.inner-project__calendar {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 744px;
+}
+
+.inner-project__to-do {
+    width: 60%;
+}
+
+
+.inner-project__back-btn {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 120px;
+    /* padding-top: 40px; */
+}
+
+.inner-project__back-btn a {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    /* height: 30px; */
+    background-color: #636363;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.inner-project__back-btn a > b {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

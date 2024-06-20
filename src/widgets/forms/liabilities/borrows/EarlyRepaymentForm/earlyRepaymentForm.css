@@ -1,0 +1,106 @@
+.early-repayment-form {
+    /* width: 100%; */
+    z-index: 2;
+    padding: 0 10px;
+    height: 100%;
+}
+
+.early-repayment-form__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.early-repayment-form__about-card-block-wrapper {
+    width: 730px;
+    background-color: white;
+    height: 640px;
+    max-height: 1000px;
+    /* min-height: 676px; */
+    min-height: 600px;
+    border-radius: 30px;
+    padding: 20px;
+    z-index: 2;
+    /* overflow: hidden;
+    overflow-y: auto; */
+}
+
+.early-repayment-form__about-card-block {
+    height: 95%;
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.early-repayment-form__block-title {
+    font-size: 28px;
+    font-weight: 600;
+    /* margin: 10px 0; */
+    height: 60px;
+    text-align: center;
+}
+
+.early-repayment-form__cancel-btn {
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+.early-repayment-form__add-btn {
+    width: 190px;
+    max-height: 40px;
+    height: 5vh;
+    font-size: 22px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    background-color: rgb(103, 158, 244);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    border: none;
+}
+
+.early-repayment-form__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    padding: 12px 0;
+}
+
+.early-repayment-form__about-card-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+
+.early-repayment-form__about-card-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.early-repayment-form__characteristic-block::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+.early-repayment-form__characteristic-block::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+}
+
+.early-repayment-form__item {
+    height: 115px;
+    width: 100%;
+}
+
+.early-repayment-form__warning {
+    margin-top: 5px;
+    color: rgb(187, 187, 187);
+}

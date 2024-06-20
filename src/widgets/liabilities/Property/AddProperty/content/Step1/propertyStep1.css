@@ -1,0 +1,16 @@
+.property-add {
+    max-height: 555px;
+}
+
+.property-add__item {
+    margin-bottom: 22px;
+}
+
+.property-add__name {
+    font-size: 20px;
+    margin-bottom: 11px;
+}
+
+.property-add__name > b {
+    color: red;
+}

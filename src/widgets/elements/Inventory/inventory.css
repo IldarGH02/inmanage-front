@@ -1,0 +1,58 @@
+.inventory {
+    height: 100%;
+    width: 100%;
+    /* padding: 0 10px; */
+    /* background-color: aqua; */
+}
+
+.inventory__list {
+    height: 90%;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.inventory-list-empty {
+    width: 100%;
+    color: grey;
+    text-align: center;
+    font-size: 18px;
+}
+
+.inventory__actions {
+    height: 10%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.inventory__add-btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: rgb(55, 173, 236);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-right: 25px;
+}
+
+.inventory__add-btn:hover {
+    background-color: rgb(84, 189, 245);
+}
+
+.inventory__list::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+    /* margin-left: 10px; */
+}
+.inventory__list::-webkit-scrollbar-thumb {
+    background-color: #2F2E2E;    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid #d9d9d9;  /* padding вокруг плашки */
+}

@@ -1,0 +1,61 @@
+.input-textarea-form, .input-textarea-form--error {
+    width: 100%;
+    border-radius: 15px;
+    border: 5px solid rgb(241, 242, 246);
+    background: #FFF;
+    height: auto;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 35px 25px;
+}
+
+.input-textarea-form--error {
+    border: 5px solid rgba(255, 0, 0, 0.36);
+}
+
+.input-textarea-form:hover .input-textarea-form__textarea::-webkit-scrollbar-thumb {
+    display: block;
+}
+
+.input-textarea-form__title {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    font-size: 20px;
+    color: rgb(207, 205, 205);
+}
+
+.input-textarea-form__textarea {
+    width: 100%;
+    resize: none;
+    min-height: 20rem;
+    height: 100%;
+    
+    border: none;
+    font-size: 20px;
+}
+
+.input-textarea-form__textarea:focus {
+    outline: none;
+}
+
+.input-textarea-form__counter-text {
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    font-size: 15px;
+    color: rgb(207, 205, 205);
+}
+
+.input-textarea-form__textarea::-webkit-scrollbar {
+    max-width: 6px;               /* ширина scrollbar */
+    max-height: 50px;
+}
+
+.input-textarea-form__textarea::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 242, 246);    /* цвет плашки */
+    border-radius: 15px;       /* закругления плашки */
+    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
+    display: none;
+}

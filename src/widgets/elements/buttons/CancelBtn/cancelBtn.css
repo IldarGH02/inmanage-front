@@ -1,0 +1,10 @@
+.cancel-btn {
+    cursor: pointer;
+    text-decoration: underline;
+    color: grey;
+    transition: all 0.2s ease-in-out;
+}
+
+.cancel-btn:hover {
+    color: rgb(84, 84, 84);
+}

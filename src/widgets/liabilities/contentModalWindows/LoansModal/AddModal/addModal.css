@@ -1,0 +1,198 @@
+.loans-add-modal {
+    width: 1300px;
+    height: 865px;
+    background-color: #636363;
+    border-radius: 15px;
+    padding: 25px 0;
+}
+
+.loans-add-modal__title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid yellow;
+    height: 100px;
+    align-items: center;
+    font-size: 18px;
+    padding: 0 80px;
+}
+
+.loans-add-modal__close-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    background-color: #636363;
+    border: none;
+    cursor: pointer;
+}
+
+.loans-add-modal__close-btn:hover {
+    background-color: #636363;
+    color: rgb(36, 36, 36);
+}
+
+.loans-add-modal__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    padding: 0 80px;
+    justify-content: space-evenly;
+    background-color: #6d6d6d;
+}
+
+.loans-add-modal__item {
+    width: 100%;
+    height: auto;
+}
+
+.loans-add-modal__item > input {
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 5px;
+    font-size: 20px;
+}
+
+.loans-add-modal__label {
+    font-size: 22px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.loans-add-modal__input-container input:nth-child(3), .loans-add-modal__input-container input:nth-child(4) {
+    margin-bottom: 0px;
+}
+
+.loans-add-modal__checkbox-group {
+    width: 100%;
+    display: flex;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.loans-add-modal__item-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.loans-add-modal__item-container > label {
+    cursor: pointer;
+    position: relative;
+    margin-left: 50px;
+    margin-right: 80px;
+}
+.loans-add-modal__item-container > input {
+    display:none
+}
+.loans-add-modal__item-container > label:before {
+    cursor: pointer;
+    content:'';
+    width: 20px;
+    height: 20px;
+    border:2px solid rgb(0, 0, 0);
+    border-radius:50%;
+    position:absolute;
+    top:calc(50% - 11px);
+    left: -50px;
+    
+}
+
+#insurance1:checked~label:before, #insurance2:checked~label:before {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 255, 0);
+    border-width: 6px;
+    border-style: double;
+    top: calc(50% - 12px);
+}
+
+
+
+/* #insurance1,#insurance2 {
+    font: bold 48px/1.5 cursive;
+} */
+
+.loans-add-modal__footer {
+    height: 110px;
+    width: 100%;
+    padding: 10px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid yellow;
+    padding-top: 10px;
+}
+
+.loans-add-modal__add-btn, .loans-add-modal__cancel-btn {
+    width: 220px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease-in;
+}
+
+.loans-add-modal__add-btn {
+    margin-right: 30px;
+    background-color: black;
+}
+
+.loans-add-modal__add-btn:hover, .loans-add-modal__cancel-btn:hover {
+    background-color: #636363;
+    color: yellow;
+}
+
+.loans-add-modal__input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.loans-add-modal__input-container input {
+    /* display: flex; */
+    height: 35px;
+    width: 58%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 5px;
+    font-size: 20px;
+    margin-right: 20px;
+    /* justify-content: start; */
+}
+
+.loans-add-modal__item-container > div input {
+    height: 35px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #a4a4a4;
+    padding: 2px 10px;
+    font-size: 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+/* .loans-add-modal__item-container > div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} */
+
+.loans-add-modal__input-item {
+    width: 50%;
+    margin-bottom: 18px;
+    /* display: flex;
+    justify-content: start; */
+
+}
+
+.loans-add-modal__input-label {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
