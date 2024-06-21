@@ -9,7 +9,7 @@ import { balanceRouter } from "./balanceRoutes";
 
 export const AuthorizedRoutes = () => {
     return (
-        <Route path="/" element={<UnionRoutes/>}>
+        <Route element={<UnionRoutes/>}>
             {balanceRouter}
             {assetsRouter}
             {liabilitiesRouter}

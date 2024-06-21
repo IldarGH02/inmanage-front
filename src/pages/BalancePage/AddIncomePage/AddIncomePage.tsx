@@ -3,23 +3,22 @@ import "./addIncomePage.css"
 import { ExpenseCategories } from "../../../entities/Balance/ExpenseBalance/ExpenseCategories/ExpenseCategories"
 import { InputExpenseSum } from "../../../entities/Balance/ExpenseBalance/InputSum/InputSum"
 import { ExpenseSliderFinance } from "../../../entities/Balance/ExpenseBalance/ExpenseSlider/ExpenseSliderFinance/ExpenseSliderFinance"
-import { ICard, IExpenseListBlock, IExpenseSliderCategory, IIncome, IIncomeBalance, IWork } from "../../../app/types/balance/IBalance"
+import { Card, IExpenseListBlock, IExpenseSliderCategory, IIncome, IIncomeBalance, IWork } from "../../../app/types/balance/IBalance"
 import { ExpenseDropDownList } from "../../../entities/Balance/ExpenseBalance/ExpenseDropDownList/ExpenseDropDownList"
 import "../../../widgets/elements/buttons/CancelBtn/cancelBtn.css";
 import { Background } from "../../../widgets/elements/Background/Background"
 import { Link, useNavigate } from "react-router-dom"
 import { IncomeJob } from "../../../entities/Balance/IncomeBalance/IncomeJob/IncomeJob"
 import { IncomeAssets } from "../../../entities/Balance/IncomeBalance/IncomeAssets/IncomeAssets"
-import { useTypedSelector } from "../../../features/hooks/useTypedSelector"
 import { useDispatch } from "react-redux"
-import { addFavoriteCard, addIncome, addIncomeAssets, addWork, getBalance, getWorks, hideLoader, showLoader } from "../../../app/store/actions/balance/balanceActions"
+import { addFavoriteCard, addIncome, addIncomeAssets, addWork, getWorks, hideLoader, showLoader } from "../../../app/store/actions/balance/balanceActions"
 import { actionTypesBalance } from "../../../app/store/types/balanceTypes"
 import { SelectCardModal } from "../../../widgets/elements/Modal/balance/SelectCardModal/SelectCardModal"
 import { Modal } from "../../../widgets/elements/Modal/Modal"
 import { updateAssetsIncome } from "../../../app/store/actions/assets/assetsActions"
 import { actionTypes } from "../../../app/store/types/types"
 import { IAssetsBusiness, IAssetsProperty, IAssetsTransport } from "../../../app/types/assets/IAssets"
-import { SpinnerLoader } from "../../../widgets/elements/SpinnerLoader/SpinnerLoader"
+
 
 import walletBckg from '../../../shared/assets/img/balance/walletBckg.png'
 import { observer } from "mobx-react-lite"
@@ -59,7 +58,7 @@ export const AddIncomePage = observer(() => {
     const [valueSum, setValueSum] = useState('')
     const [alertSum, setAlertSum] = useState('')
 
-    const [cardList, setCardList] = useState<ICard[]>([])
+    const [cardList, setCardList] = useState<Card[]>([])
 
     const [positionOfCategoryAssets, setPositionOfCategoryAssets] = useState<IExpenseSliderCategory[]>([])
     const [activeCategory, setActiveCategory] = useState<number|null>(null) 
@@ -68,67 +67,23 @@ export const AddIncomePage = observer(() => {
 
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        if(store.balance === null) {
-            dispatch(showLoader(actionTypesBalance.SHOW_LOADER))
-            const res = getBalance(actionTypesBalance.GET_BALANCE)
-            res.then(e => {
-                dispatch(e!)
-                let cardListTmp: ICard[] = [];
-                let favoriteCardsId = (e!.payload.favorite_cards as number[]);
-                (e!.payload.card_list as ICard[]).forEach(el=>{
-                    if(favoriteCardsId.includes(el.id!)) {
-                        cardListTmp.push(el)
-                    }
-                })
-                setCardList(cardListTmp)
-            })
-            .catch((e) => {
-                dispatch(hideLoader(actionTypesBalance.HIDE_LOADER))
-                console.log(e)
-            })
-        } else {
-            let cardListTmp: ICard[] = [];
+    useEffect(() => {
+        if(store.balance) {
+            let cardListTmp: Card[] = [];
             let favoriteCardsId = (store.balance.favourite_cards as number[]);
-            (store.balance.card_list as ICard[]).forEach(el=>{
+            (store.balance.card_list as Card[]).forEach(el=>{
                 if(favoriteCardsId.includes(el.id!)) {
                     cardListTmp.push(el)
                 }
             })
             setCardList(cardListTmp)
         }
+        
     }, [])
 
     useEffect(()=>{
-        if(!store.work) {
-            dispatch(showLoader(actionTypesBalance.SHOW_LOADER))
-            const res = getWorks(actionTypesBalance.GET_WORKS)
-            res.then(e => {
-                console.log(e.payload.work)
-                dispatch(e!) 
-                setListJobBlock(e.payload.work.map(el=>{
-                    const obj: IExpenseListBlock = {
-                        id: el.id!,
-                        name: el.name,
-                        active: false
-                    }
-                    return obj
-                }))
-            })
-            .catch((e) => {
-                dispatch(hideLoader(actionTypesBalance.HIDE_LOADER))
-                console.log(e)
-            })
-        } else {
-            setListJobBlock(store.work.map((el: IWork)=>{
-                const obj: IExpenseListBlock = {
-                    id: el.id!,
-                    name: el.name,
-                    active: false
-                }
-                return obj
-            }))
-        }
+        const works = store.works
+        
     }, [])
 
     useEffect(()=>{
@@ -224,13 +179,13 @@ export const AddIncomePage = observer(() => {
     // }
 
     const closeSelectCarModal = (id?: number) => {
-        if(id) {
+        if(id && store.balance) {
             dispatch(showLoader(actionTypesBalance.SHOW_LOADER))
             let newFavoriteCards: number[] = Array.from(new Set([...store.balance.favourite_cards, id]))
 
             const res = addFavoriteCard(actionTypesBalance.ADD_FAVORITE_CARD, newFavoriteCards)
             res.then(e => {
-                let newCards: ICard[] = e!.payload.balance.card_list
+                let newCards: Card[] = e!.payload.balance.card_list
                 setCardList(newCards)
                 dispatch(e!)
                 

@@ -1,40 +1,71 @@
-export interface IBalance {
-    id: number, 
-    card_list: ICard[],
-    favorite_cards: number[]
-    total: number,
-    total_in_currency: number|null, 
-    total_income: number,  // optional
-    total_expenses: number,  // optional
-    currency: null,  // валюта
-    card_funds: number,  // optional
-    card_income: number,
-    card_expenses: number,
-    user: number
-}
+import { ZodNull, z } from 'zod'
 
-export interface ICard {
-    id?: number,
-    name: string,
-    bank: boolean,
-    bank_name: string|null,
-    card_num: string|null,
-    loan: boolean,
-    interest_free: number|null,
-    percentage: number|null,
-    remainder: number,
-    limit: number|null,
-    flag: boolean
-    income: IIncomeBalance[],  // optional
-    expenses: IIncomeBalance[]  // optional
-    total_expense: number|null,
-    total_income: number|null,
-    currency: number, // валюта
-    is_business: boolean,
-    is_deletable: boolean,
-    is_editable: boolean
-}
+const IncomeSchema = z.object({
+    id: z.number(),
+    object_id: z.number(),
+    funds: z.number(),
+    comment: z.string().nullable(),
+    writeoff_account: z.number(),
+    created_at: z.coerce.date()
+})
 
+const CardShema = z.object({
+    id: z.number(),
+    name: z.string(),
+    bank: z.boolean(),
+    bank_name: z.string().nullable(),
+    card_num: z.string().nullable(),
+    loan: z.boolean(),
+    interest_free: z.number().nullable(),
+    percentage: z.number().nullable(),
+    remainder: z.number(),
+    limit: z.number().nullable(),
+    flag: z.boolean(),
+    income: IncomeSchema.array(),  // optional
+    expenses: IncomeSchema.array(), // optional
+    total_expense: z.number().nullable(),
+    total_income: z.number().nullable(),
+    currency: z.number(), // валюта
+    is_business: z.boolean(),
+    is_deletable: z.boolean(),
+    is_editable: z.boolean()
+})
+
+const BalanceShema = z.object({
+    id: z.number(), 
+    card_list: CardShema.array(),
+    favourite_cards: z.number().array(),
+    total: z.number(),
+    total_in_currency: z.number().nullish(), 
+    total_income: z.number(),  // optional
+    total_expenses: z.number(),  // optional
+    currency: ZodNull.create(),  // валюта
+    card_funds: z.number(),  // optional
+    card_income: z.number(),
+    card_expenses: z.number(),
+    user: z.number()
+})
+
+export const ExpenseListSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    active: z.boolean()
+}).array()
+
+export const ExpenseItemType = z.object({
+    id: z.number(),
+    name: z.string(),
+    active: z.boolean()
+})
+
+export type Balance = z.infer<typeof BalanceShema>
+export type Card = z.infer<typeof CardShema>
+export type Income = z.infer<typeof IncomeSchema>
+export type ExpenseItem = z.infer<typeof ExpenseItemType>
+export type ExpenseList = z.infer<typeof ExpenseListSchema>
+export interface IFavouriteCards {
+    favourite_card: number[]
+}
 export interface IExpenseListBlock {
     id: number,
     name: string,

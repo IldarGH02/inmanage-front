@@ -10,45 +10,24 @@ import { MainPage } from '../pages/index';
 
 import "./index.scss"
 import { useEffect } from 'react';
-import { useGetSessionStorage, useSetSessionStorage } from '../features/hooks/storage';
+import { useGetLocalStorage, useGetSessionStorage, useSetSessionStorage } from '../features/hooks/storage';
 import { useAuth } from '../features/hooks/auth/auth';
 
 export const App = observer(() => {
     const auth = useAuth()
     const navigate = useNavigate()
 
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/'
-
     useEffect(() => {
-        auth.checkAuth()
-        
-        if(auth.isAuth && !auth.isCheck) {
-            if(from === '/') {
-                navigate("/balance")
-            } else {
-                navigate(from)
-            }
-        }
-    
-        if(!auth.isAuth && !auth.isCheck) {
-            navigate("/login")
-        }
-    }, [auth])
+        const tokens = useGetLocalStorage('tokens')
+        tokens ? navigate('/balance') : navigate('/login')
 
-    useEffect(() => {
-        
-        
-    }, [auth.isAuth, auth.isCheck, from, navigate]) 
-
-    useEffect(() => {
         navigate(JSON.parse(useGetSessionStorage('route')))
 
         const path = window.location.pathname
 
         useSetSessionStorage('route', path)
             navigate(JSON.parse(useGetSessionStorage('route')))
-    }, [])
+    }, [auth, navigate])
 
     return (
         <PlannerDateState>

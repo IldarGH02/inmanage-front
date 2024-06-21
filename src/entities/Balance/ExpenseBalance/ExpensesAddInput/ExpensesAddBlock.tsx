@@ -1,7 +1,7 @@
 import React from "react";
 import "./expensesAddBlock.css";
 import { IExpenseListBlock } from "../../../../app/types/balance/IBalance";
-import { InputBalanceAddItem } from "../../InputBalanceAddItem/InputBalanceAddItem";
+import { InputBalanceAddItem } from "../../../../shared/ui/BalanceUi/Income/InputBalanceAddItem";
 
 interface IExpensesAddBlock {
     data: IExpenseListBlock[],

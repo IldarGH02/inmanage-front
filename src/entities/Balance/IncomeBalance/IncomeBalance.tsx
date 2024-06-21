@@ -1,4 +1,3 @@
-import React from "react"
 import "./incomeBalance.css"
 
 interface IIncomeBalance {

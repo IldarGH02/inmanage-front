@@ -1,12 +1,15 @@
 import { action, makeObservable, observable } from 'mobx'
-import { IBalance, ICard } from '../types/balance/IBalance'
+import { Card, Balance, IFavouriteCards, IWork } from '../types/balance/IBalance'
 import BalanceService from '../../shared/http/balance'
 import $api from '../../shared/http/api'
 
 export default class BalanceStore {
-    balance: IBalance | null = null
-    card: ICard | unknown = {} as ICard
-    card_list: ICard[] | null = null
+    balance: Balance | null = null
+    card: Card | unknown = {} as Card
+    card_list: Card[] | null = null
+    favourite_cards: IFavouriteCards[] = []
+    work: IWork | null = null
+    works: IWork[] | null = null
     isFetching = false
     error: unknown | null = null
 
@@ -19,13 +22,21 @@ export default class BalanceStore {
             isFetching: observable,
             card: observable,
             error: observable,
+            favourite_cards: observable,
+            work: observable,
+            works: observable,
+
             setIsFetching: action.bound,
             setBalance: action.bound,
             setCardList: action.bound,
             setError: action.bound,
+            setWork: action.bound,
+            setWorks: action.bound,
+
             fetchBalance: action.bound,
             createNewCard: action.bound,
-            removeChooseCard: action.bound
+            removeChooseCard: action.bound,
+            fetchWorks: action.bound
 
         })
 
@@ -36,16 +47,24 @@ export default class BalanceStore {
         this.isFetching = bool
     }
 
-    setBalance(data: IBalance) {
+    setBalance(data: Balance) {
         this.balance = data
     }
 
-    setCardList(data: ICard[]) {
+    setCardList(data: Card[]) {
         this.card_list = data
     }
 
-    setCard(card: ICard) {
+    setCard(card: Card) {
         this.card = card
+    }
+
+    setWork(work: IWork){
+        this.work = work
+    }
+
+    setWorks(works: IWork[]){
+        this.works = works
     }
 
     setError(error: unknown) {
@@ -54,21 +73,18 @@ export default class BalanceStore {
 
     async fetchBalance() {
         try {
-            const {data} = await BalanceService.fetchBalance()
-            this.setBalance(data)
-            this.setCardList(data.card_list)
+            const response = await BalanceService.fetchBalance()
+            this.setBalance(response)
+            this.setCardList(response.card_list)
         } catch (e) {
             this.setError(e)
         }
     }
 
-    async createNewCard(card: ICard) {
+    async createNewCard(card: Card) {
         try {
             const response = await BalanceService.createCard(card)
-            if(response) {
-                this.setCard(response.data)
-            }
-            return response
+            this.setCard(response)
         } catch (e) {
             this.setError(e)
         }
@@ -80,5 +96,27 @@ export default class BalanceStore {
         } catch(e) {
             this.setError(e)
         } 
+    }
+
+    async createNewFavoriteCard() {
+
+    }
+
+    async createNewWork(name: string) {
+        try {
+            const { data } = await BalanceService.createWork(name)
+            this.setWork(data)
+        } catch (e) {
+            this.setError(e)
+        }
+    }
+
+    async fetchWorks() {
+        try {
+            const { data } = await BalanceService.fetchWorks()
+            this.setWorks(data)
+        } catch (e) {
+            this.setError(e)
+        }
     }
 }
