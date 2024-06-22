@@ -5,13 +5,20 @@ import { JobItem } from './JobItem/JobItem'
 
 interface IItems {
     items: ExpenseList
-    onClickPosition: (id: number) => void
+    onChangeDaw: React.ChangeEventHandler<HTMLInputElement>
 }
 
-export const JobItems: FC<IItems> = observer(({items, onClickPosition}) => {
+export const JobItems: FC<IItems> = observer(({items, onChangeDaw}) => {
     return (
         <ul className="job__items">
-            {items && items.map((item) => {return <JobItem key={item.id} item={item} onClickPosition={onClickPosition}/>}) }
+            {items && items.map((item) => {
+                return <JobItem 
+                            key={item.id} 
+                            item={item} 
+                            onChangeDaw={onChangeDaw}
+                        />
+                })
+            }
         </ul>
     )
 })

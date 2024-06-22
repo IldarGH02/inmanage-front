@@ -1,5 +1,5 @@
 import { action, makeObservable, observable } from 'mobx'
-import { Card, Balance, IFavouriteCards, IWork } from '../types/balance/IBalance'
+import { Card, Balance, IFavouriteCards, Work, IIncome, IIncomeBalance } from '../types/balance/IBalance'
 import BalanceService from '../../shared/http/balance'
 import $api from '../../shared/http/api'
 
@@ -7,9 +7,8 @@ export default class BalanceStore {
     balance: Balance | null = null
     card: Card | unknown = {} as Card
     card_list: Card[] | null = null
-    favourite_cards: IFavouriteCards[] = []
-    work: IWork | null = null
-    works: IWork[] | null = null
+    favourite_cards: number[] | null = null
+    works: Work[] | null = null
     isFetching = false
     error: unknown | null = null
 
@@ -23,14 +22,12 @@ export default class BalanceStore {
             card: observable,
             error: observable,
             favourite_cards: observable,
-            work: observable,
             works: observable,
 
             setIsFetching: action.bound,
             setBalance: action.bound,
             setCardList: action.bound,
             setError: action.bound,
-            setWork: action.bound,
             setWorks: action.bound,
 
             fetchBalance: action.bound,
@@ -55,15 +52,15 @@ export default class BalanceStore {
         this.card_list = data
     }
 
+    setFavouriteCards(favourite_cards: number[]) {
+        this.favourite_cards = favourite_cards
+    }
+
     setCard(card: Card) {
         this.card = card
     }
 
-    setWork(work: IWork){
-        this.work = work
-    }
-
-    setWorks(works: IWork[]){
+    setWorks(works: Work[]){
         this.works = works
     }
 
@@ -98,14 +95,22 @@ export default class BalanceStore {
         } 
     }
 
-    async createNewFavoriteCard() {
-
+    async createNewFavouriteCard(favourite_cards: number[]) {
+        try {
+            const response = await BalanceService.createFavouriteCard(favourite_cards)
+            if(response.data) {
+                this.setFavouriteCards(response.data)
+            }
+            
+        } catch(e) {
+            this.setError(e)
+        }
     }
 
-    async createNewWork(name: string) {
+    async createNewWork(work: number, project: string, founds: number, comment: string) {
         try {
-            const { data } = await BalanceService.createWork(name)
-            this.setWork(data)
+            const { data } = await BalanceService.createWork(work, project, founds, comment)
+            return data
         } catch (e) {
             this.setError(e)
         }
@@ -113,10 +118,30 @@ export default class BalanceStore {
 
     async fetchWorks() {
         try {
-            const { data } = await BalanceService.fetchWorks()
-            this.setWorks(data)
+            const response = await BalanceService.fetchWorks()
+            if(response) {
+                this.setWorks(response)
+            }
         } catch (e) {
             this.setError(e)
+        }
+    }
+
+    async createNewIncome(object: IIncome){
+        try {
+            const response = await BalanceService.createIncome(object)
+            return response
+        } catch(e){
+            this.setError(e)
+        }
+    }
+
+    async updateActivesIncome(param: string, id: number | null, objIncome: IIncomeBalance[]){
+        try {
+            const response = await BalanceService.updateActivesIncome(param, id, objIncome)
+            return response
+        } catch(e) {
+
         }
     }
 }

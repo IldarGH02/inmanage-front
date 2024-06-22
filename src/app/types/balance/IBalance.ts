@@ -52,12 +52,19 @@ export const ExpenseListSchema = z.object({
     active: z.boolean()
 }).array()
 
+const WorkSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    income: z.number().array()
+})
+
 export const ExpenseItemType = z.object({
     id: z.number(),
     name: z.string(),
     active: z.boolean()
 })
 
+export type Work = z.infer<typeof WorkSchema>
 export type Balance = z.infer<typeof BalanceShema>
 export type Card = z.infer<typeof CardShema>
 export type Income = z.infer<typeof IncomeSchema>

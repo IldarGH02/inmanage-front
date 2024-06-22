@@ -1,4 +1,4 @@
-import {useLocation, useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 
 import { CategoriesAssetsState } from '../features/context/categories/assets/CategoriesAssetsState'; 

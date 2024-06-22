@@ -1,0 +1,9 @@
+.income__page {
+    font-family: "SFUI-Display";
+    padding: 30px 0;
+    position: relative;
+
+    .income__page-title {
+        @include _fontStyle(700, 33px, 35px, #333);
+    }
+}

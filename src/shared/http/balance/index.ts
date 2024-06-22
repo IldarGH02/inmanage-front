@@ -1,5 +1,5 @@
 import $api from "../api"
-import { IExpenseBalance, IExpensePersonalIcons, IIncome, IWork, Balance, Card } from "../../../app/types/balance/IBalance"
+import { IExpenseBalance, IExpensePersonalIcons, IIncome, Work, Balance, Card, IIncomeBalance } from "../../../app/types/balance/IBalance"
 
 export default class BalanceService {
     static async fetchBalance():Promise<Balance> {
@@ -17,23 +17,28 @@ export default class BalanceService {
         return response
     }
 
-    static async createFavoriteCard(favoriteCards: number[]) {
-        const response = await $api.patch<Balance>(`/balance/`, {favoriteCards})
+    static async createFavouriteCard(favouriteCards: number[]) {
+        const response = await $api.patch<number[]>(`/balance/`, {favouriteCards})
         return response
     }
 
-    static async fetchWorks() {
-        const response = await $api.get<IWork[]>(`/altincome/works`)
-        return response
+    static async fetchWorks(): Promise<Work[] | void> {
+        const response = await $api.get<Work[]>(`/altincomes/works`)
+        return response.data
     }
 
-    static async createWork(name: string) {
-        const response = await $api.post<IWork>(`/altincomes/`, {name})
+    static async createWork(work: number, project: string, founds: number, comment: string) {
+        const response = await $api.post<Work>(`/altincomes/`, {work, project, founds, comment})
         return response
     }
 
     static async createIncome(objIncome: IIncome){
-        const response = await $api.post<IWork>(`/altincomes/`, objIncome)
+        const response = await $api.post<Work>(`/altincomes/`, objIncome)
+        return response
+    }
+
+    static async updateActivesIncome(param: string, id: number | null, objIncome: IIncomeBalance[]){
+        const response = await $api.patch(`/actives/${param}/up/${id}/=`, objIncome)
         return response
     }
 

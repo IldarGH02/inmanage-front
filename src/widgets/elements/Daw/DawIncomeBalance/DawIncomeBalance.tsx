@@ -1,9 +1,8 @@
-import React from "react"
 import "./dawIncomeBalance.css"
 
 interface IDaw {
     dawActive: boolean,
-    onChangeDaw: ()=>void,
+    onChangeDaw: React.ChangeEventHandler<HTMLInputElement>,
     color?: string
 }
 
@@ -14,10 +13,7 @@ export function DawIncomeBalance({dawActive, onChangeDaw, color = 'rgb(105, 205,
     return (
         <span className="daw-income-balance">
             <label className="daw-income-balance__item-label-btn">
-                <input type="checkbox" checked={dawActive} onChange={()=>{
-                    // setCheckboxValue(!checkboxValue)
-                    onChangeDaw()
-                }}/>
+                <input type="checkbox" checked={dawActive} onChange={onChangeDaw}/>
                 <span style={{
                     border: `3px solid ${color}`,
                 }}></span>
