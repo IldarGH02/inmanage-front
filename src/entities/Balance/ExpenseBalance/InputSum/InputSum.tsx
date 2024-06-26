@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./inputSum.css"
-import { Alert } from "../../../../widgets/Alert/Alert"
+import { UseError } from "../../../../features/hooks/error"
 
 interface IInputSum {
     length: number,
@@ -72,7 +72,7 @@ export function InputExpenseSum({length, value, setValue, setAlert, alertSignal=
                 setValue(discharge(value))
                 // rtl()
                 }}></input><b> ₽</b><b className="expense-input-sum__attention">{attentionVisible ? '!':' '}</b></div>
-            {textAlert!=='' && <Alert text={textAlert} type={'warning'}/>}
+            {textAlert!=='' && <UseError text={textAlert} type={'warning'}/>}
         </>
             
     )

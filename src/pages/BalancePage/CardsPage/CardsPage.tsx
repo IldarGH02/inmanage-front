@@ -12,7 +12,7 @@ import { Modal } from "../../../widgets/elements/Modal/Modal";
 import { ConfirmModal } from "../../../widgets/elements/Modal/ConfirmModal/ConfirmModal";
 
 import cashImg from '../../../shared/assets/img/balance/addExpense/cashB.png'
-import BalanceStore from "../../../app/store/balanceStore";
+import BalanceStore from "../../../app/store/balanse/balanceStore.ts";
 import { observer } from "mobx-react-lite";
 
 export const CardsPage = observer(() => {

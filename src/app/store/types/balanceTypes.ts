@@ -1,4 +1,4 @@
-import { IBalance, IExpensePersonalIcons, IWork } from "../../types/balance/IBalance";
+import { IExpensePersonalIcons, IWork } from "../../types/balance/IBalance";
 
 export enum actionTypesBalance {
     SHOW_LOADER = 'SHOW_LOADER_BALANCE',

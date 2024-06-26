@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { ICard } from '../../../../app/types/balance/IBalance'
+import { Card } from '../../../../app/types/balance/IBalance'
 
 import logoSber from "../../../../shared/assets/img/logo_sber.png"
 
 interface IItem {
-    item: ICard
+    item: Card
 }
 export const CardItem: FC<IItem> = ({item}) => {
     return (

@@ -23,12 +23,14 @@ export default class BalanceService {
     }
 
     static async fetchWorks(): Promise<Work[] | void> {
-        const response = await $api.get<Work[]>(`/altincomes/works`)
+        const response = await $api.get<Work[]>(`/altincomes/works/`)
         return response.data
     }
 
-    static async createWork(work: number, project: string, founds: number, comment: string) {
-        const response = await $api.post<Work>(`/altincomes/`, {work, project, founds, comment})
+    static async createWork(name: string, param: null | string, funds: number, comment: string) {
+        const project = param ? param : null;
+        const response = await $api.post<Work>(`/altincomes/`, {work: {name}, project, funds, comment})
+        console.log(response)
         return response
     }
 

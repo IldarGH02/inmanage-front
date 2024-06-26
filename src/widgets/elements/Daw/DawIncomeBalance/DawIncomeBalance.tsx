@@ -1,19 +1,25 @@
 import "./dawIncomeBalance.css"
 
 interface IDaw {
-    dawActive: boolean,
-    onChangeDaw: React.ChangeEventHandler<HTMLInputElement>,
+    activeChecked: boolean,
+    handleChangeCheckbox: React.ChangeEventHandler<HTMLInputElement>,
     color?: string
+    id: string
 }
 
-export function DawIncomeBalance({dawActive, onChangeDaw, color = 'rgb(105, 205, 30)'}: IDaw) {
-    // const [checkboxValue, setCheckboxValue] = useState(dawActive)
-    // const [classTitle, setClassTitle] = useState(!dawActive?'daw__item-title':'daw__item-title--active')
+export function DawIncomeBalance(
+    {
+        activeChecked,
+        handleChangeCheckbox,
+        id,
+        color = 'rgb(105, 205, 30)'}: IDaw)
+
+    {
 
     return (
-        <span className="daw-income-balance">
-            <label className="daw-income-balance__item-label-btn">
-                <input type="checkbox" checked={dawActive} onChange={onChangeDaw}/>
+        <span className="job__item-checkbox">
+            <label className="checkbox__label" htmlFor={id}>
+                <input type="checkbox" id={id} checked={activeChecked} onChange={handleChangeCheckbox}/>
                 <span style={{
                     border: `3px solid ${color}`,
                 }}></span>

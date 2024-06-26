@@ -3,15 +3,13 @@ import "./addIncomePage.css"
 import { ExpenseCategories } from "../../../entities/Balance/ExpenseBalance/ExpenseCategories/ExpenseCategories"
 import { InputExpenseSum } from "../../../entities/Balance/ExpenseBalance/InputSum/InputSum"
 import { ExpenseSliderFinance } from "../../../entities/Balance/ExpenseBalance/ExpenseSlider/ExpenseSliderFinance/ExpenseSliderFinance"
-import { Card, ExpenseItem, ExpenseList, IExpenseListBlock, IExpenseSliderCategory, IIncome, IIncomeBalance, Work } from "../../../app/types/balance/IBalance"
+import { Card, ExpenseItem, ExpenseList, IExpenseSliderCategory, IIncome, IIncomeBalance } from "../../../app/types/balance/IBalance"
 import { ExpenseDropDownList } from "../../../entities/Balance/ExpenseBalance/ExpenseDropDownList/ExpenseDropDownList"
 import "../../../widgets/elements/buttons/CancelBtn/cancelBtn.css";
 import { Link } from "react-router-dom"
-import { IncomeJob } from "../../../entities/Balance/IncomeBalance/IncomeJob/IncomeJob"
 import { IncomeAssets } from "../../../entities/Balance/IncomeBalance/IncomeAssets/IncomeAssets"
 
-// import { addIncome, addIncomeAssets, hideLoader, showLoader } from "../../../app/store/actions/balance/balanceActions"
-// import { actionTypesBalance } from "../../../app/store/types/balanceTypes"
+
 import { SelectCardModal } from "../../../widgets/elements/Modal/balance/SelectCardModal/SelectCardModal"
 import { Modal } from "../../../widgets/elements/Modal/Modal"
 // import { updateAssetsIncome } from "../../../app/store/actions/assets/assetsActions"
@@ -20,41 +18,58 @@ import { Modal } from "../../../widgets/elements/Modal/Modal"
 
 
 import { observer } from "mobx-react-lite"
-import BalanceStore from "../../../app/store/balanceStore"
+import {IncomeStore} from "../../../app/store/balanse/incomeStore.ts";
+import BalanceStore from "../../../app/store/balanse/balanceStore.ts";
+import {IncomeCategories} from "../../../widgets/Balance/Income/IncomeCategories/IncomeCategories.tsx";
 
 export const IncomePage = observer(() => {
-    const [store] = useState(
+    const [storeIncome] = useState(
+        () => new IncomeStore()
+    )
+    const [storeBalance] = useState(
         () => new BalanceStore()
     )
 
     const categories = ['Работа', 'Активы', 'Самозанятость']
     const [category, setCategory] = useState(0)
-    const [commentJob, setCommentJob] = useState('')
-
-
-
+    const [valueCategory, setValueCategory] = useState('')
+    const [comment, setComment] = useState<string>('')
     const [modalVisible, setModalVisible] = useState(false)
-    const [listJobBlock, setListJobBlock] = useState<ExpenseList>([])
-    const [worksList, setWorksList] = useState<Work[]>([])
-   
+    const [chacked, setChecked] = useState<boolean>(false)
+    const [checkedElement, setCheckedElement] = useState<string>('')
+
+    const [jobList, setJobList] = useState<ExpenseList>([])
     const [valueDDList, setValueDDList] = useState('')
     const [idDDList, setIdDDList] = useState<number | null>(null)
     const [idCard, setIdCard] = useState<number|null>(null)
     const [nextBtnVisible, setNextBtnVisible] = useState(false)
+
     const [valueSum, setValueSum] = useState('')
     const [alertSum, setAlertSum] = useState('')
 
     const [cardList, setCardList] = useState<Card[]>([])
 
     const [positionOfCategoryAssets, setPositionOfCategoryAssets] = useState<IExpenseSliderCategory[]>([])
-    const [activeCategory, setActiveCategory] = useState<number|null>(null) 
-
+    const [activeCategory, setActiveCategory] = useState<number|null>(null)
 
     useEffect(() => {
-        store.fetchWorks()
-        if(store.works) {
-            setWorksList(store.works)
-            const newWork = store.works.map((item) => {
+        if(storeBalance) {
+            const cardList: Card[] = [];
+            const favouriteCardsId = storeBalance.favourite_cards as number[];
+            storeBalance.card_list?.forEach(card => {
+                if(favouriteCardsId?.includes(card.id)) {
+                    cardList.push(card)
+                }
+            })
+            setCardList(cardList)
+            console.log(cardList)
+        }
+    }, [storeBalance]);
+
+    useEffect(() => {
+        storeIncome.fetchJobList()
+        if(storeIncome.jobList) {
+            const jobItem = storeIncome.jobList.map((item) => {
                 const obj: ExpenseItem = {
                     id: item.id,
                     name: item.name,
@@ -62,17 +77,17 @@ export const IncomePage = observer(() => {
                 }
                 return obj
             })
-            setListJobBlock(newWork)
+            setJobList(jobItem)
+            console.log(storeIncome.jobList)
         }
-    }, [store])
+    }, [storeIncome])
 
     useEffect(()=>{
         let flag = false
         if(category === 0) { //работа
-            let activeID = listJobBlock.find(el=>el.active)
+            const activeID = jobList.find(el=>el.active)
             if(alertSum === '' && 
-               activeID && 
-               commentJob && 
+               activeID &&
                valueSum !=='' && 
                valueSum !== '0' &&
                idCard) {
@@ -87,7 +102,7 @@ export const IncomePage = observer(() => {
         }
         setNextBtnVisible(flag)
         
-    }, [valueSum, activeCategory, idDDList, commentJob, idCard, listJobBlock, category])
+    }, [valueSum, activeCategory, idDDList, idCard, category])
 
     useEffect(()=>{
         setValueDDList('')
@@ -96,48 +111,6 @@ export const IncomePage = observer(() => {
 
     const clickItemCategoryAssets = (data: IExpenseSliderCategory[]) => {
         setPositionOfCategoryAssets(data)
-    }
-
-    const addPositionJob = (name: string) => {
-        // store.createNewWork(name)
-    }
-
-    // const addPositionProject = (str: string) => {
-    //     let newId = 1
-    //     listProjectBlock.forEach(el=>{
-    //         if(newId<=el.id) {
-    //             newId = el.id + 1 
-    //         }
-    //     })
-    //     let listBlockTmp = [...listProjectBlock]
-    //     listBlockTmp.push({
-    //         id: newId,
-    //         name: str,
-    //         active: false
-    //     })
-    //     setListProjectBlock(listBlockTmp)
-    // }
-
-    const clickPositionJob = (id: number) => {    
-        let listBlockTmp = listJobBlock.map(el=>{
-            if(id===el.id) {
-                el.active = !el.active
-            } else {
-                el.active = false
-            }
-            return el
-        })
-        setListJobBlock(listBlockTmp)
-    }
-
-    const clickPositionProject = (id: number) => {    
-        let listBlockTmp = listProjectBlock.map(el=>{
-            if(id===el.id) {
-                el.active = !el.active
-            }
-            return el
-        })
-        setListProjectBlock(listBlockTmp)
     }
 
     // const removePosition = (id: number) => {
@@ -150,32 +123,54 @@ export const IncomePage = observer(() => {
     // }
 
     const closeSelectCarModal = (id?: number) => {
-        if(id && store.balance) {
-            let newFavoriteCards: number[] = Array.from(new Set([...store.balance.favourite_cards, id]))
-            store.createNewFavouriteCard(newFavoriteCards)
+        if(id && storeBalance.balance) {
+            const newFavoriteCards: number[] = Array.from(new Set([...storeBalance.balance.favourite_cards, id]))
+            storeBalance.createNewFavouriteCard(newFavoriteCards)
             setModalVisible(false)
         } else {
             setModalVisible(false)
         }
     }
 
+    const handleChangeValueJob = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setValueCategory(value)
+    }
+
+    const handleChangeComment = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setComment(value)
+    }
+
+    const handleChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.checked;
+        const id = e.target.id;
+        if(value) {
+            setChecked(value)
+            setCheckedElement(id)
+        }
+    }
+
+    const handleCreate = () => {
+        storeIncome.createNewWork(valueCategory, null, Number(valueSum), comment)
+    }
+
     const handleClickCreateIncome = () => {
         if(nextBtnVisible) {
             if(category===0) { //работа
-                let activeID = listJobBlock.find(el=>el.active)
-                let objWork: IIncome = {
+                const activeID = jobList.find(el=>el.active)
+                const objWork: IIncome = {
                     project: null,
                     work: activeID!.id,
                     funds: Number(valueSum.replace(/ /g,'')),
                     writeoff_account: idCard!,
-                    comment: commentJob
-                } 
+                    comment: comment
+                }
 
-                store.createNewIncome(objWork)
+                storeIncome.createNewIncome(objWork)
             }
             if(category===1) { //активы
-                type typeAssets = 'properties' | 'transport' | 'business'
-                let typeAssets: typeAssets = 'properties'
+                // type typeAssets = 'properties' | 'transport' | 'business'
                 const objIncome: IIncomeBalance = {
                     funds: Number(valueSum.replace(/ /g,'')),
                     comment: null,
@@ -184,16 +179,16 @@ export const IncomePage = observer(() => {
                 
                 switch (activeCategory as number) {
                     case 1: {
-                        store.updateActivesIncome('properties', idDDList, [objIncome])
+                        storeIncome.updateActivesIncome('properties', idDDList, [objIncome])
                         break;
                     }
                     case 2: {
-                        store.updateActivesIncome('transport', idDDList, [objIncome])
+                        storeIncome.updateActivesIncome('transport', idDDList, [objIncome])
                         break;
                     }
         
                     case 3: {
-                        store.updateActivesIncome('business', idDDList, [objIncome])
+                        storeIncome.updateActivesIncome('business', idDDList, [objIncome])
                         break;
                     }
                         
@@ -208,103 +203,120 @@ export const IncomePage = observer(() => {
         }
     }
 
+    const handleChooseItem = () => {
+        jobList.map((item) => {
+            if(item.id === Number(checkedElement)) {
+
+            }
+        })
+    }
+
     return (
         <>
-        {modalVisible && store.balance && 
+        {modalVisible && storeBalance.balance &&
             <Modal onClose={()=>setModalVisible(false)}>
-                <SelectCardModal data={store.balance.card_list} onClose={closeSelectCarModal}/>
+                <SelectCardModal data={storeBalance.balance.card_list} onClose={closeSelectCarModal}/>
             </Modal>
         }
         <div className="income__page">
             <div className="container" >
                 <h2 className="income__page-title">Новая операция</h2>
-                <div className="income__page-content">
-                    <div className="income__page-finance">
-                        <div className="income__finance-categories">
-                            <ExpenseCategories 
-                                categories={categories} 
-                                onChangeCategory={setCategory} 
-                                categoryActive={category}
+                    <div className="income__page-content">
+                        <div className="income__page-finance">
+                            <div className="income__finance-categories">
+                                <ExpenseCategories
+                                    categories={categories}
+                                    onChangeCategory={setCategory}
+                                    categoryActive={category}
+                                />
+                            </div>
+                            <div className="income__finance-sum">
+                                <InputExpenseSum
+                                    length={10}
+                                    value={valueSum}
+                                    setValue={setValueSum}
+                                    setAlert={setAlertSum}
+                                />
+                            </div>
+                            <h2 className="income__finance-title">Куда зачислить?</h2>
+                            <ExpenseSliderFinance
+                                onClickItem={setIdCard}
+                                favoriteCards={cardList}
+                                showAddCardModal={() => setModalVisible(true)}
                             />
                         </div>
-                        <div className="income__finance-sum">
-                            <InputExpenseSum 
-                                length={10} 
-                                value={valueSum} 
-                                setValue={setValueSum} 
-                                setAlert={setAlertSum}
-                            />
-                        </div>
-                        <h2 className="income__finance-title">Куда зачислить?</h2>
-                        <ExpenseSliderFinance 
-                            onClickItem={setIdCard} 
-                            favoriteCards={cardList} 
-                            showAddCardModal={()=>setModalVisible(true)}
-                        />
-                    </div>
-                    <div className="income__page-categories">
-                        {category === 0 && 
-                            <>
-                                <h3 className="income__category-title job-title">С какой работы?</h3>
-                                <IncomeJob 
-                                    setTextArea={setCommentJob} 
-                                    data={listJobBlock} 
-                                    onClickPosition={clickPositionJob} 
-                                    // onAddPosition={addPositionJob}
-                                />                                    
-                            </>
-                        }
-                        {category === 2 && 
-                            <>
-                                <h3 className="income__category-title project-title">С какого проекта?</h3>
-                                <IncomeJob 
-                                    setTextArea={()=>null} 
-                                    data={listProjectBlock} 
-                                    onClickPosition={clickPositionProject} 
-                                    // onAddPosition={addPositionProject}
+                        <div className="income__page-categories">
+                            {category === 0 &&
+                                <IncomeCategories
+                                    data={jobList}
+                                    fromTitle={`С какой работы?`}
+                                    valueCategory={valueCategory}
+                                    valueComment={comment}
+                                    classNameCategory={`income__job-categories`}
+                                    classNameTitle={`С какой работы?`}
+                                    placeholder={'Добавить новое место работы'}
+                                    handleCreate={handleCreate}
+                                    handleChangeValue={handleChangeValueJob}
+                                    handleChangeComment={handleChangeComment}
+                                    handleChangeCheckbox={handleChangeCheckbox}
+                                    handleChooseItem={handleChooseItem}
                                 />
-                            </>
-                        } 
-                        {category === 1 && 
-                            <>
-                                <div className="income__category-title active-title">Категория актива:</div>
-                                <IncomeAssets 
-                                    activeCategory={activeCategory} 
-                                    onClickItem={clickItemCategoryAssets} 
-                                    onSetActiveCategory={setActiveCategory}
+                            }
+                            {category === 2 &&
+                                <IncomeCategories
+                                    data={jobList}
+                                    fromTitle={`С какого проекта?`}
+                                    valueCategory={valueCategory}
+                                    valueComment={comment}
+                                    classNameCategory={`income__job-categories`}
+                                    classNameTitle={`С какой работы?`}
+                                    placeholder={'Добавить новый проект'}
+                                    handleCreate={handleCreate}
+                                    handleChangeValue={handleChangeValueJob}
+                                    handleChangeComment={handleChangeComment}
+                                    handleChangeCheckbox={handleChangeCheckbox}
+                                    handleChooseItem={handleChooseItem}
                                 />
+                            }
+                            {category === 1 &&
+                                <>
+                                    <div className="income__category-title active-title">Категория актива:</div>
+                                    <IncomeAssets
+                                        activeCategory={activeCategory}
+                                        onClickItem={clickItemCategoryAssets}
+                                        onSetActiveCategory={setActiveCategory}
+                                    />
 
-                                {positionOfCategoryAssets && activeCategory && 
-                                    <div className="income__page-position">
-                                        <div className="income__position-title">Выберите позицию:</div>
-                                        <div className="income__position-ddlist">
-                                            <ExpenseDropDownList 
-                                                idContent="addExpense-addIncome-DDL-content" 
-                                                idTitle="addExpense-addIncome-DDL-title" 
-                                                data={positionOfCategoryAssets} 
-                                                setValue={(val: string, id: number) => {
-                                                    setValueDDList(val)
-                                                    setIdDDList(id)
-                                                }} 
-                                                value={valueDDList} 
-                                                placeholder={'Выберите актив'}
-                                            />
+                                    {positionOfCategoryAssets && activeCategory &&
+                                        <div className="income__page-position">
+                                            <div className="income__position-title">Выберите позицию:</div>
+                                            <div className="income__position-ddlist">
+                                                <ExpenseDropDownList
+                                                    idContent="addExpense-addIncome-DDL-content"
+                                                    idTitle="addExpense-addIncome-DDL-title"
+                                                    data={positionOfCategoryAssets}
+                                                    setValue={(val: string, id: number) => {
+                                                        setValueDDList(val)
+                                                        setIdDDList(id)
+                                                    }}
+                                                    value={valueDDList}
+                                                    placeholder={'Выберите актив'}
+                                                />
+                                            </div>
                                         </div>
-                                        
-                                    </div> 
-                                }
-                            </>
-                        } 
+                                    }
+                                </>
+                            }
+                            <div className="income__page-actions">
+                                <Link to="/balance" className="cancel-btn income-page__cancel">Отменить</Link>
+                                <button
+                                    className={`income__page-submit${nextBtnVisible ? '--active' : ''}`}
+                                    onClick={handleClickCreateIncome}>
+                                    Подтвердить
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className="income__page-actions">
-                    <Link to="/balance" className="cancel-btn income-page__cancel">Отменить</Link>
-                    <button
-                        className={`income__page-submit${nextBtnVisible?'--active':''}`} 
-                        onClick={handleClickCreateIncome}>
-                            Подтвердить
-                    </button>
-                </div>
             </div>
         </div>
         </>

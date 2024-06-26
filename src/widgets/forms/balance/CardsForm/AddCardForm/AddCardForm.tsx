@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { InputSumForm } from "../../../elements/InputSumForm/InputSumForm";
 import { InputPercentForm } from "../../../elements/InputPercentForm/InputPercentForm";
 import { ICard } from "../../../../../app/types/balance/IBalance";
-import BalanceStore from "../../../../../app/store/balanceStore";
+import BalanceStore from "../../../../../app/store/balanse/balanceStore.ts";
 import { observer } from "mobx-react-lite";
 
 const listAccountType: IDropDownList[] = [

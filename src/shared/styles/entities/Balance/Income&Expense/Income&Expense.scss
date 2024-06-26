@@ -1,0 +1,66 @@
+.income__job {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    height: 100%;
+
+    .job__create {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        @include _fontStyle(400, 20px, 22px, #333);
+
+        .job__create-actions_name {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 8px solid rgb(241, 242, 246);
+            border-radius: 15px;
+        }
+
+        input {
+            width: 93%;
+            border: none;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: grey;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .job__create-button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: rgb(204, 204, 204);
+            color: white;
+            font-size: 25px;
+            border-radius: 100%;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            outline: none;
+            text-align: center;
+        }
+
+        .job__create-comment {
+            width: 100%;
+            min-height: 200px;
+            max-height: 400px;
+            font-size: 22px;
+            letter-spacing: 1px;
+            padding: 20px;
+            border-radius: 15px;
+            resize: none;
+            font-family: 'SFUI-Display';
+            color: grey;
+            border: 8px solid rgb(241, 242, 246);
+        }
+    }
+}

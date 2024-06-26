@@ -1,5 +1,4 @@
 import { Suspense, useEffect } from "react";
-// import { Outlet } from "react-router-dom";
 import { AuthorizedRoutes } from "../app/routes/AuthorizedRoutes";
 import { Layout } from "./Layout/Layout";
 import { observer } from 'mobx-react-lite'

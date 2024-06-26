@@ -5,17 +5,24 @@ import { JobItem } from './JobItem/JobItem'
 
 interface IItems {
     items: ExpenseList
-    onChangeDaw: React.ChangeEventHandler<HTMLInputElement>
+    handleChangeCheckbox: React.ChangeEventHandler<HTMLInputElement>
+    handleChooseItem: React.MouseEventHandler<HTMLLIElement>
 }
 
-export const JobItems: FC<IItems> = observer(({items, onChangeDaw}) => {
+export const JobItems: FC<IItems> = observer((
+    {
+        items,
+        handleChangeCheckbox,
+        handleChooseItem,
+    }) => {
     return (
         <ul className="job__items">
             {items && items.map((item) => {
                 return <JobItem 
                             key={item.id} 
                             item={item} 
-                            onChangeDaw={onChangeDaw}
+                            handleChangeCheckbox={handleChangeCheckbox}
+                            handleChooseItem={handleChooseItem}
                         />
                 })
             }

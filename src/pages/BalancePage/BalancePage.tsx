@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import BalanceStore from "../../app/store/balanceStore";
+import BalanceStore from "../../app/store/balanse/balanceStore.ts";
 import { observer } from 'mobx-react-lite'
 import { Link } from "react-router-dom";
 import { TotalBalance } from "../../entities/Balance/TotalBalance/TotalBalance";

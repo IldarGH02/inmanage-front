@@ -6,4 +6,19 @@
     .income__page-title {
         @include _fontStyle(700, 33px, 35px, #333);
     }
+
+    .income__page-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .income__page-finance {
+            width: calc((100% - 5px) / 2);
+        }
+
+        .income__page-categories {
+            width: calc((100% - 5px) / 2);
+        }
+    }
 }

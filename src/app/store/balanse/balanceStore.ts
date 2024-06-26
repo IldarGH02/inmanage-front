@@ -1,7 +1,7 @@
 import { action, makeObservable, observable } from 'mobx'
-import { Card, Balance, IFavouriteCards, Work, IIncome, IIncomeBalance } from '../types/balance/IBalance'
-import BalanceService from '../../shared/http/balance'
-import $api from '../../shared/http/api'
+import { Card, Balance, Work, IIncome, IIncomeBalance } from '../../types/balance/IBalance.ts'
+import BalanceService from '../../../shared/http/balance'
+import $api from '../../../shared/http/api'
 
 export default class BalanceStore {
     balance: Balance | null = null
@@ -107,9 +107,10 @@ export default class BalanceStore {
         }
     }
 
-    async createNewWork(work: number, project: string, founds: number, comment: string) {
+    async createNewWork(name: string, param: string | null, funds: number, comment: string) {
         try {
-            const { data } = await BalanceService.createWork(work, project, founds, comment)
+            const project = param ? param : null;
+            const { data } = await BalanceService.createWork(name, project, funds, comment)
             return data
         } catch (e) {
             this.setError(e)
@@ -119,6 +120,7 @@ export default class BalanceStore {
     async fetchWorks() {
         try {
             const response = await BalanceService.fetchWorks()
+            console.log(response)
             if(response) {
                 this.setWorks(response)
             }
@@ -141,7 +143,7 @@ export default class BalanceStore {
             const response = await BalanceService.updateActivesIncome(param, id, objIncome)
             return response
         } catch(e) {
-
+            this.setError(e)
         }
     }
 }
