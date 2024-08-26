@@ -1,4 +1,4 @@
-import React from "react"
+
 import "./inventoryPropertyPage.css"
 
 import { Background } from "../../../../widgets/elements/Background/Background";

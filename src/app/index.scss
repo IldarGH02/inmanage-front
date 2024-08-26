@@ -1,9 +1,11 @@
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
 @import "../shared/styles/styles.scss";
 
-html {
+html body {
     box-sizing: border-box; 
     scroll-behavior: smooth;
+    width: 100%;
+    height: 100vh;
 }
     
 *,
@@ -16,12 +18,14 @@ html {
 
 body {
     margin: 0 auto;
-    width: 100%;
-    height: 100svh;
     font-family: 'SFUI-Display';
     background-color: #fbfbfc;
+    position: relative;
 
     #root {
+        // .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+        //     top: 25%;
+        // }
         height: 100%;
     }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { IListItem } from "../../../app/types/planner/IPlanner"
 import './toDoPlanner.css'
 
@@ -7,7 +7,7 @@ interface IToDoItem {
     onEditListItem: (id:number)=>void
 } 
 
-// const cart = require('../../../assets/img/trash.svg')
+// const cart = require('../../../actives/img/trash.svg')
 
 export function ToDoInnerItem({data, onEditListItem}: IToDoItem) {
     const [classTitle, setClassTitle] = useState(!data.done?'to-do__item-title':'to-do__item-title--active')

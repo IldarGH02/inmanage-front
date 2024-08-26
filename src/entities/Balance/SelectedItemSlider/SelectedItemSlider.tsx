@@ -1,4 +1,3 @@
-import React from "react";
 import "./selectedItemSlider.css";
 
 interface ISelectedItemSlider {

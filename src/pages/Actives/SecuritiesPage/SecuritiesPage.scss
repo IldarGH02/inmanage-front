@@ -1,0 +1,11 @@
+@import "/src/shared/styles/common/mixins.scss";
+
+.securities__page {
+    height: 100%;
+    padding-top: 30px;
+
+    .securities__page-title {
+        margin-bottom: 20px;
+        @include _fontStyle(700, 35px, 35px, #333);
+    }
+}

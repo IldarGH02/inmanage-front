@@ -1,0 +1,155 @@
+.business__form-create {
+    height: 95%;
+    width: 90%;
+    padding: 25px 15px;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow-y: scroll;
+
+    .business__form-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+
+        .business__form-description {
+            width: calc(50% - 10px);
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .business__form-invest {
+            display: flex;
+            width: calc(50% - 10px);
+            padding: 0 10px;
+            flex-direction: column;
+            gap: 20px;
+
+            .business__form-invest_title {
+                
+            }
+
+            .business__form-start_invest {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .investment__block {
+                    height: auto;
+
+                    .investment__block-transform {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        width: 100%;
+                    }
+
+                    .open {
+                        animation: open 0.3s linear;
+                    }
+                }
+
+                .own-invest__block {
+                    height: auto;
+
+                    .own-invest__block-transform {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        width: 100%;
+                    }
+
+                    .open {
+                        animation: open 0.3s linear;
+                    }
+                }
+
+                .business__credit-invest {
+                    height: auto;
+
+                    .credit__invest-transform {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        width: 100%;
+                    }
+
+                    .open {
+                        animation: open 0.3s linear;
+                    }
+                }
+            }
+        }
+    }
+
+    .business__form-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 30px;
+
+        .business__form-cancel {
+            cursor: pointer;
+            background-color: transparent;
+            color: #333;
+            font-weight: 400;
+            font-size: 22px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            outline: 1px solid #333;
+            transition: outline-color .3s ease-in-out, color .3s ease-in-out;
+
+            &:hover {
+                color: #ff0000;
+                outline-color: #ff0000;
+                
+            }
+        }
+
+        .business__form-submit {
+            cursor: pointer;
+            background-color: rgb(103, 158, 244);
+            color: #fff;
+            font-weight: 400;
+            font-size: 22px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .disabled {
+            background-color: rgb(162, 194, 245);
+        }
+    }
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    25% {
+        opacity: 0.25;
+        transform: translateY(-75%);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translateY(-50%);
+    }
+
+    50% {
+        opacity: 0.75;
+        transform: translateY(-25%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

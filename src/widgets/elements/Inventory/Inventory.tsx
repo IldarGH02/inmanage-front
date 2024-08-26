@@ -1,12 +1,11 @@
-import React from "react"
 import "./inventory.css"
-import { IInventoryProperty } from "../../../app/types/assets/property/IProperty"
+import { IInventoryProperty } from "../../../app/types/actives/realty/RealtyTypes.ts"
 import { InventoryItem } from "./InventoryItem/InventoryItem"
-import { IInventoryBusiness } from "../../../app/types/assets/business/IBusiness"
+// import { IInventoryBusiness } from "../../../app/types/actives/business/BusinessTypes.ts"
 
 interface IInventory {
     onOpenModal: ()=> void,
-    data: IInventoryProperty[] | IInventoryBusiness[], 
+    data: IInventoryProperty[], 
     onEditItem: (id: number)=>void,
     onRemoveItem: (id: number)=>void
 }

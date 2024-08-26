@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Daw } from "../../../../../../elements/Daw/daw" 
 import { SubTaskItem } from "./SubTaskItem"
 
-const trash = require('../../../../../assets/img/trash.svg')
+// const trash = require('../../../../../assets/img/trash.svg')
 
 export function TaskTodayItem() {
     const [moreVisible, setMoreVisible] = useState(false)
@@ -22,7 +22,7 @@ export function TaskTodayItem() {
                         <div className="task-today-item__daw">
                             <Daw onChangeDaw={changeDaw} dawActive={false}/>
                         </div>
-                        <img className="task-today-item__remove-btn" src={trash} alt="trash" />
+                        <img className="task-today-item__remove-btn" src={''} alt="trash" />
                     </div>
                 </div>
             </div>

@@ -1,13 +1,12 @@
 .header {
     background-color: #eeeef4;
+    position: static;
 
-    .container {
-
-        .header__content {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .header__content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
     }
 }

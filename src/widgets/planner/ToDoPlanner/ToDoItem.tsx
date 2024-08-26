@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { IToDo } from "../../../app/types/planner/IPlanner"
 import { ToDoInnerItem } from "./ToDoInnerItem"
 import './toDoPlanner.css'
@@ -9,7 +9,7 @@ interface IToDoItem {
     onEditListItem: (id:number, idInner?: number)=>void
 } 
 
-const cart = require('../../../assets/img/trash.svg')
+// const cart = require('../../../assets/img/trash.svg')
 
 export function ToDoItem({data, remTodo, onEditListItem}: IToDoItem) {
     const [descVisible, setDescVisible] = useState(false)
@@ -68,7 +68,7 @@ export function ToDoItem({data, remTodo, onEditListItem}: IToDoItem) {
                                 new Date(data.date_end).getMinutes()<10?'0'+new Date(data.date_end).getMinutes():new Date(data.date_end).getMinutes()}`}
                     </div>
                     
-                    <img className="to-do__item-remove-btn" src={cart} onClick={onRemTodo} alt="" />
+                    <img className="to-do__item-remove-btn" src={''} onClick={onRemTodo} alt="" />
                 </div>
             </span>
             

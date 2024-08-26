@@ -1,23 +1,23 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import "./editModal.css"
 import { InputText } from "../../../../../../shared/ui/input/InputText/InputTextTest"
 import { ILoansDTO } from "../../../../../../app/types/dto/assets/IAssetsLiabilitiesDTO"
-import { ILiabilities } from "../../../../../../app/types/liabilities/ILiabilities"
+import { LiabilitiesType } from "../../../../../../app/types/common/liabilitiesType" 
 
 interface IEditModal {
     onClose: ()=> void,
-    data: ILiabilities,
+    data: LiabilitiesType,
     onEdit: (obj: ILoansDTO)=>void
 }
 
-export function EditModal({onClose, data, onEdit}: IEditModal) {
+export function EditModal({onClose, onEdit}: IEditModal) { //data
     const [valueName, setValueName] = useState('name') //data.name
     const [alertName, setAlertName] = useState('')
 
     const clickEditBtn = ()=> {
         if(alertName==='' && valueName!=='') {
             const loanDTO:ILoansDTO = {
-                id: data.id!,
+                id: 10, //data.id!
                 name: valueName,
             }
             onEdit(loanDTO)

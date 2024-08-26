@@ -1,4 +1,3 @@
-import React from "react";
 import "./inputAddress.css"
 import "./input_validation.js"
 

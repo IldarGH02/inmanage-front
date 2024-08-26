@@ -1,4 +1,3 @@
-import React from "react";
 import { IStep, Status } from "../../../app/types/steps";
 
 interface IStepItem {

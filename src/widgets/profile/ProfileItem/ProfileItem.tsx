@@ -1,4 +1,3 @@
-import React from "react";
 import "./profileItem.css";
 
 import vector from "../../../shared/assets/img/profile/vectorR.png"

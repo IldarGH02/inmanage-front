@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import "./bankAccountCard.css"
 import { InputText } from "../../../../../shared/ui/input/InputText/InputTextTest"
 import { InputSum } from "../../../../../shared/ui/input/InputSum/InputSumTest"

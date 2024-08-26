@@ -1,31 +1,18 @@
 .add-property-page {
-    width: 100%;
-    font-family: "SFUI-Display";
     height: 100vh;
-    padding: 90px 0 10px 0;
-    position: relative;
 }
 
 .add-property-page__container {
-    width: 1500px;
     margin: 0 auto;
-    position: relative;
 }
 
 .add-property-page__header {
     display: flex;
     align-items: center;
-    margin: 15px 10px;
 }
 
 .add-property-page__title {
     font-size: 33px;
     font-weight: 700;
     margin-left: 20px;
-    position: relative;
-    z-index: 2;
-}
-
-.add-property-page__content {
-    z-index: 2;
 }

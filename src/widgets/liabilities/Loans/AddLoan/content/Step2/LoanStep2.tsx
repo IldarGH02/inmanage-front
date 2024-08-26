@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import "./loanStep2.css"
 import { InputSum } from "../../../../../../shared/ui/input/InputSum/InputSumTest"
 import { InputPercent } from "../../../../../../shared/ui/input/inputPercent/InputPercent"

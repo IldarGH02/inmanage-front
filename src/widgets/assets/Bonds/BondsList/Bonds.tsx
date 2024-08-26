@@ -1,4 +1,3 @@
-import React from "react";
 import "../bonds.css"
 import { BondsItem } from "../BondsItem/BondsItem";
 

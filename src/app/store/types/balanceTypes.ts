@@ -27,7 +27,7 @@ export enum actionTypesBalance {
 };
 
 export interface IStateBalance {
-    balance: IBalance | null,
+    // balance: Balance | null,
     loading: boolean,
     work: IWork[] | null,
     personalCategories: IExpensePersonalIcons[] | null
@@ -44,7 +44,7 @@ export interface IActionBalance {
 };
 
 export const initialStateBalance: IStateBalance = {
-    balance: null,
+    // balance: null,
     work: null,
     loading: false,
     personalCategories: null

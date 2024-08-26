@@ -1,18 +1,18 @@
-/* .property-item-page {
+/* .realty-item-page {
     width: 100%;
     font-family: "SFUI-Display";
     height: 100vh;
     padding: 90px 0 10px 0;
 }
 
-.property-item-page__container {
+.realty-item-page__container {
     width: 1500px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
-.property-item-page__title {
+.realty-item-page__title {
     font-size: 33px;
     font-weight: 700;
     display: flex;
@@ -20,13 +20,13 @@
     margin: 15px 0;
 }
 
-.property-item-page__content {
+.realty-item-page__content {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.property-item-page__about-block, .property-item-page__info-block {
+.realty-item-page__about-block, .realty-item-page__info-block {
     width: 730px;
     background-color: white;
     max-height: 1000px;
@@ -38,12 +38,12 @@
     flex-direction: column;
 }
 
-.property-item-page__info-block {
+.realty-item-page__info-block {
     position: relative;
     justify-content: space-between;
 }
 
-.property-item-page__img-wrapper {
+.realty-item-page__img-wrapper {
     width: 100%;
     height: 500px;
     border-radius: 10px;
@@ -53,59 +53,59 @@
 
 }
 
-.property-item-page__img {
+.realty-item-page__img {
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
 
-.property-item-page__name {
+.realty-item-page__name {
     margin-top: 30px;
     font-size: 24px;
     letter-spacing: 1px;
 }
 
-.property-item-page__address {
+.realty-item-page__address {
     margin-top: 8px;
     color: grey;
     font-size: 22px;
 }
 
-.property-item-page__info {
+.realty-item-page__info {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
 }
 
-.property-item-page__info:nth-child(3n) {
+.realty-item-page__info:nth-child(3n) {
     margin-bottom: 30px;
 }
 
-.property-item-page__info:last-child {
+.realty-item-page__info:last-child {
     margin-bottom: 0;
 }
 
-.property-item-page__info-title {
+.realty-item-page__info-title {
     margin-right: 10px;
     font-size: 20px;
 }
 
-.property-item-page__info-value {
+.realty-item-page__info-value {
     font-size: 23px;
 }
 
-.property-item-page__graphic {
+.realty-item-page__graphic {
     width: 100%;
     height: 210px;
 }
 
-.property-item-page__actions {
+.realty-item-page__actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.property-item-page__history-btn {
+.realty-item-page__history-btn {
     height: 24px;
     border: none;
     background-color: inherit;
@@ -115,7 +115,7 @@
     border-bottom: 1px solid rgb(128, 173, 246);
 }
 
-.property-item-page__inventory-btn {
+.realty-item-page__inventory-btn {
     padding: 12px 30px;
     font-size: 20px;
     text-decoration: none;
@@ -130,7 +130,7 @@
     border: none;
 }
 
-.property-item-page__btns {
+.realty-item-page__btns {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -140,11 +140,11 @@
     padding: 12px 0;
 }
 
-.property-item-page__cancel-btn {
+.realty-item-page__cancel-btn {
     font-size: 22px;
 }
 
-.property-item-page__add-btn {
+.realty-item-page__add-btn {
     padding: 12px 30px;
     font-size: 22px;
     text-decoration: none;
@@ -160,7 +160,7 @@
     border: none;
 }
 
-.property-item__actions-drop-down {
+.realty-item__actions-drop-down {
     top: -0.5rem;
     right: 1rem;
     position: absolute;
@@ -168,7 +168,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.property-item__actions-drop-down > b {
+.realty-item__actions-drop-down > b {
     font-size: 44px;
     letter-spacing: 2px;
     color: grey;
@@ -177,7 +177,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.property-item__actions-list {
+.realty-item__actions-list {
     width: 220px;
     height: 90px;
     padding: 10px 0;
@@ -192,7 +192,7 @@
     transition: all 0.2s ease-in-out;
 }
 
-.property-item__action-item {
+.realty-item__action-item {
     width: 100%;
     height: 35px;
     cursor: pointer;
@@ -202,8 +202,8 @@
     font-size: 18px;
 }
 
-.property-item__action-item:hover {
+.realty-item__action-item:hover {
     background-color: grey;
 }
 
-.property-item__actions-drop-down:hover .property-item__actions-list {display: block;} */
+.realty-item__actions-drop-down:hover .realty-item__actions-list {display: block;} */

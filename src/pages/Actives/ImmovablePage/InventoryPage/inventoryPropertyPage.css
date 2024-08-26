@@ -1,0 +1,21 @@
+.add-property-page {
+    font-family: "SFUI-Display";
+    height: 100vh;
+}
+
+.add-property-page__container {
+    margin: 0 auto;
+}
+
+.add-property-page__header {
+    display: flex;
+    align-items: center;
+    margin: 15px 10px;
+}
+
+.add-property-page__title {
+    font-size: 33px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+

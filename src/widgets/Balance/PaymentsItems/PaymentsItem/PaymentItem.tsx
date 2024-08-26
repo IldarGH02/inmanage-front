@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import { FC } from "react"
 // import { IPayment } from "../../../../app/types/balance/IPayment"
 import { IPaymentMock } from "../../../../features/mocks"
 

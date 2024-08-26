@@ -1,65 +1,64 @@
 import $api from "../api"
-import { IExpenseBalance, IExpensePersonalIcons, IIncome, Work, Balance, Card, IIncomeBalance } from "../../../app/types/balance/IBalance"
+import {
+    IExpenseBalance,
+    IExpensePersonalIcons,
+    IIncome,
+    Work,
+    Balance,
+    IIncomeBalance,
+    RequestCard
+} from "../../../app/types/balance/IBalance"
+import {AxiosResponse} from "axios";
 
 export default class BalanceService {
-    static async fetchBalance():Promise<Balance> {
-        const response = await $api.get<Balance>(`/balance/`)
-        return response.data
+    static async fetchBalance():Promise<AxiosResponse<Balance>> {
+        return await $api.get<Balance>(`/balance/`)
     }
 
-    static async createCard(card: Card):Promise<Card> {
-        const response = await $api.patch<Card>(`/balance/`, card)
-        return response.data
+    static async createCard(card: RequestCard):Promise<AxiosResponse<RequestCard>> {
+        return await $api.patch<RequestCard>(`/balance/`, {card: card})
     }
 
     static async removeCard(id: number) {
-        const response = await $api.delete(`/balance/cards/del/${id}/`)
-        return response
+        return await $api.delete(`/balance/cards/del/${id}/`)
     }
 
     static async createFavouriteCard(favouriteCards: number[]) {
-        const response = await $api.patch<number[]>(`/balance/`, {favouriteCards})
-        return response
+        return await $api.patch<number[]>(`/balance/`, {favouriteCards})
     }
 
-    static async fetchWorks(): Promise<Work[] | void> {
-        const response = await $api.get<Work[]>(`/altincomes/works/`)
-        return response.data
+    static async fetchWorks(): Promise<AxiosResponse<Work[]>> {
+        return await $api.get<Work[]>(`/altincomes/works/`)
     }
 
     static async createWork(name: string, param: null | string, funds: number, comment: string) {
         const project = param ? param : null;
-        const response = await $api.post<Work>(`/altincomes/`, {work: {name}, project, funds, comment})
-        console.log(response)
-        return response
+        return await $api.post<Work>(`/altincomes/`, {work: {name}, project, funds, comment})
     }
 
     static async createIncome(objIncome: IIncome){
-        const response = await $api.post<Work>(`/altincomes/`, objIncome)
-        return response
+        return await $api.post<Work>(`/altincomes/`, objIncome)
     }
 
     static async updateActivesIncome(param: string, id: number | null, objIncome: IIncomeBalance[]){
-        const response = await $api.patch(`/actives/${param}/up/${id}/=`, objIncome)
-        return response
+        return await $api.patch(`/actives/${param}/up/${id}/=`, objIncome)
     }
 
     static async fetchPersonalExpenseCategories(){
-        const response = await $api.get<IExpensePersonalIcons[]>(`/categories/personal/`)
-        return response
+        return await $api.get<IExpensePersonalIcons[]>(`/categories/personal/`)
     }
 
     static async createPersonalExpenseCategories(icon: IExpensePersonalIcons){
-        const response = await $api.post<IExpensePersonalIcons>(`/categories/personal`, icon)
-        return response
+        return await $api.post<IExpensePersonalIcons>(`/categories/personal`, icon)
     }   
 
-    static async createPersonalExpense(idCard: number, icon: IExpenseBalance){
-        const response = await $api.patch<IExpensePersonalIcons>(`/balance/cards/up/${idCard}`, {
+    static async createPersonalExpense(idCard: number, icon: IExpenseBalance): Promise<AxiosResponse>{
+        return await $api.patch<IExpensePersonalIcons>(`/balance/cards/up/${idCard}`, {
             expenses: [
                 {category: icon.category?.icon_id, title: icon.category?.title, description: '', funds: icon.funds}
             ]
         })
-        return response
     }
+
+
 }

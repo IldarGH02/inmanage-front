@@ -1,79 +1,79 @@
-import React, { useEffect, useState } from "react"
-import "./transportStep1.css"
-import { InputText } from "../../../../../../shared/ui/input/InputText/InputTextTest"
-import { InputTextVIN } from "../../../../../../shared/ui/input/inputVIN/InputVIN"
-import { DropDownList } from "../../../../../DropDownList/DropDownList"
-import { IAssetsTransport } from "../../../../../../app/types/assets/IAssets"
+// import React, { useEffect, useState } from "react"
+// import "./transportStep1.css"
+// import { InputText } from "../../../../../../shared/ui/input/InputText/InputTextTest"
+// import { InputTextVIN } from "../../../../../../shared/ui/input/inputVIN/InputVIN"
+// import { DropDownList } from "../../../../../DropDownList/DropDownList"
+// import { IAssetsTransport } from "../../../../../../app/types/actives/ActivesTypes.ts"
 
-const name = [
-    {id: 1, content:'Skoda'},   
-]
+// const name = [
+//     {id: 1, content:'Skoda'},   
+// ]
 
-const model = [
-    {id: 1, content:'Rapid'},
-    {id: 2, content:'Octavia'},
-    {id: 3, content:'Superb'},
-]
+// const model = [
+//     {id: 1, content:'Rapid'},
+//     {id: 2, content:'Octavia'},
+//     {id: 3, content:'Superb'},
+// ]
 
-interface ITransportStep1 {
-    onChangeBtnVisible: (flag: boolean) => void,
-    onChangeValues: (obj: IAssetsTransport) => void,
-    data: IAssetsTransport
-}
+// interface ITransportStep1 {
+//     onChangeBtnVisible: (flag: boolean) => void,
+//     onChangeValues: (obj: IAssetsTransport) => void,
+//     data: IAssetsTransport
+// }
 
-export function TransportStep1({onChangeBtnVisible, onChangeValues, data}:ITransportStep1) {
-    const [valueUse, setValueUse] = useState('')
-    const [alertUse, setAlertUse] = useState('')
-    const [valueVIN, setValueVIN] = useState('')
-    const [alertVIN, setAlertVIN] = useState('')
+// export function TransportStep1({onChangeBtnVisible, onChangeValues, data}:ITransportStep1) {
+//     const [valueUse, setValueUse] = useState('')
+//     const [alertUse, setAlertUse] = useState('')
+//     const [valueVIN, setValueVIN] = useState('')
+//     const [alertVIN, setAlertVIN] = useState('')
 
 
-    const [brandSelector, setBrandSelector] = useState('')
-    const [modelSelector, setModelSelector] = useState('')
+//     const [brandSelector, setBrandSelector] = useState('')
+//     const [modelSelector, setModelSelector] = useState('')
 
-    useEffect(()=>{
-        setValueVIN('VIN') // data.vin
-        setValueUse(data.use)
-        setModelSelector(data.model)
-        setBrandSelector(data.mark)
-    },[])
+//     useEffect(()=>{
+//         setValueVIN('VIN') // data.vin
+//         setValueUse(data.use)
+//         setModelSelector(data.model)
+//         setBrandSelector(data.mark)
+//     },[])
 
-    useEffect(()=>{
-        data.use = valueUse
-        // data.vin = valueVIN
-        data.model = modelSelector
-        data.mark = brandSelector
-        onChangeValues(data)
-        if(alertUse==='' && valueVIN!=='' && alertVIN==='' && brandSelector!=='' && modelSelector!=='') {
-            onChangeBtnVisible(true)
-        }
-        else {
-            onChangeBtnVisible(false)
-        }
-    },[valueUse,valueVIN, brandSelector, modelSelector])
+//     useEffect(()=>{
+//         data.use = valueUse
+//         // data.vin = valueVIN
+//         data.model = modelSelector
+//         data.mark = brandSelector
+//         onChangeValues(data)
+//         if(alertUse==='' && valueVIN!=='' && alertVIN==='' && brandSelector!=='' && modelSelector!=='') {
+//             onChangeBtnVisible(true)
+//         }
+//         else {
+//             onChangeBtnVisible(false)
+//         }
+//     },[valueUse,valueVIN, brandSelector, modelSelector])
     
-    return (
-        <div className="property-add">
-            <div className="property-add__accordion-container">
-                <div className="property-add__item">
-                    <div className="property-add__name">Марка транспорта<b>*</b></div>
-                    <DropDownList data={name} value={brandSelector} setValue={setBrandSelector} id={'accord_1'} idSearching='list1' placeholder="Выберете марку транспорта"/>
-                    {/* <InputText lenght={30} value={valueName} attentionFlag={true} setValue={setValueName} setAlert={setAlertName}/> */}
-                </div>
-                <div className="property-add__item">
-                    <div className="property-add__name">Модель транспорта<b>*</b></div>
-                    <DropDownList data={model} value={modelSelector} setValue={setModelSelector} id={'accord_2'} idSearching='list2' placeholder="Выберете модель транспорта"/>
-                    {/* <InputText lenght={30} value={valueName} attentionFlag={true} setValue={setValueName} setAlert={setAlertName}/> */}
-                </div>
-            </div>
-            <div className="property-add__item">
-                <div className="property-add__name">VIN-номер<b>*</b></div>
-                <InputTextVIN value={valueVIN} setValue={setValueVIN} setAlert={setAlertVIN}/>
-            </div>
-            <div className="property-add__item">
-                <div className="property-add__name">Назначение</div>
-                <InputText length={30} value={valueUse} attentionFlag={false} setValue={setValueUse} setAlert={setAlertUse}/>
-            </div>
-        </div>
-    )
-}
+//     return (
+//         <div className="property-add">
+//             <div className="property-add__accordion-container">
+//                 <div className="property-add__item">
+//                     <div className="property-add__name">Марка транспорта<b>*</b></div>
+//                     <DropDownList data={name} value={brandSelector} setValue={setBrandSelector} id={'accord_1'} idSearching='list1' placeholder="Выберете марку транспорта"/>
+//                     {/* <InputText lenght={30} value={valueName} attentionFlag={true} setValue={setValueName} setAlert={setAlertName}/> */}
+//                 </div>
+//                 <div className="property-add__item">
+//                     <div className="property-add__name">Модель транспорта<b>*</b></div>
+//                     <DropDownList data={model} value={modelSelector} setValue={setModelSelector} id={'accord_2'} idSearching='list2' placeholder="Выберете модель транспорта"/>
+//                     {/* <InputText lenght={30} value={valueName} attentionFlag={true} setValue={setValueName} setAlert={setAlertName}/> */}
+//                 </div>
+//             </div>
+//             <div className="property-add__item">
+//                 <div className="property-add__name">VIN-номер<b>*</b></div>
+//                 <InputTextVIN value={valueVIN} setValue={setValueVIN} setAlert={setAlertVIN}/>
+//             </div>
+//             <div className="property-add__item">
+//                 <div className="property-add__name">Назначение</div>
+//                 <InputText length={30} value={valueUse} attentionFlag={false} setValue={setValueUse} setAlert={setAlertUse}/>
+//             </div>
+//         </div>
+//     )
+// }

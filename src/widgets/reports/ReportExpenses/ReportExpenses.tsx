@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./reportExpenses.css";
 import { DoughnutChart } from "../../Chart/DoughnutChart/DoughnutChart";
 import { IReportDoughnut } from "../../../app/types/reports/IReports";

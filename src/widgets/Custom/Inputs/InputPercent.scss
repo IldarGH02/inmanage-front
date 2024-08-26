@@ -1,0 +1,38 @@
+.input__percent-container {
+    position: relative;
+
+    .MuiFormControl-root{
+        // border: 3px solid rgb(241, 242, 246) !important;
+        width: 100%;
+    
+        MuiFormLabel-root {
+            font-family: inherit !important;
+        }
+
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+            transform: translate(14px, 23px) scale(1);
+            font-family: inherit !important;
+        }
+    
+        .MuiInputBase-root {
+            width: 100%;
+        
+            .MuiInputBase-input {
+                padding: 25px 15px;
+                position: relative;
+            }
+
+            .MuiOutlinedInput-notchedOutline {
+                border: none;
+                border-radius: 15px !important;
+                border: 3px solid rgb(241, 242, 246) !important;
+            }   
+        }
+    }
+
+    .input__percent-currency {
+        position: absolute;
+        top: 30%;
+        right: 20px;
+    }
+}

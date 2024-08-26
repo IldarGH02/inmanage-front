@@ -1,34 +1,46 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
-import "./navbar.css"
+import "./navbar.scss"
+
+interface NavbarList {
+    path: string,
+    name: string
+}
+
+const navbarList: NavbarList[] = [
+    {
+        path: "/balance",
+        name: "Баланс"
+    },
+    {
+        path: "/assets",
+        name: "Активы"
+    },
+    {
+        path: "liabilities",
+        name: "Пассивы"
+    },
+    {
+        path: "/reports",
+        name: "Аналитика"
+    },
+    {
+        path: "/planner",
+        name: "Планировщик"
+    }
+]
 
 export function Navbar() {
-
     return (
-        <>
-        <div className="navbar">
-            <ul className="navbar__menu-box">
-                <li><NavLink className={({ isActive }) => isActive ? 'navbar__item-active' : 'navbar__item'} to="/balance">Баланс</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'navbar__item-active' : 'navbar__item'} to="/assets">Активы</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'navbar__item-active' : 'navbar__item'} to="/liabilities">Пассивы</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'navbar__item-active' : 'navbar__item'} to="/reports">Аналитика</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'navbar__item-active' : 'navbar__item'} to={"/planner"}>Планировщик</NavLink></li>
+        <nav className="nav header__nav">
+            <ul className="header__nav-items">
+                {
+                    navbarList.map(({path, name}) => {
+                        return <li key={path} className="header__nav-item">
+                                    <NavLink className={`header__nav-link`} to={path}>{name}</NavLink>
+                               </li>
+                    })
+                }
             </ul>
-        </div>
-        <div className="hamburger-menu">
-            <input id="menu__toggle" type="checkbox" />
-            <label className="menu__btn" htmlFor="menu__toggle">
-                <span></span>
-            </label>
-
-            <ul className="menu__box">
-                <li><NavLink className={({ isActive }) => isActive ? 'menu__item-active' : 'menu__item'} to="/balance">Баланс</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'menu__item-active' : 'menu__item'} to="/assets">Активы</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'menu__item-active' : 'menu__item'} to="/liabilities">Пассивы</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'menu__item-active' : 'menu__item'} to="/reports">Аналитика</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? 'menu__item-active' : 'menu__item'} to={"/planner"}>Планировщик</NavLink></li>
-            </ul>
-        </div>
-        </>
+        </nav>
     )
 }

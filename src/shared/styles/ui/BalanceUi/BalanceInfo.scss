@@ -1,8 +1,9 @@
-.balance__income-link, .balance__expense-link {
+.balance__income, .balance__expense {
     text-decoration: none;
 }
 
-.balance__income-link {
+.balance__income {
+    cursor: pointer;
     width: calc(50% - 10px);
 
     .income {
@@ -42,7 +43,8 @@
     }
 }
 
-.balance__expense-link {
+.balance__expense {
+    cursor: pointer;
     width: calc(50% - 10px);
 
     .expense {

@@ -9,25 +9,20 @@ import { PlannerDateState } from '../features/context/planner/plannerData/Planne
 import { MainPage } from '../pages/index';
 
 import "./index.scss"
-import { useEffect } from 'react';
-import { useGetLocalStorage, useGetSessionStorage, useSetSessionStorage } from '../features/hooks/storage';
-import { useAuth } from '../features/hooks/auth/auth';
+import { useEffect} from 'react';
+import { getLocalStorage, setSessionStorage } from '../features/hooks/storage';
 
 export const App = observer(() => {
-    const auth = useAuth()
     const navigate = useNavigate()
 
     useEffect(() => {
-        const tokens = useGetLocalStorage('tokens')
-        tokens ? navigate('/balance') : navigate('/login')
-
-        navigate(JSON.parse(useGetSessionStorage('route')))
-
+        const tokens = getLocalStorage('tokens')
+        if(!tokens) {
+            navigate('/login')
+        }
         const path = window.location.pathname
-
-        useSetSessionStorage('route', path)
-            navigate(JSON.parse(useGetSessionStorage('route')))
-    }, [auth, navigate])
+        setSessionStorage('route', path)
+    }, [navigate])
 
     return (
         <PlannerDateState>

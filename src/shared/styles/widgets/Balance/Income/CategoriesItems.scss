@@ -1,0 +1,69 @@
+.balance__categories {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .balance__categories-item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        transition: all 0.3s ease-in-out;
+        padding: 0.4%;
+        @include _fontStyle(700, 24px, 26px, black);
+
+        &:focus-visible {
+            background-color: #c3ddf4;
+            color: rgb(0, 0, 0);
+        };
+
+        &:hover {
+            background-color: #c3ddf4;
+            color: rgb(0, 0, 0);
+        }
+    }
+
+    .active {
+        background-color: rgb(103, 158, 243);
+        color: white;
+    }
+}
+
+//.categories__choose-job_other {
+//    display: flex;
+//    width: 100%;
+//    padding: 0;
+//    margin: 0;
+//    list-style: none;
+//
+//    .choose_buttons {
+//        cursor: pointer;
+//        width: 100%;
+//        height: 100%;
+//        border-radius: 40px;
+//        transition: all 0.3s ease-in-out;
+//        padding: 0.4%;
+//        @include _fontStyle(700, 24px, 26px, black);
+//
+//        &:focus-visible {
+//            background-color: #c3ddf4;
+//            color: rgb(0, 0, 0);
+//        };
+//
+//        &:hover {
+//            background-color: #c3ddf4;
+//            color: rgb(0, 0, 0);
+//        }
+//    }
+//
+//    .active {
+//        background-color: rgb(103, 158, 243);
+//        color: white;
+//    }
+//}

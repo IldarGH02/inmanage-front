@@ -1,4 +1,3 @@
-import React from "react"
 import { Daw } from "../../../../../../elements/Daw/daw"
 import { IListItem } from "../../../../../../../app/types/planner/IPlanner"
 import { useDispatch } from "react-redux"

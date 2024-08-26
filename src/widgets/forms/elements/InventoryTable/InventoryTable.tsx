@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./inventoryTable.css";
-import { IInventoryTableInput } from "../../../../app/types/assets/IAssets";
+import { IInventoryTableInput } from "../../../../app/types/actives/ActivesTypes.ts";
 import { FieldArray, FormikErrors, FormikTouched } from "formik";
 import { InventoryTableItem } from "./InventoryTableItem/InventoryTableItem";
 

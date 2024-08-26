@@ -4,7 +4,7 @@ import { Alert } from "../../Alert/Alert";
 import { ModalContext } from "../../../features/context/modalProperty/ModalContext";
 import "./addModal.css"
 
-const cart = require('../../../assets/img/trash.svg')
+// const cart = require('../../../assets/img/trash.svg')
 
 const monthName: string[] = [
     'Января', 'Февраля', 'Марта', 'Апреля',
@@ -216,7 +216,7 @@ export function AddModal({addTodo, day, month, year}: IAddModal) {
                                 return (
                                     <div key={el.id} className="add-modal-planner__item-list-elem">
                                         <div>{el.text}</div>
-                                        <img className="add-modal-planner__item-remove-btn" src={cart} alt="" onClick={()=>removeListItem(el.id)}/>
+                                        <img className="add-modal-planner__item-remove-btn" src={''} alt="" onClick={()=>removeListItem(el.id)}/>
                                     </div>
                                 )
                             })}

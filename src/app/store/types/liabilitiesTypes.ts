@@ -1,4 +1,4 @@
-import { ILiabilities } from "../../types/liabilities/ILiabilities";
+import { LiabilitiesType } from "../../types/common/liabilitiesType"; 
 
 export enum actionTypesLiabilities {
     SHOW_LOADER_LIABILITIES = 'SHOW_LOADER_LIABILITIES',
@@ -25,7 +25,7 @@ export enum actionTypesLiabilities {
 };
 
 export interface IStateLiabilities {
-    liabilities: ILiabilities | null;
+    liabilities: LiabilitiesType | null;
     loading: boolean
 };
 

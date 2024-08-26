@@ -66,7 +66,7 @@ export function DeleteModalWindow({onRemoveItem}:IDeleteModalWindow) {
                     else if(valRb3) {
                         reason = 3
                         if (valuePrice==='' || valuePrice===0) {
-                            console.log('Error!')
+                            console.log('Error.tsx!')
                             reason = 0
                         }
                         else {

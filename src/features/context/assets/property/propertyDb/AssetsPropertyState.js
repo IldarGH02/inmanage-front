@@ -69,7 +69,7 @@ export const AssetsPropertyState = ({children}) => {
                 payload: {elems}
             })   
         } catch (error) {
-            // throw new Error(error.message)
+            // throw new Error.tsx(error.message)
             console.log(error)
         }
     }

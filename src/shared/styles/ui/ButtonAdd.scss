@@ -1,0 +1,41 @@
+.button__add-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(241, 242, 246);
+    border-radius: 30px;
+
+    .button__add-title {
+        margin-bottom: 15px;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+        font-size: 23px;
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        color: rgb(150, 150, 150);
+    }
+
+    .button_add-btn {
+        border: none;
+        background-color: transparent;
+
+        svg {
+            width: 80px;
+            height: 80px;
+
+            &:hover {
+                ellipse {
+                    stroke: #6b97da;
+                }
+
+                text {
+                    fill: #6b97da;
+                }
+            }
+        }
+    }
+}

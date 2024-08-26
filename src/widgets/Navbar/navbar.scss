@@ -1,0 +1,37 @@
+.header__nav {
+
+    .header__nav-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        gap: 15px;
+        list-style: none;
+
+        .header__nav-item {
+            .header__nav-link {
+                display: block;
+                padding: 10px 20px;
+            
+                color: rgb(150, 150, 150);
+                font-size: 24px;
+                line-height: 26px;
+                font-weight: 400;
+            
+                text-decoration: none;
+                border-radius: 25px;
+    
+                &:hover {
+                    background-color: #c3ddf4;
+                    color: rgb(150, 150, 150);
+                }   
+            }
+
+            .active {
+                background-color: rgb(103, 158, 243);
+                color: white;
+            }
+        }
+    }
+}

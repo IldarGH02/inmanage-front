@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./selectCardModal.css";
-import { ICard } from "../../../../../app/types/balance/IBalance";
+import { Card } from "../../../../../app/types/dto/DtoTypes"; 
 
 import cash from '../../../../../shared/assets/img/balance/addExpense/cashB.png'
 
 interface ISelectCardModal {
-    data: ICard[],
+    data: Card[],
     onClose: (id?: number)=>void
 }
 

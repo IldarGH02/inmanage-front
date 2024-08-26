@@ -16,6 +16,13 @@
         border: 8px solid rgb(241, 242, 246);
         border-radius: 15px;
 
+        .button__add-container {
+            .button__add-btn {
+                border: none;
+                background-color: transparent;
+            }
+        }
+
         input {
             width: 93%;
             border: none;
@@ -28,22 +35,19 @@
             }
         }
 
-        .job__create-button {
-            width: 40px;
-            height: 40px;
-            border: none;
-            background-color: rgb(204, 204, 204);
-            color: white;
-            font-size: 25px;
-            border-radius: 100%;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            outline: none;
-            text-align: center;
-        }
-
         .--active {
-            background-color: #6b97da;
+            svg {
+                width: 80px;
+                height: 80px;
+    
+                ellipse {
+                    stroke: #6b97da;
+                }
+
+                text {
+                    fill: #6b97da;
+                }
+            }
         }
     }
 

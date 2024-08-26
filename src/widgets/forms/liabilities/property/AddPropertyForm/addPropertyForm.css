@@ -1,16 +1,16 @@
-/* .add-property-form {
+/* .add-realty-form {
     z-index: 2;
     width: 100%;
     padding: 0 10px;
 }
 
-.add-property-form__content {
+.add-realty-form__content {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.add-property-form__characteristic-block-wrapper {
+.add-realty-form__characteristic-block-wrapper {
     width: 730px;
     background-color: white;
     height: 75vh;
@@ -21,7 +21,7 @@
     z-index: 2;
 }
 
-.add-property-form__characteristic-block {
+.add-realty-form__characteristic-block {
     height: 100%;
     padding: 10px;
     width: 100%;
@@ -32,7 +32,7 @@
     overflow-y: auto;
 }
 
-.add-property-form__about-card-block-wrapper {
+.add-realty-form__about-card-block-wrapper {
     width: 730px;
     background-color: white;
     height: 75vh;
@@ -43,25 +43,25 @@
     z-index: 2;
 }
 
-.add-property-form__about-card-block {
+.add-realty-form__about-card-block {
     height: 95%;
     padding: 10px;
     overflow: hidden;
     overflow-y: auto;
 }
 
-.add-property-form__block-title {
+.add-realty-form__block-title {
     font-size: 28px;
     font-weight: 600;
     height: 70px;
     text-align: center;
 }
 
-.add-property-form__cancel-btn {
+.add-realty-form__cancel-btn {
     font-size: 20px;
 }
 
-.add-property-form__add-btn {
+.add-realty-form__add-btn {
     width: 190px;
     max-height: 40px;
     height: 5vh;
@@ -79,7 +79,7 @@
     border: none;
 }
 
-.add-property-form__btns {
+.add-realty-form__btns {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -89,33 +89,33 @@
     padding: 12px 0;
 }
 
-.add-property-form__about-card-block::-webkit-scrollbar {
+.add-realty-form__about-card-block::-webkit-scrollbar {
     max-width: 6px;               
     max-height: 50px;
 }
 
-.add-property-form__about-card-block::-webkit-scrollbar-thumb {
+.add-realty-form__about-card-block::-webkit-scrollbar-thumb {
     background-color: rgb(241, 242, 246);    
     border-radius: 15px;      
     border: 1.6px solid rgb(241, 242, 246);  
 }
 
-.add-property-form__characteristic-block::-webkit-scrollbar {
+.add-realty-form__characteristic-block::-webkit-scrollbar {
     max-width: 6px;              
     max-height: 50px;
 }
-.add-property-form__characteristic-block::-webkit-scrollbar-thumb {
+.add-realty-form__characteristic-block::-webkit-scrollbar-thumb {
     background-color: rgb(241, 242, 246);  
     border-radius: 15px;      
     border: 1.6px solid rgb(241, 242, 246);  
 }
 
-.add-property-form__item {
+.add-realty-form__item {
     height: 115px;
     width: 100%;
 }
 
-.add-property-form__warning {
+.add-realty-form__warning {
     margin-top: 5px;
     color: rgb(187, 187, 187);
 }

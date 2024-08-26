@@ -3,26 +3,28 @@ export interface ITokens {
         refreshToken: string
 }
 
-export const useSetLocalStorage = (key: string, tokens: ITokens) => {
+export const setLocalStorage = (key: string, tokens: ITokens) => {
     localStorage.setItem(key, JSON.stringify(tokens))
 }
 
-export const useGetLocalStorage = (key: string):ITokens => {
+export const getLocalStorage = (key: string):ITokens => {
     const data = localStorage.getItem(key);
     const tokens: ITokens = data ? JSON.parse(data) : '';
     return tokens
 }
 
-export const useRemoveTokenFromLocalStorage = (key: string): void => {
+export const removeTokenFromLocalStorage = (key: string): void => {
     localStorage.removeItem(key)
 }
 
-export const useSetSessionStorage = (key: string, path: string) => {
-    window.onbeforeunload = () => {
-        useSetSessionStorage(key, path)
+export const setSessionStorage = (key: string, path: string) => {
+    
+    if(key) {
+        window.sessionStorage.removeItem(key)
+        window.sessionStorage.setItem(key, JSON.stringify(path))
     }
 }
 
-export const useGetSessionStorage = (key: string): string => {
-    return window.sessionStorage.getItem(key) || '{}'
+export const getSessionStorage = (key: string): string => {
+    return JSON.parse(window.sessionStorage.getItem(key) || "")
 }

@@ -2,14 +2,14 @@ import { makeAutoObservable } from 'mobx'
 import AuthService from '../../shared/http/auth';
 import axios from 'axios';
 import { AuthResponse } from '../types/auth';
-import { ITokens, useGetLocalStorage, useRemoveTokenFromLocalStorage, useSetLocalStorage } from '../../features/hooks/storage';
+import { ITokens, getLocalStorage, removeTokenFromLocalStorage, setLocalStorage } from '../../features/hooks/storage';
 
 const API_URL = import.meta.env.VITE_APP_PUBLIC_URL
 
 export default class AuthStore {
-    isAuth = false;
-    isLoading = true;
-    isCheck = false;
+    isAuth: boolean = false;
+    isLoading: boolean = true;
+    isCheck: boolean = false;
 
     isRegistration: boolean = false;
     error: unknown | null = null;
@@ -51,23 +51,7 @@ export default class AuthStore {
     }
 
     async login(phone_number: string, password: string) {
-        try {
-            this.setLoading(true)
-            const response = await AuthService.login(phone_number, password);
-            const tokens: ITokens = {
-                accessToken: response.data.access,
-                refreshToken: response.data.refresh
-            }
-            
-            if(response.status === 200) {
-                useSetLocalStorage('tokens', tokens)
-                this.setAuth(true)
-                this.setLoading(false)
-            }
-            this.setLoading(false)
-        } catch (err) {
-            this.setError(err)
-        }
+        return await AuthService.login(phone_number, password);
     }
 
     async registration(phone_number: string) {
@@ -112,7 +96,7 @@ export default class AuthStore {
     async logout() {
         try {
             await AuthService.logout();
-            useRemoveTokenFromLocalStorage('tokens')
+            removeTokenFromLocalStorage('tokens')
             this.setAuth(false)
         } catch (err) {
             this.setError(err)
@@ -121,7 +105,7 @@ export default class AuthStore {
 
     async checkAuth() {
         this.setLoading(true)
-        const refresh = useGetLocalStorage('tokens').refreshToken;
+        const refresh = getLocalStorage('tokens').refreshToken;
         try {
             const response = await axios.post<AuthResponse>(`${API_URL}/auth/refresh/`, {refresh})
             const tokens: ITokens = {
@@ -129,10 +113,11 @@ export default class AuthStore {
                 refreshToken: response.data.refresh
             }
 
-            if(response.status === 200) {
-                useSetLocalStorage('tokens', tokens)
+            if(response.status >= 200 && response.status < 300) {
+                setLocalStorage('tokens', tokens)
                 this.setAuth(true)
                 this.setIsCheck(true)
+                this.setLoading(false)
             } else {
                 this.setAuth(false)
                 this.setIsCheck(false)

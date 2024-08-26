@@ -2,34 +2,39 @@
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    font-size: 30px;
-    font-weight: 600;
+    justify-content: space-between;
     background-color: white;
     padding: 20px;
     border-radius: 20px;
-    margin-top: 24px;
+    margin-bottom: 25px;
 }
 
 .finance-table__finance-wrapper {
     display: flex;
     overflow: hidden;
+    gap: 5px;
+    align-items: center;
 }
 
 .finance-table__block {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    width: 29.33%;
+    gap: 45px;
 }
 
 .finance-table__title {
-    margin-right: 5px;
+    margin: 0px;
+    font-size: 26px;
+    line-height: 27px;
+    font-weight: 600;
 }
 
 .finance-table__pointer {
-    margin: 0 15px;
+    font-size: 26px;
+    line-height: 27px;
+    font-weight: 600;
     color: black;
 }
 
@@ -39,10 +44,6 @@
 
 .finance-table__expense {
     color: red;
-}
-
-.finance-table__profit {
-
 }
 
 .finance-table__sum-wrapper {
@@ -55,8 +56,15 @@
 .finance-table__sum {
     margin-right: .4rem;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 26px;
+    line-height: 27px;
+    font-weight: 600;
+}
+
+.finance-table__valuta {
+    font-size: 26px;
+    line-height: 27px;
+    font-weight: 600;
 }
 
 .finance-table__add-btn {

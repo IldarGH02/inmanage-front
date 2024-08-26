@@ -1,7 +1,7 @@
-import React from "react"
 import "./itemAssets.css"
+import {observer} from "mobx-react-lite";
 
-// const homeImg = require('../../../../assets/img/assets/home.png')
+// const homeImg = require('../../../../actives/img/actives/home.png')
 
 interface IItemAssets {
     title: string,
@@ -11,7 +11,7 @@ interface IItemAssets {
     profit: number
 }
 
-export function ItemAssets({title, img, actualPrice, income, profit}: IItemAssets) {
+export const ItemAssets = observer(({title, img, actualPrice, income, profit}: IItemAssets) => {
     return (
         <div className="item-assets">
             <div className="item-assets__img">
@@ -50,4 +50,4 @@ export function ItemAssets({title, img, actualPrice, income, profit}: IItemAsset
             </div>
         </div>
     )
-}
+})

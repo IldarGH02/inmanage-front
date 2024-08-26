@@ -11,6 +11,7 @@
         background-position: center;
         background-size: cover;             
         background-repeat: no-repeat;
+        gap: 20px;
 
         box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 10%);
         transition: all 0.2s ease-in-out;
@@ -19,21 +20,25 @@
             box-shadow: 1px 1px 5px 7px rgba(0, 0, 0, 10%);
         }   
             
-        .card__title {
-            width: 39%;
+        .card__action {
+            max-width: 50%;
             margin: 0;
-            margin-bottom: 20px;
             padding: 13px 17px;
-            border: 1px solid grey;
+            outline: 1px solid grey;
             border-radius: 20px;
-            @include _fontStyle(600, 22px, 22px, #333);          
+            background-color: transparent;
+            @include _fontStyle(600, 22px, 22px, #333);
+
+            &:hover {
+
+            }
         }   
         
         .card__balance {
             display: flex;
             flex-direction: row;
+            align-items: center;
             gap: 10px;
-            margin-bottom: 30px;
 
             .card__balance-sum {
                 margin: 0;

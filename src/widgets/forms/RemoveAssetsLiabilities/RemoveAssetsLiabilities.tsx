@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import {FC, useState} from "react";
 import "./removeAssetsLiabilities.css";
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { ExpenseCategories } from "../../../entities/Balance/ExpenseBalance/ExpenseCategories/ExpenseCategories";
 import { InputSumForm } from "../elements/InputSumForm/InputSumForm";
-import { ICard } from "../../../app/types/balance/IBalance";
+import { Card } from "../../../app/types/dto/DtoTypes.ts"; 
+import {observer} from "mobx-react-lite";
+import {Button} from "../../../shared/ui/Buttons/Button.tsx";
 
 interface IRemoveAssetsLiabilities {
     onOpenModal: () => void,
-    cardSelected: ICard | null,
+    cardSelected: Card | null,
     onRemove: (sum?: number) => void,
-    onClose: ()=>void
+    setShow: (bool: boolean) => void,
 }
 
-export function RemoveAssetsLiabilities({onOpenModal, cardSelected, onRemove, onClose}: IRemoveAssetsLiabilities) {
+export const RemoveAssetsLiabilities: FC<IRemoveAssetsLiabilities> = observer((
+    {
+        onOpenModal,
+        cardSelected,
+        onRemove,
+        setShow
+    }) => {
+
     const [category, setCategory] = useState(0)
     const categories = ['Продажа', 'Удаление']
 
@@ -77,13 +86,24 @@ export function RemoveAssetsLiabilities({onOpenModal, cardSelected, onRemove, on
                     }
                     
                     <div className="remove-assets-liabilities-form__btns">
-                        <button className="remove-assets-liabilities-form__cancel-btn" type="button" onClick={onClose}>Отменить</button>
-                        <button className="remove-assets-liabilities-form__add-btn" type="submit" onClick={()=>{
-                        }}>Подтвердить</button>
+                        <Button
+                            className='remove-assets-liabilities-form__cancel-btn'
+                            textButton='Отменить'
+                            name='Cancel'
+                            type='button'
+                            onClick={() => setShow(false)}
+                        />
+                        <Button
+                            className='remove-assets-liabilities-form__add-btn'
+                            textButton='Подтвердить'
+                            name='Submit'
+                            type='submit'
+                            onClick={()=>{}}
+                        />
                     </div>
                 </Form>                
             </>
        )}
         </Formik>
     )
-}
+})

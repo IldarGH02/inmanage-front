@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./expenseSlider.css";
 import { IExpenseSlider } from "../../../../app/types/balance/IBalance";
 import { SelectedItemSlider } from "../../SelectedItemSlider/SelectedItemSlider";
+import { ButtonAdd } from "../../../../shared/ui/ButtonAdd/ButtonAdd";
 
 interface IExpenseSliderProp {
     data: IExpenseSlider[],
@@ -10,7 +11,7 @@ interface IExpenseSliderProp {
     addBtnVisible?: boolean,
 }
 
-// const cash = require('../../../../assets/img/balance/addExpense/cashB.png')
+// const cash = require('../../../../actives/img/balance/addExpense/cashB.png')
 
 export function ExpenseSlider({data, idItems, onClickItem, addBtnVisible=true}: IExpenseSliderProp) {
     const [widthSlider, setWidthSlider] = useState(0)
@@ -124,10 +125,12 @@ export function ExpenseSlider({data, idItems, onClickItem, addBtnVisible=true}: 
                                 )
                             })}
                             {addBtnVisible && 
-                                <div className="expense-slider-item-btn" onClick={()=>onClickItem()}>
-                                    <div className="expense-slider-item-btn__title">Добавить</div>
-                                    <button className="expense-slider-item-btn__add">+</button>
-                                </div>
+                                <ButtonAdd 
+                                    classNameContainer="button__add-container" 
+                                    classNameTitle="button__add-title" 
+                                    classNameButton="button_add-btn" 
+                                    handleClickItem={onClickItem}
+                                />
                             }
                         </div>
                     </div>

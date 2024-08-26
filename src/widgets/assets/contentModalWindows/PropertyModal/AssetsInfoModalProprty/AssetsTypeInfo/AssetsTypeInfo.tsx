@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react"
-import { IAssetsProperty } from "../../../../../../app/types/assets/property/IProperty"
+import { useContext, useEffect, useState } from "react"
+import { IAssetsProperty } from "../../../../../../app/types/actives/realty/RealtyTypes.ts"
 import { IStep } from "../../../../../../app/types/steps"
 import { AddModalContext } from "../../../../../../features/context/assets/property/addModal/AddModalContext"
 import './assetsTypeInfo.css'

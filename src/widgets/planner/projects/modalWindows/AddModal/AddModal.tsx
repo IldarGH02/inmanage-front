@@ -7,7 +7,7 @@ import { InputSum } from "../../../../../shared/ui/input/InputSum/InputSum";
 import { InputText } from "../../../../../shared/ui/input/InputText/InputTextTest"; 
 import "./addModal.css"
 
-// const cart = require('../../../assets/img/trash.svg')
+// const cart = require('../../../actives/img/trash.svg')
 
 interface IAddModal {
     onAddPropertyItem: (newTodo: IProjectItemDTO)=>void

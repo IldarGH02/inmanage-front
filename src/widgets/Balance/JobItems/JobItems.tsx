@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import { ExpenseList } from '../../../app/types/balance/IBalance'
 import { FC } from 'react'
-import { JobItem } from './JobItem/JobItem'
+// import { JobItem } from './JobItem/JobItem'
 
 interface IItems {
     items: ExpenseList
@@ -11,13 +11,13 @@ interface IItems {
 
 export const JobItems: FC<IItems> = observer((
     {
-        items,
-        handleChangeCheckbox,
-        handleChooseItem,
+        // items,
+        // handleChangeCheckbox,
+        // handleChooseItem,
     }) => {
     return (
         <ul className="job__items">
-            {items && items.map((item) => {
+            {/* {items && items.map((item) => {
                 return <JobItem 
                             key={item.id} 
                             item={item} 
@@ -25,7 +25,7 @@ export const JobItems: FC<IItems> = observer((
                             handleChooseItem={handleChooseItem}
                         />
                 })
-            }
+            } */}
         </ul>
     )
 })

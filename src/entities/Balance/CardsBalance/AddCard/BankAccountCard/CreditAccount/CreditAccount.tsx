@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import "./creditAccount.css"
 import { InputPercent } from '../../../../../../shared/ui/input/inputPercent/InputPercent'
 import { InputDayCredit } from '../../../../../../shared/ui/input/inputTimeCredit/InputDayCredit'

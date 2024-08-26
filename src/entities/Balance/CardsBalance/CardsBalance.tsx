@@ -1,25 +1,31 @@
-import React, { useEffect } from "react"
-import { ICard } from "../../../app/types/balance/IBalance"
+import { FC } from "react"
+import { Card } from "../../../app/types/dto/DtoTypes.ts"
 import { CardItems } from "../../../widgets/Balance/CardItems/CardItems"
+import { Button } from "../../../shared/ui/Buttons/Button.tsx";
+import { observer } from "mobx-react-lite";
 
-
-
-interface ICardsBalance {
+interface CardsBalanceProps {
     sum: number,
-    cards: ICard[]
+    cards: Card[],
+    handleShow: () => void
 }
 
-export function CardsBalance({sum, cards}: ICardsBalance) {
-
-    useEffect(()=>{
-        console.log(cards)
-    }, [cards])
+export const CardsBalance: FC<CardsBalanceProps> = observer((
+    {
+        sum,
+        cards,
+        handleShow
+    }) => {
 
     return (
         <div className="card">
-            <h2 className="card__title">
-                Карты и наличные
-            </h2>
+            <Button
+                className="card__action"
+                onClick={handleShow}
+                textButton='Карты и наличные'
+                type='button'
+                name='show_cards'
+            />
             <div className="card__balance">
                 <p className="card__balance-sum">{sum.toLocaleString(undefined, {minimumFractionDigits: 1})}</p>
                 <p className="card__balance-valuta">₽</p>
@@ -28,4 +34,4 @@ export function CardsBalance({sum, cards}: ICardsBalance) {
         </div>
 
     )
-} 
+})

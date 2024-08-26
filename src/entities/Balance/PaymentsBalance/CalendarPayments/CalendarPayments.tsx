@@ -44,6 +44,7 @@ export const CalendarPayments = observer(({changeDate, addTaskFlag=false}: ICale
     }
 
     const drawCalendar = (month: number, year: number) => {
+        //@ts-ignore
         let lastDayInMonth = 28
 
         setYearVisible(year)

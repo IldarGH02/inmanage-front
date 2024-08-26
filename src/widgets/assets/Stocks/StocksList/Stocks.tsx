@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../stocks.css"
 import { StockItem } from "../StocksItem/StockItem";
 

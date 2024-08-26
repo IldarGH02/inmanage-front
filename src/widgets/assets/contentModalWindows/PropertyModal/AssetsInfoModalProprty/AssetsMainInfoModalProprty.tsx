@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 // import { IAlert } from "../../../../../app/types/alert/IAlert"
-import { IAssetsProperty } from "../../../../../app/types/assets/property/IProperty"
+import { IAssetsProperty } from "../../../../../app/types/actives/realty/RealtyTypes.ts"
 import { IStep } from "../../../../../app/types/steps"
 import { Alert } from "../../../../Alert/Alert"
 import { AlertContext } from "../../../../../features/context/alert/AlertContext"

@@ -1,15 +1,15 @@
-import { IAssetsBusiness } from "../../../../../app/types/assets/business/IBusiness"
-import { IAssetsProperty } from "../../../../../app/types/assets/property/IProperty"
-import { IAssetsTransport } from "../../../../../app/types/assets/transport/ITransport"
-import { ILiabilitiesProperty } from "../../../../../app/types/liabilities/property/IProperty"
-import { ILiabilitiesTransport } from "../../../../../app/types/liabilities/transport/ITransport"
+// import { IAssetsBusiness } from "../../../../../app/types/actives/business/BusinessTypes.ts"
+import { IAssetsProperty } from "../../../../../app/types/actives/realty/RealtyTypes.ts"
+// import { IAssetsTransport } from "../../../../../app/types/actives/transport/TransportTypes.ts"
+// import { ILiabilitiesProperty } from "../../../../../app/types/liabilities/property/IProperty"
+// import { ILiabilitiesTransport } from "../../../../../app/types/liabilities/transport/ITransport"
 import { IStep, Status } from "../../../../../app/types/steps"
 import { ASSETS_PROPERTY_EARLIER_STEPS, ASSETS_PROPERTY_NEXT_STEPS, CLEAR_STEPS } from "../../../types"
 
 
 type IStepState = {
     steps: IStep[], 
-    dataArr: IAssetsProperty|IAssetsTransport|IAssetsBusiness| ILiabilitiesProperty | ILiabilitiesTransport
+    dataArr: IAssetsProperty | any
 }
 
 type IStepAction = {

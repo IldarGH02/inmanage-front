@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Daw } from "../../../../elements/Daw/daw"
 import { SubtodoItem } from "./SubtodoItem"
 
-const cart = require('../../../../../assets/img/trash.svg')
+// const cart = require('../../../../../assets/img/trash.svg')
 
 export function ToDoTodayItem() {
     const [moreVisible, setMoreVisible] = useState(false)
@@ -22,7 +22,7 @@ export function ToDoTodayItem() {
                         <div className="todo-today-item__daw">
                             <Daw onChangeDaw={changeDaw} dawActive={false}/>
                         </div>
-                        <img className="todo-today-item__remove-btn" src={cart} alt="cart" />
+                        <img className="todo-today-item__remove-btn" src={''} alt="cart" />
                     </div>
                 </div>
             </div>

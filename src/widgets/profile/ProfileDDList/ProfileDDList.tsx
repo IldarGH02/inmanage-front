@@ -1,4 +1,3 @@
-import React from "react";
 import "./profileDDList.css";
 import { IProfileDDList } from "../../../app/types/profile/IProfile";
 

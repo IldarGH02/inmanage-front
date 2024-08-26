@@ -18,11 +18,11 @@ export const validationName = (value: string) => {
 }
 
 export const validationDate = (date: string) => {
-    let regEx = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
+    const regEx = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
     if(!date.match(regEx)) return false;
     
-    let d = new Date(date);
-    let dNum = d.getTime();
+    const d = new Date(date);
+    const dNum = d.getTime();
     if(!dNum && dNum !== 0) return false;
    
     return d.toISOString().slice(0,10) === date;

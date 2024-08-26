@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./selectIconModal.css";
 import { IExpensePersonalIcons } from "../../../../../app/types/balance/IBalance";
 import { InputTextTransport } from "../../../../assets/Transport/AddTransport/InputTextTransport/InputTextTransport";

@@ -1,0 +1,20 @@
+.checkbox__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+    outline: 2px solid rgb(241, 242, 246);
+    border-radius: 15px;
+    overflow: hidden;
+    
+
+    .checkbox__name {
+        margin: 0;
+    }
+
+    .checkbox__input {
+        width: 20px;
+        height: 20px;
+    }
+}

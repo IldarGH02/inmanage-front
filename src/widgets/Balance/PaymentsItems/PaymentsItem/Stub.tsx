@@ -1,5 +1,3 @@
-import React from "react"
-
 export const Stub = () => {
     return (
         <div className="payment__stub">

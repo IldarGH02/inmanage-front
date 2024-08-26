@@ -1,0 +1,43 @@
+@import "/src/shared/styles/common/mixins.scss";
+@import "/src/shared/styles/common/colorize.scss"; 
+
+.delete__popup {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    right: 0;
+    top: 20px;
+    width: 250px;
+    height: 150px;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 15px;
+    -webkit-box-shadow: -1px 0px 9px -1px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -1px 0px 9px -1px rgba(34, 60, 80, 0.2);
+    box-shadow: -1px 0px 9px -1px rgba(34, 60, 80, 0.2);
+
+    .delete__popup-title {
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: center;
+        @include _fontStyle(400, 20px, 22px, #333)
+    }
+
+    .delete__popup-button {
+        width: 100%;
+        border: none;
+        padding: 10px 0;
+        border-radius: 15px;
+        transition: background-color .3s ease-in-out, color .3s ease-in-out;
+        @include _fontStyle(400, 16px, 20px, #333);
+
+        &:hover {
+            color: #fff;
+            background-color: $deleteDanger;
+        }
+    }
+}
+
+.active {
+    display: flex;
+}

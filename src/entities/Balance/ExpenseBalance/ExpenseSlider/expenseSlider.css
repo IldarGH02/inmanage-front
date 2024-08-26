@@ -108,23 +108,22 @@
 
 .expense-slider-item-btn__add {
     border: none;
-    background: transparent;
+    background: #fff;
     color: rgb(150, 150, 150);
     font-size: 80px;
+    line-height: 0;
     border: 15px solid rgb(150, 150, 150);
     border-radius: 100%;
-    width: 122px;
-    height: 122px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    /* padding: 20px; */
+    padding: (50px - 20px) / 2;
 }
 
 .expense-slider-item__sum {
     font-size: 22px;
     width: 100%;
     font-weight: 600;
-    color: rgb(150, 150, 150);
+    color: #969696;
     display: flex;
     justify-content: center;
 }

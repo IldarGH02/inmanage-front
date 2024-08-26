@@ -1,0 +1,17 @@
+.add-transport-page {
+    width: 90%;
+    height: 90%;
+    font-family: "SFUI-Display";
+}
+
+.add-transport-page__header {
+    display: flex;
+    align-items: center;
+    margin: 15px 10px;
+}
+
+.add-transport-page__title {
+    font-size: 33px;
+    font-weight: 700;
+    margin-left: 25px;
+}

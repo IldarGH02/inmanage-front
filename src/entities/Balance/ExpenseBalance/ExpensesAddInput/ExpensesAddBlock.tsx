@@ -1,7 +1,6 @@
-import React from "react";
 import "./expensesAddBlock.css";
 import { IExpenseListBlock } from "../../../../app/types/balance/IBalance";
-import { InputBalanceAddItem } from "../../../../widgets/Balance/Income/IncomeForm/IncomeForm.tsx";
+// import { InputBalanceAddItem } from "../../../../widgets/Balance/Income/IncomeForm/IncomeForm.tsx";
 
 interface IExpensesAddBlock {
     data: IExpenseListBlock[],
@@ -10,11 +9,11 @@ interface IExpensesAddBlock {
     onClickPosition: (id: number) => void
 }
 
-export function ExpensesAddBlock({data, onAddPosition, onRemovePosition, onClickPosition}: IExpensesAddBlock) {
+export function ExpensesAddBlock({data, onRemovePosition, onClickPosition}: IExpensesAddBlock) {
 
     return (
         <div className="expenses-add-block">
-            <InputBalanceAddItem onAddItem={onAddPosition} placeholder="Добавить новое"/>
+            {/* <InputBalanceAddItem onAddItem={onAddPosition} placeholder="Добавить новое"/> */}
             <div className="expenses-add-block__list">
                 {data.map(el=>{
                     return (

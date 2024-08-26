@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite"
 // import { Stub } from "../../../widgets/Balance/PaymentsItems/PaymentsItem/Stub"
 import { PaymentMock } from "../../../features/mocks"
 
-// const logoSber = require("../../../assets/img/logo_sber.png")
+// const logoSber = require("../../../actives/img/logo_sber.png")
 
 export const PaymentsBalance = observer(() => {
     const [store] = useState(

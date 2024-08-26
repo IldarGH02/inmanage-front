@@ -1,4 +1,3 @@
-import React from "react";
 import "./reportIncome.css";
 import { IReportDoughnut } from "../../../app/types/reports/IReports";
 import { BarChart } from "../../Chart/BarChart/BarChart";

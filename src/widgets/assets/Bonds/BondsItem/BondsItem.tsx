@@ -1,4 +1,3 @@
-import React from "react";
 import { LineChart } from "../../../Chart/LineChart/LineChart";
 import "../bonds.css"
 

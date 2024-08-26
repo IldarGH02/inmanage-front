@@ -1,0 +1,15 @@
+.purchase__price {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .input__sum-container {
+        width: 100%;
+    }
+
+    .dropdown__container {
+        width: 100%;
+    }
+}

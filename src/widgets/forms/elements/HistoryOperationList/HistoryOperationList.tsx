@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./historyOperationList.css";
 import { IHistoryList } from "../../../../app/types/elements/IHistoryList";
 

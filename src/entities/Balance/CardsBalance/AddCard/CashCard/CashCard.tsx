@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import "./cashCard.css"
-// import { IAssetsTransport } from "../../../../../app/types/assets/transport/ITransport"
+// import { IAssetsTransport } from "../../../../../app/types/actives/transport/ITransport"
 import { InputText } from "../../../../../shared/ui/input/InputText/InputTextTest"
 import { InputSum } from "../../../../../shared/ui/input/InputSum/InputSumTest"
 

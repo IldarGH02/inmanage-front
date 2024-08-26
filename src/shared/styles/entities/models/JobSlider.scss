@@ -1,0 +1,37 @@
+.job__slider-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border: 8px solid rgb(241, 242, 246);
+    border-radius: 15px;
+
+    .job__slider {
+        width: 70%;
+    }
+
+    .job__slider-button_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+
+        .slider__button-title {
+            margin-bottom: 5px;
+            width: 100%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include _fontStyle(600, 23px, 25px, rgb(150, 150, 150))
+        }
+
+        .slider__button {
+            border: none;
+            background-color: transparent;
+        }
+    }
+}

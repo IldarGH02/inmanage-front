@@ -1,7 +1,6 @@
-import React from "react"
 import { DawOrange } from "../../../elements/Daw/DawOrange/DawOrange"
 
-const cart = require('../../../../assets/img/trash.svg')
+// const cart = require('../../../../assets/img/trash.svg')
 
 export function ExpensesTodayItem() {
     const changeDaw = ()=> {
@@ -20,7 +19,7 @@ export function ExpensesTodayItem() {
                     <div className="expenses-today-item__daw">
                         <DawOrange onChangeDaw={changeDaw} dawActive={false}/>
                     </div>
-                    <img className="expenses-today-item__remove-btn" src={cart} alt="cart" />
+                    <img className="expenses-today-item__remove-btn" src={''} alt="cart" />
                     
                 </div>
             </div>

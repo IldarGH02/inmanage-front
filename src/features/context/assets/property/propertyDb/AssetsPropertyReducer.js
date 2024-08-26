@@ -1,5 +1,5 @@
 import {ADD_NOTE, FETCH_NOTES, REMOVE_NOTE, SHOW_LOADER} from '../../../types'
-import { IAssetsProperty } from '../../../../../models/assets/property/IProperty'
+import { IAssetsProperty } from '../../../../../models/actives/realty/IProperty'
 import { PROPERTY_EDIT } from '../../../../../widgets/modalWindow/types'
 
 const handlers = {

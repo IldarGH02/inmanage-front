@@ -1,0 +1,23 @@
+.MuiFormControl-root, .input__text {
+
+    &:hover {
+        .MuiOutlinedInput-notchedOutline {
+            border-color: #1976d2 !important;
+        }
+    }
+
+    .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+        transform: translate(14px, 24px) scale(1);
+    }
+
+    .MuiInputBase-root {
+
+        .MuiInputBase-input {
+            padding: 25px 15px;
+        }
+
+        .MuiOutlinedInput-notchedOutline {
+            border-radius: 15px;
+        }
+    }
+}

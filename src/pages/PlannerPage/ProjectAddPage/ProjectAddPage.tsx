@@ -6,11 +6,11 @@ import { InputText } from "../../../shared/ui/input/InputText/InputTextTest"
 import { InputTextArea } from "../../../shared/ui/input/InputTextArea/InputTextArea"
 // import { InputSum } from "../../../shared/ui/input/InputSum/InputSum" 
 import { DropDownList } from "../../../widgets/DropDownList/DropDownList"
-import { Calendar } from "../../../widgets/planner/Calendar/Calendar" 
+// import { Calendar } from "../../../widgets/planner/Calendar/Calendar" 
 import { SketchPicker } from 'react-color'
-import { IProjectItemDTO } from "../../../app/types/dto/planner/projects/IProject"
-import { Alert } from "../../../widgets/Alert/Alert"
-import { useProject } from "../../../features/hooks/planner/project/projectHooks2"
+// import { IProjectItemDTO } from "../../../app/types/dto/planner/projects/IProject"
+// import { Alert } from "../../../widgets/Alert/Alert"
+// import { useProject } from "../../../features/hooks/planner/project/projectHooks2"
 
 const name = [
     {
@@ -36,7 +36,7 @@ const name = [
 ]
 
 export function ProjectAddPage() {
-    const { addProject } = useProject()
+    // const { addProject } = useProject()
     const [valueName, setValueName] = useState('')
     const [alertName, setAlertName] = useState('')
     const [valueDesc, setValueDesc] = useState('')
@@ -49,58 +49,59 @@ export function ProjectAddPage() {
 
     const [changeColorVisible, setChangeColorVisible] = useState(false)
 
-    const [valueDateStart, setValueDateStart] = useState('')
-    const [valueDateEnd, setValueDateEnd] = useState('')
+    // const [valueDateStart, setValueDateStart] = useState('')
+    // const [valueDateEnd, setValueDateEnd] = useState('')
 
     const [checkSelector, setCheckSelector] = useState('')
 
     const [addBtnVisible, setAddBtnVisible] = useState(false)
 
-    const [textAlertMain, setTextAlertMain] = useState('')
+    // const [textAlertMain, setTextAlertMain] = useState('')
 
     useEffect(()=>{
-        if(valueDateStart!=='' && valueDateEnd!=='' && valueName!=='' && alertName==='' && alertDesc==='' && alertSum==='' && alertReservedSum==='') {
-            let dt1 = valueDateStart.split('.')
-            let dt2 = valueDateEnd.split('.')
-            if(Number(dt1[2])<Number(dt2[2]) || (Number(dt1[2])===Number(dt2[2]) && Number(dt1[1])<Number(dt2[1])) || (Number(dt1[2])===Number(dt2[2]) && Number(dt1[1])===Number(dt2[1]) && Number(dt1[0])<Number(dt2[0]))) {
-                setTextAlertMain('')
-                setAddBtnVisible(true)
-            }
-            else {
-                setTextAlertMain('Внимание! Дата начала проекта должна быть больше даты завершения.')
-            }
+        if(valueName!=='' && alertName==='' && alertDesc==='' && alertSum==='' && alertReservedSum==='') {
+            // let dt1 = valueDateStart.split('.')
+            // let dt2 = valueDateEnd.split('.')
+            // if(Number(dt1[2])<Number(dt2[2]) || (Number(dt1[2])===Number(dt2[2]) && Number(dt1[1])<Number(dt2[1])) || (Number(dt1[2])===Number(dt2[2]) && Number(dt1[1])===Number(dt2[1]) && Number(dt1[0])<Number(dt2[0]))) {
+            //     setTextAlertMain('')
+            //     setAddBtnVisible(true)
+            // }
+            // else {
+            //     setTextAlertMain('Внимание! Дата начала проекта должна быть больше даты завершения.')
+            // }
         }
         else {
             setAddBtnVisible(false)
         }
-    },[valueName, valueDesc, valueSum, valueReservedSum, color, valueDateStart, valueDateEnd])
+    },[valueName, valueDesc, valueSum, valueReservedSum, color])
 
-    const clickCalendarStart = (date: string) => {
-        setValueDateStart(date)
-    }
+    // const clickCalendarStart = (date: string) => {
+    //     setValueDateStart(date)
+    // }
 
-    const clickCalendarEnd = (date: string) => {
-        console.log(date)
-        setValueDateEnd(date)
-    }
+    // const clickCalendarEnd = (date: string) => {
+    //     console.log(date)
+    //     setValueDateEnd(date)
+    // }
 
     const changeColor = (colorTmp: any)=> {
         setColor(colorTmp.hex)
     }
 
     const onAddProject = ()=> {
-        let dt1 = valueDateStart.split('.')
-        let dt2 = valueDateEnd.split('.')
-        const newProject: IProjectItemDTO = {
+        // let dt1 = valueDateStart.split('.')
+        // let dt2 = valueDateEnd.split('.')
+        const newProject = {
             name: valueName,
             description: valueDesc,
-            date_start: new Date(Number(dt1[2]), Number(dt1[1]), Number(dt1[0])),
-            date_end: new Date(Number(dt2[2]), Number(dt2[1]), Number(dt2[0])),
+            // date_start: new Date(Number(dt1[2]), Number(dt1[1]), Number(dt1[0])),
+            // date_end: new Date(Number(dt2[2]), Number(dt2[1]), Number(dt2[0])),
             planned_sum: Number(valueSum.replace(/ /g,'')),
             reserved_sum: Number(valueReservedSum.replace(/ /g,'')),
             writeoff_account: checkSelector
         }
-        addProject(newProject)
+        return newProject
+        // addProject(newProject)
     }
 
     return (
@@ -153,14 +154,14 @@ export function ProjectAddPage() {
                                 <div className="project-add-page__item-container">
                                     <div className="project-add-page__item">
                                         <div className="project-add-page__name">Дата начала проекта</div>
-                                        <Calendar onCickCalendar={clickCalendarStart}/>
+                                        {/* <Calendar onCickCalendar={clickCalendarStart}/> */}
                                     </div>
                                     <div className="project-add-page__item">
                                         <div className="project-add-page__name">Дата окончания проекта</div>
-                                        <Calendar onCickCalendar={clickCalendarEnd}/>
+                                        {/* <Calendar onCickCalendar={clickCalendarEnd}/> */}
                                     </div>
                                 </div>
-                                {textAlertMain !== '' && <Alert text={textAlertMain} type={'Error'}/>}   
+                                {/* {textAlertMain !== '' && <Alert text={textAlertMain} type={'Error'}/>}    */}
                             {/* </div> */}
                         </div>
                         <div className="project-add-page__actions-btn">

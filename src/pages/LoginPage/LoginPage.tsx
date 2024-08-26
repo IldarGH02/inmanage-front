@@ -6,10 +6,11 @@ import { REGISTER_PATH } from "../../features/constants/path-route"
 import logo from "../../shared/assets/img/logo.png"
 import { observer } from 'mobx-react-lite'
 import { Overlay } from '../../shared/ui/Overlay/Overlay'
-import { useAuth } from '../../features/hooks/auth/auth'
+import { useContext } from "react";
+import { Context } from "../../main.tsx";
 
 export const LoginPage = observer(() => {
-    const auth = useAuth()
+    const auth = useContext(Context).authStore
 
     if(auth.isLoading) {
         return <Overlay active='overlay--active'/>

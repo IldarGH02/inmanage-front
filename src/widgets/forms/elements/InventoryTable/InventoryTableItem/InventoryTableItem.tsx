@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { IInventoryTableInput } from "../../../../../app/types/assets/IAssets";
+import { useEffect, useRef } from "react";
+import { IInventoryTableInput } from "../../../../../app/types/actives/ActivesTypes.ts";
 import { ErrorMessage, Field, FormikErrors, FormikTouched } from "formik";
 
 interface IInventoryTableProps {

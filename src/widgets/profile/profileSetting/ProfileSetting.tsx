@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./profileSetting.css";
 import { ProfileDDList } from "../ProfileDDList/ProfileDDList";
 import { IProfileDDList } from "../../../app/types/profile/IProfile";
@@ -6,8 +6,8 @@ import { ProfileItem } from "../ProfileItem/ProfileItem";
 
 // import { useNavigate } from "react-router-dom";
 
-// import avatar from "../../../shared/assets/img/profile/avatar.png"
-// import exit from "../../../shared/assets/img/profile/exit.png"
+// import avatar from "../../../shared/actives/img/profile/avatar.png"
+// import exit from "../../../shared/actives/img/profile/exit.png"
 
 const valutaInitial: IProfileDDList[] = [
     {

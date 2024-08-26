@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { IAssetsProperty } from "../../../app/types/assets/property/IProperty";
+import { useContext, useEffect, useState } from "react";
+import { IAssetsProperty } from "../../../app/types/actives/realty/RealtyTypes.ts";
 import { IStep, Status } from "../../../app/types/steps";
 import { AssetsMainInfoModalProperty } from "../../assets/contentModalWindows/PropertyModal/AssetsInfoModalProprty/AssetsMainInfoModalProprty";
 import { AssetsPriceInfo } from "../../assets/contentModalWindows/PropertyModal/AssetsInfoModalProprty/AssetsPriceInfo/AssetsPriceInfo";
@@ -139,7 +139,7 @@ export function AddModal({onAddPropertyItem}:IAddModal) {
             }
         }
         else {
-            console.log('Error!')
+            console.log('Error.tsx!')
         }  
     }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { IToDo } from "../../../../../app/types/planner/IPlanner"
 // import './toDoPlanner.css'
 
@@ -8,7 +8,7 @@ interface IToDoItem {
     onEdit: (id:number) => void
 } 
 
-const cart = require('../../../../../assets/img/trash.svg')
+// const cart = require('../../../../../assets/img/trash.svg')
 
 export function ImportantTodayItem({data, onRemove, onEdit}: IToDoItem) {
     const [descVisible, setDescVisible] = useState(false)
@@ -63,7 +63,7 @@ export function ImportantTodayItem({data, onRemove, onEdit}: IToDoItem) {
                         {`до ${new Date(data.date_end).getHours()<10 ?('0'+new Date(data.date_end).getHours()):(new Date(data.date_end).getHours())}:${
                             new Date(data.date_end).getMinutes()<10?'0'+new Date(data.date_end).getMinutes():new Date(data.date_end).getMinutes()}`}
                     </div>
-                    <img className="important-today__item-remove-btn" src={cart} alt="" onClick={()=>onRemove(1)}/>
+                    <img className="important-today__item-remove-btn" src={''} alt="" onClick={()=>onRemove(1)}/>
                 </div>
             </span>
             

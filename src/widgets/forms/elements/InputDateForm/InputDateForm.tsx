@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import "./inputDateForm.css";
 import { Field, FormikErrors, FormikTouched } from "formik";
 

@@ -1,0 +1,28 @@
+@import '/src/shared/styles/common/mixins.scss';
+
+.immovables__params {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .immovables__input-text {
+        cursor: pointer;
+        width: 100%;
+        padding: 25px 15px;
+        border: none;
+        border-radius: 15px;
+        outline: 3px solid rgb(241, 242, 246);
+        margin-right: 5px;
+        @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+    
+        &:focus-within {
+            outline-color: rgb(103, 158, 244);
+        }
+    
+        &:hover {
+            outline-color: rgb(103, 158, 244);
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./addTaskPanel.css";
 import { AddAboutTask } from "./AddTaskPanelContent/AddAboutTask/AddAboutTask";
 import { AddListTask } from "./AddTaskPanelContent/AddListTask/AddListTask";
@@ -6,7 +6,7 @@ import { AddTaskAccountSelection } from "./AddTaskPanelContent/AddTaskAccountSel
 import { AddTimeTask } from "./AddTaskPanelContent/AddTimeTask/AddTimeTask";
 // import { dataTasks } from "../data";
 import { IPlannerTask, IPlannerTaskAdd } from "../../../../../app/types/planner/IPlanner";
-import { useTypedSelector } from "../../../../../features/hooks/useTypedSelector";
+// import { useTypedSelector } from "../../../../../features/hooks/useTypedSelector";
 import { useDispatch } from "react-redux";
 import { setTaskForAdd } from "../../../../../app/store/actions/diaryActions";
 import { actionTypes } from "../../../../../app/store/types/types";
@@ -28,7 +28,7 @@ interface IAddAboutTask {
 }
 
 export function AddTaskPanel({onClose, data, currentTime}: IAddAboutTask) {
-    const state = useTypedSelector(state => state.diaryReducer)
+    // const state = useTypedSelector(state => state.diaryReducer)
     const dispatch = useDispatch()
     const [maxTimeEnd] = useState<Date>(findNextDate) //setMaxTimeEnd
     const [activeButton, setActiveButton] = useState<activeBtn>('info')
@@ -73,7 +73,7 @@ export function AddTaskPanel({onClose, data, currentTime}: IAddAboutTask) {
         if(data) {
             dateStart = new Date(data.date_end)
         } else {
-            dateStart = new Date(state.date)
+            dateStart = new Date('')
             dateStart.setHours(Number(currentTime))
             dateStart.setMinutes(0)
         }
@@ -81,29 +81,29 @@ export function AddTaskPanel({onClose, data, currentTime}: IAddAboutTask) {
     }
 
     function findNextDate() {
-        const dataTasks = state.currentDateTasks
+        const dataTasks = 'state.currentDateTasks'
         if(data) {
             var time = new Date(data.date_end)
             time.setHours(23)
             time.setMinutes(59)
             for(let i=0; i<dataTasks.length; i++) {
-                let timeTmp = dataTasks[i].date_start
-                if(timeTmp > data.date_end && timeTmp < time) {
-                    time = timeTmp
-                }
+                // let timeTmp = dataTasks[i].date_start
+                // if(timeTmp > data.date_end && timeTmp < time) {
+                //     time = timeTmp
+                // }
             }
         } else {
-            let currentTimeItem = new Date(state.date)
+            let currentTimeItem = new Date('')
             currentTimeItem.setHours(Number(currentTime))
             currentTimeItem.setMinutes(0)
-            time = new Date(state.date)
+            time = new Date('')
             time.setHours(23)
             time.setMinutes(59)
             for(let i=0; i<dataTasks.length; i++) {
-                let timeTmp = dataTasks[i].date_start
-                if(timeTmp > currentTimeItem && timeTmp < time) {
-                    time = timeTmp
-                }
+                // let timeTmp = dataTasks[i].date_start
+                // if(timeTmp > currentTimeItem && timeTmp < time) {
+                //     time = timeTmp
+                // }
             }
         }
         // console.log(time)

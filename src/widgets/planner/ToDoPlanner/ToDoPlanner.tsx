@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 // import { useTodo } from "../../../hooks/planner/plannerHooks"
 import { IListItem, IToDo } from "../../../app/types/planner/IPlanner"
 import { ModalContext } from "../../../features/context/modalProperty/ModalContext"

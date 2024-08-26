@@ -1,4 +1,4 @@
-import React from "react"
+
 import { DawOrange } from "../../../elements/Daw/DawOrange/DawOrange"
 
 import cart from '../../../../shared/assets/img/trash.svg'

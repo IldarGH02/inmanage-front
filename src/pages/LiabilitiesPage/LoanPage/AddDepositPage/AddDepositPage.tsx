@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./addDepositPage.css"
-import { Background } from "../../../../widgets/elements/Background/Background";
 import { IDropDownList } from "../../../../app/types/elements/IDropDownList";
 import { InputSumTransport } from "../../../../widgets/assets/Transport/AddTransport/InputSumTransport/InputSumTransport";
 import { DropDownListTransport } from "../../../../widgets/assets/Transport/AddTransport/DropDownListTransport/DropDownListTransport";
 import { InputPercentTransport } from "../../../../widgets/assets/Transport/AddTransport/InputPercentTransport/InputPercentTransport";
 
-const assetsBckg = require('../../../../assets/img/assets/assetsBckg.png')
+// const assetsBckg = require('../../../../assets/img/assets/assetsBckg.png')
 
 const typeDeposit: IDropDownList[] = [
     {id: 1, content:'Тинькофф'},   
@@ -55,7 +54,6 @@ export function AddDepositPage() {
     
     return (
         <>
-        <Background imgBckg={assetsBckg}/>
         <div className="add-deposits-page">
             <div className="add-deposits-page__container">
                 <div className="add-deposits-page__content">

@@ -1,0 +1,34 @@
+@import "/src/shared/styles/common/mixins.scss";
+
+.credit {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+
+    .price__sum-container {
+    
+        &:focus-within {
+            outline-color: rgb(103, 158, 244);
+        }
+    
+        &:hover {
+            outline-color: rgb(103, 158, 244);
+        }
+    
+        .price__sum-input {
+            width: 100%;
+            height: 100%;
+            text-align: end;
+            border: none;
+            outline: none;
+            margin-right: 5px;
+            @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+        }
+    
+        .price__sum-currency {
+            @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+        }
+    }
+
+}

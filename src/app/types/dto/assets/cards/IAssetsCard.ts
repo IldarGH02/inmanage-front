@@ -4,5 +4,5 @@ export interface IAssetsCardDTO {
     sum: number,
     income?: number,
     expenses: number,
-    img: string | any
+    img: string
 }

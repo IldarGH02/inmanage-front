@@ -1,35 +1,34 @@
 import { FC } from "react"
-import { Link } from "react-router-dom"
 
 interface IBalanceInfo {
     balanceText: string;
-    path: string;
 
     classNameElement: string
     classNameTitle: string
     classNameContainer: string
     classNameSum: string
     classNameValuta: string
-    classNameLink: string
+    className: string
 
     sum: number;
+    handleShow: React.MouseEventHandler<HTMLDivElement>
 }
 
 export const BalanceInfo: FC<IBalanceInfo> = (
     {
         sum, 
         balanceText, 
-        path, 
         classNameElement,
         classNameTitle,
         classNameContainer,
         classNameSum,
-        classNameLink,
-        classNameValuta
+        className,
+        classNameValuta,
+        handleShow
     }) => {
 
     return (
-        <Link to={path} className={classNameLink}>
+        <div className={className} onClick={handleShow}>
             <div className={classNameElement}>
                 <h3 className={classNameTitle}>{balanceText}</h3>
                 <div className={classNameContainer}>                
@@ -37,6 +36,6 @@ export const BalanceInfo: FC<IBalanceInfo> = (
                     <div className={classNameValuta}>₽</div>
                 </div>
             </div>
-        </Link>
+        </div>
     )
 }

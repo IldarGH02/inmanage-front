@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Card } from '../../../../app/types/balance/IBalance'
+import { Card } from '../../../../app/types/dto/DtoTypes' 
 
 import logoSber from "../../../../shared/assets/img/logo_sber.png"
 

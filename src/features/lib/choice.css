@@ -1,0 +1,55 @@
+@import url(https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css);
+
+.choices__inner {
+    padding: 10px 15px;
+    border: 5px solid rgba(241, 242, 246);
+    border-radius: 15px;
+    min-height: auto;
+}
+
+.is-open .choices__inner {
+    padding: 10px 15px;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.is-open .choices__list {
+    min-height: auto;
+}
+
+.is-open .choices__list--dropdown {
+    border: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+.is-focused .choices__inner,
+.is-open .choices__inner {
+    border: 5px solid rgba(241, 242, 246);
+}
+
+.is-open .choices__list--dropdown [data-id='1'] {
+    display: none;
+}
+.choices__placeholder {
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+    opacity: 1;
+}
+
+.choices[data-type*=select-one]:after {
+    content: '';
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 14px 10px 0 10px;
+    border-color: rgb(207, 205, 205) transparent transparent transparent;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    margin-top: -2.5px;
+    pointer-events: none;
+}

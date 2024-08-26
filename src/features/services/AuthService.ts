@@ -1,4 +1,4 @@
-import $api from "../../shared/http";
+import $api from "../../shared/http/api/index";
 import { AxiosResponse } from "axios";
 import { AuthConfirmResponse, AuthResponse } from "../../app/types/auth/index";
 

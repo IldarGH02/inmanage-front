@@ -1,0 +1,50 @@
+// .input__date-container {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     padding: 25px 15px;
+//     border-radius: 15px;
+//     outline: 3px solid rgb(241, 242, 246);
+
+//     .input__date {
+//         border: none;
+//         outline: none;
+//         width: 90%;
+//     }
+
+//     .input__date-icon {
+//         flex-grow: 1;
+//     }
+// }
+.MuiStack-root {
+    // padding: 0 !important;
+
+    .MuiFormControl-root{
+        // border: 3px solid rgb(241, 242, 246) !important;
+        width: 100%;
+    
+        MuiFormLabel-root {
+            font-family: inherit !important;
+        }
+
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+            transform: translate(14px, 23px) scale(1);
+            font-family: inherit !important;
+        }
+    
+        .MuiInputBase-root {
+            width: 100%;
+        
+            .MuiInputBase-input {
+                padding: 25px 15px;
+            }
+
+            .MuiOutlinedInput-notchedOutline {
+                border: none;
+                border-radius: 15px !important;
+                border: 3px solid rgb(241, 242, 246) !important;
+            }
+        
+        }
+    }
+}

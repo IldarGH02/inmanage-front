@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { AuthResponse } from '../../../app/types/auth'
-import { ITokens, useGetLocalStorage, useSetLocalStorage } from '../../../features/hooks/storage'
+import { ITokens, getLocalStorage, setLocalStorage } from '../../../features/hooks/storage'
 
 const API_URL = import.meta.env.VITE_APP_PUBLIC_URL // подтягиваем УРЛ из .env
 
@@ -14,7 +14,7 @@ const $api = axios.create({
 
 // Отрабатываем интерцепторы на запросы (Инфа UlbiTV)
 $api.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${useGetLocalStorage('tokens').accessToken || ''}`
+    config.headers.Authorization = `Bearer ${getLocalStorage('tokens').accessToken || ''}`
     return config
 })
 
@@ -27,12 +27,12 @@ $api.interceptors.response.use((config) => {
         try {
             // const response = await axios.post<AuthResponse>(`${API_URL}/auth/refresh/`, {refresh: localStorage.getItem("refreshToken")})
             // localStorage.setItem('token', response.data.access)
-            const response = await axios.post<AuthResponse>(`${API_URL}/auth/refresh/`, {refresh: useGetLocalStorage('tokens').refreshToken})
+            const response = await axios.post<AuthResponse>(`${API_URL}/auth/refresh/`, {refresh: getLocalStorage('tokens').refreshToken})
             const tokens: ITokens = {
                 accessToken: response.data.access,
                 refreshToken: response.data.refresh
             }
-            useSetLocalStorage('tokens', tokens)
+            setLocalStorage('tokens', tokens)
             return $api.request(originalRequest)
         } catch (e) {
             console.log(e)

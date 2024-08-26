@@ -1,4 +1,3 @@
-import React from "react";
 import "./spinnerLoader.css";
 import { RotatingLines } from "react-loader-spinner";
 

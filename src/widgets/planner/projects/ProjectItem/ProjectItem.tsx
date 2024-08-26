@@ -1,4 +1,3 @@
-import React from "react"
 import "./projectItem.css"
 import { IProject } from "../../../../app/types/planner/IPlanner"
 import { IProjectItemDTO } from "../../../../app/types/dto/planner/projects/IProject"
@@ -22,7 +21,7 @@ export function ProjectItem({data, onShowModal}: IProjectItem) {
         <>
         {/* {removeModalVisible && 
             <Modal onClose={()=>setRemoveModalVisible(false)}>
-                <DeleteModal link="/assets/property" onClose={()=>setRemoveModalVisible(false)} onRemove={removeItem}/>
+                <DeleteModal link="/actives/realty" onClose={()=>setRemoveModalVisible(false)} onRemove={removeItem}/>
             </Modal>
         } */}
         <div className="project-item">
@@ -32,7 +31,7 @@ export function ProjectItem({data, onShowModal}: IProjectItem) {
                 <div className="project-item__actions-drop-down">
                     <b>...</b>
                     <div className="project-item__actions-list">
-                        {/* <div className="property-item__action-item" onClick={()=>setEditModalVisible(true)}>Редактировать</div> */}
+                        {/* <div className="realty-item__action-item" onClick={()=>setEditModalVisible(true)}>Редактировать</div> */}
                         <div className="project-item__action-item" onClick={e=>{
                         e.preventDefault()
                         remItem()

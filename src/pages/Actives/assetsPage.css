@@ -1,0 +1,25 @@
+
+.actives__page-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.assets-page__general-balance {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.assets-page__cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+}
+.assets-page__cards-container > a {
+    flex-grow: 1;
+    text-decoration: none;
+    height: 100%;
+    width: 350px;
+}

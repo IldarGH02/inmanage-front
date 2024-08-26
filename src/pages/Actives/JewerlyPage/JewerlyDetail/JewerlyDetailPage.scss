@@ -1,0 +1,103 @@
+@import "/src/shared/styles/common/mixins.scss";
+
+.jewerly__detail-page {
+    padding-top: 30px;
+
+    .jewerly__detail-content {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 15px;
+        -webkit-box-shadow: -1px 0px 9px -1px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: -1px 0px 9px -1px rgba(34, 60, 80, 0.2);
+        box-shadow: -1px 0px 9px -1px rgba(34, 60, 80, 0.2);
+
+        .jewerly__detail-left {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: calc(50% - 7.5px);
+
+            .jewerly__detail-image {
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .jewerly__detail-title {
+                margin: 0;
+                @include _fontStyle(600, 26px, 28px, #333)
+            }
+        }
+
+        .jewerly__detail-description {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: calc(50% - 7.5px);
+
+            .jewerly__detail-ellipses {
+                cursor: pointer;
+                position: absolute;
+                right: 5px;
+                top: -10px;
+                @include _fontStyle(400, 30px, 22px, #333);
+
+                &:hover {
+                    .delete__popup {
+                        display: flex;
+                    }
+                }
+            }
+
+            .jewerly__main-price {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 25px;
+
+                .jewerly__price {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px;
+                    align-items: center;
+
+                    .jewerly__info {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .jewerly__result-price {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 25px;
+
+                .jewerly__price {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px;
+                    align-items: center;
+
+                    .jewerly__info {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .jewerly__detail-button {
+                margin-top: auto;
+                align-self: end;
+                border: none;
+                padding: 15px 25px;
+                border-radius: 15px;
+                background-color: rgb(103, 158, 244);
+                @include _fontStyle(400, 20px, 22px, #fff)
+            }
+        }
+    }
+}

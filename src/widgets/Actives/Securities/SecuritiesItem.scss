@@ -1,0 +1,96 @@
+@import "/src/shared/styles/common/mixins.scss";
+
+.securities__item {
+    .securities__item-link {
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+
+        .securities__item-container {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            justify-content: space-between;
+
+            .securities__item-img {
+                width: calc(50% - 7.5px);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .securities__item-content {
+                width: calc(50% - 7.5px);
+
+                .securities__item-name {
+                    @include _fontStyle(600, 24px, 26px, #333)
+                }
+
+                .securities__item-informarmation {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .securities__information {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 5px;
+
+                        .securities__information-title {
+                            margin: 0;
+                            @include _fontStyle(500, 20px, 22px, #333)
+                        }
+
+                        .securities-price_green {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 5px;
+
+                            .securities_price-sum {
+                                @include _fontStyle(400, 20px, 22px, #333)
+                            }
+
+                            .securities_price-valuta {
+                                @include _fontStyle(500, 21px, 22px, #333)
+                            }
+                        }
+
+                        .securities-price_red {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 5px;
+
+                            .securities_price-sum {
+                                @include _fontStyle(400, 20px, 22px, #db0000)
+                            }
+
+                            .securities_price-valuta {
+                                @include _fontStyle(500, 21px, 22px, #db0000)
+                            }
+                        }
+
+                        .securities-price_currency {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 5px;
+
+                            .securities_price-sum {
+                                @include _fontStyle(400, 20px, 22px, #15e137)
+                            }
+
+                            .securities_price-valuta {
+                                @include _fontStyle(500, 21px, 22px, #15e137)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

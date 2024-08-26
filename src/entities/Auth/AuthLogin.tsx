@@ -4,6 +4,7 @@ import { AuthButton } from "../../shared/ui/Auth/AuthButton"
 import { Context } from "../../main"
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from "react-router-dom"
+import {ITokens, setLocalStorage} from "../../features/hooks/storage";
 
 export const AuthLogin = observer(() => {
     const [phone, setPhone] = useState<string>('')
@@ -54,8 +55,22 @@ export const AuthLogin = observer(() => {
     }
 
     const handleLogin = () => {
-        authStore.login(phone, password)
-        navigate('/balance')
+        const response = authStore.login(phone, password)
+        authStore.setLoading(true)
+        response.then(res => {
+            if(res.status >= 200 && res.status < 300) {
+                const tokens: ITokens = {
+                    accessToken: res.data.access,
+                    refreshToken: res.data.refresh
+                }
+                setLocalStorage('tokens', tokens)
+                authStore.setLoading(false)
+                authStore.setAuth(true)
+                navigate('/balance')
+            }
+        }).catch(error => {
+            authStore.setError(error)
+        })
     }
 
     useEffect(() => {

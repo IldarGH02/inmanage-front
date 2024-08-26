@@ -1,5 +1,5 @@
 // import { dataTasks } from "../../../widgets/planner/TasksBlock/AddTaskBlock/data";
-import { IAssets } from "../../types/assets/IAssets";
+import { Actives } from "../../types/actives/ActivesTypes.ts";
 import { IPlannerTask, IPlannerTaskAdd, IPlannerTime, IToDo } from "../../types/planner/IPlanner";
 
 
@@ -53,7 +53,7 @@ export interface IStateDiary {
 }
 
 export interface IStateAssets {
-    assets: IAssets | null;
+    assets: Actives | null;
     loading: boolean
 };
 

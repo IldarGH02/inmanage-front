@@ -1,5 +1,4 @@
-import "./projectItemPage.css"
-import { Diary } from "../../../widgets/planner/diary/Diary";
+import "./projectItemPage.css"// import { Diary } from "../../../widgets/planner/diary/Diary";
 
 export function ProjectItemPage() {
     // const modal = useContext(ModalContext)
@@ -11,7 +10,7 @@ export function ProjectItemPage() {
     return (
         <div className="project-page" >
             <div className="project-page__container">
-                <Diary/>
+                {/* <Diary/> */}
             </div>
         </div>
     )

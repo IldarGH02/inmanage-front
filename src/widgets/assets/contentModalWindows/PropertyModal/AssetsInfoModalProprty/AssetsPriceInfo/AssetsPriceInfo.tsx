@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { IAssetsProperty } from "../../../../../../app/types/assets/property/IProperty"
+import { IAssetsProperty } from "../../../../../../app/types/actives/realty/RealtyTypes.ts"
 import { IStep } from "../../../../../../app/types/steps"
 import { Alert } from "../../../../../Alert/Alert"
 import { AlertContext } from "../../../../../../features/context/alert/AlertContext"
@@ -198,8 +198,8 @@ export function AssetsPriceInfo() {
                         <input type="text" value={valuePercentCredit} onChange={changePercentCredit}></input> <b>%</b>
                         {textAlertPercent!=='' && <Alert text={textAlertPercent} type={'warning'}/>}
                     </div>
-                    {/* <div className="assets-price-info-property__credit-item">
-                        <div className="assets-price-info-property__credit-label">Ежемесячный плятеж</div> 
+                    {/* <div className="actives-price-info-property__credit-item">
+                        <div className="actives-price-info-property__credit-label">Ежемесячный плятеж</div>
                         <input type="number" value={valuePayingCredit} onChange={changePayingCredit}  min='0'></input> <b>руб.</b>
                     </div> */}
                 </div>}

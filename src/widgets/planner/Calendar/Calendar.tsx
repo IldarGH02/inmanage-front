@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import './calendar.css'
 import { useDispatch } from "react-redux"
 import { getTasksByDate, setDate, setTasks } from "../../../app/store/actions/diaryActions"

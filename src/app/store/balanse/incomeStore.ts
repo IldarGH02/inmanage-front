@@ -35,7 +35,7 @@ export class IncomeStore {
                 return response.data
             }
         } catch (error) {
-            this.setError('Error: ' + error);
+            this.setError('Error.tsx: ' + error);
             this.setLoading(false)
         }
     }
@@ -44,7 +44,7 @@ export class IncomeStore {
         this.setLoading(true)
         const response = await BalanceService.fetchWorks()
         if(response) {
-            this.setJobList(response);
+            // this.setJobList(response);
             this.setLoading(false)
         } else {
             this.setError(response)
@@ -64,7 +64,7 @@ export class IncomeStore {
             }
         } catch(e){
             this.setLoading(false)
-            this.setError('Error: ' + e)
+            this.setError('Error.tsx: ' + e)
         }
     }
 

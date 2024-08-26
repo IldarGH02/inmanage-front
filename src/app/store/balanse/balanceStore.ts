@@ -1,5 +1,6 @@
 import { action, makeObservable, observable } from 'mobx'
-import { Card, Balance, Work, IIncome, IIncomeBalance } from '../../types/balance/IBalance.ts'
+import {Balance, Work, IIncome, IIncomeBalance, IExpenseBalance, RequestCard} from '../../types/balance/IBalance.ts'
+import { Card } from '../../types/dto/DtoTypes.ts'
 import BalanceService from '../../../shared/http/balance'
 import $api from '../../../shared/http/api'
 
@@ -9,7 +10,7 @@ export default class BalanceStore {
     card_list: Card[] | null = null
     favourite_cards: number[] | null = null
     works: Work[] | null = null
-    isFetching = false
+    loading = false
     error: unknown | null = null
 
     constructor(
@@ -18,19 +19,18 @@ export default class BalanceStore {
         makeObservable(this, {
             balance: observable, 
             card_list: observable,
-            isFetching: observable,
+            loading: observable,
             card: observable,
             error: observable,
             favourite_cards: observable,
             works: observable,
 
-            setIsFetching: action.bound,
+            setLoading: action.bound,
             setBalance: action.bound,
             setCardList: action.bound,
             setError: action.bound,
             setWorks: action.bound,
 
-            fetchBalance: action.bound,
             createNewCard: action.bound,
             removeChooseCard: action.bound,
             fetchWorks: action.bound
@@ -40,8 +40,8 @@ export default class BalanceStore {
         this.fetchBalance()
     }
 
-    setIsFetching(bool: boolean) {
-        this.isFetching = bool
+    setLoading(bool: boolean) {
+        this.loading = bool
     }
 
     setBalance(data: Balance) {
@@ -69,30 +69,15 @@ export default class BalanceStore {
     }
 
     async fetchBalance() {
-        try {
-            const response = await BalanceService.fetchBalance()
-            this.setBalance(response)
-            this.setCardList(response.card_list)
-        } catch (e) {
-            this.setError(e)
-        }
+        return await BalanceService.fetchBalance()
     }
 
-    async createNewCard(card: Card) {
-        try {
-            const response = await BalanceService.createCard(card)
-            this.setCard(response)
-        } catch (e) {
-            this.setError(e)
-        }
+    async createNewCard(card: RequestCard) {
+        return await BalanceService.createCard(card)
     }
 
     async removeChooseCard(id: number) {
-        try {
-            await $api.delete(`/balance/cards/del/${id}/`)
-        } catch(e) {
-            this.setError(e)
-        } 
+        return await $api.delete(`/balance/cards/del/${id}/`)
     }
 
     async createNewFavouriteCard(favourite_cards: number[]) {
@@ -120,29 +105,34 @@ export default class BalanceStore {
     async fetchWorks() {
         try {
             const response = await BalanceService.fetchWorks()
-            console.log(response)
-            if(response) {
-                this.setWorks(response)
+            if(response.status >= 200 && response.status < 300) {
+                this.setWorks(response.data)
             }
         } catch (e) {
             this.setError(e)
         }
     }
 
-    async createNewIncome(object: IIncome){
+    createNewIncome(object: IIncome){
         try {
-            const response = await BalanceService.createIncome(object)
-            return response
+            return BalanceService.createIncome(object)
         } catch(e){
             this.setError(e)
         }
     }
 
-    async updateActivesIncome(param: string, id: number | null, objIncome: IIncomeBalance[]){
+    updateActivesIncome(param: string, id: number | null, objIncome: IIncomeBalance[]){
         try {
-            const response = await BalanceService.updateActivesIncome(param, id, objIncome)
-            return response
+            return BalanceService.updateActivesIncome(param, id, objIncome)
         } catch(e) {
+            this.setError(e)
+        }
+    }
+
+    createPersonalExpense(idCard: number, icon: IExpenseBalance){
+        try {
+            return BalanceService.createPersonalExpense(idCard, icon)
+        } catch (e) {
             this.setError(e)
         }
     }

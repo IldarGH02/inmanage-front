@@ -1,36 +1,27 @@
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { AuthorizedRoutes } from "../app/routes/AuthorizedRoutes";
 import { Layout } from "./Layout/Layout";
 import { observer } from 'mobx-react-lite'
-import { UnauthorizedRoutes } from "../app/routes/AuthRoutes/UnauthorizedRoutes";
 import { Overlay } from "../shared/ui/Overlay/Overlay";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { useAuth } from "../features/hooks/auth/auth";
-import { useGetLocalStorage } from "../features/hooks/storage";
+import { Route, Routes } from "react-router-dom";
+import {LoginPage} from "./LoginPage/LoginPage.tsx";
+import {RegistrationPage} from "./RegistrationPage/RegistrationPage.tsx";
+import {PrivateRoute} from "../app/routes/PrivateRoute/PrivateRoute.tsx";
 
 export const MainPage = observer(() => {
-    const auth = useAuth()
-    const navigate = useNavigate()
     const authRoute = AuthorizedRoutes()
-    const unAuthRoute = UnauthorizedRoutes() 
-
-    useEffect(() => {
-        const tokens = useGetLocalStorage('tokens')
-        return tokens ? navigate('/balance') : navigate('/login')
-    }, [])
     
     return (
         <Suspense fallback={<Overlay active="overlay--active"/>}>
             <Routes>
-                { 
-                    auth.isAuth ? 
-                        <Route element={<Layout/>}>
-                            {authRoute}
-                        </Route> : 
-                        unAuthRoute
-                }         
+                <Route path='login' element={<LoginPage/>}/>
+                <Route path='registration' element={<RegistrationPage/>}/>
+                <Route path='/' element={<Layout/>}>     
+                    <Route element={<PrivateRoute/>}>
+                        {authRoute}
+                    </Route>
+                </Route>
             </Routes>
-            
         </Suspense>
     )
 })

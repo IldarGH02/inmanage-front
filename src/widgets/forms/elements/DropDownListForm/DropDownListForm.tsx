@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./dropDownListForm.css";
 import { IDropDownList } from "../../../../app/types/elements/IDropDownList";
+import { observer } from "mobx-react-lite";
 
 interface IDropDownProps {
     checkError?: boolean,
@@ -14,7 +15,17 @@ interface IDropDownProps {
     onChange: (title: string) => void
 }
 
-export function DropDownListForm({searchInput=false, idTitle, idContent, checkError, placeholder, data, title, onChange}: IDropDownProps) {
+export const DropDownListForm = observer((
+    {
+        searchInput=false,
+        idTitle,
+        idContent,
+        checkError,
+        placeholder,
+        data,
+        title,
+        onChange
+    }: IDropDownProps) => {
     const [contentVisible, setContentVisible] = useState(false)
     const [error, setError] = useState(false)
     // const [touched, setTouched] = useState(false)
@@ -26,15 +37,7 @@ export function DropDownListForm({searchInput=false, idTitle, idContent, checkEr
     }, [data])
 
     useEffect(()=>{
-        
-        if(checkError) {
-            console.log(checkError)
-            if(title==='') {
-                setError(true)
-            } else {
-                setError(false)
-            }
-        }
+        return title === '' ? setError(true) : setError(false)
     }, [title, checkError])
 
     useEffect(()=>{
@@ -43,19 +46,16 @@ export function DropDownListForm({searchInput=false, idTitle, idContent, checkEr
                 setContentVisible(true)
             } else {
                 if(!(e.target as HTMLElement).closest(`.drop-down-list-form__search-input`) && !(e.target as HTMLElement).closest(`.drop-down-list-form__search-input`)) {
-                    // if(document.querySelector(`#${idContent}`)) {
-                    //     setTouched(true)
-                    // }
                     setContentVisible(false)
                 }
             }
         }
         window.addEventListener('click', handleClick)
         return ()=>window.removeEventListener('click', handleClick)
-    }, [])
+    }, [idTitle])
 
     const onChangeTitle = (newTitle: string) => {
-        if(title!==newTitle) {
+        if(title !== newTitle) {
             onChange(newTitle)
         }
     }
@@ -68,8 +68,8 @@ export function DropDownListForm({searchInput=false, idTitle, idContent, checkEr
     }
 
     function searchBrand() {
-        let filter = searchSelector.toUpperCase()
-        let newArr = contentList.filter(el=>{
+        const filter = searchSelector.toUpperCase()
+        const newArr = contentList.filter(el=>{
             if(el.content.toUpperCase().indexOf(filter)!==-1) {
                 return el
             }
@@ -81,7 +81,7 @@ export function DropDownListForm({searchInput=false, idTitle, idContent, checkEr
         <div className="drop-down-list-form">
             <div id={idTitle} className={`drop-down-list-form__container${(error)?'--error':''}`}>
                 <div className="drop-down-list-form__label">{placeholder}</div>
-                <div className="drop-down-list-form__title">{`${title?title:'Не выбрано'}`}</div>
+                <div className="drop-down-list-form__title">{`${title ? title : 'Не выбрано'}`}</div>
             </div>
             
             {contentVisible &&
@@ -94,7 +94,7 @@ export function DropDownListForm({searchInput=false, idTitle, idContent, checkEr
                             <div className="drop-down-list-form__list-empty">Список пуст...</div>
                         }
                         {contentList.map(el=>{
-                            if(el.content!==title) {
+                            if(el.content !== title) {
                                 return (
                                     <div className="drop-down-list-form__item" onClick={()=>onChangeTitle(el.content)} key={el.id}>{el.content}</div>
                                 )
@@ -105,4 +105,4 @@ export function DropDownListForm({searchInput=false, idTitle, idContent, checkEr
             }
         </div>   
     )
-}
+})

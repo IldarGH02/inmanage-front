@@ -1,0 +1,169 @@
+import { useContext, useEffect, useState } from "react"
+import { Link, useNavigate, useParams } from "react-router-dom"
+
+import { Modal } from "../../../../widgets/elements/Modal/Modal.tsx"
+import { MultiAxisLineChart } from "../../../../widgets/Chart/MultiAxisLineChart/MultiAxisLineChart.tsx"
+import { Business } from "../../../../app/types/actives/business/BusinessTypes.ts"
+import { IExpenseBalance, IIncomeBalance } from "../../../../app/types/balance/IBalance.ts"
+import { Card } from "../../../../app/types/dto/DtoTypes.ts"
+import { SpinnerLoader } from "../../../../widgets/elements/SpinnerLoader/SpinnerLoader.tsx"
+import { RemoveAssetsLiabilitiesModal } from "../../../../widgets/elements/Modal/RemoveAssetsLiabilitiesModal/RemoveAssetsLiabilitiesModal.tsx"
+
+import "./businessItemPage.css"
+
+import homeImg from "../../../../shared/assets/img/assets/home.png"
+import { Context } from "../../../../main.tsx"
+import { DeleteModal } from "../../../../widgets/Modals/DeleteModal/DeleteModal.tsx"
+import { ConfirmModal } from "../../../../widgets/elements/Modal/ConfirmModal/ConfirmModal.tsx"
+import { observer } from "mobx-react-lite"
+
+export const BusinessDetail = observer(() => {
+    const store = useContext(Context).activesStore
+    const [historyVisible, setHistoryVisible] = useState(false)
+    const {id} = useParams()
+    const navigate = useNavigate()
+    const [business, setBusiness] = useState<Business | null>(null)
+    const [removeModalVisible, setRemoveModalVisible] = useState(false)
+    const [incomes, setIncomes] = useState<IIncomeBalance[]>([])
+    const [expenses, setExpenses] = useState<IExpenseBalance[]>([])
+
+    useEffect(()=>{
+        if(store.actives !== null) {
+            const elem = store.actives && store.actives.businesses ? store.actives?.businesses.businesses.find(
+                (el) => el.id === Number(id)) : null
+                setBusiness(elem!)   
+                let incomesTmp: IIncomeBalance[] = []
+                if(elem) {
+                    elem.income.forEach(el=>{
+                        let date = new Date(el.created_at!)
+                        const dateNow = new Date()
+                        if(date.getFullYear()===dateNow.getFullYear() && date.getMonth() === dateNow.getMonth()) {
+                            incomesTmp.push(el)
+                        }
+                    })
+                }
+            setIncomes(incomesTmp)
+        }
+    },[store.actives])
+
+    useEffect(()=>{
+        if(store.actives!==null) {
+            const elem = store.actives && store.actives.businesses ? store.actives?.businesses.businesses.find((el) => el.id === Number(id)) : null
+            setBusiness(elem!)   
+            let expensesTmp: IIncomeBalance[] = []
+            elem!.expenses.forEach(el=>{
+                let date = new Date(el.created_at!)
+                const dateNow = new Date()
+                if(date.getFullYear()===dateNow.getFullYear() && date.getMonth() === dateNow.getMonth()) {
+                    // expensesTmp.push(el)
+                }
+            })
+            setExpenses(expensesTmp)
+        }
+    },[store.actives?.businesses?.businesses])
+
+    const removePropertyItem = (flag: boolean) => {
+        if(flag) {
+            const response = store.removeImmovables(String(business?.id))
+            store.setLoading(true)
+            response.then(res => {
+                if(res.status >= 200 && res.status < 300) {
+                    navigate("/actives/business")
+                    store.setLoading(false)
+                }
+            }).catch(error => store.setError(error))
+        }
+    }
+
+    const removeBusiness = (sum?: number, card?: Card) => {
+        if(sum && card) {
+            const response = store.removeBusiness(String(business?.id))
+            store.setLoading(true)
+            response.then(res => {
+                if(res.status >= 200 && res.status < 300) {
+                    store.setLoading(false)
+                    setRemoveModalVisible(false)
+                    navigate("/assets/business")
+                }
+            }).catch(error => store.setError(error))
+        }
+    }
+
+    return (
+        <>
+            <SpinnerLoader loading={store.loading} />
+            {removeModalVisible && 
+                <Modal onClose={()=>setRemoveModalVisible(false)}>
+                    <RemoveAssetsLiabilitiesModal onClose={()=>setRemoveModalVisible(false)} onRemoveItem={removeBusiness}/>
+                    <DeleteModal removeItem={removeBusiness} active="" setShow={() => {}} show={false} handleClose={() => {}}/>
+                    <ConfirmModal title="Удаление недвижимости" text="Вы действительно хотите удалить недвижимость?" onClose={removePropertyItem}/>
+                </Modal>
+            }  
+            <div className="business-item-page">
+                <div className="container" >
+                    <div className="business-item-page__title">Бизнес</div>
+                    <div className="business-item-page__content">
+                        <div className="business-item-page__about-block">
+                            <picture className="business-item-page__img-wrapper">
+                                <img className="business-item-page__img" src={homeImg} alt="homeImg"/>
+                            </picture>
+                            <b className="business-item-page__name">{business && business.name}</b>
+                            <div className="business-item-page__address">{business && ((!business.address || business.address==='')?'--' : business.address)}</div>
+                        </div>
+                        <div className="business-item-page__info-block">
+                            {historyVisible &&
+                                <div className="business-item-page__history-title">История операций</div>
+                            }
+                            <div className="business-item__actions-drop-down">
+                                <b>...</b>
+                                <div className="business-item__actions-list">
+                                    <Link className="business-item__action-item" to={"edit"}>Редактировать</Link>
+                                    <div className="business-item__action-item" onClick={() => removeBusiness()}>Удалить</div>
+                                </div>
+                            </div>
+                            {!historyVisible && 
+                            <>
+                                <div className="business-item-page__items">
+                                    <div className="business-item-page__info">
+                                        <h3 className="business-item-page__info-title">Процент долевого участия:</h3>
+                                        <b className="business-item-page__info-value">{business && business.participation_percent} %</b>
+                                    </div>
+                                    <div className="business-item-page__info">
+                                        <div className="business-item-page__info-title">Собственные средства:</div>
+                                        <b className="business-item-page__info-value">{business && business.own_funds_amount} ₽</b>
+                                    </div>
+                                    <div className="business-item-page__info">
+                                        <div className="business-item-page__info-title">Доход / месяц:</div>
+                                        <b className="business-item-page__info-value">{business && business.month_income.toLocaleString()} ₽</b>
+                                    </div>
+                                    <div className="business-item-page__info">
+                                        <div className="business-item-page__info-title">Расход / месяц:</div>
+                                        <b className="business-item-page__info-value">{business && business.month_expense.toLocaleString()} ₽</b>
+                                    </div>
+                                    <div className="business-item-page__info">
+                                        <div className="business-item-page__info-title">Прибыль / месяц:</div>
+                                        <b className="business-item-page__info-value">{(business!==null && (business.month_income - business.month_expense)).toLocaleString()} ₽</b>
+                                    </div>
+                                </div>
+                                <div className="business-item-page__graphic">
+                                    {business && 
+                                        <MultiAxisLineChart incomes={incomes} expenses={expenses}/>
+                                    }
+                                </div>
+                            </>
+                            }
+                            <div className="business-item-page__actions">
+                                <button className="business-item-page__history-btn" onClick={()=>setHistoryVisible(!historyVisible)}>{historyVisible?"Скрыть":"Показать"} историю</button>
+                                <Link to="inventory" className="business-item-page__inventory-btn">Инвентаризация</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="business-item-page__btns">
+                        <Link to="/assets/business" className="cancel-btn business-item-page__cancel-btn">Отменить</Link>
+                        <button className="business-item-page__add-btn" type="submit">Подтвердить</button>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+})

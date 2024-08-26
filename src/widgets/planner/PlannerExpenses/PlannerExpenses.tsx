@@ -1,4 +1,3 @@
-import React from "react"
 import "./plannerExpenses.css"
 
 interface IPlannerExpenses {

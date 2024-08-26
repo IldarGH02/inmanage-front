@@ -1,35 +1,32 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import "./editModal.css"
 import { InputText } from "../../../../../../shared/ui/input/InputText/InputTextTest"
 import { ITransportDTO } from "../../../../../../app/types/dto/assets/IAssetsLiabilitiesDTO"
-import { InputTextVIN } from "../../../../../../shared/ui/input/inputVIN/InputVIN"
-import { IAssetsTransport } from "../../../../../../app/types/assets/IAssets"
-import { ILiabilitiesTransport } from "../../../../../../app/types/liabilities/ILiabilities"
+// import { IAssetsTransport } from "../../../../../../app/types/actives/ActivesTypes.ts"
+// import { ILiabilitiesTransport } from "../../../../../../app/types/liabilities/LiabilitiesType.ts"
 
 interface IEditModal {
     onClose: ()=> void,
-    data: IAssetsTransport | ILiabilitiesTransport,
+    // data: IAssetsTransport | ILiabilitiesTransport,
     onEdit: (obj: ITransportDTO)=>void
 }
 
-export function EditModal({onClose, data, onEdit}: IEditModal) {
-    const [valueOwner, setValueOwner] = useState(data.owner)
+export function EditModal({onClose, onEdit}: IEditModal) { //data
+    const [valueOwner, setValueOwner] = useState('')
     const [alertOwner, setAlertOwner] = useState('')
-    const [valueVIN, setValueVIN] = useState(data.vin)
-    const [alertVIN, setAlertVIN] = useState('')
-    const [valuePurpose, setValuePurpose] = useState(data.use)
+    const [valuePurpose, setValuePurpose] = useState('')
     const [alertPurpose, setAlertPurpose] = useState('')
 
-    const [individualPerson, setIndividualPerson] = useState(data.owner_type)//физическое лицо
+    // const [individualPerson, setIndividualPerson] = useState('')//физическое лицо
 
     const clickEditBtn = ()=> {
-        if(alertPurpose==='' && alertVIN==='' && alertOwner==='' && valueOwner!=='' && valueVIN!=='') {
+        if(alertPurpose===''  && alertOwner==='' && valueOwner!=='') {
             const transportDTO:ITransportDTO = {
-                id: data.id!,
+                id: 1, //data.id!
                 owner: valueOwner,
-                vin: valueVIN,
+                vin: '',
                 use: valuePurpose,
-                owner_type: individualPerson
+                owner_type: false
             }
             onEdit(transportDTO)
             onClose()
@@ -49,7 +46,7 @@ export function EditModal({onClose, data, onEdit}: IEditModal) {
                 </div>
                 <div className="edit-modal__item">
                     <div className="edit-modal__label">VIN-номер</div>
-                    <InputTextVIN value={valueVIN} setValue={setValueVIN} setAlert={setAlertVIN}></InputTextVIN>
+                    {/* <InputTextVIN value={valueVIN} setValue={setValueVIN} setAlert={setAlertVIN}></InputTextVIN> */}
                 </div>
                 <div className="edit-modal__item">
                     <div className="edit-modal__label">Назначение</div>
@@ -58,14 +55,14 @@ export function EditModal({onClose, data, onEdit}: IEditModal) {
                 <div className="edit-modal__item-container">
                     <div className="edit-modal__label">Тип собственности</div>
                     <div className="edit-modal__rb">
-                        <input type="radio" id="rb1" checked={!individualPerson} onChange={()=>{
-                            setIndividualPerson(false)
+                        <input type="radio" id="rb1" checked={false} onChange={()=>{
+                            // setIndividualPerson(false)
                         }}/>
                         <label htmlFor="rb1">физическое лицо</label>
                     </div>
                     <div className="edit-modal__rb">
-                        <input type="radio" id="rb2" checked={individualPerson} onChange={()=>{
-                            setIndividualPerson(true)
+                        <input type="radio" id="rb2" checked={false} onChange={()=>{
+                            // setIndividualPerson(true)
                         }}/>
                         <label htmlFor="rb2">юредическое лицо</label>
                     </div>

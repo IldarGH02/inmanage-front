@@ -1,28 +1,28 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import "./editModal.css"
 import { InputText } from "../../../../../../shared/ui/input/InputText/InputTextTest"
 import { IPropertyDTO } from "../../../../../../app/types/dto/assets/IAssetsLiabilitiesDTO"
-import { IAssetsProperty } from "../../../../../../app/types/assets/IAssets"
-import { ILiabilitiesProperty } from "../../../../../../app/types/liabilities/ILiabilities"
+// import { IAssetsProperty } from "../../../../../../app/types/actives/ActivesTypes.ts"
+// import { ILiabilitiesProperty } from "../../../../../../app/types/liabilities/LiabilitiesType.ts"
 
 interface IEditModal {
     onClose: ()=> void,
-    data: IAssetsProperty | ILiabilitiesProperty,
+    // data: IAssetsProperty | ILiabilitiesProperty,
     onEdit: (obj: IPropertyDTO)=>void
 }
 
-export function EditModal({onClose, data, onEdit}: IEditModal) {
-    const [valueOwner, setValueOwner] = useState(data.owner)
+export function EditModal({onClose, onEdit}: IEditModal) { //data
+    const [valueOwner, setValueOwner] = useState('')
     const [alertOwner, setAlertOwner] = useState('')
-    const [valueName, setValueName] = useState(data.name)
+    const [valueName, setValueName] = useState('')
     const [alertName, setAlertName] = useState('')
-    const [valueAddress, setValueAddress] = useState(data.address)
+    const [valueAddress, setValueAddress] = useState('')
     const [alertAddress, setAlertAddress] = useState('')
 
     const clickEditBtn = ()=> {
         if(alertName==='' && alertAddress==='' && alertOwner==='' && valueName!=='' && valueAddress!=='') {
             const propertyDTO:IPropertyDTO = {
-                id: data.id!,
+                id: 10, //data.id!
                 owner: valueOwner,
                 name: valueName,
                 address: valueAddress

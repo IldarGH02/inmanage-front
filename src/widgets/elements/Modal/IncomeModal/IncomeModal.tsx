@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import "./incomeModal.css"
 import Calendar from "../../../Calendar/Calendar"
 import { InputSum } from "../../../../shared/ui/input/InputSum/InputSumTest"

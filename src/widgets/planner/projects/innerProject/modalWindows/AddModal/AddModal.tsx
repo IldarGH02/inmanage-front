@@ -5,7 +5,7 @@ import Calendar from "../../../../../Calendar/Calendar";
 import { ModalContext } from "../../../../../../features/context/modalProperty/ModalContext";
 import "./addModal.css"
 
-const cart = require('../../../../../../assets/img/trash.svg')
+// const cart = require('../../../../../../assets/img/trash.svg')
 
 interface ITodoDTO {
     date_start: Date,//здесь должен быть формат даты типа dd.mm.yyyy
@@ -213,7 +213,7 @@ export function AddModal({addTodo}: IAddModal) {
                                 return (
                                     <div className="add-modal-project-item__item-list-elem" key={el.id}>
                                         <div>{el.text}</div>
-                                        <img className="add-modal-project-item__item-remove-btn" src={cart} alt="" onClick={()=>removeListItem(el.id)}/>
+                                        <img className="add-modal-project-item__item-remove-btn" src={''} alt="" onClick={()=>removeListItem(el.id)}/>
                                     </div>
                                 )
                             })}

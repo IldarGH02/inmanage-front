@@ -1,0 +1,90 @@
+[
+    {
+        "name": "СберБанк",
+        "icon": "sber"
+    },
+    {
+        "name": "ВТБ",
+        "icon": "vtb"
+    },
+    {
+        "name": "ГазПромБанк",
+        "icon": "gpb"
+    },
+    {
+        "name": "Райфайзен",
+        "icon": "iconRaif"
+    },
+    {
+        "name": "Альфабанк",
+        "icon": "alfa"
+    },
+    {
+        "name": "Россельхозбанк",
+        "icon": "rosselhoz"
+    },
+    {
+        "name": "Банк \"Открытие\"",
+        "icon": "otkrytie"
+    },
+    {
+        "name": "СовКомБанк",
+        "icon": "sovkom"
+    },
+    {
+        "name": "РосБанк",
+        "icon": "rosbank"
+    },
+    {
+        "name": "Юникредит Банк",
+        "icon": "unikredit"
+    },
+    {
+        "name": "Тинькофф банк",
+        "icon": "tinkoff"
+    },
+    {
+        "name": "Ак Барс Банк",
+        "icon": "Akbars"
+    },
+    {
+        "name": "Новиком Банк",
+        "icon": "novicom"
+    },
+    {
+        "name": "Уралсиб Банк",
+        "icon": "uralsib"
+    },
+    {
+        "name": "Почта Банк",
+        "icon": "pochta"
+    },
+    {
+        "name": "Сити Банк",
+        "icon": "city"
+    },
+    {
+        "name": "Бэнк Оф Чайна",
+        "icon": "chinabank"
+    },
+    {
+        "name": "МТС Банк",
+        "icon": "mts"
+    },
+    {
+        "name": "РНКБ",
+        "icon": "rnkb"
+    },
+    {
+        "name": "АйСиБиСи",
+        "icon": "icbc"
+    },
+    {
+        "name": "Уральский Банк Реконструкции И Развития",
+        "icon": "ubrir"
+    },
+    {
+        "name": "ОТП Банк",
+        "icon": "otp"
+    }
+]

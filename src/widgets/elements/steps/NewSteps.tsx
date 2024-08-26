@@ -1,4 +1,3 @@
-import React from "react";
 import "./newSteps.css"
 // import { steps } from "./stepsData"
 // import { StepContext } from "../context/stepContext/stepContext";

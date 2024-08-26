@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./extendedSetting.css";
 import { ProfileDDList } from "../ProfileDDList/ProfileDDList";
 import { IProfileDDList } from "../../../app/types/profile/IProfile";

@@ -1,12 +1,11 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import "./editModal.css"
 import { InputText } from "../../../../../../shared/ui/input/InputText/InputTextTest"
 import { IBusinessDTO } from "../../../../../../app/types/dto/assets/IAssetsLiabilitiesDTO"
-import { IAssetsBusiness } from "../../../../../../app/types/assets/IAssets"
 
 interface IEditModal {
     onClose: ()=> void,
-    data: IAssetsBusiness,
+    data: IBusinessDTO,
     onEdit: (obj: IBusinessDTO)=>void
 }
 

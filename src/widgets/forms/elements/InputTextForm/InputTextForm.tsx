@@ -1,4 +1,3 @@
-import React from "react";
 import "./inputTextForm.css";
 import { Field } from 'formik';
 

@@ -1,12 +1,11 @@
-import React from "react"
 import "./inventoryItem.css"
 import { Daw } from "../../Daw/daw"
-import { IInventoryProperty } from "../../../../app/types/assets/property/IProperty"
-import { IInventoryBusiness } from "../../../../app/types/assets/business/IBusiness"
+import { IInventoryProperty } from "../../../../app/types/actives/realty/RealtyTypes.ts"
+// import { IInventoryBusiness } from "../../../../app/types/actives/business/BusinessTypes.ts"
 import { CartBtn } from "../../buttons/CartBtn/CartBtn"
 
 interface IInventoryItem {
-    data: IInventoryProperty | IInventoryBusiness,
+    data: IInventoryProperty,
     onChangeItem: (id: number)=>void,
     onRemoveItem: (id: number)=>void
 }

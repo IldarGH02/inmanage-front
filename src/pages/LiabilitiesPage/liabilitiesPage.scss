@@ -1,0 +1,23 @@
+.liabilities__page {
+    height: 100%;
+    animation: scroll 800s linear infinite;
+    
+    .liabilities__page-balance {
+        width: 100%;
+    }
+
+    .liabilities__page-cards {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 25px;
+
+        a {
+            text-decoration: none;
+            width: 502px;
+        }
+    }
+}

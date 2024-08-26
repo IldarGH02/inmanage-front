@@ -1,0 +1,44 @@
+@import "/src/shared/styles/common/mixins.scss";
+
+.input__sum-container {
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    position: relative;
+
+    .MuiFormControl-root, .input__sum {
+        width: 100%;
+
+        &:hover {
+            .MuiOutlinedInput-notchedOutline {
+                border-color: #1976d2 !important;
+            }
+        }
+    
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+            transform: translate(14px, 24px) scale(1);
+        }
+    
+        .MuiInputBase-root {
+    
+            .MuiInputBase-input {
+                padding: 25px 15px;
+                color: rgba(0, 0, 0, 0.48);
+                font-size: 20px;
+            }
+    
+            .MuiOutlinedInput-notchedOutline {
+                border-radius: 15px;
+            }
+
+            
+        }
+    }
+
+    .price__sum-currency {
+        position: absolute;
+        right: 10px;
+        @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+    }
+}

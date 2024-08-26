@@ -6,7 +6,7 @@ import Steps from "../../../widgets/modalWindow/steps/StepsTest"
 import { IStep, Status } from "../../../app/types/steps"
 import { TaskStep1 } from "../../../widgets/planner/AddTask/Step1/TaskStep1"
 import { ITodoDTO } from "../../../app/types/dto/planner/projects/IProject"
-import { useTodo } from "../../../features/hooks/planner/plannerHooks"
+// import { useTodo } from "../../../features/hooks/planner/plannerHooks"
 import { PlannerDateContext } from "../../../features/context/planner/plannerData/PlannerDateContext"
 import { TaskStep2 } from "../../../widgets/planner/AddTask/Step2/TaskStep2"
 import { TaskStep3 } from "../../../widgets/planner/AddTask/Step3/TaskStep3"
@@ -36,8 +36,8 @@ let steps: IStep[] = [
 ]
 
 export function TaskAddPage() {
-    const { date, setDate } = useContext(PlannerDateContext) as IContext
-    const { addTodo } = useTodo()
+    const { setDate } = useContext(PlannerDateContext) as IContext
+    // const { addTodo } = useTodo()
     const [nextBtnVisible, setNextBtnVisible] = useState(false)
     const [stepsArr, setStepsArr] = useState(steps)
     const [contentArrIndex, setContentArrIndex] = useState(0)
@@ -154,7 +154,7 @@ export function TaskAddPage() {
                         }
                         {stepsArr[stepsArr.length-1].status===Status.done && 
                         <Link className="task-add-page__add-btn--active" to="/planner" onClick={()=>{
-                            addTodo(task, date)
+                            // addTodo(task, date)
                             setDate(new Date())
                         }}>Добавить</Link>
                         }

@@ -1,0 +1,105 @@
+.cards__modal {
+    width: 90%;
+    height: 90%;
+    padding: 15px 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    overflow-y: scroll;
+
+    .cards__modal-content {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        height: 90%;
+
+        .cards__modal-finance {
+            width: calc(100% - 15px);
+        }
+
+        .cards__form {
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 15px);
+            height: 100%;
+
+            .cards__form-content {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                .cards__form-title {
+                    @include _fontStyle(600, 28px, 30px, #333)
+                }
+
+                .cards__form-params {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .cards__form-input_text {
+                        padding: 25px 15px;
+                        border-radius: 15px;
+                        border: none;
+                        outline: 3px solid rgb(241, 242, 246);
+                        transition: outline 0.3s ease-in-out;
+                        @include _fontStyle(400, 28px, 30px, rgba(0, 0, 0, 0.48));
+
+                        &:focus-within {
+                            outline-color: rgb(103, 158, 244);
+                        }
+
+                        &:hover {
+                            outline-color: rgb(103, 158, 244);
+                        }
+                    }
+
+                    .price__sum-container {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 25px 15px;
+                        border-radius: 15px;
+                        outline: 3px solid rgb(241, 242, 246);
+                        transition: outline 0.3s ease-in-out;
+                        margin-bottom: 25px;
+
+                        &:focus-within {
+                            outline-color: rgb(103, 158, 244);
+                        }
+
+                        &:hover {
+                            outline-color: rgb(103, 158, 244);
+                        }
+
+                        .price__sum-input {
+                            width: 100%;
+                            height: 100%;
+                            text-align: end;
+                            border: none;
+                            outline: none;
+                            margin-right: 5px;
+                            @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+                        }
+
+                        .price__sum-currency {
+                            @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+                        }
+                    }
+                }
+            }
+
+            .cards__form-actions {
+                display: flex;
+                flex-direction: row;
+                margin-top: auto;
+                justify-content: flex-end;
+
+                .cards__form-close {
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+        }
+    }
+}

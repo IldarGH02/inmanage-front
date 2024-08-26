@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./inventoryForm.css";
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { IInventoryTable, IInventoryTableInput } from "../../../../app/types/assets/IAssets";
+import { IInventoryTable, IInventoryTableInput } from "../../../../app/types/actives/ActivesTypes.ts";
 import { ConfirmModal } from "../../../elements/Modal/ConfirmModal/ConfirmModal";
 import { DawIncomeBalance } from "../../../elements/Daw/DawIncomeBalance/DawIncomeBalance";
 import { InventoryTable } from "../../elements/InventoryTable/InventoryTable";
@@ -51,9 +51,9 @@ export function InventoryForm() {
        
     }
 
-    function onEmptyList() {
+    // function onEmptyList() {
 
-    }
+    // }
 
     function getPrice(list: IInventoryTableInput[]) {
         let price = 0
@@ -98,7 +98,7 @@ export function InventoryForm() {
                     <div className="inventory-form__characteristic-block-wrapper">
                         <div className="inventory-form__empty-indicator">
                             <div className="inventory-form__empty-indicator-daw" onClick={()=>setModalVisible(true)}>
-                                <DawIncomeBalance color="rgb(200, 200, 200)" onChangeDaw={onEmptyList} dawActive={values.assets.length===0?true:false}/>
+                                <DawIncomeBalance color="rgb(200, 200, 200)" activeChecked={false} handleChangeCheckbox={() => {}} id=""/>
                             </div>
                             <div className="inventory-form__empty-indicator-title">Инвентарь отсутствует</div>
                         </div>

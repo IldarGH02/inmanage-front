@@ -1,0 +1,188 @@
+.transport__modal-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    .transport__form-content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+
+        .transport__form-auto {
+            width: calc(50% - 15px);
+            padding: 20px;
+            background-color: white;
+            border-radius: 30px;
+            flex-grow: 1;
+
+            .transport__form-auto_brand {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                margin-bottom: 45px;
+            }
+
+            .transport__form-auto_info {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                margin-bottom: 45px;
+
+                .price__sum-container {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 25px 15px;
+                    border-radius: 15px;
+                    outline: 3px solid rgb(241, 242, 246);
+                    transition: outline 0.3s ease-in-out;
+                    margin-bottom: 25px;
+    
+                    &:focus-within {
+                        outline-color: rgb(103, 158, 244);
+                    }
+    
+                    &:hover {
+                        outline-color: rgb(103, 158, 244);
+                    }
+    
+                    .price__sum-input {
+                        width: 100%;
+                        height: 100%;
+                        text-align: end;
+                        border: none;
+                        outline: none;
+                        margin-right: 5px;
+                        @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+                    }
+    
+                    .price__sum-currency {
+                        @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+                    }
+                }
+
+                .transport__form-auto_button {
+                    cursor: pointer;
+                    padding: 10px 15px;
+                    background-color: rgb(103, 158, 244);
+                    border-radius: 20px;
+                    border: none;
+                    transition: all 0.2s ease-in-out;
+                    @include _fontStyle(400, 22px, 26px, white);
+                }
+            }
+        }
+
+        .transport__form-price {
+            width: calc(50% - 15px);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            flex-grow: 1;
+
+            .price__sum-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding: 25px 15px;
+                border-radius: 15px;
+                outline: 3px solid rgb(241, 242, 246);
+                transition: outline 0.3s ease-in-out;
+                margin-bottom: 25px;
+
+                &:focus-within {
+                    outline-color: rgb(103, 158, 244);
+                }
+
+                &:hover {
+                    outline-color: rgb(103, 158, 244);
+                }
+
+                .price__sum-input {
+                    width: 100%;
+                    height: 100%;
+                    text-align: end;
+                    border: none;
+                    outline: none;
+                    margin-right: 5px;
+                    @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+                }
+
+                .price__sum-currency {
+                    @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
+                }
+            }
+
+            .price__credit-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding-top: 25px;
+                opacity: 0;
+                transform: translateX(150%);
+                transition: transform 0.3s ease-in-out, opacity .4s ease-in-out;
+            }
+
+            .active-credit {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+    .transport__form-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-bottom: 2px;
+        padding-right: 1px;
+        gap: 15px;
+
+        .transport__form-actions_cancel {
+            cursor: pointer;
+            padding: 20px 15px;
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+            transition: outline .3s ease-in-out, color .3s ease-in-out;
+
+            @include _fontStyle(400, 20px, 24px, #333);
+
+            &:hover {
+                outline: 1px solid red;
+                color: red;
+            }
+        }
+
+        .transport__form-actions_submit {
+            cursor: pointer;
+            padding: 20px 15px;
+            background-color: rgb(103, 158, 244);
+            border-radius: 20px;
+            border: none;
+            transition: background-color .3s ease-in-out, outline .3s ease-in-out;
+            @include _fontStyle(400, 22px, 24px, white);
+
+            &:focus-visible {
+                background-color: transparent;
+                outline: 1px solid $lightBlueColor;
+                color: $lightBlueColor
+            }
+
+            &:hover {
+                background-color: transparent;
+                outline: 1px solid $lightBlueColor;
+                color: $lightBlueColor
+            }
+        }
+
+        .error__submit {
+            background-color: rgb(103, 158, 244);
+            color: #fff;
+        }
+    }
+}

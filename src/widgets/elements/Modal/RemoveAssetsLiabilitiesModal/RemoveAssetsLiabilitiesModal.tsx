@@ -1,44 +1,32 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "./removeAssetsLiabilitiesModal.css"
 import { RemoveAssetsLiabilities } from "../../../forms/RemoveAssetsLiabilities/RemoveAssetsLiabilities";
-import { useTypedSelector } from "../../../../features/hooks/useTypedSelector";
-import { useDispatch } from "react-redux";
-import { getBalance, hideLoader, showLoader } from "../../../../app/store/actions/balance/balanceActions";
-import { actionTypesBalance } from "../../../../app/store/types/balanceTypes";
 import { SpinnerLoader } from "../../SpinnerLoader/SpinnerLoader";
 import { SelectCardModal } from "../balance/SelectCardModal/SelectCardModal";
-import { ICard } from "../../../../app/types/balance/IBalance";
+import { Card } from "../../../../app/types/dto/DtoTypes.ts"; 
+import { Context } from "../../../../main.tsx";
 
 interface IDeleteModal {
     onClose: ()=>void,
-    onRemoveItem: (sum?: number, card?: ICard)=>void,
+    onRemoveItem: (sum?: number, card?: Card)=>void,
 }
 
-export function RemoveAssetsLiabilitiesModal({onClose, onRemoveItem}: IDeleteModal) {
-    const state = useTypedSelector(state => state.balanceReducer)
-    const dispatch = useDispatch() 
-    const [modalVisible, setModalVisible] = useState(false)
-    const [cardSelected, setCardSelected] = useState(null)
+export function RemoveAssetsLiabilitiesModal({onRemoveItem}: IDeleteModal) {
+    const store = useContext(Context).balanceStore
 
-    useEffect(()=>{
-        if(state.balance===null) {
-            dispatch(showLoader(actionTypesBalance.SHOW_LOADER))
-            const res = getBalance(actionTypesBalance.GET_BALANCE)
-            res.then(e => {
-                dispatch(e!);
-            })
-            .catch((e) => {
-                dispatch(hideLoader(actionTypesBalance.HIDE_LOADER))
-                console.log(e)
-            })
-        }
-    }, [])
+    const [modalVisible, setModalVisible] = useState(false)
+    const [cardSelected, setCardSelected] = useState<Card>()
+
 
     const closeSelectCardModal = (id?: number) => {
         if(id) {
-            let card = state.balance.card_list.find((el:ICard)=>el.id===id)
-            setCardSelected(card)
-            closeModal()
+            if(store.balance) {
+                const card = store.balance.card_list.find((el:Card) => el.id === id)
+                if(card) {
+                    setCardSelected(card)
+                    closeModal()
+                }
+            }
         } else {
             closeModal()
         }
@@ -46,12 +34,12 @@ export function RemoveAssetsLiabilitiesModal({onClose, onRemoveItem}: IDeleteMod
 
     const openModal = () => {
         setModalVisible(true);
-        (document.querySelector('.remove-assets-liabilities-modal') as HTMLElement).style.visibility = 'hidden'
+        (document.querySelector('.remove-actives-liabilities-modal') as HTMLElement).style.visibility = 'hidden'
     }
     
     const closeModal = () => {
         setModalVisible(false);
-        (document.querySelector('.remove-assets-liabilities-modal') as HTMLElement).style.visibility = 'visible'
+        (document.querySelector('.remove-actives-liabilities-modal') as HTMLElement).style.visibility = 'visible'
     }
 
     const onRemove = (sum?: number) => {
@@ -64,24 +52,30 @@ export function RemoveAssetsLiabilitiesModal({onClose, onRemoveItem}: IDeleteMod
 
     return (
         <>
-        {modalVisible && state.balance &&
+        {modalVisible && store.balance &&
             <div className='remove-assets-liabilities-modal__modal' onClick={closeModal}>
             <div className="remove-assets-liabilities-modal__modal-wrapper">
                 <div className='remove-assets-liabilities-modal__modal-content' onClick={e=>{
                     e.stopPropagation()
                 }}>
-                    <SelectCardModal data={state.balance.card_list} onClose={closeSelectCardModal}/>
+                    <SelectCardModal data={store.balance.card_list} onClose={closeSelectCardModal}/>
                 </div>
             
             </div>
         </div>  
         }
-        <SpinnerLoader loading={state.loading} />
+        <SpinnerLoader loading={store.loading} />
 
         <div className="remove-assets-liabilities-modal">
             <b className="remove-assets-liabilities-modal__title">Вы действительно хотите удалить?</b>
             <div className="remove-assets-liabilities-modal__form">
-                <RemoveAssetsLiabilities onOpenModal={openModal} onRemove={onRemove} cardSelected={cardSelected} onClose={onClose}/>
+                <RemoveAssetsLiabilities
+                    onOpenModal={openModal}
+                    onRemove={onRemove}
+                    // cardSelected={cardSelected}
+                    cardSelected={null}
+                    setShow={() => {}}
+                />
             </div>
         </div>
         </>

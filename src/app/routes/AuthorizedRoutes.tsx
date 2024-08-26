@@ -4,7 +4,7 @@ import reportsRouter from "./reportsRoutes";
 import plannerRouter from "./plannerRoutes";
 import profileRouter from "./profileRoutes";
 import assetsRouter from "./assetsRoutes";
-import { UnionRoutes } from "./AuthRoutes/UnionAuthRoutes";
+import { UnionRoutes } from "./UnionAuthRoutes.tsx";
 import { balanceRouter } from "./balanceRoutes";
 
 export const AuthorizedRoutes = () => {

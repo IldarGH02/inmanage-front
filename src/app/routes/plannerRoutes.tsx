@@ -1,4 +1,3 @@
-import React from "react";
 import { Route } from "react-router-dom";
 import { PlannerPage } from '../../pages/PlannerPage/PlannerPage';
 import { ProjectItemPage } from '../../pages/PlannerPage/projectItemPage/ProjectItemPage';

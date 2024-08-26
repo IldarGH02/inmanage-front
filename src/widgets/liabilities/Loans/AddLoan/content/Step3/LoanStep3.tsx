@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 // import "./loanStep3.css"
 import Calendar from "../../../../../Calendar/Calendar"
 import { InputSum } from "../../../../../../shared/ui/input/InputSum/InputSumTest"

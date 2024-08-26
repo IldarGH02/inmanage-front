@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import "./taskStep1.css"
 import { InputText } from "../../../../shared/ui/input/InputText/InputTextTest" 
 import { ITodoDTO } from "../../../../app/types/dto/planner/projects/IProject"

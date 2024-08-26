@@ -1,7 +1,6 @@
-import React from "react"
 import "./itemLiabilities.css"
 
-// const homeImg = require('../../../../assets/img/assets/home.png')
+// const homeImg = require('../../../../actives/img/actives/home.png')
 
 interface IItemLiabilities {
     title: string,

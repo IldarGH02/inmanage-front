@@ -1,4 +1,3 @@
-import React from "react"
 import { IToDo } from "../../../app/types/planner/IPlanner"
 import "./importantToday.css"
 import { ImportantTodayItem } from "./ImportantTodayItem"

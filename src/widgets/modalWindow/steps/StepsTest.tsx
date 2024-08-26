@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./stepsTest.css"
 // import { steps } from "./stepsData"
 // import { StepContext } from "../context/stepContext/stepContext";
