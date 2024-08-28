@@ -16,8 +16,6 @@ import { BusinessService } from '../../shared/http/actives/business/index.ts';
 import { makePersistable } from "mobx-persist-store";
 import localforage from "localforage"
 
-const isBrowser = typeof window !== 'undefined';
-
 export class ActivesStore {
     actives: Actives | null = null;
     error: string | unknown = null;
@@ -91,7 +89,6 @@ export class ActivesStore {
     }
 
     async createImmovable(property: ImmovableRequest) {
-        const response = await ImmovableService.createImmovable(property)
         return ImmovableService.createImmovable(property)
     }
 

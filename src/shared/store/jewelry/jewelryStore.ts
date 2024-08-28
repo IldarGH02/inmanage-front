@@ -2,21 +2,19 @@ import { makeAutoObservable } from "mobx";
 import { ChangeEvent } from "react";
 import { ValuableRequest } from "../../../app/types/request/requestTypes";
 import { ValuableService } from "../../http/actives/valuable";
-import { JewerlyDto } from "../../../app/types/dto/DtoTypes";
+import { JewelryDto } from "../../../app/types/dto/DtoTypes";
 import { AssetsService } from "../../http/actives";
 import { makePersistable } from "mobx-persist-store";
 import localforage from "localforage"
 
-const isBrowser = typeof window !== 'undefined';
-
-export class JewerlyStore {
+export class JewelryStore {
     name: string = ''
     purchase_price: string = ''
     estimated_value: string = ''
     comment: string = ''
     photo: string = ''
-    current_jewerly: JewerlyDto | undefined = undefined
-    jewerly__list: JewerlyDto[] | undefined = undefined
+    current_jewelry: JewelryDto | undefined = undefined
+    jewelry__list: JewelryDto[] | undefined = undefined
     show: boolean = false
     show_modal: boolean = false
     isActive: boolean = false
@@ -25,11 +23,11 @@ export class JewerlyStore {
     constructor(){
         makeAutoObservable(this)
         makePersistable(this, {
-            name: "JewerlyStore",
+            name: "JewelryStore",
             storage: localforage,
             properties: [
-                "jewerly__list",
-                "current_jewerly"
+                "jewelry__list",
+                "current_jewelry"
             ]
         })
     }
@@ -46,17 +44,17 @@ export class JewerlyStore {
         this.isActive = bool
     }
 
-    setJewerlyList = (list: JewerlyDto[]) => {
-        this.jewerly__list = list
+    setJewelryList = (list: JewelryDto[]) => {
+        this.jewelry__list = list
     }
 
     setNavigate = (bool: boolean) => {
         this.navigate = bool
     }
 
-    setCurrentJewerly = (id: number) => {
-        const current_jewerly = this.jewerly__list?.find((item) => item.id === id)
-        this.current_jewerly = current_jewerly
+    setCurrentJewelry = (id: number) => {
+        const current_jewelry = this.jewelry__list?.find((item) => item.id === id)
+        this.current_jewelry = current_jewelry
     }
 
     handleClickShow = () => {
@@ -111,12 +109,12 @@ export class JewerlyStore {
         return ValuableService.createValuable(valuable)
     }
 
-    changeJewerly(jewerly: ValuableRequest, id: string){
-        return ValuableService.changeJewerly(jewerly, id)
+    async changeJewelry(jewelry: ValuableRequest, id: string){
+        return await ValuableService.changeJewelry(jewelry, id)
     }
 
-    removeJewerly(id: string){
-        return ValuableService.removeJewerly(id)
+    removeJewelry(id: string){
+        return ValuableService.removeJewelry(id)
     }
 
     fetchActives(){

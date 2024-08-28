@@ -238,7 +238,7 @@ export type SecuritiesDto = {
     grow: number
 }
 
-export type JewerlyDto = {
+export type JewelryDto = {
     id: number;  // Уникальный идентификатор ювелирного изделия.
     name: string;  // Название ювелирного изделия.
     images: number[];  // Список идентификаторов изображений, связанных с данным изделием. Связано с моделью JewelryImage.
@@ -252,5 +252,51 @@ export type JewerlyDto = {
     total_expense: number;  // Общие расходы на изделие.
     month_income: number;  // Доход от изделия за текущий месяц.
     month_expense: number;  // Расходы на изделие за текущий месяц.
+}
+
+export type LoansDto = {  //займы
+    id: number;
+	name: string; // Название займа
+	date: string; // Дата оформления займа
+	remainder: number; // Остаток выплаты по займу
+	sum: number; // Сумма займа
+	writeoff_account: number; // ID списываемого счета
+	payment: number; // ID платежа 
+	loan_term: number; // Срок займа
+	initial_payment: number; // Начальный платеж
+	first_payment_date: string; // Дата первого платежа
+	percentage: number; // Процентная ставка
+	month_payment: number; // Ежемесячный платеж
+	payment_order: string; // Порядок платежа: ann - Аннуитентный; diff - Дифференцированный
+	payment_period: string; // Периодичность платежей: once; monthly; quarterly; yearly
+	payment_date: string; // Дата платежа
+	repayment_progress: number; // Прогресс погашения в процентах
+	final_overpayment: number; // Итоговая переплата
+	credit_cost: number; // Стоимость займа (сумма займа + итоговая переплата)
+	expenses: [ExpenseDto];
+	income: [IncomeDto];
+	total_income: number; // Общий доход
+	total_expense: number; // Общий расход
+	month_income: number; // Ежемесячный доход
+	month_expense: number; // Ежемесячный расход
+	image: string; // Изображение
+	is_actives: boolean; // Активность займа
+}
+
+export type DepositDto = {
+    id: number;
+	name: string;
+	writeoff_account: number;
+	type: string; // Тип вклада
+	period: number; // Период вклада
+	income: [number]; // ID доходов 
+	expenses: [number]; // ID расходов 
+	total_income: number; // Общий доход
+	total_expense: number; // Общий расход
+	final_income: number; // Рассчитанный доход по вкладу
+	month_income: number; // Ежемесячный доход
+	month_expense: number; // Ежемесячный расход
+	percentage: number; // Процентная ставка
+	sum: number; // Сумма вклада
 }
 

@@ -26,7 +26,6 @@ export const ActivesPage = observer(() => {
             if(res.status >= 200 && res.status < 300) {
                 store.setLoading(false)
                 store.setActives(res.data)
-                console.log(res.data)
             }
         }).catch(e => {
             store.setError(e)
@@ -83,7 +82,7 @@ export const ActivesPage = observer(() => {
                                     img: securitiesImg
                                 }}/>
                             </Link>
-                            <Link to="jewerly">
+                            <Link to="jewelry">
                                 <CategoriesCard data={{
                                     name: 'Драгоценности',
                                     count: store.actives ? (store.actives!.jewelries !== null ? store.actives?.jewelries.jewelries.length : 0) : 0,

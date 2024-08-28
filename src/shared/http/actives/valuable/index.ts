@@ -7,11 +7,11 @@ export class ValuableService {
         return await $api.post(`/actives/jewelry/`, valuable)
     }
 
-    static async changeJewerly(jewerly: ValuableRequest, id: string): Promise<AxiosResponse> {
-        return await $api.patch(`/actives/jewelry/up/${id}`, jewerly)
+    static async changeJewelry(jewelry: ValuableRequest, id: string): Promise<AxiosResponse> {
+        return await $api.patch(`/actives/jewelry/up/${id}`, jewelry)
     }
 
-    static async removeJewerly(id: string): Promise<AxiosResponse> {
+    static async removeJewelry(id: string): Promise<AxiosResponse> {
         return await $api.delete(`/actives/jewelry/del/${id}/`)
     }
 }

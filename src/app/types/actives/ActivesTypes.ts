@@ -1,9 +1,9 @@
-import { IAssetsDeposit } from "./deposit/IDeposit"
 import { IValuable } from "./jewelries/JewelriesTypes.ts"; 
 import { IBusiness } from "./business/BusinessTypes.ts";
 import { ITransports } from "./transport/TransportTypes.ts";
 import { Immovable } from "../common/immovableType.ts";
 import { SecuritiesTypes } from "./securities/securitiesTypes.ts";
+import { ILoans } from "../common/loansType.ts";
 
 export type typeAssets = 'properties' | 'transport' | 'business'
 
@@ -15,18 +15,10 @@ export type Actives = {
     businesses: IBusiness, // optional
     jewelries: IValuable | null,
     securities: SecuritiesTypes,
-    deposits: IDeposit | null,
+    loans: ILoans | null,
     total_funds: number, // optional
     total_income: number, // optional
     total_expenses: number // optional
-}
-
-interface IDeposit {
-    id?: number,
-    deposits: IAssetsDeposit[],
-    total_funds: number,
-    total_income: number,
-    total_expenses: number
 }
 
 // interface IValuable {

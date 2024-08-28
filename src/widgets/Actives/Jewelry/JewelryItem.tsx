@@ -1,15 +1,15 @@
 import { FC } from "react"
-import { JewerlyDto } from "../../../app/types/dto/DtoTypes"
+import { JewelryDto } from "../../../app/types/dto/DtoTypes"
 import { Link } from "react-router-dom"
 import { observer } from "mobx-react-lite"
 import "./JewerlyItem.scss";
 import img from "../../../shared/assets/img/assets/home.png"
 
-interface IJewerlyItem {
-    item: JewerlyDto
+interface IJewelryItem {
+    item: JewelryDto
 }
 
-export const JewerlyItem: FC<IJewerlyItem> = observer(({item}) => {
+export const JewelryItem: FC<IJewelryItem> = observer(({item}) => {
     return (
         <li className="jewerly__item">
             <Link className="jewerly__item-link" to={`${item.id}`}>

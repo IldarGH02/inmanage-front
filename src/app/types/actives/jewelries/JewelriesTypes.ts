@@ -1,8 +1,8 @@
-import { ValuableDto } from "../../dto/DtoTypes";
+import { JewelryDto } from "../../dto/DtoTypes";
 
 export interface IValuable {
     id: number;
-    jewelries: ValuableDto[];
+    jewelries: JewelryDto[];
     total_expenses: number;
     total_income: number;
     total_funds: number;

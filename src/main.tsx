@@ -9,7 +9,8 @@ import PaymentsStore from "./app/store/paymentsStore.ts";
 import { LiabilitiesStore } from './app/store/liabilities/liabilitiesStore.ts';
 import { BusinessCreate } from './shared/store/business/BusinessCreate.ts';
 import { SecuritiesStore } from './shared/store/securitites/securitiesStore.ts';
-import { JewerlyStore } from './shared/store/jewerly/jewerlyStore.ts';
+import { JewelryStore } from './shared/store/jewelry/jewelryStore.ts';
+import { LoansStore } from './shared/store/loans/loansStore.ts';
 
 interface State {
     authStore: AuthStore,
@@ -19,7 +20,8 @@ interface State {
     liabilitiesStore: LiabilitiesStore,
     businessCreateStore: BusinessCreate,
     securitiesStore: SecuritiesStore
-    jewerlyStore: JewerlyStore
+    jewelryStore: JewelryStore
+    loansStore: LoansStore
 }
 
 const authStore = new AuthStore()
@@ -29,7 +31,8 @@ const paymentsStore = new PaymentsStore()
 const liabilitiesStore = new LiabilitiesStore()
 const businessCreateStore = new BusinessCreate()
 const securitiesStore = new SecuritiesStore()
-const jewerlyStore = new JewerlyStore()
+const jewelryStore = new JewelryStore()
+const loansStore = new LoansStore()
 
 export const Context = createContext<State>({
     authStore,
@@ -39,7 +42,8 @@ export const Context = createContext<State>({
     liabilitiesStore,
     businessCreateStore,
     securitiesStore,
-    jewerlyStore
+    jewelryStore,
+    loansStore
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
@@ -53,7 +57,8 @@ root.render(
         liabilitiesStore,
         businessCreateStore,
         securitiesStore,
-        jewerlyStore
+        jewelryStore,
+        loansStore
     }}>
         <BrowserRouter>
             <App/>

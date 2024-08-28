@@ -6,21 +6,21 @@ import img from "../../../../shared/assets/img/assets/home.png"
 import "./JewerlyDetailPage.scss"
 import { Button } from "../../../../shared/ui/Buttons/Button"
 import { OverlayModal } from "../../../../shared/ui/Overlay/OverlayModal"
-import { ChangeJewerlyForm } from "../../../../widgets/forms/actives/jewerlys/ChangeJewerlyForm"
+import { ChangeJewelryForm } from "../../../../widgets/forms/actives/jewerlys/ChangeJewelryForm"
 import { DeletePopup } from "../../../../widgets/Modals/JewerlyModal/DeletePopup"
 import { Spinner } from "react-bootstrap"
 
-export const JewerlyDetailPage = observer(() => {
+export const JewelryDetailPage = observer(() => {
     const { id } = useParams()
-    const { activesStore, jewerlyStore } = useContext(Context)
+    const { activesStore, jewelryStore } = useContext(Context)
     const navigate = useNavigate()
 
     useEffect(() => {
-        jewerlyStore.setCurrentJewerly(Number(id))
-    }, [jewerlyStore, activesStore])
+        jewelryStore.setCurrentJewelry(Number(id))
+    }, [jewelryStore, activesStore, id])
 
     const handleRemoveJewerly = () => {
-        const response = jewerlyStore.removeJewerly(`${id}`)
+        const response = jewelryStore.removeJewelry(`${id}`)
         response.then(res => {
             if(res.status >= 200 && res.status < 300) {
                 const response = activesStore.fetchActives()
@@ -31,8 +31,8 @@ export const JewerlyDetailPage = observer(() => {
                         activesStore.setLoading(false)
                     }
                 })
-                jewerlyStore.setIsActive(false)
-                navigate('/assets/jewerly')
+                jewelryStore.setIsActive(false)
+                navigate('/assets/jewelry')
             }
         })
     }
@@ -65,15 +65,15 @@ export const JewerlyDetailPage = observer(() => {
                                 <img src={img}/>
                             </div>
                             <h2 className="jewerly__detail-title">
-                                {jewerlyStore.current_jewerly?.name}
+                                {jewelryStore.current_jewelry?.name}
                             </h2>
                         </div>
                         <div className="jewerly__detail-description">
-                            <span onMouseOver={jewerlyStore.handleMouseOver} className="jewerly__detail-ellipses">...</span>
+                            <span onMouseOver={jewelryStore.handleMouseOver} className="jewerly__detail-ellipses">...</span>
                             <DeletePopup 
-                                onMouseOut={jewerlyStore.handleMouseOut} 
-                                onMouseOver={jewerlyStore.handleMouseOver} 
-                                over={jewerlyStore.isActive}
+                                onMouseOut={jewelryStore.handleMouseOut} 
+                                onMouseOver={jewelryStore.handleMouseOver} 
+                                over={jewelryStore.isActive}
                                 handleRemove={handleRemoveJewerly}    
                             />
                             <div className="jewerly__main-price">
@@ -81,13 +81,13 @@ export const JewerlyDetailPage = observer(() => {
                                     <p className="jewerly__info">
                                         Стоимость покупки:
                                     </p>
-                                    <span>{jewerlyStore.current_jewerly?.purchase_cost}</span>
+                                    <span>{jewelryStore.current_jewelry?.purchase_cost}</span>
                                 </div>
                                 <div className="jewerly__price">
                                     <p className="jewerly__info">
                                         Оценочная стоимость:
                                     </p>
-                                    <span>{jewerlyStore.current_jewerly?.estimated_cost}</span>
+                                    <span>{jewelryStore.current_jewelry?.estimated_cost}</span>
                                 </div>
                             </div>
                             <div className="jewerly__result-price">
@@ -95,17 +95,17 @@ export const JewerlyDetailPage = observer(() => {
                                     <p className="jewerly__info">
                                         Прирост стоимости:
                                     </p>
-                                    <span>{jewerlyStore.current_jewerly?.grow}</span>
+                                    <span>{jewelryStore.current_jewelry?.grow}</span>
                                 </div>
                                 <div className="jewerly__price">
                                     <p className="jewerly__info">
                                         Прибыль / месяц:
                                     </p>
-                                    <span>{jewerlyStore.current_jewerly?.month_income}</span>
+                                    <span>{jewelryStore.current_jewelry?.month_income}</span>
                                 </div>
                             </div>
                             <Button
-                                onClick={jewerlyStore.handleClickShow}
+                                onClick={jewelryStore.handleClickShow}
                                 className="jewerly__detail-button"
                                 textButton="Переоценка"
                                 name="button"
@@ -114,8 +114,8 @@ export const JewerlyDetailPage = observer(() => {
                     </div>
                 </div>
             </section>
-            <OverlayModal showModalClass={jewerlyStore.show_modal ? 'modal--active' : ''}>
-                <ChangeJewerlyForm/>
+            <OverlayModal showModalClass={jewelryStore.show_modal ? 'modal--active' : ''}>
+                <ChangeJewelryForm/>
             </OverlayModal>
         </>
     )

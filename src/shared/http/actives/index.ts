@@ -6,7 +6,7 @@ import { IExpenseBalance, IIncomeBalance } from "../../../app/types/balance/IBal
 // import { IAssetsDeposit } from "../../../app/types/actives/deposit/IDeposit.ts";
 
 import $api from "../api";
-import {AxiosResponse} from "axios";
+import { AxiosResponse } from "axios";
 
 export class AssetsService {
     static async fetchActives():Promise<AxiosResponse<Actives>> {

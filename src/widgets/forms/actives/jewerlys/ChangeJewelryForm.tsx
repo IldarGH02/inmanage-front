@@ -1,41 +1,43 @@
-import { FormEvent, useContext, useEffect } from "react"
+import { FormEvent, useContext } from "react"
 import { Form } from "../../../Custom/Forms/Form"
 import { InputSum } from "../../../Custom/Inputs/InputSum"
 import { Context } from "../../../../main"
 import { observer } from "mobx-react-lite"
 import { Button } from "../../../../shared/ui/Buttons/Button"
 import "./ChangeJewerlyForm.scss";
-import { prepareJewerlyRequest } from "../../../../shared/store/jewerly/prepareRequest"
+import { prepareJewelryRequest } from "../../../../shared/store/jewelry/prepareRequest"
 
-export const ChangeJewerlyForm = observer(() => {
-    const { jewerlyStore, activesStore } = useContext(Context)
+export const ChangeJewelryForm = observer(() => {
+    const { jewelryStore, activesStore } = useContext(Context)
 
     const handleSubmitChangeForm = (e: FormEvent) => {
         e.preventDefault()
 
-        jewerlyStore.changeJewerly(prepareJewerlyRequest(
-            jewerlyStore.current_jewerly?.name!,
-            String(jewerlyStore.current_jewerly?.purchase_cost!),
-            jewerlyStore.estimated_value,
-            jewerlyStore.current_jewerly?.comment!,
-            jewerlyStore.photo
-        ), `${jewerlyStore.current_jewerly?.id}`)
-
-        const response = activesStore.fetchActives()
-        activesStore.setLoading(true)
-        response.then(res => {
+        const r = jewelryStore.changeJewelry(prepareJewelryRequest(
+            jewelryStore.current_jewelry!.name!,
+            String(jewelryStore.current_jewelry!.purchase_cost!),
+            jewelryStore.estimated_value,
+            jewelryStore.current_jewelry!.comment!,
+            jewelryStore.photo
+        ), `${jewelryStore.current_jewelry?.id}`)
+        r.then(res => {
             if(res.status >= 200 && res.status < 300) {
-                
-                activesStore.setActives(res.data)
-                activesStore.setLoading(false)
-                if(res.data.jewelries) {
-                    jewerlyStore.setJewerlyList(res.data.jewelries.jewelries)
-                    jewerlyStore.setCurrentJewerly(Number(jewerlyStore.current_jewerly?.id))
-                }
+                const response = activesStore.fetchActives()
+                activesStore.setLoading(true)
+                response.then(res => {
+                    if(res.status >= 200 && res.status < 300) {
+                        activesStore.setActives(res.data)
+                        activesStore.setLoading(false)
+                        if(res.data.jewelries) {
+                            jewelryStore.setJewelryList(res.data.jewelries.jewelries)
+                            jewelryStore.setCurrentJewelry(Number(jewelryStore.current_jewelry?.id))
+                        }
+                    }
+                })
             }
         })
 
-        jewerlyStore.handleCloseChangeForm()
+        jewelryStore.handleCloseChangeForm()
     }
 
     return (
@@ -45,18 +47,18 @@ export const ChangeJewerlyForm = observer(() => {
                     Переоценка
                 </h3>
                 <InputSum
-                    setValue={jewerlyStore.handleChangeEstimatedValue}
+                    setValue={jewelryStore.handleChangeEstimatedValue}
                     setError={() => {}}
                     classNameCurrency=""
                     currency="₽"
                     placeholder="Оценочная стоимость"
-                    value={jewerlyStore.estimated_value}
+                    value={jewelryStore.estimated_value}
                     type="text"
                 />
             </div>
             <div className="jewerly__change-actions">
                 <Button
-                    onClick={jewerlyStore.handleCloseChangeForm}
+                    onClick={jewelryStore.handleCloseChangeForm}
                     className="jewerly__form-cancel"
                     textButton="Отменить"
                     type="button"

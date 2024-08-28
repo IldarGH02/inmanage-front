@@ -8,31 +8,35 @@ import { Button } from "../../../../shared/ui/Buttons/Button"
 import "./CreateJewerlyForm.scss";
 import { InputComment } from "../../../Custom/Inputs/InputComment"
 import { InputFile } from "../../../Custom/Inputs/InputFile"
-import { prepareJewerlyRequest } from "../../../../shared/store/jewerly/prepareRequest"
+import { prepareJewelryRequest } from "../../../../shared/store/jewelry/prepareRequest"
 
-export const CreateJewerlyForm = observer(() => {
-    const { jewerlyStore, activesStore } = useContext(Context)
+export const CreateJewelryForm = observer(() => {
+    const { jewelryStore, activesStore } = useContext(Context)
 
     const handleSubmitForm = (e: FormEvent) => {
         e.preventDefault()
 
-        jewerlyStore.createValuable(prepareJewerlyRequest(
-            jewerlyStore.name,
-            jewerlyStore.purchase_price,
-            jewerlyStore.estimated_value,
-            jewerlyStore.comment,
-            jewerlyStore.photo
+        const r = jewelryStore.createValuable(prepareJewelryRequest(
+            jewelryStore.name,
+            jewelryStore.purchase_price,
+            jewelryStore.estimated_value,
+            jewelryStore.comment,
+            jewelryStore.photo
         ))
-
-        const response = activesStore.fetchActives()
-        activesStore.setLoading(true)
-        response.then(res => {
+        r.then(res => {
             if(res.status >= 200 && res.status < 300) {
-                activesStore.setActives(res.data)
-                activesStore.setLoading(false)
+                const response = activesStore.fetchActives()
+                activesStore.setLoading(true)
+                response.then(res => {
+                    if(res.status >= 200 && res.status < 300) {
+                        activesStore.setActives(res.data)
+                        activesStore.setLoading(false)
+                    }
+                })
             }
         })
-        jewerlyStore.handleCloseForm()
+        
+        jewelryStore.handleCloseForm()
     }
 
     return (
@@ -40,45 +44,45 @@ export const CreateJewerlyForm = observer(() => {
             <div className="jewerly__form-content">
                 <div className="jewerly__form-left">
                     <InputText
-                        onChange={jewerlyStore.handleChangeName}
+                        onChange={jewelryStore.handleChangeName}
                         placeholder="Наименование"
-                        value={jewerlyStore.name}
+                        value={jewelryStore.name}
                         type="text"
                     />
                     <InputSum
-                        setValue={jewerlyStore.handleChangePurchasePrice}
+                        setValue={jewelryStore.handleChangePurchasePrice}
                         setError={() => {}}
                         classNameCurrency=""
                         currency="₽"
                         placeholder="Стоимость покупки"
-                        value={jewerlyStore.purchase_price}
+                        value={jewelryStore.purchase_price}
                         type="text"
                     />
                     <InputSum
-                        setValue={jewerlyStore.handleChangeEstimatedValue}
+                        setValue={jewelryStore.handleChangeEstimatedValue}
                         setError={() => {}}
                         classNameCurrency=""
                         currency="₽"
                         placeholder="Оценочная стоимость"
-                        value={jewerlyStore.estimated_value}
+                        value={jewelryStore.estimated_value}
                         type="text"
                     />
                     <InputFile
-                        onChange={jewerlyStore.handleChangePhoto}
-                        value={jewerlyStore.photo}
+                        onChange={jewelryStore.handleChangePhoto}
+                        value={jewelryStore.photo}
                     />
                 </div>
                 <div className="jewerly__form-right">
                     <InputComment
-                        onChange={jewerlyStore.handleChangeComment}
+                        onChange={jewelryStore.handleChangeComment}
                         placeholder="Добавить комментарий"
-                        value={jewerlyStore.comment}
+                        value={jewelryStore.comment}
                     />
                 </div>
             </div>
             <div className="jewerly__form-actions">
                 <Button
-                    onClick={jewerlyStore.handleCloseForm}
+                    onClick={jewelryStore.handleCloseForm}
                     className="jewerly__form-cancel"
                     textButton="Отменить"
                     type="button"

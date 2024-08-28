@@ -16,9 +16,6 @@ interface IFinanceTable {
 export const FinanceTable: FC<IFinanceTable> = (
     {
         setShow, 
-        income, 
-        price, 
-        expenses, 
         profit, 
         remainder,
         common_title,

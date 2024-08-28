@@ -5,5 +5,6 @@ export interface ILoans {
     user: number,
     total_funds: number,
     total_expenses: number,
+    total_income: number,
     loans: LoanDto[]
 }

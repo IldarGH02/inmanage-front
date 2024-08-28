@@ -3,7 +3,6 @@ import { FC } from "react"
 import { SecuritiesDto } from "../../../app/types/dto/DtoTypes"
 import { SecuritiesItem } from "./SecuritiesItem"
 import "./SecuritiesItems.scss";
-import { Context } from "../../../main";
 import { Spinner } from "react-bootstrap";
 
 interface ISecuritiesItems {

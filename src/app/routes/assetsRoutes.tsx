@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 import { DepositsPage } from "../../pages/Actives/DepositsPage/DepositsPage";
-import { JewerlyPage } from "../../pages/Actives/JewerlyPage/JewerlyPage.tsx";
+import { JewelryPage } from "../../pages/Actives/JewerlyPage/JewerlyPage.tsx";
 import { AddSecuritiesPage } from "../../pages/Actives/SecuritiesPage/AddSecuritiesPage/AddSecuritiesPage";
 import { SecuritiesPage } from "../../pages/Actives/SecuritiesPage/SecuritiesPage";
 import { BusinessDetail } from "../../pages/Actives/BusinessPage/BusinessDetail/BusinessDetail.tsx";
@@ -16,7 +16,7 @@ import { TransportDetail } from "../../pages/Actives/TransportPage/TransportDeta
 // import { EditTransportPage } from "../../pages/Actives/TransportPage/EditTransportPage/EditTransportPage";
 import { AddDepositPage } from "../../pages/Actives/DepositsPage/AddDepositsPage/AddDepositPage";
 import { SecuritiesDetailPage } from "../../pages/Actives/SecuritiesPage/SecuritiesDetail/SecuritiesDetailPage.tsx";
-import { JewerlyDetailPage } from "../../pages/Actives/JewerlyPage/JewerlyDetail/JewerlyDetailPage.tsx";
+import { JewelryDetailPage } from "../../pages/Actives/JewerlyPage/JewerlyDetail/JewelryDetailPage.tsx";
 
 const assetsRouter =
     <Route path='/'>
@@ -55,9 +55,9 @@ const assetsRouter =
             </Route>
 
             
-            <Route path = "jewerly" element={<JewerlyPage/>}/>
-            <Route path = "jewerly">
-            <Route path = ":id" element={<JewerlyDetailPage/>}/>
+            <Route path = "jewelry" element={<JewelryPage/>}/>
+            <Route path = "jewelry">
+            <Route path = ":id" element={<JewelryDetailPage/>}/>
                 <Route path = ":id">
                     {/* <Route path = "edit" element={<EditTransportPage/>}/> */}
                 </Route>
