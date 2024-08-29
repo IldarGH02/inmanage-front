@@ -1,0 +1,50 @@
+@import "/src/shared/styles/common/mixins.scss";
+
+.deposits__item {
+    .deposits__item-link {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        gap: 15px;
+        text-decoration: none;
+
+        .deposits__item-image {
+            width: calc(50% - 7.5px);
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .deposits__item-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: calc(50% - 7.5px);
+
+            .deposits__item-title {
+                @include _fontStyle(400, 20px, 22px, #333);
+            }
+
+            .deposits__item-info {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .deposits__price {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 15px;
+                    align-items: center;
+
+                    .deposits__item-subtitle {
+                        margin: 0;
+                        @include _fontStyle(400, 18px, 20px, #333)
+                    }
+                }
+            }
+        }
+    }
+}

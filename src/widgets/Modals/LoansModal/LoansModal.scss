@@ -1,0 +1,13 @@
+.loans__modal {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: auto;
+    
+    .loans__modal-content {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 15px;
+        flex-grow: 1;
+    }
+}

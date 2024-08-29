@@ -46,37 +46,37 @@ export const ActivesPage = observer(() => {
                                 <CategoriesCard data={{
                                     name: 'Недвижимость',
                                     count: store.actives ? (store.actives.properties !== null ? store.actives.properties.properties.length : 0) : 0,
-                                    sum: store.actives ? (store.actives!.properties !== null ? store.actives?.properties.total_funds : 0) : 0,
-                                    income: store.actives ? (store.actives!.properties !== null ? store.actives?.properties.total_income : 0) : 0,
-                                    expenses: store.actives ? (store.actives!.properties !== null ? store.actives?.properties.total_expenses : 0) : 0,
+                                    sum: store.actives ? (store.actives.properties !== null ? store.actives.properties.total_funds : 0) : 0,
+                                    income: store.actives ? (store.actives.properties !== null ? store.actives.properties.total_income : 0) : 0,
+                                    expenses: store.actives ? (store.actives.properties !== null ? store.actives.properties.total_expenses : 0) : 0,
                                     img: propertyImg
                                 }}/>
                             </Link>
                             <Link to="transport">
                                 <CategoriesCard data={{
                                     name: 'Транспорт',
-                                    count: store.actives ? (store.actives!.transports !== null ? store.actives?.transports.transport.length : 0) : 0,
-                                    sum: store.actives ? (store.actives!.transports !== null ? store.actives?.transports.total_funds : 0) : 0,
-                                    income: store.actives ? (store.actives!.transports !== null ? store.actives?.transports.total_income : 0) : 0,
-                                    expenses: store.actives ? (store.actives!.transports !== null ? store.actives?.transports.total_expenses : 0) : 0,
+                                    count: store.actives ? (store.actives.transports !== null ? store.actives.transports.transport.length : 0) : 0,
+                                    sum: store.actives ? (store.actives.transports !== null ? store.actives.transports.total_funds : 0) : 0,
+                                    income: store.actives ? (store.actives.transports !== null ? store.actives.transports.total_income : 0) : 0,
+                                    expenses: store.actives ? (store.actives.transports !== null ? store.actives.transports.total_expenses : 0) : 0,
                                     img: transportImg
                                 }}/>
                             </Link>
                             <Link to="business">
                                 <CategoriesCard data={{
                                     name: 'Бизнес',
-                                    count: store.actives ? (store.actives!.businesses !== null ? store.actives?.businesses.businesses.length : 0) : 0,
-                                    sum: store.actives ? (store.actives!.businesses !== null ? store.actives?.businesses.total_funds : 0) : 0,
-                                    income: store.actives ? (store.actives!.businesses !== null ? store.actives?.businesses.total_income: 0) : 0,
-                                    expenses: store.actives ? (store.actives!.businesses !== null ? store.actives?.businesses.total_expenses : 0) : 0,
+                                    count: store.actives ? (store.actives.businesses !== null ? store.actives.businesses.businesses.length : 0) : 0,
+                                    sum: store.actives ? (store.actives.businesses !== null ? store.actives.businesses.total_funds : 0) : 0,
+                                    income: store.actives ? (store.actives.businesses !== null ? store.actives.businesses.total_income: 0) : 0,
+                                    expenses: store.actives ? (store.actives.businesses !== null ? store.actives.businesses.total_expenses : 0) : 0,
                                     img: businessImg
                                 }}/>
                             </Link>
                             <Link to="securities">
                                 <CategoriesCard data={{
                                     name: 'Ценные бумаги',
-                                    count: store.actives ? (store.actives!.securities !== null ? store.actives?.securities.securities.length : 0) : 0,
-                                    sum: store.actives ? (store.actives!.securities !== null ? store.actives?.securities.total_funds : 0) : 0,
+                                    count: store.actives ? (store.actives.securities !== null ? store.actives.securities.securities.length : 0) : 0,
+                                    sum: store.actives ? (store.actives.securities !== null ? store.actives.securities.total_funds : 0) : 0,
                                     income: 0,
                                     expenses: 0,
                                     img: securitiesImg
@@ -85,20 +85,20 @@ export const ActivesPage = observer(() => {
                             <Link to="jewelry">
                                 <CategoriesCard data={{
                                     name: 'Драгоценности',
-                                    count: store.actives ? (store.actives!.jewelries !== null ? store.actives?.jewelries.jewelries.length : 0) : 0,
-                                    sum: store.actives ? (store.actives!.jewelries !== null ? store.actives?.jewelries.total_funds : 0) : 0,
+                                    count: store.actives ? (store.actives.jewelries !== null ? store.actives.jewelries.jewelries.length : 0) : 0,
+                                    sum: store.actives ? (store.actives.jewelries !== null ? store.actives.jewelries.total_funds : 0) : 0,
                                     income: 0,
                                     expenses: 0,
                                     img: valuableImg
                                 }}/>
                             </Link>
-                            <Link to="deposits">
+                            <Link to="loan">
                                 <CategoriesCard data={{
                                     name: 'Вклады и займы',
-                                    count: 5,
-                                    sum: 89980300,
-                                    income: 454400,
-                                    expenses: 75000,
+                                    count: store.actives ? (store.actives.loans !== null ? store.actives.loans.loans.length : 0) : 0,
+                                    sum: store.actives ? (store.actives.loans !== null ? store.actives.loans.total_funds : 0) : 0,
+                                    income: store.actives ? (store.actives.loans !== null ? store.actives.loans.total_income: 0) : 0,
+                                    expenses: store.actives ? (store.actives.loans !== null ? store.actives.loans.total_expenses : 0) : 0,
                                     img: loansImg
                                 }}/>
                             </Link>

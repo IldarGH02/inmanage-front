@@ -1,35 +1,45 @@
 import { Link } from "react-router-dom"
-import { LoanDto } from "../../../app/types/dto/DtoTypes"
-import { FC } from "react"
+import { LoansDto } from "../../../app/types/dto/DtoTypes"
+import { FC, useContext } from "react"
 import { observer } from "mobx-react-lite"
 
 import img from "../../../shared/assets/img/assets/home.png"
+import "./LoanItem.scss"
+import { Context } from "../../../main"
 
 interface ILoanItem {
-    item: LoanDto
+    item: LoansDto
 }
 
 export const LoanItem: FC<ILoanItem> = observer(({item}) => {
+    const { loansStore } = useContext(Context)
+
     return (
-        <li className="loan__item">
+        <li className="loan__item" onClick={loansStore.handleClickCurrentLoan}>
             <Link to={`${item.id}`} className="loan__item-link">
-                <div className="jewerly__item-image">
+                <div className="loan__item-image">
                     <img className="item__image" src={img}/>
                 </div>
-                <div className="jewerly__item-content">
-                    <h2 className="jewerly__item-title">{item.name}</h2>
-                    <div className="jewerly__item-info">
-                        <div className="jewerly__price">
-                            <p className="jewerly__item-subtitle jewerly_purchase-cost">
+                <div className="loan__item-content">
+                    <h2 className="loan__item-title">{`Займы: ${item.name}`}</h2>
+                    <div className="loan__item-info">
+                        <div className="loan__price">
+                            <h3 className="loan__item-subtitle loan_purchase-cost">
                                 Актуальная стоимость:
-                            </p>
-                            <span>{item.maintenance_cost}</span>
+                            </h3>
+                            <span>{item.sum}</span>
                         </div>
-                        <div className="jewerly__price">
-                            <p className="jewerly__item-subtitle jewerly_esimated-cost">
+                        <div className="loan__price">
+                            <h3 className="loan__item-subtitle loan_esimated-cost">
                                 Прирост стоимости:
-                            </p>
-                            <span>{item.insurance_sum}</span>
+                            </h3>
+                            <span>{`+ ${item.percentage}`}</span>
+                        </div>
+                        <div className="loan__price">
+                            <h3 className="loan__item-subtitle loan_esimated-cost">
+                                прибыль / месяц:
+                            </h3>
+                            <span>{item.month_payment}</span>
                         </div>
                     </div>
                 </div>

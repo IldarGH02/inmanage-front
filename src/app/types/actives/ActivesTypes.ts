@@ -4,6 +4,7 @@ import { ITransports } from "./transport/TransportTypes.ts";
 import { Immovable } from "../common/immovableType.ts";
 import { SecuritiesTypes } from "./securities/securitiesTypes.ts";
 import { ILoans } from "../common/loansType.ts";
+import { DepositType } from "../common/depositType.ts";
 
 export type typeAssets = 'properties' | 'transport' | 'business'
 
@@ -15,6 +16,7 @@ export type Actives = {
     businesses: IBusiness, // optional
     jewelries: IValuable | null,
     securities: SecuritiesTypes,
+    deposits: DepositType
     loans: ILoans | null,
     total_funds: number, // optional
     total_income: number, // optional

@@ -1,4 +1,4 @@
-import { LoanDto } from "../dto/DtoTypes";
+import { LoansDto } from "../dto/DtoTypes";
 
 export interface ILoans {
     id: number,
@@ -6,5 +6,5 @@ export interface ILoans {
     total_funds: number,
     total_expenses: number,
     total_income: number,
-    loans: LoanDto[]
+    loans: LoansDto[]
 }

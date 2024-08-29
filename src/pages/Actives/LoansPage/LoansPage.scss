@@ -1,0 +1,18 @@
+@import "/src/shared/styles/common/common.scss";
+
+.loans__page {
+    padding: 30px 0;
+    height: auto;
+
+    .loans__page-title {
+        margin: 0;
+        margin-bottom: 25px;
+        @include _fontStyle(600, 35px, 35px, #333);
+    }
+
+    .loans__page-items {
+        height: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+}

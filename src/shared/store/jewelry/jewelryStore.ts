@@ -4,7 +4,7 @@ import { ValuableRequest } from "../../../app/types/request/requestTypes";
 import { ValuableService } from "../../http/actives/valuable";
 import { JewelryDto } from "../../../app/types/dto/DtoTypes";
 import { AssetsService } from "../../http/actives";
-import { makePersistable } from "mobx-persist-store";
+import { makePersistable, stopPersisting } from "mobx-persist-store";
 import localforage from "localforage"
 
 export class JewelryStore {
@@ -30,6 +30,7 @@ export class JewelryStore {
                 "current_jewelry"
             ]
         })
+        stopPersisting(this)
     }
 
     setShow = (bool: boolean) => {

@@ -1,0 +1,58 @@
+@import "/src/shared/styles/common/mixins.scss";
+@import "/src/shared/styles/common/colorize.scss";
+
+.loan__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .loan__form-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: flex-end;
+
+        .loan__form-cancel {
+            cursor: pointer;
+            padding: 20px 15px;
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+            transition: outline 0.3s ease-in-out, color 0.3s ease-in-out;
+            color: #333;
+            @include _fontStyle(400, 20px, 24px, #333);
+
+            &:focus-visible {
+                outline: 1px solid red;
+                color: red;
+            }
+
+            &:hover {
+                outline: 1px solid red;
+                color: red;
+            }
+        }
+
+        .loan__form-submit {
+            cursor: pointer;
+            padding: 20px 15px;
+            background-color: rgb(103, 158, 244);
+            border-radius: 20px;
+            border: none;
+            transition: background-color 0.3s ease-in-out, outline 0.3s ease-in-out;
+            @include _fontStyle(400, 22px, 24px, #fff);
+
+            &:focus-visible {
+                background-color: transparent;
+                outline: 1px solid $lightBlueColor;
+                color: $lightBlueColor
+            }
+
+            &:hover {
+                background-color: transparent;
+                outline: 1px solid $lightBlueColor;
+                color: $lightBlueColor
+            }
+        }
+    }
+}

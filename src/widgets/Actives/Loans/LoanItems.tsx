@@ -1,36 +1,16 @@
 import { FC } from "react"
-import { LoanDto } from "../../../app/types/dto/DtoTypes"
+import { LoansDto } from "../../../app/types/dto/DtoTypes"
 import { observer } from "mobx-react-lite"
 import { LoanItem } from "./LoanItem"
-import { Spinner } from "react-bootstrap"
+import "./LoansItems.scss"
 
 interface ILoanItems {
-    items: LoanDto[]
-    loading: boolean
+    items: LoansDto[]
 }
 
-export const LoanItems: FC<ILoanItems> = observer(({items, loading}) => {
-
-    if(loading) {
-        return <div style={{
-            width: '100%',
-            height: '350px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-        }}>
-            <Spinner 
-                style={{
-                    width: '10rem',
-                    height: '10rem',
-                }}
-                variant="primary"
-            />
-        </div>
-    }
-
+export const LoanItems: FC<ILoanItems> = observer(({items}) => {
     return (
-        <ul className="loan__items">
+        <ul className="loans__items">
             { 
                 items && items.map((item) => {
                     return <LoanItem key={item.id} item={item}/>

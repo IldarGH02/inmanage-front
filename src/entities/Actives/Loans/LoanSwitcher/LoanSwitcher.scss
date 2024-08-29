@@ -1,0 +1,25 @@
+@import "/src/shared/styles/common/mixins.scss";
+@import "/src/shared/styles/common/colorize.scss";
+
+.loans__switcher {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+
+    .switch-item {
+        cursor: pointer;
+        padding: 5px 10px;
+        background-color: transparent;
+        border: none;
+        border-radius: 15px;
+        outline: none;
+        @include _fontStyle(400, 24px, 26px, #333);
+    }
+
+    .active {
+        background-color: $lightBlueColor;
+        color: $whiteColor;
+    }
+}

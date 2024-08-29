@@ -284,19 +284,29 @@ export type LoansDto = {  //займы
 }
 
 export type DepositDto = {
-    id: number;
-	name: string;
-	writeoff_account: number;
-	type: string; // Тип вклада
-	period: number; // Период вклада
-	income: [number]; // ID доходов 
-	expenses: [number]; // ID расходов 
-	total_income: number; // Общий доход
-	total_expense: number; // Общий расход
-	final_income: number; // Рассчитанный доход по вкладу
-	month_income: number; // Ежемесячный доход
-	month_expense: number; // Ежемесячный расход
-	percentage: number; // Процентная ставка
-	sum: number; // Сумма вклада
+    id: number
+    name: string
+    sum: number
+    term: number
+    final_income: number
+    income: IncomeDto[]
+    expenses: ExpenseDto[]
+    month_expenses: number
+    month_income: number
+    percentage: number
+    total_expenses: number
+    total_income: number
+    type?: string | null
+    user: number
+    writeoff_account: number | null
+    created_at: string
 }
 
+export type Lists = {
+    loanList: LoansDto[] | null
+    depositList: DepositDto[] | null
+}
+
+export type list = {
+    items: Lists
+}

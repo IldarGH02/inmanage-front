@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { DepositsPage } from "../../pages/Actives/DepositsPage/DepositsPage";
+import { LoansPage } from "../../pages/Actives/LoansPage/LoansPage.tsx";
 import { JewelryPage } from "../../pages/Actives/JewerlyPage/JewerlyPage.tsx";
 import { AddSecuritiesPage } from "../../pages/Actives/SecuritiesPage/AddSecuritiesPage/AddSecuritiesPage";
 import { SecuritiesPage } from "../../pages/Actives/SecuritiesPage/SecuritiesPage";
@@ -14,9 +14,11 @@ import { ActivesPage } from "../../pages/Actives/ActivesPage.tsx";
 import { TransportDetail } from "../../pages/Actives/TransportPage/TransportDetail/TransportDetail.tsx";
 // import { EditPropertyPage } from "../../pages/Actives/ImmovablePage/EditPropertyPage/EditPropertyPage.tsx"; 
 // import { EditTransportPage } from "../../pages/Actives/TransportPage/EditTransportPage/EditTransportPage";
-import { AddDepositPage } from "../../pages/Actives/DepositsPage/AddDepositsPage/AddDepositPage";
 import { SecuritiesDetailPage } from "../../pages/Actives/SecuritiesPage/SecuritiesDetail/SecuritiesDetailPage.tsx";
 import { JewelryDetailPage } from "../../pages/Actives/JewerlyPage/JewerlyDetail/JewelryDetailPage.tsx";
+import { DepositDetailPage } from "../../pages/Actives/LoansPage/CommonDetail/DepositDetail/DepositDetailPage.tsx";
+import { LoansDetailPage } from "../../pages/Actives/LoansPage/CommonDetail/LoansDetail/LoansDetailPage.tsx";
+import { CommonDetail } from "../../pages/Actives/LoansPage/CommonDetail/CommonDetail.tsx";
 
 const assetsRouter =
     <Route path='/'>
@@ -63,10 +65,11 @@ const assetsRouter =
                 </Route>
             </Route>
             
-            <Route path = "deposits" element={<DepositsPage/>}/>
-
-            <Route path = "deposits">
-                <Route path = "add" element={<AddDepositPage/>}/>
+            <Route path = "loan" element={<LoansPage/>}/>
+            <Route path = "loan">
+                <Route path = ":id" element={
+                    <CommonDetail/>
+                }/>
             </Route>
         </Route>
     </Route>

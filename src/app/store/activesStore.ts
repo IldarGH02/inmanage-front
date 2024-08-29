@@ -13,14 +13,16 @@ import {TransportService} from "../../shared/http/actives/transport";
 import {ImmovableService} from "../../shared/http/actives/immovable";
 import { BusinessRequest } from '../types/actives/business/BusinessTypes.ts';
 import { BusinessService } from '../../shared/http/actives/business/index.ts';
-import { makePersistable } from "mobx-persist-store";
+import { makePersistable, stopPersisting } from "mobx-persist-store";
 import localforage from "localforage"
+import { DepositDto, Lists, LoansDto } from '../types/dto/DtoTypes.ts';
 
 export class ActivesStore {
     actives: Actives | null = null;
     error: string | unknown = null;
     expenseObject: IExpenseBalance | null = null;
     loading: boolean = false;
+    list: Lists | undefined = undefined;
 
     constructor() {
         makeAutoObservable(this);
@@ -31,12 +33,9 @@ export class ActivesStore {
                             'actives',
                             'loading'
                         ],
-            },
-            // {
-            //     delay: 200,
-            //     fireImmediately: false
-            // }
+            }
         )
+        stopPersisting(this)
     }
 
     setActives(actives: Actives) {
@@ -53,6 +52,10 @@ export class ActivesStore {
 
     setExpenseObject(expense: IExpenseBalance) {
         this.expenseObject = expense
+    }
+
+    setLists = (deposits: DepositDto[], loans: LoansDto[]) => {
+        this.list?.depositList;
     }
 
     //request's to api
