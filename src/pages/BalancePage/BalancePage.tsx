@@ -14,7 +14,7 @@ import {SpinnerLoader} from "../../widgets/elements/SpinnerLoader/SpinnerLoader.
 export const BalancePage = observer(() => {
     const [showIncome, setShowIncome] = useState<boolean>(false)
     const [showCards, setShowCards] = useState<boolean>(false)
-    const store = useContext(Context).balanceStore;
+    const { balanceStore } = useContext(Context).rootStore;
 
     const handleShowIncome = () => {
         setShowIncome(true)
@@ -33,39 +33,39 @@ export const BalancePage = observer(() => {
     }
 
     useEffect(() => {
-        const response = store.fetchBalance()
-        store.setLoading(true)
+        const response = balanceStore.fetchBalance()
+        balanceStore.setLoading(true)
         response.then(res => {
             if(res.status >= 200 && res.status < 300) {
-                store.setLoading(false)
-                store.setBalance(res.data)
-                store.setCardList(res.data.card_list)
+                balanceStore.setLoading(false)
+                balanceStore.setBalance(res.data)
+                balanceStore.setCardList(res.data.card_list)
             }
         })
         if(!showCards) {
-            const response = store.fetchBalance()
-            store.setLoading(true)
+            const response = balanceStore.fetchBalance()
+            balanceStore.setLoading(true)
             response.then(res => {
                 if(res.status >= 200 && res.status < 300) {
-                    store.setLoading(false)
-                    store.setBalance(res.data)
-                    store.setCardList(res.data.card_list)
+                    balanceStore.setLoading(false)
+                    balanceStore.setBalance(res.data)
+                    balanceStore.setCardList(res.data.card_list)
                 }
             })
         }
-    }, [showCards, store])
+    }, [showCards, balanceStore])
 
     return (
         <>
-            <SpinnerLoader loading={store.loading}/>
+            <SpinnerLoader loading={balanceStore.loading}/>
             <section className="balance__page">
                 <div className="container">
                     <div className="balance__page-content">
                         <div className="balance__page-finance">
                             <TotalBalance 
-                                sum={store.balance ? store.balance?.card_funds : 0}
-                                income={store.balance ? store.balance?.total_income : 0}
-                                expense={store.balance ? store.balance?.total_expenses : 0}
+                                sum={balanceStore.balance ? balanceStore.balance?.card_funds : 0}
+                                income={balanceStore.balance ? balanceStore.balance?.total_income : 0}
+                                expense={balanceStore.balance ? balanceStore.balance?.total_expenses : 0}
                             />
                             <div className="balance__income-expense">
                                 <BalanceInfo
@@ -76,7 +76,7 @@ export const BalancePage = observer(() => {
                                     classNameContainer="income__container"
                                     classNameSum="income__sum"
                                     classNameValuta="income__valuta"
-                                    sum={store.balance ? store.balance?.card_income : 0}
+                                    sum={balanceStore.balance ? balanceStore.balance?.card_income : 0}
                                     handleShow={handleShowIncome}
                                 />
                                 <BalanceInfo
@@ -87,7 +87,7 @@ export const BalancePage = observer(() => {
                                     classNameContainer="expense__container"
                                     classNameSum="expense__sum"
                                     classNameValuta="expense__valuta"
-                                    sum={store.balance ? store.balance?.card_expenses : 0}
+                                    sum={balanceStore.balance ? balanceStore.balance?.card_expenses : 0}
                                     handleShow={handleShowIncome}
                                 />
                             </div>                            
@@ -95,8 +95,8 @@ export const BalancePage = observer(() => {
                         <div className="balance__page-cards">
                             <div className="balance__card-info">
                                 <CardsBalance 
-                                    sum={store.balance ? store.balance.card_funds : 0} 
-                                    cards={store.balance ? store.balance.card_list : []}
+                                    sum={balanceStore.balance ? balanceStore.balance.card_funds : 0} 
+                                    cards={balanceStore.balance ? balanceStore.balance.card_list : []}
                                     handleShow={handleShowCards}
                                 />
                             </div>

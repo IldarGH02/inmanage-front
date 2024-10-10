@@ -35,3 +35,43 @@ export type DepositRequest = {
 	percentage: number; // Процентная ставка
 	sum: number; // Сумма вклада
 }
+
+export interface ImmovablesRequestLoan {
+    bought_price: number | null
+    building_number: string
+    city: string;
+    street: string;
+    name: string;
+
+    rooms?: string,
+    floors?: string,
+    facing?: string // "Требуется", Косметический, Евро, Дизайнерский
+    construction?: string // Кирпичный, Панельный, Блочный, Монолитный, Монолитно-кирпичный, Деревянный
+    balcony?: boolean
+
+    // Поля для указания кредита/ипотеки
+	loan: boolean;
+    loan_term: number | null; // в месяцах
+    percentage: number | null;
+    initial_payment: number | null;
+
+    // Новые поля которые мы еще не передавали
+    writeoff_account: number | null
+    first_payment_date: string | null; // ISO
+    payment_order: string | null; // ann - Аннуитентный; diff - Дифференцированный
+    payment_period: string | null; // monthly; quarterly; yearly
+}
+
+export interface ImmovablesRequestCash {
+	bought_price: number | null
+    building_number: string
+    city: string;
+    street: string;
+    name: string;
+
+    rooms?: string,
+    floors?: string,
+    facing?: string // "Требуется", Косметический, Евро, Дизайнерский
+    construction?: string // Кирпичный, Панельный, Блочный, Монолитный, Монолитно-кирпичный, Деревянный
+    balcony?: boolean
+}

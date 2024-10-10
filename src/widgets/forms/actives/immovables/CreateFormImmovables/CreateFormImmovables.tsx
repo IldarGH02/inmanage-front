@@ -1,291 +1,187 @@
-// import { FC, FormEvent, useContext, useEffect, useState } from "react";
-// import "./CreateImmovablesForm.scss";
-// import { IDropDownList } from "../../../../../app/types/elements/IDropDownList.ts";
-// import { ImmovableRequest } from "../../../../../app/types/actives/ActivesTypes.ts";
-// // import { InputFileImages } from "../../../../../shared/ui/input/InputFileImages/InputFileImages.tsx"; 
-// import { IImage } from "../../../../../app/types/elements/IImage.ts";
-// import { observer } from "mobx-react-lite";
-// import { Context } from "../../../../../main.tsx";
-// import { immovablesTypes, rentTypeList } from "../../../../../features/constants/payments.ts";
-// import { ImmovablesParams } from "../../../../../entities/Actives/CreateFormElements/ImmovablesParams.tsx";
-// import { PurchasePriceParams } from "../../../../../entities/Actives/CreateFormElements/PurchasePriceParams.tsx";
-// import { CreditParams } from "../../../../../entities/Actives/CreateFormElements/CreditParams.tsx";
-// // import dayjs, { Dayjs } from "dayjs";
-// import { DateTime } from "luxon";
+import { useContext, useEffect, useState } from "react";
+// import { InputFileImages } from "../../../../../shared/ui/input/InputFileImages/InputFileImages.tsx"; 
+import { IImage } from "../../../../../app/types/elements/IImage.ts";
+import { observer } from "mobx-react-lite";
+import { Context } from "../../../../../main.tsx";
+import { ImmovablesParams } from "../../../../../entities/Actives/CreateFormElements/ImmovablesParams.tsx";
+import { PurchasePriceParams } from "../../../../../entities/Actives/CreateFormElements/PurchasePriceParams.tsx";
+import { CreditParams } from "../../../../../entities/Actives/CreateFormElements/CreditParams.tsx";
+import { Button } from "../../../../../shared/ui/Buttons/Button.tsx";
+import { Form } from "../../../../Custom/Forms/Form.tsx";
 
-// interface CreateFormImmovables {
-//     setShow: (bool: boolean) => void
-// }
+import "./CreateImmovablesForm.scss";
+import { immovablesRequest } from "../../../../../shared/store/immovables/immovablesRequest.ts";
 
-// export const CreateFormImmovables: FC<CreateFormImmovables> = observer((
-//     {
-//         setShow
-//     }) => {
-//     // const store = useContext(Context).activesStore
-//     const [creditVisible, setCreditVisible] = useState(false)
-//     const [images, setImages] = useState<IImage[]>([])
-
-//     const [paymentsType, setPaymentsType] = useState<IDropDownList[]>([])
-//     // const [rentType, setRentType] = useState<IDropDownList[]>([])
-
-//     const [immovablesName, setImmovablesName] = useState('')
-//     const [cityValue, setCityValue] = useState('')
-//     const [streetValue, setStreetValue] = useState('')
-//     const [homeValue, setHomeValue] = useState('')
-//     const [ownerValue, setOwnerValue] = useState('')
-
-//     const [priceValue, setPriceValue] = useState('')
-//     // const [errorPrice, setErrorPrice] = useState('')
-//     const [downPaymentValue, setDownPaymentValue] = useState('')
-//     // const [downPaymentError, setDownPaymentError] = useState('')
-//     const [monthlyPaymentValue, setMonthlyPaymentValue] = useState('')
-//     // const [monthlyPaymentError, setMonthlyPaymentError] = useState('')
-//     const [dateValue, setDateValue] = useState<DateTime | null>(null)
-//     // const [dateError, setDateError] = useState('')
-//     const [loanTermsValue, setLoanTermsValue] = useState('')
-//     // const [loanTermsError, setLoanTermsError] = useState('')
-//     const [percentValue, setPercentValue] = useState('')
-//     // const [percentError, setPercentError] = useState('')
-
-//     const [paymentValue, setPaymentValue] = useState('')
-//     // const [paymentError, setPaymentError] = useState('')
-    
-
-//     const onSetImages = (img: IImage[]|[]) => {
-//         // let newImg: IImage[] = []
-//         // if(img.length!==0) {
-//         //     let maxId = 0
-//         //     for(let i=0; i<images.length; i++) {
-//         //         if(images[i].id>maxId) {
-//         //             maxId=images[i].id
-//         //         }
-//         //     }
-//         //     newImg = img.map(el=>{
-//         //         el.id = maxId++
-//         //         return el
-//         //     })
-//         //     setImages(prev=>[...prev, ...newImg])
-//         // }
-//         if(img.length!==0) {
-//             setImages(img)
-//         }
-//     }
+export interface IFormValues {
+    sum: string
+    name: string,
+    city: string,
+    street: string
+}
 
 
-//     useEffect(() => {
-//         const newImmovablesTypes: IDropDownList[] = []
-//         const newRentTypeList: IDropDownList[] = []
-//         let id = 0;
+export const CreateFormImmovables = observer(() => {
+    const { activesStore, immovablesStore, balanceStore, immovablesValidation } = useContext(Context).rootStore
+    const [images, setImages] = useState<IImage[]>([])
 
-//         immovablesTypes.map((item) => {
-//             id++
-//             newImmovablesTypes.push({content: item.content, id: id})
-//         })
+    useEffect(() => {
+        const r = balanceStore.fetchBalance()
+        balanceStore.setLoading(true)
+        r.then(res => {
+            if(res.status >= 200 && res.status < 300) {
+                immovablesStore.prepareWriteoffAccount(res.data.card_list)
+            }
+        })
+    }, [])
 
-//         rentTypeList.map((item) => {
-//             id++
-//             newRentTypeList.push({content: item.content, id: id})
-//         })
+    useEffect(() => {
+        // immovablesValidation.handleChangeImmovablesName(immovablesStore.immovables_name);
+        // immovablesValidation.handleChangeCity(immovablesStore.city);
+        // immovablesValidation.handleChangeStreet(immovablesStore.street);
+        // immovablesValidation.handleChangeHome(immovablesStore.home);
+        // immovablesValidation.handleChangeRooms(immovablesStore.rooms);
+        // immovablesValidation.handleChangeFloors(immovablesStore.floors);
+        // immovablesValidation.handleChangeFacing(immovablesStore.facing);
+        // immovablesValidation.handleChangeConstruction(immovablesStore.construction);
+        // immovablesValidation.handleChangeBalcony(immovablesStore.balcony)
+        // immovablesValidation.handleChangeBalconyValue(immovablesStore.balcony_value)
+        // immovablesValidation.handleChangeInitialPayment(immovablesStore.initial_payment)
+        // immovablesValidation.handleChangeDate(immovablesStore.first_payment_date);
+        // immovablesValidation.handleChangeLoanTerm(immovablesStore.loan_term)
+        // immovablesValidation.handleChangeLoan(immovablesStore.loan);
+        // immovablesValidation.handleChangeInterestRate(immovablesStore.interest_rate);
+        // immovablesValidation.handleChangePaymentOrder(immovablesStore.payment_order);
+        // immovablesValidation.handleChangePaymentPeriod(immovablesStore.payment_period);
+        // immovablesValidation.handleChangeWriteoffAccount(immovablesStore.writeoff_account);
+        immovablesStore.checkToDisabledButton()
+    }, [immovablesStore, immovablesValidation])
+    // const onSetImages = (img: IImage[]|[]) => {
+    //     // let newImg: IImage[] = []
+    //     // if(img.length!==0) {
+    //     //     let maxId = 0
+    //     //     for(let i=0; i<images.length; i++) {
+    //     //         if(images[i].id>maxId) {
+    //     //             maxId=images[i].id
+    //     //         }
+    //     //     }
+    //     //     newImg = img.map(el=>{
+    //     //         el.id = maxId++
+    //     //         return el
+    //     //     })
+    //     //     setImages(prev=>[...prev, ...newImg])
+    //     // }
+    //     if(img.length!==0) {
+    //         setImages(img)
+    //     }
+    // }
 
-//         setPaymentsType(newImmovablesTypes)
-//         // setRentType(newRentTypeList)
-//     }, [])
+    const openFileInput = ()=> {
+        (document.querySelector('#input-file') as HTMLInputElement).click();
+    }
 
-//     const openFileInput = ()=> {
-//         (document.querySelector('#input-file') as HTMLInputElement).click();
-//     }
+    const handleSubmitForm = () => {
+        const r = immovablesStore.createImmovables(immovablesRequest(
+            immovablesStore.bought_price,
+            immovablesStore.home,
+            immovablesStore.city,
+            immovablesStore.street,
+            immovablesStore.immovables_name,
 
-//     const handleSubmit = (e: FormEvent) => {
-//         e.preventDefault()
+            immovablesStore.rooms,
+            immovablesStore.floors,
+            immovablesStore.facing,
+            immovablesStore.construction,
+            immovablesStore.balcony,
 
-//         const immovables: ImmovableRequest = {
-//             bought_price: Number(priceValue),
-//             writeoff_account: 0,
-//             building_number: homeValue,
-//             city: cityValue,
-//             street: streetValue,
-//             name: immovablesName,
-//             loan: false,
-//             loan_term: null,
-//             percentage: null,
-//             initial_payment: null,
-//             month_payment: null,
-//             first_payment_date: "",
-//             payment_order: "",
-//             payment_period: ""
-//         }
+            immovablesStore.loan,
+            immovablesStore.loan_term,
+            immovablesStore.interest_rate,
+            immovablesStore.initial_payment,
+            immovablesStore.writeoff_account,
+            immovablesStore.first_payment_date,
+            immovablesStore.payment_order,
+            immovablesStore.payment_period
+        )) 
+        
+        r.then(res => {
+            if(res.status >= 200 && res.status < 300){
+                immovablesStore.handleCloseForm()
+                const response = activesStore.fetchActives()
+                activesStore.setLoading(true)
+                response.then(res => {
+                    if(res.status >= 200 && res.status < 300) {
+                        activesStore.setActives(res.data)
+                        activesStore.setLoading(false)
+                    }
+                })
+            }
+        }) 
+         
+    }
 
-//         // if() {
-//         //     const response = store.createImmovable(immovables)
-//         // }
-//     }
-
-//     useEffect(() => {
-//         switch(paymentValue) {
-//             case 'Кредит/Ипотека' :
-//                 setCreditVisible(true)
-//                 break
-//             case 'Наличные средства' :
-//                 setCreditVisible(false)
-//             default:
-//                 break
-//         }
-//     }, [paymentValue])
-
-
-//     return (
-//         <form className="immovables__create-form">
-//             <div className="add-property-form__content">
-//                 <div className="add-property-form__characteristic-block-wrapper">
-//                     <div className="add-property-form__characteristic-block">
-//                         <ImmovablesParams
-//                             setImmovablesName={setImmovablesName}
-//                             setCity={setCityValue}
-//                             setStreet={setStreetValue}
-//                             setHome={setHomeValue}
-//                             setOwner={setOwnerValue}
-//                             immovablesName={immovablesName}
-//                             city={cityValue}
-//                             street={streetValue}
-//                             home={homeValue}
-//                             owner={ownerValue}
-//                         />
-//                         <PurchasePriceParams
-//                             setPaymentValue={setPaymentValue}
-//                             paymentsType={paymentsType}
-//                             paymentValue={paymentValue}
-//                             setErrorPrice={setErrorPrice}
-//                             setPriceValue={setPriceValue}
-//                             priceValue={priceValue}
-//                         />
-//                     </div>
-//                 </div>
-
-//                 <div className="add-property-form__about-card-block-wrapper">
-//                     <div className="add-business-form__about-card-block">
-//                         {creditVisible &&
-//                             <>
-//                             <CreditParams
-//                                 setDownPaymentError={setDownPaymentError}
-//                                 setDownPaymentsValue={setDownPaymentValue}
-//                                 downPaymentsValue={downPaymentValue}
-
-//                                 setMothlyPaymentValue={setMonthlyPaymentValue}
-//                                 setMothlyPaymentError={setMonthlyPaymentError}
-//                                 monthlyPaymentValue={monthlyPaymentValue}
-
-//                                 setDateValue={setDateValue}
-//                                 dateValue={dateValue}
-
-//                                 setLoanTermsValue={setLoanTermsValue}
-//                                 setLoanTermsError={setLoanTermsError}
-//                                 loanTermsValue={loanTermsValue}
-
-//                                 setPercentValue={setPercentValue}
-//                                 setPercentError={setPercentError}
-//                                 percentValue={percentValue}
-//                             />
-//                             {/* <div className="add-property-form__item">
-//                                 <InputSumForm
-//                                         valuta="₽"
-//                                         value={values.downPayment}
-//                                         error={errors.downPayment}
-//                                         touched={touched.downPayment}
-//                                     name="downPayment"
-//                                     placeHolder="Первый взнос"
-//                                     background="rgb(241, 242, 246)"    
-//                                 />
-//                             </div> */}
-//                             {/* <div className="add-property-form__item">
-//                                 <InputSumForm
-//                                     valuta="₽" 
-//                                     value={values.monthlyPayment} 
-//                                     error={errors.monthlyPayment}
-//                                     touched={touched.monthlyPayment}
-//                                     name="monthlyPayment"
-//                                     placeHolder="Ежемесячный платеж"
-//                                     background="rgb(241, 242, 246)"    
-//                                 />
-//                             </div> */}
-//                             {/* <div className="add-card-form-cash__item">
-//                                 <InputDateForm
-//                                     value={values.date} 
-//                                     error={errors.date}
-//                                     touched={touched.date}
-//                                     name="date"
-//                                     placeHolder="Дата первого платежа"  
-//                                 />
-//                             </div> */}
-//                             {/* <div className="add-card-form-cash__item">
-//                                 <InputSumForm
-//                                     valuta="мес." 
-//                                     value={values.loanTerms} 
-//                                     error={errors.loanTerms}
-//                                     touched={touched.loanTerms}
-//                                     name="loanTerms"
-//                                     placeHolder="Срок кредитования"
-//                                     background="rgb(255, 255, 255)"    
-//                                 />
-//                             </div>
-//                             <div className="add-card-form-cash__item">
-//                                 <InputPercentForm
-//                                     value={values.percent} 
-//                                     error={errors.percent}
-//                                     touched={touched.percent}
-//                                     name="percent"
-//                                     placeHolder="Процентная ставка"
-//                                     background="rgb(255, 255, 255)"    
-//                                 />
-//                             </div> */}
-//                         </>
-//                         } 
-//                         <div className="add-property-form__block-title">Аренда</div>
-//                         {/* <div className="add-property-form__item">
-//                             <DropDownListForm
-//                                 idContent='dropDownRentType'
-//                                 idTitle='dropDownTitleRentType'
-//                                 placeholder="Тип выплаты"
-//                                 title={rentType}
-//                                 data= {rentTypeList}
-//                                 onChange={setRentType}
-//                             />
-//                         </div> */}
-//                         {/* <div className="add-card-form-cash__item">
-//                             <InputSumForm
-//                                 valuta="₽" 
-//                                 value={values.rentSum} 
-//                                 error={errors.rentSum}
-//                                 touched={touched.rentSum}
-//                                 name="rentSum"
-//                                 placeHolder="Стоимость аренды"
-//                                 background="rgb(241, 242, 246)"    
-//                             />
-//                         </div> */}
-//                         <button type="button" className="add-property-form__add-img-btn" onClick={openFileInput}>Добавить фото</button>
-//                         <InputFileImages setImages={onSetImages}/>
-//                         <div className="add-property-form__images">
-//                             {images.map(el=>{
-//                                 return (
-//                                     <div className="add-property-form-image" key={el.id}>
-//                                         <button type="button" className="add-property-form-image__remove-btn" onClick={()=>setImages(images.filter( img => el.id !== img.id ))}>&times;</button>
-//                                         <img className="add-property-form-image__img" src={el.img} />
-//                                     </div>
-//                                 )
-//                             })}
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
+    useEffect(() => {
+        switch(immovablesStore.payment_type) {
+            case 'Кредит/Ипотека' :
+                immovablesStore.setLoan(true)
+                break
             
-//             <div className="add-property-form__btns">
-//                 <button className="cancel-btn add-property-form__cancel-btn" onClick={() => setShow(false)}>Отменить</button>
-//                 <button 
-//                     className="add-property-form__add-btn" 
-//                     type="submit" 
-//                     // onClick={()=>console.log(values)}
-//                     >
-//                         Подтвердить</button>
-//             </div>
-//         </form>
-//     )
-// })
+            case 'Наличные средства':
+                immovablesStore.setLoan(false)
+                break
+
+            default:
+                break
+        }
+    }, [immovablesStore])
+
+    return (
+        <Form className="immovables__create-form" handleSubmit={handleSubmitForm}>
+            <div className="immovables__form-content">
+                <div className="immovables__form-container">
+                    <div className={`immovables__form-characteristics ${immovablesStore.loan ? 'active' : ''}`}>
+                        <ImmovablesParams error_name={immovablesValidation.immovables_error ? immovablesValidation.immovables_error : ''}/>
+                        <PurchasePriceParams/>
+                        <Button
+                            onClick={openFileInput}
+                            className="immovables__form-add_photo"
+                            textButton='Добавить фото'
+                            type="button"
+                            name="button"
+                        />
+                        {/* <InputFileImages setImages={onSetImages}/> */}
+                        <div className="add-property-form__images">
+                            {images.map(el=>{
+                                return (
+                                    <div className="add-property-form-image" key={el.id}>
+                                        <button type="button" className="add-property-form-image__remove-btn" onClick={()=>setImages(images.filter( img => el.id !== img.id ))}>&times;</button>
+                                        <img className="add-property-form-image__img" src={el.img} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className={`immovables__form-loan ${immovablesStore.loan ? '' : 'disabled'}`}>
+                        <CreditParams/>
+                    </div>
+                </div>
+                <div className="immovables__form-actions">
+                    <Button
+                        onClick={immovablesStore.handleCloseForm}
+                        type="button"
+                        textButton='Отменить'
+                        className="immovables__form-cancel"
+                        name="cancel"
+                    />
+                    <Button
+                        onClick={immovablesValidation.immovablesValidation}
+                        type="submit"
+                        textButton='Подтвердить'
+                        className={`immovables__form-submit ${immovablesStore.disabled ? 'disabled' : ''}`}
+                        name="submit"
+                        disabled={immovablesStore.disabled}
+                    />
+                </div>
+            </div>
+        </Form>
+    )
+})

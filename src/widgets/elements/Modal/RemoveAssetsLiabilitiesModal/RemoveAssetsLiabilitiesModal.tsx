@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import "./removeAssetsLiabilitiesModal.css"
 import { RemoveAssetsLiabilities } from "../../../forms/RemoveAssetsLiabilities/RemoveAssetsLiabilities";
 import { SpinnerLoader } from "../../SpinnerLoader/SpinnerLoader";
-import { SelectCardModal } from "../balance/SelectCardModal/SelectCardModal";
 import { Card } from "../../../../app/types/dto/DtoTypes.ts"; 
 import { Context } from "../../../../main.tsx";
 
@@ -12,7 +11,7 @@ interface IDeleteModal {
 }
 
 export function RemoveAssetsLiabilitiesModal({onRemoveItem}: IDeleteModal) {
-    const store = useContext(Context).balanceStore
+    const { balanceStore }  = useContext(Context).rootStore
 
     const [modalVisible, setModalVisible] = useState(false)
     const [cardSelected, setCardSelected] = useState<Card>()
@@ -20,8 +19,8 @@ export function RemoveAssetsLiabilitiesModal({onRemoveItem}: IDeleteModal) {
 
     const closeSelectCardModal = (id?: number) => {
         if(id) {
-            if(store.balance) {
-                const card = store.balance.card_list.find((el:Card) => el.id === id)
+            if(balanceStore.balance) {
+                const card = balanceStore.balance.card_list.find((el:Card) => el.id === id)
                 if(card) {
                     setCardSelected(card)
                     closeModal()
@@ -52,19 +51,19 @@ export function RemoveAssetsLiabilitiesModal({onRemoveItem}: IDeleteModal) {
 
     return (
         <>
-        {modalVisible && store.balance &&
+        {modalVisible && balanceStore.balance &&
             <div className='remove-assets-liabilities-modal__modal' onClick={closeModal}>
             <div className="remove-assets-liabilities-modal__modal-wrapper">
                 <div className='remove-assets-liabilities-modal__modal-content' onClick={e=>{
                     e.stopPropagation()
                 }}>
-                    <SelectCardModal data={store.balance.card_list} onClose={closeSelectCardModal}/>
+                    {/* <SelectCardModal data={balanceStore.balance.card_list} onClose={closeSelectCardModal}/> */}
                 </div>
             
             </div>
         </div>  
         }
-        <SpinnerLoader loading={store.loading} />
+        <SpinnerLoader loading={balanceStore.loading} />
 
         <div className="remove-assets-liabilities-modal">
             <b className="remove-assets-liabilities-modal__title">Вы действительно хотите удалить?</b>

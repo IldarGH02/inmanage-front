@@ -112,8 +112,8 @@ export class SecuritiesStore {
         this.count = value.target.value
     }
 
-    handleChangeMarketPrice = (value: string) => {
-        this.market_price = value
+    handleChangeMarketPrice = (e: ChangeEvent<HTMLInputElement>) => {
+        this.market_price = e.target.value
     }
 
     handleChangeWriteoffAccount = (value: string) => {

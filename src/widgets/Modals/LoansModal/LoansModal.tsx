@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite"
 import "./LoansModal.scss"
 
 export const LoansModal = observer(() => {
-    const { activesStore } = useContext(Context)
+    const { activesStore } = useContext(Context).rootStore
 
     return (
         <>

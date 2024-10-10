@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 
 import { CategoriesAssetsState } from '../features/context/categories/assets/CategoriesAssetsState'; 
@@ -9,21 +8,8 @@ import { PlannerDateState } from '../features/context/planner/plannerData/Planne
 import { MainPage } from '../pages/index';
 
 import "./index.scss"
-import { useEffect} from 'react';
-import { getLocalStorage, setSessionStorage } from '../features/hooks/storage';
 
 export const App = observer(() => {
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        const tokens = getLocalStorage('tokens')
-        if(!tokens) {
-            navigate('/login')
-        }
-        const path = window.location.pathname
-        setSessionStorage('route', path)
-    }, [navigate])
-
     return (
         <PlannerDateState>
                 <CategoriesAssetsState>

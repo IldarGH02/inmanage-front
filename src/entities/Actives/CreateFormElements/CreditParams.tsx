@@ -1,94 +1,90 @@
-import { FC } from "react"
+import { useContext } from "react"
 import { InputSum } from "../../../widgets/Custom/Inputs/InputSum"
 import { InputPercent } from "../../../widgets/Custom/Inputs/InputPercent"
-import './CreditParams.scss';
 import { InputDate } from "../../../shared/ui/input/InputDate"
-import { DateTime } from "luxon"
+import { Context } from "../../../main";
+import { observer } from "mobx-react-lite";
+import './CreditParams.scss';
+import { Select } from "../../../widgets/Custom/Select";
 
-interface CreditParams {
-    setDownPaymentsValue: (value: string) => void
-    setDownPaymentError: (value: string) => void
-    setMothlyPaymentValue: (value: string) => void
-    setMothlyPaymentError: (value: string) => void
-    setDateValue: (value: DateTime) => void
-    setLoanTermsValue: (value: string) => void
-    setLoanTermsError: (value: string) => void
-    setPercentValue: (value: string) => void
-    setPercentError: (value: string) => void
-    downPaymentsValue: string
-    monthlyPaymentValue: string
-    dateValue: DateTime | null
-    loanTermsValue: string
-    percentValue: string
-}
 
-export const CreditParams: FC<CreditParams> = (
-    {
-        setDownPaymentsValue,
-        downPaymentsValue,
-        setMothlyPaymentValue,
-        setMothlyPaymentError,
-        monthlyPaymentValue,
-        setDateValue,
-        dateValue,
-        setLoanTermsValue,
-        loanTermsValue,
-        setLoanTermsError,
-        setPercentValue,
-        setPercentError,
-        percentValue
-    }) => {
+export const CreditParams = observer(() => {
+    const { immovablesStore } = useContext(Context).rootStore
+
+    const selectedPaymentOrder = immovablesStore.payment_order_list.find((
+        item
+    ) => item.content === immovablesStore.payment_order)
+
+    const selectedPaymentPeriod = immovablesStore.payment_period_list.find((
+        item
+    ) => item.content === immovablesStore.payment_period)
+
+    const selectedWriteoffAccount = immovablesStore.writeoff_account_list.find((
+        item
+    ) => item.content === immovablesStore.writeoff_account)
     
     return (
-        <div className="credit">
+        <div className={`credit ${immovablesStore.loan ? 'active--loan' : ''}`}>
+            <Select
+                onChange={immovablesStore.handleChangeWriteoffAccount}
+                options={immovablesStore.writeoff_account_list}
+                selected={selectedWriteoffAccount || null}
+                placeholder="Счёт списания"
+                classNameContainer={`dropdown__container`}
+                classNameSelect='dropdown__select'
+                classNameList='dropdown__list'
+                errorMessage=""
+            />
             <InputSum
-                setError={setDownPaymentsValue}
-                setValue={setDownPaymentsValue}
-                value={downPaymentsValue} 
+                onChange={immovablesStore.handleChangeInitialPayment}
+                value={immovablesStore.initial_payment} 
                 type="text" 
                 currency="₽" 
                 placeholder="Первый взнос"
                 classNameCurrency="price__sum-currency"         
             />
             <InputSum
-                setError={setMothlyPaymentError}
-                setValue={setMothlyPaymentValue}
-                value={monthlyPaymentValue}
-                type="text"
-                currency="₽"
-                placeholder="Ежемесячный платёж"
+                onChange={immovablesStore.handleChangeLoanTerm}
                 classNameCurrency="price__sum-currency"
-            />
-            <InputDate 
-                onChange={setDateValue} 
-                value={dateValue} 
-                placeholder="Дата первого платежа"
-            />
-            {/* <InputText
-                type="date"
-                setValue={setDateValue}
-                value={dateValue}
-                className=""
-                placeholder="Дата первого платежа"
-            /> */}
-            <InputSum
-                setValue={setLoanTermsValue}
-                setError={setLoanTermsError}
-                classNameCurrency="price__sum-currency"
-                currency={`${loanTermsValue ? '.мес' : ''}`}
+                currency={`${immovablesStore.loan_term ? '.мес' : ''}`}
                 placeholder="Срок кредитования"
                 type="text"
-                value={loanTermsValue}
+                value={immovablesStore.loan_term}
+            />
+            <InputDate 
+                onChange={immovablesStore.handleChangeDate} 
+                value={immovablesStore.first_payment_date} 
+                placeholder="Дата первого платежа"
             />
             <InputPercent
-                setPercentValue={setPercentValue}
-                setPercentError={setPercentError}
+                setPercentValue={immovablesStore.handleChangeInterestRate}
+                setPercentError={() => {}}
                 classNameCurrency="price__sum-currency"
-                currency={`${percentValue ? '%' : ''}`}
+                currency={`${immovablesStore.interest_rate ? '%' : ''}`}
                 placeholder="Процентная ставка"
                 type="text"
-                value={percentValue}
+                value={immovablesStore.interest_rate}
+            />
+            <Select
+                onChange={immovablesStore.handleChangePaymentOrder}
+                selected={selectedPaymentOrder || null}
+                options={immovablesStore.payment_order_list}
+                placeholder="Порядок выплаты"
+                classNameContainer={`dropdown__container`}
+                classNameSelect='dropdown__select'
+                classNameList='dropdown__list'
+                errorMessage=""
+            />
+            <Select
+                onChange={immovablesStore.handleChangePaymentPeriod}
+                selected={selectedPaymentPeriod || null}
+                options={immovablesStore.payment_period_list}
+                placeholder="Периодичность выплаты"
+                classNameContainer={`dropdown__container`}
+                classNameSelect='dropdown__select'
+                classNameList='dropdown__list'
+                errorMessage=""
             />
         </div>
     )
-}
+})

@@ -13,12 +13,12 @@ import "./businessItemPage.css"
 
 import homeImg from "../../../../shared/assets/img/assets/home.png"
 import { Context } from "../../../../main.tsx"
-import { DeleteModal } from "../../../../widgets/Modals/DeleteModal/DeleteModal.tsx"
+import { SaleAndRemoveForm } from "../../../../widgets/forms/actives/transport/SaleAndRemoveForm/SaleAndRemoveForm.tsx"
 import { ConfirmModal } from "../../../../widgets/elements/Modal/ConfirmModal/ConfirmModal.tsx"
 import { observer } from "mobx-react-lite"
 
 export const BusinessDetail = observer(() => {
-    const store = useContext(Context).activesStore
+    const { activesStore, immovablesStore } = useContext(Context).rootStore
     const [historyVisible, setHistoryVisible] = useState(false)
     const {id} = useParams()
     const navigate = useNavigate()
@@ -28,8 +28,8 @@ export const BusinessDetail = observer(() => {
     const [expenses, setExpenses] = useState<IExpenseBalance[]>([])
 
     useEffect(()=>{
-        if(store.actives !== null) {
-            const elem = store.actives && store.actives.businesses ? store.actives?.businesses.businesses.find(
+        if(activesStore.actives !== null) {
+            const elem = activesStore.actives && activesStore.actives.businesses ? activesStore.actives?.businesses.businesses.find(
                 (el) => el.id === Number(id)) : null
                 setBusiness(elem!)   
                 let incomesTmp: IIncomeBalance[] = []
@@ -44,11 +44,11 @@ export const BusinessDetail = observer(() => {
                 }
             setIncomes(incomesTmp)
         }
-    },[store.actives])
+    },[activesStore.actives])
 
     useEffect(()=>{
-        if(store.actives!==null) {
-            const elem = store.actives && store.actives.businesses ? store.actives?.businesses.businesses.find((el) => el.id === Number(id)) : null
+        if(activesStore.actives!==null) {
+            const elem = activesStore.actives && activesStore.actives.businesses ? activesStore.actives?.businesses.businesses.find((el) => el.id === Number(id)) : null
             setBusiness(elem!)   
             let expensesTmp: IIncomeBalance[] = []
             elem!.expenses.forEach(el=>{
@@ -60,42 +60,42 @@ export const BusinessDetail = observer(() => {
             })
             setExpenses(expensesTmp)
         }
-    },[store.actives?.businesses?.businesses])
+    },[activesStore.actives?.businesses?.businesses])
 
     const removePropertyItem = (flag: boolean) => {
         if(flag) {
-            const response = store.removeImmovables(String(business?.id))
-            store.setLoading(true)
+            const response = immovablesStore.removeImmovables(String(business?.id))
+            activesStore.setLoading(true)
             response.then(res => {
                 if(res.status >= 200 && res.status < 300) {
                     navigate("/actives/business")
-                    store.setLoading(false)
+                    activesStore.setLoading(false)
                 }
-            }).catch(error => store.setError(error))
+            }).catch(error => activesStore.setError(error))
         }
     }
 
     const removeBusiness = (sum?: number, card?: Card) => {
         if(sum && card) {
-            const response = store.removeBusiness(String(business?.id))
-            store.setLoading(true)
+            const response = activesStore.removeBusiness(String(business?.id))
+            activesStore.setLoading(true)
             response.then(res => {
                 if(res.status >= 200 && res.status < 300) {
-                    store.setLoading(false)
+                    activesStore.setLoading(false)
                     setRemoveModalVisible(false)
                     navigate("/assets/business")
                 }
-            }).catch(error => store.setError(error))
+            }).catch(error => activesStore.setError(error))
         }
     }
 
     return (
         <>
-            <SpinnerLoader loading={store.loading} />
+            <SpinnerLoader loading={activesStore.loading} />
             {removeModalVisible && 
                 <Modal onClose={()=>setRemoveModalVisible(false)}>
                     <RemoveAssetsLiabilitiesModal onClose={()=>setRemoveModalVisible(false)} onRemoveItem={removeBusiness}/>
-                    <DeleteModal removeItem={removeBusiness} active="" setShow={() => {}} show={false} handleClose={() => {}}/>
+                    <SaleAndRemoveForm/>
                     <ConfirmModal title="Удаление недвижимости" text="Вы действительно хотите удалить недвижимость?" onClose={removePropertyItem}/>
                 </Modal>
             }  

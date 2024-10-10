@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./paymentInDayItem.css";
 import { Daw } from "../../../../../../widgets/elements/Daw/daw"; 
 import { useDispatch } from "react-redux";
-import { editDawTask } from "../../../../../../app/store/actions/diaryActions";
+// import { editDawTask } from "../../../../../../app/store/actions/diaryActions";
 import { actionTypes } from "../../../../../../app/store/types/types";
 import { IPayment } from "../../../../../../app/types/balance/IBalance";
 
@@ -17,14 +17,14 @@ export function PaymentInDayItem({data}: ITaskInTimeItem) {
     const dispatch = useDispatch()
 
     const changeDaw = ()=> {
-        const res = editDawTask(actionTypes.EDIT_DAW_TASK, data.id!)
-        res.then(e => {
-            // console.log(e)
-            dispatch(e!);
-        })
-        .catch((e) => {
-            console.log(e)
-        })
+        // const res = editDawTask(actionTypes.EDIT_DAW_TASK, data.id!)
+        // res.then(e => {
+        //     // console.log(e)
+        //     dispatch(e!);
+        // })
+        // .catch((e) => {
+        //     console.log(e)
+        // })
     }
 
     return (

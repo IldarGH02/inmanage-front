@@ -20,7 +20,7 @@ export const CardsModal: FC<CardsModalProps> = observer((
         active,
         handleClose
     }) => {
-    const store = useContext(Context).balanceStore
+    const { balanceStore } = useContext(Context).rootStore
 
     const [modalVisible, setModalVisible] = useState(false)
     const [cardList, setCardList] = useState<Card[] | null>([])
@@ -30,18 +30,18 @@ export const CardsModal: FC<CardsModalProps> = observer((
     const [editCardId, setEditCardId] = useState(-1)
 
     useEffect(()=>{
-        if(store.balance) {
+        if(balanceStore.balance) {
             switch(category) {
                 case 0: {
-                    setCardList(store.card_list)
+                    setCardList(balanceStore.card_list)
                     break
                 }
                 case 1: {
-                    setCardList(store.card_list!.filter((el: Card)=>!el.loan))
+                    setCardList(balanceStore.card_list!.filter((el: Card)=>!el.loan))
                     break
                 }
                 case 2: {
-                    setCardList(store.card_list!.filter((el: Card)=>el.loan))
+                    setCardList(balanceStore.card_list!.filter((el: Card)=>el.loan))
                     break
                 }
                 default: {
@@ -50,13 +50,13 @@ export const CardsModal: FC<CardsModalProps> = observer((
             }
         }
 
-    }, [category, store.balance, store.card_list])
+    }, [category, balanceStore.balance, balanceStore.card_list])
 
     useEffect(()=>{
-        if(store.balance) {
-            setCardList(store.card_list)
+        if(balanceStore.balance) {
+            setCardList(balanceStore.card_list)
         }
-    }, [store.balance, store.card_list])
+    }, [balanceStore.balance, balanceStore.card_list])
 
 
     const onEditCard = (id: number) => {
@@ -65,11 +65,11 @@ export const CardsModal: FC<CardsModalProps> = observer((
     }
 
     const onRemoveCard = (id: number) => {
-        const response = store.removeChooseCard(id)
-        store.setLoading(true)
+        const response = balanceStore.removeChooseCard(id)
+        balanceStore.setLoading(true)
         response.then(res => {
             if(res.status >= 200 && res.status < 300) {
-                store.setLoading(false)
+                balanceStore.setLoading(false)
                 setModalVisible(false)
                 setEditCardId(id)
                 handleClose()
@@ -83,7 +83,7 @@ export const CardsModal: FC<CardsModalProps> = observer((
                 <Modal onClose={()=>setModalVisible(false)}>
                     <ConfirmModal title="Удаление" text={`Вы действительно хотите удалить карту: ${cardList!.find(el=>el.id===editCardId)?.name}?`} onClose={(flag: boolean)=>{
                         if(flag) {
-                            return store.removeChooseCard(editCardId)
+                            return balanceStore.removeChooseCard(editCardId)
                         }
                         setModalVisible(false)
                     }}/>

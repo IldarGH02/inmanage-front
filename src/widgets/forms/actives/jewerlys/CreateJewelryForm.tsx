@@ -11,7 +11,7 @@ import { InputFile } from "../../../Custom/Inputs/InputFile"
 import { prepareJewelryRequest } from "../../../../shared/store/jewelry/prepareRequest"
 
 export const CreateJewelryForm = observer(() => {
-    const { jewelryStore, activesStore } = useContext(Context)
+    const { jewelryStore, activesStore } = useContext(Context).rootStore
 
     const handleSubmitForm = (e: FormEvent) => {
         e.preventDefault()
@@ -50,8 +50,7 @@ export const CreateJewelryForm = observer(() => {
                         type="text"
                     />
                     <InputSum
-                        setValue={jewelryStore.handleChangePurchasePrice}
-                        setError={() => {}}
+                        onChange={jewelryStore.handleChangePurchasePrice}
                         classNameCurrency=""
                         currency="₽"
                         placeholder="Стоимость покупки"
@@ -59,8 +58,7 @@ export const CreateJewelryForm = observer(() => {
                         type="text"
                     />
                     <InputSum
-                        setValue={jewelryStore.handleChangeEstimatedValue}
-                        setError={() => {}}
+                        onChange={jewelryStore.handleChangeEstimatedValue}
                         classNameCurrency=""
                         currency="₽"
                         placeholder="Оценочная стоимость"

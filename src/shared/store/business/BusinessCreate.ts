@@ -107,13 +107,13 @@ export class BusinessCreate {
         this.writeoffAccount = id
     }
 
-    handleChangeOwnFund = (value: string) => {
-        this.ownFunds = value
+    handleChangeOwnFund = (e: ChangeEvent<HTMLInputElement>) => {
+        this.ownFunds = e.target.value
     }
 
     //* Инвестиции *//
-    handleChangeCreditSum = (value: string) => {
-        this.creditSum = value
+    handleChangeCreditSum = (e: ChangeEvent<HTMLInputElement>) => {
+        this.creditSum = e.target.value
     }
 
     handleChangeLoanTerm = (e: ChangeEvent<HTMLInputElement>) => {
@@ -134,12 +134,12 @@ export class BusinessCreate {
     }
 
     //* Кредит *//
-    handleChangeLoanAmount = (value: string) => {
-        this.loanAmount = value
+    handleChangeLoanAmount = (e: ChangeEvent<HTMLInputElement>) => {
+        this.loanAmount = e.target.value
     }
 
-    handleChangeLoanTerms = (value: string) => {
-        this.loanTerms = value
+    handleChangeLoanTerms = (e: ChangeEvent<HTMLInputElement>) => {
+        this.loanTerms = e.target.value
     }
 
     handleChangeCreditDate = (date: DateTime) => {

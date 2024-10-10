@@ -10,7 +10,7 @@ import "./CreateSecuritiesForm.scss";
 import { Button } from "../../../../shared/ui/Buttons/Button"
 
 export const CreateSecuritiesForm = observer(() => {
-    const { securitiesStore, balanceStore } = useContext(Context)
+    const { securitiesStore, balanceStore } = useContext(Context).rootStore
     const selectWriteoffAccount = securitiesStore.cards.find((item) => item.content === securitiesStore.writeoff_account)
     const selectName = securitiesStore.local_securities.find((item) => item.content === securitiesStore.name)
 
@@ -63,8 +63,7 @@ export const CreateSecuritiesForm = observer(() => {
                     <p className="securities__price-info">{securitiesStore.price}</p>
                 </div>
                 <InputSum
-                    setValue={securitiesStore.handleChangeMarketPrice}
-                    setError={() => {}}
+                    onChange={securitiesStore.handleChangeMarketPrice}
                     currency="₽"
                     classNameCurrency=""
                     placeholder="Цена покупки"

@@ -15,7 +15,7 @@ interface IAddBalanceForm {
 }
 
 export const BusinessFormCreate = observer(({setShow}: IAddBalanceForm) => {
-    const { activesStore, businessCreateStore, balanceStore} = useContext(Context)
+    const { activesStore, businessCreateStore, balanceStore} = useContext(Context).rootStore
     const [disabled, setDisabled] = useState<boolean>(false)
 
     // const [ownFundsVisible, setOwnFundsVisible] = useState(false)

@@ -8,7 +8,7 @@ import { OverlayModal } from "../../../shared/ui/Overlay/OverlayModal.tsx";
 import { SecuritiesModal } from "../../../widgets/Modals/SecurititesModal/SecurititesModal.tsx";
 
 export const SecuritiesPage = observer(() => {
-    const { activesStore, securitiesStore } = useContext(Context)
+    const { activesStore, securitiesStore } = useContext(Context).rootStore
 
     useEffect(() => {
         const response = activesStore.fetchActives()

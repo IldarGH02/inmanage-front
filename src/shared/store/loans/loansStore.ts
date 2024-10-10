@@ -135,7 +135,6 @@ export class LoansStore {
     }
 
     handleChangeLoanTerm = (value: string) => {
-       
         this.loanTerm = value
     }
 

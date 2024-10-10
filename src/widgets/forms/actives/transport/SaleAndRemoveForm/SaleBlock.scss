@@ -1,0 +1,13 @@
+.sale__block {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 15px;
+    margin-bottom: 25px;
+
+    .input__sum-container {
+        .MuiInputBase-input {
+            padding: 20px 15px !important;
+        }
+    }
+}

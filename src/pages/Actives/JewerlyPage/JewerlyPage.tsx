@@ -8,7 +8,7 @@ import { JewelryModal } from "../../../widgets/Modals/JewerlyModal/JewelryModal.
 import { observer } from "mobx-react-lite";
 
 export const JewelryPage = observer(() => {
-    const { activesStore, jewelryStore } = useContext(Context)
+    const { activesStore, jewelryStore } = useContext(Context).rootStore
 
     useEffect(() => {
         const response = activesStore.fetchActives()

@@ -66,12 +66,12 @@ export class JewelryStore {
         this.name = e.target.value
     }
 
-    handleChangePurchasePrice = (value: string) => {
-        this.purchase_price = value
+    handleChangePurchasePrice = (e: ChangeEvent<HTMLInputElement>) => {
+        this.purchase_price = e.target.value
     }
 
-    handleChangeEstimatedValue = (value: string) => {
-        this.estimated_value = value
+    handleChangeEstimatedValue = (e: ChangeEvent<HTMLInputElement>) => {
+        this.estimated_value = e.target.value
     }
 
     handleChangeComment = (e: ChangeEvent<HTMLTextAreaElement>) => {

@@ -8,7 +8,7 @@ import "./ChangeJewerlyForm.scss";
 import { prepareJewelryRequest } from "../../../../shared/store/jewelry/prepareRequest"
 
 export const ChangeJewelryForm = observer(() => {
-    const { jewelryStore, activesStore } = useContext(Context)
+    const { jewelryStore, activesStore } = useContext(Context).rootStore
 
     const handleSubmitChangeForm = (e: FormEvent) => {
         e.preventDefault()
@@ -47,8 +47,7 @@ export const ChangeJewelryForm = observer(() => {
                     Переоценка
                 </h3>
                 <InputSum
-                    setValue={jewelryStore.handleChangeEstimatedValue}
-                    setError={() => {}}
+                    onChange={jewelryStore.handleChangeEstimatedValue}
                     classNameCurrency=""
                     currency="₽"
                     placeholder="Оценочная стоимость"

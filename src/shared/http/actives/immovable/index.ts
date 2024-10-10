@@ -1,13 +1,13 @@
-import {ImmovableRequest} from "../../../../app/types/actives/ActivesTypes.ts";
+import { ImmovablesRequestLoan, ImmovablesRequestCash } from "../../../../app/types/request/requestTypes"; 
 import $api from "../../api";
 import {AxiosResponse} from "axios";
 
-export class ImmovableService {
-    static async createImmovable(property: ImmovableRequest): Promise<AxiosResponse> {
+export class ImmovablesService {
+    static async createImmovable(property: ImmovablesRequestLoan | ImmovablesRequestCash): Promise<AxiosResponse> {
         return await $api.post(`/actives/properties/`, property)
     }
 
-    static async editImmovable(id: string, property: ImmovableRequest): Promise<AxiosResponse> {
+    static async editImmovable(id: string, property: ImmovablesRequestLoan | ImmovablesRequestCash): Promise<AxiosResponse> {
         return await $api.patch(`/actives/properties/up/${id}`, property)
     }
 

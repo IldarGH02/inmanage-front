@@ -16,7 +16,7 @@ import { Context } from "../../../../main.tsx"
 import { Button } from "../../../../shared/ui/Buttons/Button.tsx"
 
 export const ImmovablesDetail = observer(() => {
-    const store = useContext(Context).activesStore
+    const { activesStore, immovablesStore } = useContext(Context).rootStore
     const [historyVisible, setHistoryVisible] = useState(false)
     const {id} = useParams()
     const navigate = useNavigate()
@@ -26,7 +26,7 @@ export const ImmovablesDetail = observer(() => {
     const [expenses, setExpenses] = useState<IExpenseBalance[]>([])
 
     useEffect(()=>{
-        const elem = store.actives && store.actives.properties ? store.actives?.properties.properties.find((el: any) => el.id === Number(id)) : null
+        const elem = activesStore.actives && activesStore.actives.properties ? activesStore.actives?.properties.properties.find((el: any) => el.id === Number(id)) : null
         setProperty(elem!)   
         let incomesTmp: IIncomeBalance[] = []
         elem!.income.forEach(el=>{
@@ -37,12 +37,12 @@ export const ImmovablesDetail = observer(() => {
             }
         })
         setIncomes(incomesTmp)
-    },[store.actives?.properties?.properties])
+    },[activesStore.actives?.properties?.properties])
 
     useEffect(()=>{
-        const elem = store.actives && 
-                     store.actives.properties ? 
-                     store.actives?.properties.properties.find((el: any) => el.id === Number(id)) : 
+        const elem = activesStore.actives && 
+                     activesStore.actives.properties ? 
+                     activesStore.actives?.properties.properties.find((el: any) => el.id === Number(id)) : 
                      null
 
         setProperty(elem!)   
@@ -55,20 +55,20 @@ export const ImmovablesDetail = observer(() => {
             }
         })
         setExpenses(expensesTmp)
-    },[store.actives?.properties?.properties])
+    },[activesStore.actives?.properties?.properties])
 
     const removeItem = () => {
         if(id) {
-            const response = store.removeImmovables(id)
-            store.setLoading(true)
+            const response = immovablesStore.removeImmovables(id)
+            activesStore.setLoading(true)
             response.then(res => {
                 if(res.status >= 200 && res.status < 300) {
-                    store.setLoading(false)
+                    activesStore.setLoading(false)
                     navigate("/assets/property")
-                    return store.fetchActives()
+                    return activesStore.fetchActives()
                 }
             }).catch(error => {
-                store.setError(error)
+                activesStore.setError(error)
             })
         }
         
@@ -109,7 +109,7 @@ export const ImmovablesDetail = observer(() => {
             </Modal>
         }
         
-        <SpinnerLoader loading={store.loading} />
+        <SpinnerLoader loading={activesStore.loading} />
         <section className="immovables__detail-page">
             <div className="container" >
                 <div className="immovables__detail-content">

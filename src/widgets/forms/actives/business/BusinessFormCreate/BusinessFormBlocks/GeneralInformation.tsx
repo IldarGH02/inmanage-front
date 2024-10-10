@@ -5,25 +5,25 @@ import { Context } from "../../../../../../main"
 import { observer } from "mobx-react-lite"
 
 export const GeneralInformation = observer(() => {
-    const store = useContext(Context).businessCreateStore
+    const {businessCreateStore} = useContext(Context).rootStore
 
     return (
         <div className="business__form-general_information"> 
             <InputText
-                value={store.name}
+                value={businessCreateStore.name}
                 placeholder="Название бизнеса"
                 type="text"
-                onChange={store.handleChangeName}
+                onChange={businessCreateStore.handleChangeName}
             />
             <InputText
-                value={store.address}
+                value={businessCreateStore.address}
                 placeholder="Адрес"
                 type="text"
-                onChange={store.handleChangeAddress}
+                onChange={businessCreateStore.handleChangeAddress}
             />
             <InputPercent
-                setPercentValue={store.handleChangeEquityPercentage} 
-                value={store.equityPercentage} 
+                setPercentValue={businessCreateStore.handleChangeEquityPercentage} 
+                value={businessCreateStore.equityPercentage} 
                 type="text"
                 currency="%"
                 placeholder="Процент долевого участия"

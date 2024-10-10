@@ -14,7 +14,7 @@ export const InputText: FC<InputTextParams> = (
         placeholder,
         value,
         type,
-        onChange
+        onChange,
     }) => {
 
     return (

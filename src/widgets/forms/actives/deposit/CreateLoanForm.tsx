@@ -9,7 +9,7 @@ import "./CreateLoanForm.scss"
 import { Button } from "../../../../shared/ui/Buttons/Button"
 
 export const CreateLoanForm = observer(() => {
-    const { loansStore } = useContext(Context)
+    const { loansStore } = useContext(Context).rootStore
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()

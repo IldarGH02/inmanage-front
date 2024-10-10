@@ -10,7 +10,7 @@ import { observer } from "mobx-react-lite"
 import { Button } from "../../../../../../shared/ui/Buttons/Button"
 
 export const Investments = observer(() => {
-    const { businessCreateStore } = useContext(Context)
+    const { businessCreateStore } = useContext(Context).rootStore
 
      // Выпадающие списки (выбор значения)
      const selectWriteoffAccount = businessCreateStore.cardsList.find((item) => 
@@ -47,8 +47,7 @@ export const Investments = observer(() => {
                                     onChange={businessCreateStore.handleChangeWriteoffAccount}
                                 />
                                 <InputSum
-                                    setValue={businessCreateStore.handleChangeOwnFund}
-                                    setError={() => {}}
+                                    onChange={businessCreateStore.handleChangeOwnFund}
                                     value={businessCreateStore.ownFunds}
                                     placeholder="Собственные средства"
                                     classNameCurrency=""
@@ -68,8 +67,7 @@ export const Investments = observer(() => {
                             <div className="investment__block">
                                 <div className={`investment__block-transform ${businessCreateStore.investmentCheckbox ? 'open' : ''}`}>
                                     <InputSum
-                                        setValue={businessCreateStore.handleChangeCreditSum}
-                                        setError={() => {}}
+                                        onChange={businessCreateStore.handleChangeCreditSum}
                                         value={businessCreateStore.creditSum}
                                         placeholder="Сумма займа"
                                         classNameCurrency=""
@@ -118,8 +116,7 @@ export const Investments = observer(() => {
                         <div className="business__credit-invest">
                             <div className="credit__invest-transform">
                                 <InputSum
-                                    setValue={businessCreateStore.handleChangeLoanAmount}
-                                    setError={() => {}}
+                                    onChange={businessCreateStore.handleChangeLoanAmount}
                                     value={businessCreateStore.loanAmount}
                                     placeholder="Сумма кредитования"
                                     classNameCurrency=""
@@ -127,8 +124,7 @@ export const Investments = observer(() => {
                                     type="text"
                                 />
                                 <InputSum
-                                    setValue={businessCreateStore.handleChangeLoanTerms}
-                                    setError={() => {}}
+                                    onChange={businessCreateStore.handleChangeLoanTerms}
                                     value={businessCreateStore.loanTerms}
                                     placeholder="Срок кредитования"
                                     classNameCurrency=""

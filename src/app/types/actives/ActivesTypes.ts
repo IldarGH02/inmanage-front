@@ -46,27 +46,6 @@ export type Actives = {
 //     funds: number,
 // }
 
-export interface ImmovableRequest {
-    bought_price: number | null
-    writeoff_account: number
-    building_number: string
-    city: string;
-    street: string;
-    name: string;
-
-    // Поля для указания кредита/ипотеки
-    loan: boolean;
-    loan_term: number | null; // в месяцах
-    percentage: number | null;
-    initial_payment: number | null;
-    month_payment: number | null;
-
-    // Новые поля которые мы еще не передавали
-    first_payment_date: string; // ISO
-    payment_order: string; // ann - Аннуитентный; diff - Дифференцированный
-    payment_period: string; // monthly; quarterly; yearly
-}
-
 
 export type typeLiabilities = 'properties' | 'transport'
 
@@ -80,7 +59,7 @@ export type RequestBodyTransport = {
     mark: string,
     model: string,
     owner_count: string,
-    owner_type: string, // legal/natural
+    owner_type?: string, // legal/natural
     year: string,
     bought_price: number,
 
@@ -91,8 +70,8 @@ export type RequestBodyTransport = {
     initial_payment: number;
 
     // Новые поля которые мы еще не передавали
-    writeoff_account: number; // Счет откуда списываем деньги первого взноса
-    first_payment_date: string; // ISO
+    writeoff_account?: number; // Счет откуда списываем деньги первого взноса
+    first_payment_date?: string; // ISO
     payment_order: string; // ann - Аннуитентный; diff - Дифференцированный
     payment_period: string; // monthly; quarterly; yearly
 

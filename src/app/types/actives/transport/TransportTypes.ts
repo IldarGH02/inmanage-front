@@ -9,7 +9,6 @@ export interface ITransports {
 
 }
 
-
 export interface ITransportImages {
     id: number,
     transport: number,

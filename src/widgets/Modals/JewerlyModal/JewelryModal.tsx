@@ -6,11 +6,11 @@ import "./JewelryModal.scss";
 import { observer } from "mobx-react-lite";
 
 export const JewelryModal = observer(() => {
-    const store = useContext(Context).activesStore
+    const { activesStore } = useContext(Context).rootStore
 
     return (
         <>
-            <SpinnerLoader loading={store.loading} />
+            <SpinnerLoader loading={activesStore.loading} />
             <div className="jewelry__modal">
                 <h2 className="jewelry__modal-title">Драгоценности</h2>
                 <CreateJewelryForm/>

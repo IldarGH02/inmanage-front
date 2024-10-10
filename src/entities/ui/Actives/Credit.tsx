@@ -2,196 +2,95 @@ import { observer } from "mobx-react-lite";
 import { InputSum } from "../../../widgets/Custom/Inputs/InputSum.tsx";
 import { Select } from "../../../widgets/Custom/Select.tsx";
 import { useError } from "../../../features/hooks/useError/useError.tsx";
-import {FC, useContext, useEffect, useState} from "react";
-import { IDropDownList } from "../../../app/types/elements/IDropDownList.ts";
-import { paymentsOrder, paymentsPeriod } from "../../../features/constants/payments.ts";
-import {getBankList} from "../../../features/func/parsData.ts";
+import { useContext } from "react";
 import { Context } from "../../../main.tsx";
 
-interface ICreditProps {
-    setOrder: (value: string) => void
-    setBank:(value: string) => void
-    setPeriod: (value: string) => void
-    setAccount: (value: string) => void
-    setDownPaymentValue: (value: string) => void
-    setLoanTermValue: (value: string) => void
-    setRateValue: (value: string) => void
-    rateValue: string
-    loanTermValue: string
-    downPaymentValue: string
-    order: string
-    period: string
-    bank: string
-    account: string
-}
 
-export const Credit:FC<ICreditProps> = observer((
-    {
-        setOrder,
-        setPeriod,
-        order,
-        period,
-        setRateValue,
-        setDownPaymentValue,
-        downPaymentValue,
-        setLoanTermValue,
-        rateValue,
-        loanTermValue,
-        setBank,
-        setAccount,
-        account,
-        bank
-    }) => {
-
-    const store = useContext(Context).balanceStore
+export const Credit = observer(() => {
+    const { transportStore } = useContext(Context).rootStore
+    
     const selectErrorPaymentOrder = useError('')
     const selectErrorPaymentPeriod = useError('')
     const selectedErrorBank = useError('')
-    const selectErrorAccount = useError('')
-
-    const inputErrorDownPayment = useError('')
-    const inputErrorLoanTerm = useError('')
-    const inputErrorRateValue = useError('')
-
-    const [paymentOrderList, setPaymentOrderList] = useState<IDropDownList[]>([])
-    const [paymentPeriodList, setPaymentPeriodList] = useState<IDropDownList[]>([])
-    const [accountList, setAccountList] = useState<IDropDownList[]>([])
-    const [bankList, setBankList] = useState<IDropDownList[]>([])
-
-    const selectedPaymentOrder = paymentOrderList.find((item) => item.content === order)
-    const selectedPaymentPeriod = paymentPeriodList.find((item) => item.content === period)
-    const selectedBank = bankList.find((item) => item.content === bank)
-    const selectAccount = accountList.find((item) => item.content === account)
-
-    const handlePaymentOrder = (value: string) => {
-        setOrder(value)
-        if(value.length > 0){
-            selectErrorPaymentOrder.setError('')
-        }
-    }
-
-    const handlePaymentPeriod = (value: string) => {
-        setPeriod(value)
-        if(value.length > 0){
-            selectErrorPaymentPeriod.setError('')
-        }
-    }
-
-    const handleChangeBank = (value: string) => {
-        setBank(value)
-        if(value.length > 0){
-            selectedErrorBank.setError('')
-        }
-    }
-
-    const handleChangeAccount = (value: string) => {
-        setAccount(value)
-        if(value.length > 0) {
-            selectErrorAccount.setError('')
-        }
-    }
-
-    useEffect(() => {
-        const newOrderList: IDropDownList[] = []
-        const newPaymentsPeriod: IDropDownList[] = []
-        const newAccountList: IDropDownList[] = []
-
-        let id = 0;
-
-        paymentsOrder.map((order) => {
-            id++
-            newOrderList.push({id: id, content: order.content})
-        })
-
-        paymentsPeriod.map((period) => {
-            id++
-            newPaymentsPeriod.push({id: id, content: period.content})
-        })
-
-        store.card_list?.map((card) => {
-            newAccountList.push({ id: card.id, content: card.name })
-        })
-
-        setPaymentOrderList(newOrderList)
-        setPaymentPeriodList(newPaymentsPeriod)
-        setBankList(getBankList)
-        setAccountList(newAccountList)
-    }, [])
+    const selectedPaymentOrder = transportStore.payments_order_list.find((item) => item.content === transportStore.payment_order)
+    const selectedPaymentPeriod = transportStore.payments_period_list.find((item) => item.content === transportStore.payment_period)
+    const selectedBank = transportStore.bank_list.find((item) => item.content === transportStore.bank)
+    const selectAccount = transportStore.writeoff_account_list.find((item) => item.content === transportStore.writeoff_account)
 
     return (
         <>
             <Select
                 selected={selectAccount || null}
-                options={accountList}
+                options={transportStore.writeoff_account_list} // to fix
                 classNameContainer={`dropdown__container ${selectedErrorBank.error ? 'error' : ''}`}
                 classNameSelect='dropdown__select'
                 classNameList='dropdown__list'
                 placeholder='Счет списания'
                 mode='rows'
                 errorMessage={selectedErrorBank.error}
-                onChange={handleChangeAccount}
+                onChange={transportStore.handleChangeWriteoffAccount}
             />
+            
             <Select
                 selected={selectedBank || null}
-                options={bankList}
+                options={transportStore.bank_list}
                 classNameContainer={`dropdown__container ${selectedErrorBank.error ? 'error' : ''}`}
                 classNameSelect='dropdown__select'
                 classNameList='dropdown__list'
                 placeholder='Банк'
                 mode='rows'
                 errorMessage={selectedErrorBank.error}
-                onChange={handleChangeBank}
+                onChange={transportStore.handleChangeBank}
             />
+
             <InputSum
-                value={downPaymentValue}
+                value={transportStore.down_payment}
                 type='text'
                 currency='₽'
                 placeholder="Первый взнос"
                 classNameCurrency='price__sum-currency'
-                setValue={setDownPaymentValue}
-                setError={inputErrorDownPayment.setError}
+                onChange={transportStore.handleChangeDownPayment}
             />
+
             <InputSum
-                value={loanTermValue}
+                value={transportStore.loan_term}
                 type='text'
                 currency='мес.'
                 placeholder='Срок кредитования'
                 classNameCurrency='price__sum-currency'
-                setValue={setLoanTermValue}
-                setError={inputErrorLoanTerm.setError}
+                onChange={transportStore.handleChangeLoanTerm}
             />
 
             <InputSum
-                value={rateValue}
+                value={transportStore.interest_rate}
                 type='text'
                 currency='%'
                 placeholder='Процентная ставка'
                 classNameCurrency='price__sum-currency'
-                setValue={setRateValue}
-                setError={inputErrorRateValue.setError}
+                onChange={transportStore.handleChangeInterestRate}
             />
 
             <Select
                 selected={selectedPaymentOrder || null}
-                options={paymentOrderList}
+                options={transportStore.payments_order_list} // to fix
                 classNameContainer={`dropdown__container ${selectErrorPaymentOrder.error ? 'error' : ''}`}
                 classNameSelect='dropdown__select'
                 classNameList='dropdown__list'
                 placeholder='Порядок выплаты'
                 mode='rows'
                 errorMessage={selectErrorPaymentOrder.error}
-                onChange={handlePaymentOrder}
+                onChange={transportStore.handleChangePaymentOrder}
             />
 
             <Select
                 selected={selectedPaymentPeriod || null}
-                options={paymentPeriodList}
+                options={transportStore.payments_period_list} // to fix
                 classNameContainer={`dropdown__container ${selectErrorPaymentPeriod.error ? 'error' : ''}`}
                 classNameSelect='dropdown__select'
                 classNameList='dropdown__list'
                 placeholder='Периодичность выплаты'
                 mode='rows'
-                onChange={handlePaymentPeriod}
+                onChange={transportStore.handleChangePaymentPeriod}
                 errorMessage={selectErrorPaymentPeriod.error}
             />
         </>

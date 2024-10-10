@@ -2,9 +2,11 @@
 
 .credit {
     display: flex;
+    opacity: 0;
     flex-direction: column;
     gap: 25px;
-
+    transform: translateY(100%);
+    transition: transform .9s ease-in-out, opacity .6s ease-in-out;
 
     .price__sum-container {
     
@@ -30,5 +32,9 @@
             @include _fontStyle(600, 28px, 30px, rgba(0, 0, 0, 0.48));
         }
     }
+}
 
+.active--loan {
+    opacity: 1;
+    transform: translateY(0);
 }

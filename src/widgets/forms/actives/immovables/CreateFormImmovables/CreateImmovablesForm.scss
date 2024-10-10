@@ -1,195 +1,145 @@
+@import "/src/shared/styles/common/mixins.scss";
+@import "/src/shared/styles/common/colorize.scss";
+
 .immovables__create-form {
-    width: 100%;
-    border-radius: 30px;
-    background-color: white;
-}
-
-.add-property-form__content {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-}
+    width: 90%;
+    height: 80%;
+    max-width: 100%;
+    max-height: 100%;
 
-.add-property-form__characteristic-block-wrapper {
-    width: 730px;
-   
-    height: 75vh;
-    max-height: 1000px;
-    /* min-height: 676px; */
-    min-height: 600px;
+    .immovables__form-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        gap: 25px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 15px;
+
+        .immovables__form-container {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            overflow: hidden;
+
+            .immovables__form-characteristics {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px;
+                overflow-y: scroll;
+
+                .immovables__form-add_photo {
+                    margin-top: auto;
+                    align-self: flex-start;
+                    background-color: transparent;
+                    border: none;
+                    color: #333;
+                    font-weight: 400;
+                    font-size: 22px;
+                    line-height: 24px;
+                    transition: color .3s ease-in-out;
+
+                    &:hover {
+                        color: $lightBlueColor;
+                    }
+                }
+            }
+
+            .active {
+                animation-name: transform_width-haracteristics;
+                animation-duration: .3s;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+            }
+
+            .immovables__form-loan {
+                width: calc(50% - 7.5px);
+                padding: 20px;
+                overflow-y: scroll;
+            }
+
+            .disabled {
+                display: none;
+            }
+        }
+
+        .immovables__form-actions {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: flex-end;
     
-    padding: 20px;
-    z-index: 2;
-}
-
-.add-property-form__characteristic-block {
-    /* box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 8%); */
-    height: 100%;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    overflow-y: auto;
-}
-
-.add-property-form__about-card-block-wrapper {
-    width: 730px;
-    background-color: white;
-    height: 75vh;
-    max-height: 1000px;
-    /* min-height: 676px; */
-    min-height: 600px;
-    border-radius: 30px;
-    padding: 20px;
-    z-index: 2;
-    /* overflow: hidden;
-    overflow-y: auto; */
-}
-
-.add-property-form__about-card-block {
-    height: 95%;
-    padding: 10px;
-    overflow: hidden;
-    overflow-y: auto;
-}
-
-.add-property-form__block-title {
-    font-size: 28px;
-    font-weight: 600;
-}
-
-.add-property-form__cancel-btn {
-    font-size: 20px;
-}
-
-.add-property-form__add-btn {
-    width: 190px;
-    max-height: 40px;
-    height: 5vh;
-    font-size: 22px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 30px;
-    background-color: rgb(103, 158, 244);
-    color: white;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    border-radius: 20px;
-    border: none;
-}
-
-.add-property-form__btns {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    margin-top: 10px;
-    padding: 12px 0;
-}
-
-.add-property-form__about-card-block::-webkit-scrollbar {
-    max-width: 6px;               /* ширина scrollbar */
-    max-height: 50px;
-}
-
-.add-property-form__about-card-block::-webkit-scrollbar-thumb {
-    background-color: rgb(241, 242, 246);    /* цвет плашки */
-    border-radius: 15px;       /* закругления плашки */
-    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
-}
-
-.add-property-form__characteristic-block::-webkit-scrollbar {
-    max-width: 6px;               /* ширина scrollbar */
-    max-height: 50px;
-}
-.add-property-form__characteristic-block::-webkit-scrollbar-thumb {
-    background-color: rgb(241, 242, 246);    /* цвет плашки */
-    border-radius: 15px;       /* закругления плашки */
-    border: 1.6px solid rgb(241, 242, 246);  /* padding вокруг плашки */
-}
-
-.add-property-form__item {
-    height: 115px;
-    width: 100%;
-}
-
-.add-property-form__warning {
-    margin-top: 5px;
-    color: rgb(187, 187, 187);
-}
-
-.add-property-form__add-img-btn {
-    width: 8.125rem;
-    cursor: pointer;
-    border: none;
-    border-bottom: 1px solid #c7c7c7;
-    background-color: inherit;
-    color: #c7c7c7;
-    font-size: 1.1rem;
-}
-
-.add-property-form__images {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0.7rem;
-}
-
-.add-property-form-image {
-    width: 12.5rem;
-    min-height: 6.5rem;
-    max-height: 12.5rem;
-    border: 0.0625rem solid rgb(149, 149, 149);
-    border-radius: .5rem;
-    margin-right: 1.25rem;
-    margin-bottom: 1.25rem;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.add-property-form-image:nth-child(5n) {
-    margin-right: 0;
-}
-
-.add-property-form-image__remove-btn {
-    position: absolute;
-    right: 0.3125rem;
-    top: 0.3125rem;
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    font-size: 1.375rem;
-    border-radius: 100%;
-    width: 1.5rem;
-    height: 1.5rem;
-    transition: all 0.3s ease-in-out;
-    border: 0.0625rem solid rgb(149, 149, 149);
-    background-color: transparent;
-    color: rgb(149, 149, 149);
-}
-
-.add-property-form-image:hover > .add-property-form-image__remove-btn {
-    opacity: 1;
-}
-
-.add-property-form-image__img {
-    object-fit: cover;
-    /* object-position: 50% 50%; */
-    width: 100%;
-    height: auto;
+            .immovables__form-cancel {
+                cursor: pointer;
+                padding: 20px 15px;
+                border-radius: 20px;
+                background-color: transparent;
+                border: none;
+                transition: outline 0.3s ease-in-out, color 0.3s ease-in-out;
+                color: #333;
+                @include _fontStyle(400, 20px, 24px, #333);
     
-    /* left: 10%;
-    top: 10%; */
-    /* position: absolute; */
+                &:focus-visible {
+                    outline: 1px solid red;
+                    color: red;
+                }
+    
+                &:hover {
+                    outline: 1px solid red;
+                    color: red;
+                }
+            }
+    
+            .immovables__form-submit {
+                cursor: pointer;
+                padding: 20px 15px;
+                background-color: rgb(103, 158, 244);
+                border-radius: 20px;
+                border: none;
+                transition: background-color 0.3s ease-in-out, outline 0.3s ease-in-out;
+                @include _fontStyle(400, 22px, 24px, #fff);
+    
+                &:focus-visible {
+                    background-color: transparent;
+                    outline: 1px solid $lightBlueColor;
+                    color: $lightBlueColor
+                }
+    
+                &:hover {
+                    background-color: transparent;
+                    outline: 1px solid $lightBlueColor;
+                    color: $lightBlueColor
+                }
+            }
+
+            .disabled {
+                background-color: rgb(161, 192, 242);
+            }
+        }
+    }
 }
 
+@keyframes transform_width-haracteristics {
+    0% {
+        width: 100%;
+    }
+
+    25% {
+        width: 85%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    75% {
+        width: 55%;
+    }
+
+    100% {
+        width: calc(50% - 7.5px);
+    }
+}

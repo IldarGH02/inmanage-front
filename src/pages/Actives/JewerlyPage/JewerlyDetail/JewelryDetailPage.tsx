@@ -12,7 +12,7 @@ import { Spinner } from "react-bootstrap"
 
 export const JewelryDetailPage = observer(() => {
     const { id } = useParams()
-    const { activesStore, jewelryStore } = useContext(Context)
+    const { activesStore, jewelryStore } = useContext(Context).rootStore
     const navigate = useNavigate()
 
     useEffect(() => {

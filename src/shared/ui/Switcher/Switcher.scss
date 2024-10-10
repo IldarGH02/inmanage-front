@@ -1,0 +1,62 @@
+@import "/src/shared/styles/common/mixins.scss";
+@import "/src/shared/styles/common/colorize.scss";
+
+.switcher__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    .switcher__actions-sale {
+        cursor: pointer;
+        padding: 10px 25px;
+        background-color: rgb(103, 158, 244);
+        border-radius: 15px;
+        border: none;
+        outline: 1px solid $lightBlueColor;
+        transition: background-color 0.3s ease-in-out;
+        @include _fontStyle(400, 22px, 24px, #fff);
+
+        &:focus-visible {
+            background-color: transparent;
+            color: $lightBlueColor
+        }
+
+        &:hover {
+            background-color: transparent;
+            color: $lightBlueColor
+        }
+    }
+
+    .switcher__actions-remove {
+        cursor: pointer;
+        padding: 10px 25px;
+        border-radius: 15px;
+        background-color: #ea0808;
+        border: none;
+        outline: 1px solid #ea0808;
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        @include _fontStyle(400, 20px, 24px, #fff);
+
+        &:focus-visible {
+            background-color: transparent;
+            color: #ea0808;
+        }
+
+        &:hover {
+            background-color: transparent;
+            color: #ea0808;
+        }
+    }
+
+    .active--sale {
+        background-color: transparent;
+        color: $lightBlueColor
+    }
+
+    .active--remove {
+        background-color: transparent;
+        color: #ea0808;
+    }
+}

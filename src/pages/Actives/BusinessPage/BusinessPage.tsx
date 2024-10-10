@@ -12,7 +12,7 @@ import { observer } from "mobx-react-lite";
 import { Card } from "../../../app/types/dto/DtoTypes.ts";
 
 export const BusinessPage = observer(() => {
-    const { activesStore, balanceStore, businessCreateStore } = useContext(Context)
+    const { activesStore, balanceStore, businessCreateStore } = useContext(Context).rootStore
     let card_list: Card[] = []
 
     const [show, setShow] = useState<boolean>(false)

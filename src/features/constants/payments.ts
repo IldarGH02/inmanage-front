@@ -7,7 +7,7 @@ export const paymentTypes: IDropDownList[] = [
     },
     {
         id: 2,
-        content: 'Кредит'
+        content: 'Кредит/Ипотека'
     }
 ]
 

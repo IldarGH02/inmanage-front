@@ -24,21 +24,21 @@ export const DepositsItem: FC<ILoanItem> = observer(({item}) => {
                     <h2 className="deposits__item-title">{`Вклад: ${item.name}`}</h2>
                     <div className="deposits__item-info">
                         <div className="deposits__price">
-                            <p className="deposits__item-subtitle">
+                            <h3 className="deposits__item-subtitle">
                                 Актуальная стоимость:
-                            </p>
+                            </h3>
                             <span>{item.sum}</span>
                         </div>
                         <div className="deposits__price">
-                            <p className="deposits__item-subtitle">
+                            <h3 className="deposits__item-subtitle">
                                 Прирост стоимости:
-                            </p>
+                            </h3>
                             <span>{`+ ${item.percentage}`}</span>
                         </div>
                         <div className="deposits__price">
-                            <p className="deposits__item-subtitle">
+                            <h3 className="deposits__item-subtitle">
                                 Итоговая прибыль:
-                            </p>
+                            </h3>
                             <span>{Math.floor(item.final_income)}</span>
                         </div>
                     </div>

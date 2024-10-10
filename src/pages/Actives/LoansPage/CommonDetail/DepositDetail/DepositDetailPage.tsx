@@ -4,7 +4,7 @@ import { Context } from "../../../../../main"
 import { observer } from "mobx-react-lite"
 
 export const DepositDetailPage = observer(() => {
-    const { loansStore } = useContext(Context)
+    const { loansStore } = useContext(Context).rootStore
     const { id } = useParams()
 
     useEffect(() => {

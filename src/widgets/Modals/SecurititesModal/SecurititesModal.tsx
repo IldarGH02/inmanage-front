@@ -5,11 +5,11 @@ import { CreateSecuritiesForm } from "../../forms/actives/securities/CreateSecur
 import "./SecuritiesModal.scss";
 
 export const SecuritiesModal = () => {
-    const store = useContext(Context).activesStore
+    const { activesStore } = useContext(Context).rootStore
 
     return (
         <>
-            <SpinnerLoader loading={store.loading} />
+            <SpinnerLoader loading={activesStore.loading} />
             <div className="securities__modal">
                 <h2 className="securities__modal-title">Ценные бумаги</h2>
                 <CreateSecuritiesForm/>

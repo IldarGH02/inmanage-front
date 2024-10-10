@@ -6,8 +6,8 @@ import { SecuritiesPage } from "../../pages/Actives/SecuritiesPage/SecuritiesPag
 import { BusinessDetail } from "../../pages/Actives/BusinessPage/BusinessDetail/BusinessDetail.tsx";
 import { BusinessPage } from "../../pages/Actives/BusinessPage/BusinessPage";
 import { TransportPage } from "../../pages/Actives/TransportPage/TransportPage";
-import { ImmovablesDetail } from "../../pages/Actives/ImmovablePage/ImmovablesDetail/ImmovablesDetail.tsx"; 
-import { ImmovablePage } from "../../pages/Actives/ImmovablePage/ImmovablePage.tsx"; 
+import { ImmovablesDetail } from "../../pages/Actives/ImmovablesPage/ImmovablesDetail/ImmovablesDetail.tsx"; 
+import { ImmovablePage } from "../../pages/Actives/ImmovablesPage/ImmovablePage.tsx";
 import { InventoryPage as  BusinessInventoryPage} from '../../pages/Actives/BusinessPage/InventoryPage/InventoryPage';
 // import { InventoryPropertyPage } from "../../pages/Actives/ImmovablePage/InventoryPage/InventoryPropertyPage.tsx"; 
 import { ActivesPage } from "../../pages/Actives/ActivesPage.tsx";

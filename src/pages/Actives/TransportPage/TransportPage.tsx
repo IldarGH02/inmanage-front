@@ -1,4 +1,4 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FinanceTable } from "../../../widgets/elements/FinanceTable/FinanceTable";
 import { SpinnerLoader } from "../../../widgets/elements/SpinnerLoader/SpinnerLoader";
@@ -10,38 +10,45 @@ import {TransportModal} from "../../../widgets/Modals/TransportModal/TransportMo
 import {Context} from "../../../main.tsx";
 
 export const TransportPage = observer(() => {
-    const store = useContext(Context)
-    const [show, setShow] = useState<boolean>(false)
+    const { activesStore, transportStore } = useContext(Context).rootStore
 
-    const handleShow = () => {
-        setShow(true)
-    }
+
+    useEffect(() => {
+        const r = activesStore.fetchActives()
+        activesStore.setLoading(true)
+        r.then(res => {
+            if(res.status >= 200 && res.status < 300) {
+                activesStore.setLoading(false)
+                activesStore.setActives(res.data)
+            }
+        })
+    }, [])
 
     return (
         <>
-            <SpinnerLoader loading={store.activesStore.loading} />
+            <SpinnerLoader loading={activesStore.loading} />
             <div className="transport-page">
                 <div className="container">
                     <h2 className="transport-page__title" style={{margin: '0px'}}>Транспорт</h2>
                     <div className="transport-page__finances">
                         <FinanceTable
-                            setShow={handleShow}
-                            income={store.activesStore.actives?.transports.total_income ? store.activesStore.actives?.transports.total_income : 0}
-                            expenses={store.activesStore.actives?.transports.total_expenses ? store.activesStore.actives?.transports.total_expenses : 0}
-                            profit={store.activesStore.actives?.transports.total_funds ? store.activesStore.actives?.transports.total_funds : 0} 
+                            setShow={transportStore.setShow}
+                            income={activesStore.actives?.transports.total_income ? activesStore.actives?.transports.total_income : 0}
+                            expenses={activesStore.actives?.transports.total_expenses ? activesStore.actives?.transports.total_expenses : 0}
+                            profit={activesStore.actives?.transports.total_funds ? activesStore.actives?.transports.total_funds : 0} 
                             common_title={""} 
                             income_title={""} 
                             expenses_title={""}                        
                         />
                     </div>
                     <div className="transport-page__list-container">
-                        {store.activesStore.actives?.transports.transport.length === 0 &&
+                        {activesStore.actives?.transports.transport.length === 0 &&
                             <div className="transport-page__list-empty">
                                 Транспорта нет
                             </div>
                         }
                         <div className="transport-page__list">
-                            { store.activesStore.actives && store.activesStore.actives?.transports.transport.map((transport)=>{
+                            { activesStore.actives && activesStore.actives?.transports.transport.map((transport)=>{
                                 return (
                                     <Link className="transport-page__item" to={`${transport.id}`} key={transport.id}>
                                         <ItemAssets
@@ -58,11 +65,9 @@ export const TransportPage = observer(() => {
                     </div>
                 </div>
             </div>
-            <OverlayModal showModalClass={show ? 'modal--active' : ''}>
+            <OverlayModal showModalClass={transportStore.show  ? 'modal--active' : ''}>
                 <TransportModal
-                    active={show ? 'active' : ''}
-                    handleClose={()=>setShow(false)}
-                    setShow={setShow}
+                    active={transportStore.show ? 'active' : ''}
                 />
             </OverlayModal>
         </>

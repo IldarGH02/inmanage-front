@@ -10,7 +10,7 @@ import { DepositsItems } from "../../../widgets/Actives/Deposits/DepositsItems.t
 import { Spinner } from "react-bootstrap";
 
 export const LoansPage = observer(() => {
-    const { activesStore, loansStore } = useContext(Context)
+    const { activesStore, loansStore } = useContext(Context).rootStore
 
     useEffect(() => {
         const r = activesStore.fetchActives()

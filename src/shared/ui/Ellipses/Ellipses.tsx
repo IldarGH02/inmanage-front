@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../Buttons/Button.tsx";
 import { observer } from "mobx-react-lite";
+import { Context } from "../../../main.tsx";
 
 
 interface IEllipses {
@@ -10,7 +11,6 @@ interface IEllipses {
     classNameEditLink: string
     classNameRemoveButton: string
     classNameActions: string
-    setShow: (bool: boolean) => void
 }
 
 export const Ellipses: FC<IEllipses> = observer((
@@ -19,9 +19,10 @@ export const Ellipses: FC<IEllipses> = observer((
         classNameDots,
         classNameEditLink,
         classNameRemoveButton,
-        classNameActions,
-        setShow
+        classNameActions
     }) => {
+
+    const { transportStore } = useContext(Context).rootStore
 
     return (
         <div className={classNameContainer}>
@@ -40,7 +41,7 @@ export const Ellipses: FC<IEllipses> = observer((
                 </Link>
                 <Button
                     className={classNameRemoveButton}
-                    onClick={()=>setShow(true)}
+                    onClick={() => transportStore.setShowDelete(true)}
                     name='Удалить'
                     textButton='Удалить'
                 />

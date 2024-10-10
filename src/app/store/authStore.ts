@@ -5,8 +5,7 @@ import { AuthResponse } from '../types/auth';
 import { ITokens, getLocalStorage, removeTokenFromLocalStorage, setLocalStorage } from '../../features/hooks/storage';
 
 const API_URL = import.meta.env.VITE_APP_PUBLIC_URL
-
-export default class AuthStore {
+export class AuthStore {
     isAuth: boolean = false;
     isLoading: boolean = true;
     isCheck: boolean = false;

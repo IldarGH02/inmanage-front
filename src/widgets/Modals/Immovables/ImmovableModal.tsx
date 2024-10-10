@@ -1,25 +1,18 @@
-import { FC, useContext } from "react"
+import { useContext } from "react"
 import "./ImmovablesModal.scss"
-// import { CreateFormImmovables } from "../../forms/actives/immovables/CreateFormImmovables/CreateFormImmovables.tsx";
+import { CreateFormImmovables } from "../../forms/actives/immovables/CreateFormImmovables/CreateFormImmovables.tsx";
 import { SpinnerLoader } from "../../elements/SpinnerLoader/SpinnerLoader.tsx";
 import { Context } from "../../../main.tsx";
 import { observer } from "mobx-react-lite";
 
-interface ImmovablesModal {
-    setShow: (bool: boolean) => void
-}
-
-export const ImmovableModal: FC<ImmovablesModal> = observer((
-    {
-        // setShow
-    }) => {
-    const store = useContext(Context).activesStore
+export const ImmovablesModal = observer(() => {
+    const { activesStore } = useContext(Context)
 
     return (
         <>
-            <SpinnerLoader loading={store.loading} />
+            <SpinnerLoader loading={activesStore.loading} />
             <div className="immovables__modal">
-                {/* <CreateFormImmovables setShow={setShow}/> */}
+                <CreateFormImmovables/>
             </div>
         </>
     )

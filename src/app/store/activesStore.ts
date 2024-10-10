@@ -2,7 +2,6 @@ import { makeAutoObservable } from 'mobx'
 import {
     Actives,
     // IActives,
-    ImmovableRequest,
     RequestBodyTransport,
     typeAssets,
     typeLiabilities
@@ -10,12 +9,11 @@ import {
 import {AssetsService} from "../../shared/http/actives";
 import {IExpenseBalance} from "../types/balance/IBalance.ts";
 import {TransportService} from "../../shared/http/actives/transport";
-import {ImmovableService} from "../../shared/http/actives/immovable";
 import { BusinessRequest } from '../types/actives/business/BusinessTypes.ts';
 import { BusinessService } from '../../shared/http/actives/business/index.ts';
 import { makePersistable, stopPersisting } from "mobx-persist-store";
 import localforage from "localforage"
-import { DepositDto, Lists, LoansDto } from '../types/dto/DtoTypes.ts';
+import { DepositDto, Lists } from '../types/dto/DtoTypes.ts';
 
 export class ActivesStore {
     actives: Actives | null = null;
@@ -36,6 +34,7 @@ export class ActivesStore {
             }
         )
         stopPersisting(this)
+        this.fetchActives()
     }
 
     setActives(actives: Actives) {
@@ -52,10 +51,6 @@ export class ActivesStore {
 
     setExpenseObject(expense: IExpenseBalance) {
         this.expenseObject = expense
-    }
-
-    setLists = (deposits: DepositDto[], loans: LoansDto[]) => {
-        this.list?.depositList;
     }
 
     //request's to api
@@ -89,14 +84,6 @@ export class ActivesStore {
 
     async editTransport(id: number, transport: RequestBodyTransport) {
         return await TransportService.editTransport(id, transport)
-    }
-
-    async createImmovable(property: ImmovableRequest) {
-        return ImmovableService.createImmovable(property)
-    }
-
-    async removeImmovables(id: string) {
-        return await ImmovableService.deleteImmovable(id)
     }
 
     async createBusiness(business: BusinessRequest){
